@@ -182,11 +182,20 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 /*#### ↓フッターエリア ####*/
 .footer_area{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .footer__link{
   margin-left: 10px;
+}
+
+a.footer__link { /*アクセスしたことのないリンク*/
+color: #808080;
+}
+
+a.footer__link:hover {/*マウスが上に乗っている状態*/
+  color: #9400d3;
+  text-decoration: underline;
 }
 
 p.footertopline{
