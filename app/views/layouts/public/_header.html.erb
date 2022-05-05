@@ -1,12 +1,30 @@
 <header class="Header">
-  <nav class="navbar navbar-expand-lg navbar-light p-3" style="background-color:#fffacd;" >
+  <nav class="navbar navbar-expand-lg navbar-light p-2 nav_bg_color">
     <div class="container">
       <a class="navbar-brand" href="/">
         <div class= 'img_wrap_kuni'>
           <%= image_tag('app_icon1.png', size: '90x90') %>
         </div>
       </a>
-
     </div>
   </nav>
+      <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+      <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+      </label>
+      <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+          <li>Menu <span>一覧</span></li>
+          <li><a href="https://vanila.io" target="_blank">マイページ</a></li>
+          <li><a href="https://instagram.com/plavookac" target="_blank">新規プロジェクト</a></li>
+          <li><a href="https://twitter.com/plavookac" target="_blank">プロジェクト編集</a></li>
+          <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">プロジェクトカレンダー</a></li>
+          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">記録</a></li>
+          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">トレーニング一覧</a></li>
+          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">ジム検索</a></li>
+          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">コラム</a></li>
+        </ul>
+      </div>
 </header>
