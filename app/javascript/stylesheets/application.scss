@@ -178,6 +178,16 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     margin-top: -14px;
     // margin-top: -9px;
 }
+
+.sidebarMenuInner a {
+  display: block;
+  color: #727272;
+  transition: all 0.4s ease-out;
+  &:hover {
+    background-color: #CDDC39;
+    color: #fff;
+  }
+}
 /* ↑サイドメニュー */
 
 
