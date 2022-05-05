@@ -1,20 +1,16 @@
 <header class="Header">
   <nav class="navbar navbar-expand-lg navbar-light p-2 nav_bg_color">
-    <!--<div class="container">-->
-      <a class="navbar-brand icon_image" href="/">
-        <!--<div class= 'img_wrap_kuni'>-->
-          <%= image_tag('app_icon1.png', size: '80x80') %>
-        <!--</div>-->
-        <b>ForDiaiter</b>
-      </a>
-    <!--</div>-->
-     <ul class="navbar-nav ml-auto">
-        <li>
-          <%= link_to new_customer_session_path, class: 'nav-link text-dark heaedr-link' do %>
-            <i class="far fa-calendar-alt" id= "calendar-icon"></i>
-          <% end %>
-        </li>
-      </ul>
+    <a class="navbar-brand icon_image" href="/">
+        <%= image_tag('app_icon1.png', size: '80x80') %>
+      <b>ForDiaiter</b>
+    </a>
+    <ul class="navbar-nav ml-auto">
+      <li>
+        <%= link_to new_customer_session_path, class: 'nav-link text-dark heaedr-link' do %>
+          <i class="far fa-calendar-alt"></i>
+        <% end %>
+      </li>
+    </ul>
   </nav>
       <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
       <label for="openSidebarMenu" class="sidebarIconToggle">
@@ -25,14 +21,14 @@
       <div id="sidebarMenu">
         <ul class="sidebarMenuInner">
           <li>Menu <span>一覧</span></li>
-          <li><a href="https://vanila.io" target="_blank"><i class="fas fa-user-circle"></i>　マイページ</a></li>
-          <li><a href="https://instagram.com/plavookac" target="_blank"><i class="fab fa-product-hunt"></i>　新規プロジェクト</a></li>
-          <li><a href="https://twitter.com/plavookac" target="_blank"><i class="fas fa-tasks"></i>　プロジェクト編集</a></li>
-          <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank"><i class="fas fa-calendar-alt"></i>　プロジェクトカレンダー</a></li>
-          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank"><i class="fas fa-chart-line"></i>　記録</a></li>
-          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank"><i class="fas fa-dumbbell"></i>　トレーニング一覧</a></li>
-          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank"><i class="fas fa-search-location"></i>　ジム検索</a></li>
-          <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank"><i class="fas fa-columns"></i>　コラム</a></li>
+          <li><a href="/customers/sign_in"><i class="fas fa-user-circle"></i>　マイページ</a></li>
+          <li><a href="/customers/sign_in"><i class="fab fa-product-hunt"></i>　新規プロジェクト</a></li>
+          <li><a href="/customers/sign_in"><i class="fas fa-tasks"></i>　プロジェクト編集</a></li>
+          <li><a href="/customers/sign_in"><i class="fas fa-calendar-alt"></i>　プロジェクトカレンダー</a></li>
+          <li><a href="/customers/sign_in"><i class="fas fa-chart-line"></i>　記録</a></li>
+          <li><a href="/customers/sign_in"><i class="fas fa-dumbbell"></i>　トレーニング一覧</a></li>
+          <li><a href="/customers/sign_in"><i class="fas fa-search-location"></i>　ジム検索</a></li>
+          <li><a href="/customers/sign_in"><i class="fas fa-columns"></i>　コラム</a></li>
         </ul>
       </div>
 </header>

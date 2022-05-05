@@ -9,7 +9,7 @@
   font-weight: bold;
 }
 
-/* ヘッダーの後ろに要素が隠れないようにするため */
+/* ヘッダーの後ろに要素が隠れないようにする */
 body {
   padding-top: 112px;
 }
@@ -41,7 +41,6 @@ body {
   height: 106px;
   padding-bottom: 106px;
   z-index: 999;
-
 }
 
 .nav_bg_color{
@@ -56,14 +55,10 @@ body {
 }
 
 .heaedr-link {
-  font-size: 30px;
-  margin-right: 75px;
+  font-size: 40px;
+  margin-right: 50px;
 }
 
-#calendar-icon {
-  box-shadow: 5px 6px 6px 2px #e9ecef;
-  transform: scale(1.5)
-}
 
 /* ↓サイドメニュー */
 #sidebarMenu {
@@ -86,7 +81,7 @@ body {
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
@@ -181,7 +176,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 .sidebarMenuInner a {
   display: block;
-  color: #727272;
+  // color: #727272;
   transition: all 0.4s ease-out;
   &:hover {
     background-color: #CDDC39;
