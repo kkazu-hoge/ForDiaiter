@@ -11,7 +11,7 @@
 
 /* ヘッダーの後ろに要素が隠れないようにするため */
 body {
-  padding-top: 132px;
+  padding-top: 112px;
 }
 
 /* アプリ全体のフォントfamilyを制御 */
@@ -38,13 +38,26 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 116px;
-  padding-bottom: 116px;
-  z-index:999;
+  height: 106px;
+  padding-bottom: 106px;
+  z-index: 999;
+
 }
 
 .nav_bg_color{
-  background-color: #fffacd;
+  background-color: #ffffff;
+  border-bottom-style: groove;
+  border-width: 3px;
+  border-color: #9400d3;
+}
+
+.icon_image {
+  margin-left: 75px;
+}
+
+.heaedr-link {
+  font-size: 30px;
+  margin-right: 75px;
 }
 
 /* ↓サイドメニュー */
@@ -101,7 +114,7 @@ input[type=checkbox] {
     z-index: 99;
     height: 100%;
     width: 100%;
-    top: 44px;
+    top: 40px;
     left: 30px;
     height: 44px;
     width: 34px;
@@ -114,7 +127,7 @@ input[type=checkbox] {
     transition: all 0.3s;
     box-sizing: border-box;
     position: absolute;
-    height: 6px;
+    height: 4px;
     // height: 3px;
     width: 100%;
     background-color: #696969;
@@ -150,14 +163,14 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(135deg);
-    margin-top: 16px;
+    margin-top: 13px;
     // margin-top: 8px;
 }
 input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(-135deg);
-    margin-top: -17px;
+    margin-top: -14px;
     // margin-top: -9px;
 }
 /* ↑サイドメニュー */
@@ -172,13 +185,14 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   margin-bottom: 20px;
 }
 
-.icon{
-  margin: 5px;
+.footer__link{
+  margin-left: 10px;
 }
 
 p.footertopline{
   border-top-style: solid;
   border-width: 1px;
+  border-color: #dcdcdc;
 }
 
 /*#### ↑フッターエリア ####*/
