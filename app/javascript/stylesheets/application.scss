@@ -60,6 +60,11 @@ body {
   margin-right: 75px;
 }
 
+#calendar-icon {
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.5)
+}
+
 /* ↓サイドメニュー */
 #sidebarMenu {
     height: 100%;
