@@ -275,6 +275,11 @@ p.top_title_link{
   color: #9400d3;
 }
 
+p.top_title_link:hover {
+  color: #9400d3;
+  text-decoration: underline;
+}
+
 .search-sec{
   padding: 2rem;
   z-index:999;
@@ -308,4 +313,22 @@ p.top_title_link{
   }
 }
 
+.btn-danger {
+  color: #ffffff;
+  background: #9400d3;
+  border-color: #9400d3;
+}
+
+.btn-danger:hover {
+  color: #ffffff;
+  background: #ba55d3;
+  border-color: #ba55d3;
+  // border: solid #ba55d3;
+}
+
+.btn-danger:active:focus {
+  color: #ffffff;
+  background: #9400d3;
+  border: 3px solid #9400d3;
+}
 /*#### ↑会員トップ画面 ####*/
