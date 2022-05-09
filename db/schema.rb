@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_05_000052) do
+ActiveRecord::Schema.define(version: 2022_05_09_024843) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2022_05_05_000052) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "columns", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "summary", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,8 +67,94 @@ ActiveRecord::Schema.define(version: 2022_05_05_000052) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "public_name", null: false
+    t.integer "sex", null: false
+    t.date "birthday", null: false
+    t.integer "height", null: false
+    t.integer "weight", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "life_stress_factors", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "coefficient", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ordermade_event_details", force: :cascade do |t|
+    t.integer "ordermade_event_id", null: false
+    t.string "training_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ordermade_events", force: :cascade do |t|
+    t.integer "stress_level_param", null: false
+    t.integer "activity_type_param", null: false
+    t.integer "place_param", null: false
+    t.integer "equipment_param", null: false
+    t.integer "burn_calories", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pj_event_details", force: :cascade do |t|
+    t.integer "pj_event_id", null: false
+    t.integer "training_id", null: false
+    t.integer "activity_minutes", default: 0, null: false
+    t.integer "burn_calories", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pj_events", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.date "action_day", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plan_pj_event_details", force: :cascade do |t|
+    t.integer "plan_pj_event_id", null: false
+    t.integer "training_id", null: false
+    t.integer "activity_minutes", null: false
+    t.integer "burn_calories", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plan_pj_events", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "life_stress_factor_id", null: false
+    t.integer "sex", null: false
+    t.integer "age", null: false
+    t.integer "height", null: false
+    t.integer "weight", null: false
+    t.integer "target_weight", null: false
+    t.date "pj_start_day", null: false
+    t.date "pj_finish_day", null: false
+    t.integer "interval", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "mets_value", null: false
+    t.text "summary", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

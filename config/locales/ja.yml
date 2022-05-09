@@ -1,0 +1,35 @@
+  ja:
+    enums:
+      customer:
+        sex:
+          man: "男性"
+          woman: "女性"
+        is_deleted:
+          available: "有効"
+          unsubscribing: "退会"
+      project:
+        sex:
+          man: "男性"
+          woman: "女性"
+      ordermade_event:
+        stress_level_param:
+          high: "高"
+          middle: "中"
+          low: "低"
+        activity_type_param:
+          aerobic_only: "有酸素運動のみ"
+          anaerobic_only: "無酸素運動のみ"
+          no_limit: "両方あり"
+        place_param:
+          indoor_only: "自宅のみ"
+          outdoor_available: "屋外あり"
+        equipment_param:
+          no_equipment: "器具なし"
+          no_limit: "器具あり"
+    views:
+      pagination:
+        first: "&laquo; 最初"
+        last: "最後 &raquo;"
+        previous: "&lsaquo; 前"
+        next: "次 &rsaquo;"
+        truncate: "..."
