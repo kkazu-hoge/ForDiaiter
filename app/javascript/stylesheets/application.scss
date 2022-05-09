@@ -24,7 +24,11 @@ body {
   //   "Hiragino Sans",
   //   Meiryo,
   //   sans-serif;
-  font-family: 'Varela Round', sans-serif
+  font-family: "Varela Round",
+  "Hiragino Kaku Gothic ProN",
+  "Hiragino Sans",
+  Meiryo,
+  sans-serif
 }
 
 .main_contents{
@@ -282,8 +286,9 @@ p.top_title_link:hover {
 
 .search-sec{
   padding: 2rem;
-  z-index:999;
+  z-index:998;
 }
+
 .search-slt{
   display: block;
   width: 100%;
@@ -324,7 +329,6 @@ p.top_title_link:hover {
   color: #ffffff;
   background: #ba55d3;
   border-color: #ba55d3;
-  // border: solid #ba55d3;
 }
 
 .btn-danger:active:focus {
