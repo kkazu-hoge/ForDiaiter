@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_root_path
     when Customer
-      root_path
+      home_path
     end
   end
 
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
 
   protected
-  
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
       keys: [
