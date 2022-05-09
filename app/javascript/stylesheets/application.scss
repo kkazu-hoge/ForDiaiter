@@ -5,13 +5,14 @@
 /*#### ↓共通フォーマット ####*/
 #notice {
   text-align: center;
-  background-color: #e0ffff;
+  background-color: #e8d1ff;
+  color: #8b008b;
   font-weight: bold;
 }
 
 /* ヘッダーの後ろに要素が隠れないようにする */
 body {
-  padding-top: 112px;
+  padding-top: 95px;
 }
 
 /* アプリ全体のフォントfamilyを制御 */
