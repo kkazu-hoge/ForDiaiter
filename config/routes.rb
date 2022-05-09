@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # URLに"public"を含ませたくないためURLとファイル構成(public配下)が異なるscope moduleでルーティング定義
   scope module: 'public' do
 
-    root :to =>'homes#top'
+    root :to          =>'homes#top'
     get   "/home"     =>'homes#home'
     post  "/pj_alter" =>'homes#pj_alter'
 
@@ -71,29 +71,61 @@ end
 
 #<会員(customer)>
 
-#           new_customer_session GET    /customers/sign_in(.:format)                    public/sessions#new
-#               customer_session POST   /customers/sign_in(.:format)                    public/sessions#create
-#       destroy_customer_session DELETE /customers/sign_out(.:format)                   public/sessions#destroy
-#   cancel_customer_registration GET    /customers/cancel(.:format)                     public/registrations#cancel
-#     new_customer_registration GET    /customers/sign_up(.:format)                    public/registrations#new
-#     edit_customer_registration GET    /customers/edit(.:format)                       public/registrations#edit
-#         customer_registration PATCH  /customers(.:format)                            public/registrations#update
-#                               PUT    /customers(.:format)                            public/registrations#update
-#                               DELETE /customers(.:format)                            public/registrations#destroy
-#                               POST   /customers(.:format)                            public/registrations#create
-#               customers_mypage GET    /customers/mypage(.:format)                     public/customers#show
-#     edit_mail_address_customer GET    /customers/:id/edit_mail_address(.:format)      public/customers#edit_mail_address
-#         edit_password_customer GET    /customers/:id/edit_password(.:format)          public/customers#edit_password
-#   edit_physical_info_customer GET    /customers/:id/edit_physical_info(.:format)     public/customers#edit_physical_info
-#   update_mail_address_customer PATCH  /customers/:id/update_mail_address(.:format)    public/customers#update_mail_address
-#       update_password_customer PATCH  /customers/:id/update_password(.:format)        public/customers#update_password
-# update_physical_info_customer PATCH  /customers/:id/update_physical_info(.:format)   public/customers#update_physical_info
-#           unsubscribe_customer GET    /customers/:id/unsubscribe(.:format)            public/customers#unsubscribe
-#                               GET    /customers/:id/unsubscribe(.:format)            public/customers#unsubscribe
-#             defection_customer PATCH  /customers/:id/defection(.:format)              public/customers#defection
-#                 edit_customer GET    /customers/:id/edit(.:format)                   public/customers#edit
-#                       customer PATCH  /customers/:id(.:format)                        public/customers#update
-#                               PUT    /customers/:id(.:format)                        public/customers#updat
+#                                     root GET    /                                                            public/homes#top
+#                                     home GET    /home(.:format)                                              public/homes#home
+#                                 pj_alter POST   /pj_alter(.:format)                                          public/homes#pj_alter
+#                     new_customer_session GET    /customers/sign_in(.:format)                                 public/sessions#new
+#                         customer_session POST   /customers/sign_in(.:format)                                 public/sessions#create
+#                 destroy_customer_session DELETE /customers/sign_out(.:format)                                public/sessions#destroy
+#             cancel_customer_registration GET    /customers/cancel(.:format)                                  public/registrations#cancel
+#               new_customer_registration GET    /customers/sign_up(.:format)                                 public/registrations#new
+#               edit_customer_registration GET    /customers/edit(.:format)                                    public/registrations#edit
+#                   customer_registration PATCH  /customers(.:format)                                         public/registrations#update
+#                                         PUT    /customers(.:format)                                         public/registrations#update
+#                                         DELETE /customers(.:format)                                         public/registrations#destroy
+#                                         POST   /customers(.:format)                                         public/registrations#create
+#                         customers_mypage GET    /customers/mypage(.:format)                                  public/customers#show
+#               edit_mail_address_customer GET    /customers/:id/edit_mail_address(.:format)                   public/customers#edit_mail_address
+#                   edit_password_customer GET    /customers/:id/edit_password(.:format)                       public/customers#edit_password
+#             edit_physical_info_customer GET    /customers/:id/edit_physical_info(.:format)                  public/customers#edit_physical_info
+#             update_mail_address_customer PATCH  /customers/:id/update_mail_address(.:format)                 public/customers#update_mail_address
+#                 update_password_customer PATCH  /customers/:id/update_password(.:format)                     public/customers#update_password
+#           update_physical_info_customer PATCH  /customers/:id/update_physical_info(.:format)                public/customers#update_physical_info
+#                     unsubscribe_customer GET    /customers/:id/unsubscribe(.:format)                         public/customers#unsubscribe
+#                                         GET    /customers/:id/unsubscribe(.:format)                         public/customers#unsubscribe
+#                       defection_customer PATCH  /customers/:id/defection(.:format)                           public/customers#defection
+#                           edit_customer GET    /customers/:id/edit(.:format)                                public/customers#edit
+#                                 customer PATCH  /customers/:id(.:format)                                     public/customers#update
+#                                         PUT    /customers/:id(.:format)                                     public/customers#update
+#                                 projects GET    /projects(.:format)                                          public/projects#index
+#                                         POST   /projects(.:format)                                          public/projects#create
+#                             new_project GET    /projects/new(.:format)                                      public/projects#new
+#                             edit_project GET    /projects/:id/edit(.:format)                                 public/projects#edit
+#                                 project GET    /projects/:id(.:format)                                      public/projects#show
+#                                         PATCH  /projects/:id(.:format)                                      public/projects#update
+#                                         PUT    /projects/:id(.:format)                                      public/projects#update
+#                             new_pj_event GET    /pj_events/new(.:format)                                     public/pj_events#new
+#                           edit_pj_event GET    /pj_events/:id/edit(.:format)                                public/pj_events#edit
+#                                 pj_event GET    /pj_events/:id(.:format)                                     public/pj_events#show
+#                                         PATCH  /pj_events/:id(.:format)                                     public/pj_events#update
+#                                         PUT    /pj_events/:id(.:format)                                     public/pj_events#update
+#                                         DELETE /pj_events/:id(.:format)                                     public/pj_events#destroy
+# pj_event_add_training_pj_template_events GET    /pj_template_events/pj_event_add_training(.:format)          public/pj_template_events#pj_event_add_training
+#           show_event_pj_template_events GET    /pj_template_events/show_event(.:format)                     public/pj_template_events#show_event
+#                       pj_template_events POST   /pj_template_events(.:format)                                public/pj_template_events#create
+#                   new_pj_template_event GET    /pj_template_events/new(.:format)                            public/pj_template_events#new
+#                       pj_template_event DELETE /pj_template_events/:id(.:format)                            public/pj_template_events#destroy
+#                           new_callender GET    /callenders/new(.:format)                                    public/callenders#new
+#                           edit_callender GET    /callenders/:id/edit(.:format)                               public/callenders#edit
+#                               callender GET    /callenders/:id(.:format)                                    public/callenders#show
+#                                 records GET    /records(.:format)                                           public/records#index
+#                                   record GET    /records/:id(.:format)                                       public/records#show
+#                               trainings GET    /trainings(.:format)                                         public/trainings#index
+#                                 training GET    /trainings/:id(.:format)                                     public/trainings#show
+#                       search_search_gyms POST   /search_gyms/search(.:format)                                public/search_gyms#search
+#                             search_gyms GET    /search_gyms(.:format)                                       public/search_gyms#index
+#                                 columns GET    /columns(.:format)                                           public/columns#index
+#                                   column GET    /columns/:id(.:format)                                       public/columns#show
 
 
 #<管理者(admin)>
