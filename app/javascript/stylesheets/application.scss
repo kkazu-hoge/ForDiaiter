@@ -13,6 +13,7 @@
 /* ヘッダーの後ろに要素が隠れないようにする */
 body {
   padding-top: 95px;
+  color: #696969;
 }
 
 /* アプリ全体のフォントfamilyを制御 */
@@ -29,6 +30,12 @@ body {
 .main_contents{
   margin-top: 40px;
   // margin-left: 50px;
+}
+
+.required::after {
+  content: " *";
+  color: red;
+  vertical-align: middle;
 }
 
 /*##### ↑共通フォーマット ####*/
@@ -48,7 +55,7 @@ body {
   background-color: #ffffff;
   border-bottom-style: groove;
   border-width: 3px;
-  border-color: #9400d3;
+  border-color: #ba55d3;
 }
 
 .icon_image {
@@ -188,8 +195,6 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 /* ↑サイドメニュー */
 
-
-
 /*#### ↑ヘッダーエリア ####*/
 
 
@@ -219,3 +224,47 @@ p.footertopline{
 }
 
 /*#### ↑フッターエリア ####*/
+
+/*#### ↓ログイン画面 ####*/
+
+.login_input_field {
+  margin-bottom: 10px;
+}
+
+.login_button{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.login_content_title {
+  // text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+.login_sign_up_nav_area {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-outline-secondary {
+  color: #9400d3;
+  border: 3px solid #9400d3;
+}
+
+.btn-outline-secondary:hover {
+  color: #ffffff;
+  background: #9400d3;
+  border: 3px solid #9400d3;
+}
+
+.btn-outline-secondary:active:focus {
+  color: #ffffff;
+  background: #9400d3;
+  border: 3px solid #9400d3;
+}
+
+.signin_content_title {
+  margin-bottom: 20px;
+}
+
+/*#### ↑ログイン画面 ####*/
