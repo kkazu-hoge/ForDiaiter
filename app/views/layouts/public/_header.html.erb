@@ -21,51 +21,11 @@
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
       <li>Menu <span>一覧</span></li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fas fa-user-circle"></i>　マイページ
-        <% end %>
-      </li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fab fa-product-hunt"></i>　新規プロジェクト
-        <% end %>
-      </li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fas fa-tasks"></i>　プロジェクト編集
-        <% end %>
-      </li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fas fa-calendar-alt"></i>　プロジェクトカレンダー
-        <% end %>
-      </li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fas fa-chart-line"></i>　記録
-        <% end %>
-      </li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fas fa-dumbbell"></i>　トレーニング一覧
-        <% end %>
-      </li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fas fa-search-location"></i>　ジム検索
-        <% end %>
-      </li>
-      <li>
-        <%= link_to customers_mypage_path do %>
-          <i class="fas fa-columns"></i>　コラム
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_customer_session_path, method: :delete do %>
-          <i class="fas fa-sign-in-alt"></i>　ログアウト
-        <% end %>
-      </li>
+      <% if customer_signed_in? %>
+        <%= render "layouts/public/afterLoginMenu" %>
+      <% else %>
+        <%= render 'layouts/public/beforeLoginMenu' %>
+      <% end %>
     </ul>
   </div>
 </header>

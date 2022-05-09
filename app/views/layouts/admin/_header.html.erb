@@ -12,35 +12,20 @@
       </li>
     </ul>
   </nav>
-      <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-      <label for="openSidebarMenu" class="sidebarIconToggle">
-        <div class="spinner diagonal part-1"></div>
-        <div class="spinner horizontal"></div>
-        <div class="spinner diagonal part-2"></div>
-      </label>
-      <div id="sidebarMenu">
-        <ul class="sidebarMenuInner">
-          <li>Menu <span>一覧</span></li>
-          <li>
-            <%= link_to admin_root_path do %>
-              <i class="fas fa-user-friends"></i>　会員一覧
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_root_path do %>
-              <i class="fas fa-dumbbell"></i>　トレーニング一覧
-            <% end %>
-          </li>
-          <li>
-            <%= link_to admin_root_path do %>
-              <i class="fas fa-columns"></i>　コラム一覧
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_admin_session_path, method: :delete do %>
-              <i class="fas fa-sign-in-alt"></i>　ログアウト
-            <% end %>
-          </li>
-        </ul>
-      </div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li>Menu <span>一覧</span></li>
+      <% if customer_signed_in? %>
+        <%= render "layouts/admin/afterLoginMenu" %>
+      <% else %>
+        <%= render 'layouts/admin/beforeLoginMenu' %>
+      <% end %>
+    </ul>
+  </div>
 </header>

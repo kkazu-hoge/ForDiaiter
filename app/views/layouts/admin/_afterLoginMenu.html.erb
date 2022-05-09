@@ -1,0 +1,20 @@
+<li>
+  <%= link_to admin_root_path do %>
+    <i class="fas fa-user-friends"></i>　会員一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to admin_root_path do %>
+    <i class="fas fa-dumbbell"></i>　トレーニング一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to admin_root_path do %>
+    <i class="fas fa-columns"></i>　コラム一覧
+  <% end %>
+</li>
+<li>
+  <%= link_to destroy_admin_session_path, method: :delete do %>
+    <i class="fas fa-sign-in-alt"></i>　ログアウト
+  <% end %>
+</li>
