@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ordermade_event_id: 1
+  training_id: MyString
+
+two:
+  ordermade_event_id: 1
+  training_id: MyString

@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  life_stress_factor_id: 1
+  sex: 1
+  age: 1
+  height: 1
+  weight: 1
+  target_weight: 1
+  pj_start_day: 2022-05-09
+  pj_finish_day: 2022-05-09
+  interval: 1
+
+two:
+  customer_id: 1
+  life_stress_factor_id: 1
+  sex: 1
+  age: 1
+  height: 1
+  weight: 1
+  target_weight: 1
+  pj_start_day: 2022-05-09
+  pj_finish_day: 2022-05-09
+  interval: 1

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pj_event_id: 1
+  training_id: 1
+  activity_minutes: 1
+  burn_calories: 1
+
+two:
+  pj_event_id: 1
+  training_id: 1
+  activity_minutes: 1
+  burn_calories: 1
