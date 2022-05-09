@@ -13,6 +13,6 @@ class Customer < ApplicationRecord
 
   validates :last_name, :first_name, :public_name,
             :sex, :birthday,:height,:weight,
-            presence: true  
+            presence: true
 
 end
