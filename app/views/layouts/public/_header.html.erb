@@ -12,23 +12,20 @@
       </li>
     </ul>
   </nav>
-      <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-      <label for="openSidebarMenu" class="sidebarIconToggle">
-        <div class="spinner diagonal part-1"></div>
-        <div class="spinner horizontal"></div>
-        <div class="spinner diagonal part-2"></div>
-      </label>
-      <div id="sidebarMenu">
-        <ul class="sidebarMenuInner">
-          <li>Menu <span>一覧</span></li>
-          <li><a href="/customers/sign_in"><i class="fas fa-user-circle"></i>　マイページ</a></li>
-          <li><a href="/customers/sign_in"><i class="fab fa-product-hunt"></i>　新規プロジェクト</a></li>
-          <li><a href="/customers/sign_in"><i class="fas fa-tasks"></i>　プロジェクト編集</a></li>
-          <li><a href="/customers/sign_in"><i class="fas fa-calendar-alt"></i>　プロジェクトカレンダー</a></li>
-          <li><a href="/customers/sign_in"><i class="fas fa-chart-line"></i>　記録</a></li>
-          <li><a href="/customers/sign_in"><i class="fas fa-dumbbell"></i>　トレーニング一覧</a></li>
-          <li><a href="/customers/sign_in"><i class="fas fa-search-location"></i>　ジム検索</a></li>
-          <li><a href="/customers/sign_in"><i class="fas fa-columns"></i>　コラム</a></li>
-        </ul>
-      </div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li>Menu <span>一覧</span></li>
+      <% if customer_signed_in? %>
+        <%= render "layouts/public/afterLoginMenu" %>
+      <% else %>
+        <%= render 'layouts/public/beforeLoginMenu' %>
+      <% end %>
+    </ul>
+  </div>
 </header>
