@@ -1,6 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
 
 /*#### ↓共通フォーマット ####*/
 #notice {
@@ -17,18 +18,23 @@ body {
   font-size: 13px;
 }
 
+a {
+  color: #696969;
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:none;
+}
+
+.bg-dark{
+  background-color: #9932cc;
+}
+
 /* アプリ全体のフォントfamilyを制御 */
 .Contents {
-  // font-family: "Helvetica Neue",
-  //   Arial,
-  //   "Hiragino Kaku Gothic ProN",
-  //   "Hiragino Sans",
-  //   Meiryo,
-  //   sans-serif;
   font-family: "Varela Round",
-  "Hiragino Kaku Gothic ProN",
-  "Hiragino Sans",
-  Meiryo,
+  "M PLUS Rounded 1c",
   sans-serif
 }
 
@@ -338,3 +344,77 @@ p.top_title_link:hover {
   border: 3px solid #9400d3;
 }
 /*#### ↑会員トップ画面 ####*/
+
+
+/*#### ↓会員マイページ画面 ####*/
+
+section {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    background-color: #f1f4fa;
+}
+.wrap_mypage {
+    display: flex;
+    background: white;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 7px 7px 30px -5px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border: solid;
+    border-width: 3px;
+    border-color: #9400d3;
+    color: #9400d3;
+}
+
+.wrap_mypage:hover {
+    background: linear-gradient(135deg,#9932cc 0%,#9400d3 100%);
+    color: white;
+}
+
+.ico-wrap_mypage {
+    margin: auto;
+}
+
+.mbr-iconfont {
+    font-size: 4.5rem !important;
+    color: #313131;
+    margin: 1rem;
+    padding-right: 1rem;
+}
+.vcenter {
+    margin: auto;
+}
+
+.mbr-section-title3 {
+    text-align: left;
+}
+h2.mypage_area {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.display-5 {
+    font-size: 1.4rem;
+}
+.mbr-bold {
+    font-weight: 700;
+}
+
+ p.mypage_area {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    line-height: 25px;
+}
+
+.mypage_nav_bg_color{
+  background-color: #ba55d3;
+  // border-bottom-style: groove;
+  // border-width: 3px;
+  // border-color: #ba55d3;
+}
+
+
+/*#### ↑会員マイページ画面 ####*/
+
+
