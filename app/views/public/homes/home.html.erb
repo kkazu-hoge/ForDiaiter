@@ -3,9 +3,17 @@
     <div class="col-10">
       <div class="home-contents">
         <div class="container-fluid">
+          <div class="row justify-content-center select_project">
+            <div class="col-10 col-lg-6 col-md-8 col-sm-10">
+              <%= form_with url: home_path, method: :get, remote: true do |f| %>
+                <!--% f.hidden_field :id, current_customer.id %>-->
+                <%= f.select :sex, {'男性': 1, '女性': 2}, { include_blank: 'プロジェクトを選択してください'}, { class: 'form-control' , required: true } %>
+              <% end %>
+            </div>
+          </div>
           <div class="row">
             <div class="col-12">
-              <div class="card">
+              <div class="card border-primary">
                 <div class="card-body text-center">
                   <h6 class="card-title"><%= current_customer.public_name %>さんの目標総消費カロリー</h6>
                   <h5 class="card-subtitle mb-2 text-muted"><b>？kcal</b></h5>
@@ -16,7 +24,7 @@
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card second-row-card">
+              <div class="card border-primary second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">計画消費カロリー</h6>
                   <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
@@ -27,7 +35,7 @@
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card second-row-card">
+              <div class="card border-primary second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">実績消費カロリー</h6>
                   <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
@@ -38,7 +46,7 @@
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card second-row-card">
+              <div class="card border-primary second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">進捗率</h6>
                   <h5 class="card-subtitle mb-2 text-muted text-center"><b>？%</b></h5>
@@ -49,7 +57,7 @@
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card second-row-card">
+              <div class="card border-primary second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">1日の自然総消費カロリー</h6>
                   <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
@@ -60,7 +68,7 @@
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card second-row-card">
+              <div class="card border-primary second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">1日の想定摂取カロリー</h6>
                   <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
@@ -71,7 +79,7 @@
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card second-row-card">
+              <div class="card border-primary second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">日常生活でのカロリー差</h6>
                   <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
