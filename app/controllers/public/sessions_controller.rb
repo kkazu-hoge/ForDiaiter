@@ -7,6 +7,12 @@ class Public::SessionsController < Devise::SessionsController
   #退会しているかcreate時(ログイン)のみ確認
   before_action :confirm_defection, only: [:create]
 
+  def guest_sign_in
+    customer = Customer.guest
+    sign_in customer
+    redirect_to home_path, notice: "ゲストユーザーとしてログインしました"
+  end
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -28,6 +34,7 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
 
   #ログイン時に退会済の場合、新規登録画面にリダイレクト
   def confirm_defection

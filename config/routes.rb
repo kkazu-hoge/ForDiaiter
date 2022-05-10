@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # 会員
   # URLに"public"を含ませたくないためURLとファイル構成(public配下)が異なるscope moduleでルーティング定義
+
   scope module: 'public' do
 
     root :to          =>'homes#top'
@@ -44,6 +45,11 @@ Rails.application.routes.draw do
     resources :columns, only: [:index, :show]
 
   end
+  #ゲストログイン用のルーティング
+  devise_scope :customer do
+    post '/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
+
 
 
   #管理者
