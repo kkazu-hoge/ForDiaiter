@@ -42,3 +42,4 @@ trainings = [
 { name: "ヨガ：パワー",mets_value: 0.06,summary: ""}
 ]
 Training.create(trainings)
+

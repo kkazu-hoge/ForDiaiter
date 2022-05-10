@@ -12,8 +12,9 @@
 
 /* ヘッダーの後ろに要素が隠れないようにする */
 body {
-  padding-top: 95px;
+  padding-top: 80px;
   color: #696969;
+  font-size: 13px;
 }
 
 /* アプリ全体のフォントfamilyを制御 */
@@ -50,8 +51,8 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 95px;
-  padding-bottom: 95px;
+  height: 80px;
+  padding-bottom: 80px;
   z-index: 999;
 }
 
@@ -68,7 +69,7 @@ body {
 }
 
 .heaedr-link {
-  font-size: 40px;
+  font-size: 30px;
   margin-right: 40px;
 }
 
@@ -133,17 +134,17 @@ input[type=checkbox] {
   z-index: 99;
   height: 100%;
   width: 100%;
-  top: 32px;
+  top: 28px;
   left: 30px;
-  height: 44px;
-  width: 34px;
+  height: 40px;
+  width: 28px;
 }
 
 .spinner {
   transition: all 0.3s;
   box-sizing: border-box;
   position: absolute;
-  height: 4px;
+  height: 2px;
   width: 100%;
   background-color: #696969;
 }
@@ -179,14 +180,14 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
   transition: all 0.3s;
   box-sizing: border-box;
   transform: rotate(135deg);
-  margin-top: 13px;
+  margin-top: 10px;
 }
 
 input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   transition: all 0.3s;
   box-sizing: border-box;
   transform: rotate(-135deg);
-  margin-top: -14px;
+  margin-top: -11px;
 }
 
 .sidebarMenuInner a {

@@ -1,33 +1,33 @@
 <div class='container'>
-  <div class='row justify-content-center' style = "margin-top: 50px; margin-left: 50px;">
+  <div class='row justify-content-center' style = "margin-top: 50px; margin-left: 5%;">
     <div class="col-6">
       <%= devise_error_messages! %>
       <div class='row'>
-        <h4 class= "login_content_title"><b>ログイン</b></h4>
+        <h5 class= "login_content_title"><b>ログイン</b></h5>
       </div>
       <h6 class="login_content_title"><b>アカウントをお持ちの方はこちらからログイン</b></h6>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <div class='row login_input_field'>
-              <span class="col-4">
+              <span class="col-12 col-lg-3 col-md-4 col-sm-12">
                 <%= f.label :メールアドレス %>
               </span>
-              <span class="col-6">
+              <span class="col-12 col-lg-6 col-md-8 col-sm-12">
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
               </span>
             </div>
           </div>
           <div class="field">
             <div class='row login_input_field'>
-              <span class="col-4">
+              <span class="col-12 col-lg-3 col-md-4 col-sm-12">
                 <%= f.label :パスワード %>
               </span>
-              <span class="col-6">
+              <span class="col-12 col-lg-6 col-md-8 col-sm-12">
                 <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
               </span>
             </div>
           </div>
-          <div class="actions col-10 login_button">
+          <div class="actions col-12 col-lg-10 col-md-12 col-sm-12 login_button">
             <%= f.submit "ログイン",class: 'btn col-6 mx-auto btn-outline-secondary font-weight-bold btn-block' %>
           </div>
         <% end %>
