@@ -49,6 +49,12 @@ a:hover {
   vertical-align: middle;
 }
 
+.content_background {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    background-color: #f1f4fa;
+}
+
 /*##### ↑共通フォーマット ####*/
 
 /*#### ↓ヘッダーエリア ####*/
@@ -395,7 +401,7 @@ h2.mypage_area {
     margin-bottom: 0.5rem;
 }
 .display-5 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 .mbr-bold {
     font-weight: 700;
@@ -418,7 +424,7 @@ h2.mypage_area {
 /*#### ↑会員マイページ画面 ####*/
 
 /*#### ↓会員ホーム画面 ####*/
-.select_project{
+.select_project_area{
   margin-bottom: 30px;
 }
 

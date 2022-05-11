@@ -1,22 +1,28 @@
 <div class='container'>
   <div class='row justify-content-center main_contents'>
-    <div class="col-10">
+    <div class="col-10 content_background">
       <div class="home-contents">
         <div class="container-fluid">
-          <div class="row justify-content-center select_project">
+          <div class="row justify-content-center select_project_area">
             <div class="col-10 col-lg-6 col-md-8 col-sm-10">
               <%= form_with url: home_path, method: :get, remote: true do |f| %>
                 <!--% f.hidden_field :id, current_customer.id %>-->
-                <%= f.select :sex, {'男性': 1, '女性': 2}, { include_blank: 'プロジェクトを選択してください'}, { class: 'form-control' , required: true } %>
+                <%= f.select :sex, {"プロジェクト1": "project_id", "プロジェクト2": "project_id"}, { include_blank: 'プロジェクトを選択してください'}, { class: 'form-control' , required: true } %>
+              <% end %>
+            </div>
+              <div class="col-2 col-lg-1 col-md-2 col-sm-2">
+              <%= link_to new_project_path do %>
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" aria-labelledby="addIconTitle" stroke="#9400d3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#9400d3"> <title id="addIconTitle">新規プロジェクト作成</title> <path d="M17 12L7 12M12 17L12 7"/> <circle cx="12" cy="12" r="10"/> </svg>
               <% end %>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="card border-primary">
+              <!--border-primaryをclass指定すると枠線の色を紫に変更可能-->
+              <div class="card">
                 <div class="card-body text-center">
                   <h6 class="card-title"><%= current_customer.public_name %>さんの目標総消費カロリー</h6>
-                  <h5 class="card-subtitle mb-2 text-muted"><b>？kcal</b></h5>
+                  <h4 class="card-subtitle mb-2 text-muted"><b>？kcal</b></h4>
                   <p class="card-text">算出式：7200[kcal/kg]　×　(現在の体重[kg] － 目標の体重[kg])</p>
                   <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
                   <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
@@ -24,68 +30,56 @@
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card border-primary second-row-card">
+              <div class="card second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">計画消費カロリー</h6>
-                  <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
+                  <h4 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h4>
                   <p class="card-text card_annotation_fontsize">プロジェクト作成時の計画に沿って進行した場合のカロリー消費量を表示しています</p>
-                  <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
-                  <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
                 </div>
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card border-primary second-row-card">
+              <div class="card second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">実績消費カロリー</h6>
-                  <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
+                  <h4 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h4>
                   <p class="card-text card_annotation_fontsize">プロジェクトの実績値に基づいたカロリー消費量を表示しています</p>
-                  <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
-                  <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
                 </div>
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card border-primary second-row-card">
+              <div class="card second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">進捗率</h6>
-                  <h5 class="card-subtitle mb-2 text-muted text-center"><b>？%</b></h5>
+                  <h4 class="card-subtitle mb-2 text-muted text-center"><b>？%</b></h4>
                   <p class="card-text card_annotation_fontsize">計画消費カロリーと実績消費カロリーから進捗率を算出しています<br>※100%を超えていれば進捗が良好であることの目安になります</p>
-                  <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
-                  <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
                 </div>
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card border-primary second-row-card">
+              <div class="card second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">1日の自然総消費カロリー</h6>
-                  <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
+                  <h4 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h4>
                   <p class="card-text card_annotation_fontsize">基礎代謝量とプロジェクト作成時に設定した活動強度からプロジェクト外の消費カロリーを算出しています</p>
-                  <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
-                  <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
                 </div>
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card border-primary second-row-card">
+              <div class="card second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">1日の想定摂取カロリー</h6>
-                  <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
+                  <h4 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h4>
                   <p class="card-text card_annotation_fontsize">プロジェクト作成時に設定した日々の摂取カロリーを表示しています</p>
-                  <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
-                  <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
                 </div>
               </div>
             </div>
             <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-              <div class="card border-primary second-row-card">
+              <div class="card second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">日常生活でのカロリー差</h6>
-                  <h5 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h5>
+                  <h4 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h4>
                   <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後であれば食生活がオーバーカロリーでないことの目安になります</p>
-                  <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
-                  <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
                 </div>
               </div>
             </div>
@@ -95,7 +89,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">グラフエリア</h5>
+                  <h4 class="card-title">グラフエリア</h4>
                   <!--#グラフコンテンツを入れる想定-->
                 </div>
               </div>
