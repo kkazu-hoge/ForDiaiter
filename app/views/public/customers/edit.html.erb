@@ -1,10 +1,16 @@
 <div class='container'>
+  <div class="col-12">
+    <div class="text-error">
+      <%= render 'layouts/public/errors', obj: @customer %>
+    </div>
+  </div>
   <div class='row justify-content-center main_contents edit-contents'>
     <div class="col-10 content_background">
-      <div class="text-error">
-        <%= render 'layouts/public/errors', obj: @customer %>
+      <div class="row">
+        <div class="col-12">
+          <h4 class="font-weight-bold"><u>会員情報変更</u></h4>
+        </div>
       </div>
-      <h4 class="font-weight-bold"><u>会員情報変更</u></h4>
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -14,16 +20,16 @@
                 <div class="field">
                   <div class='row login_input_field'>
                       <div class='col-12 col-lg-2 col-md-2 col-sm-12 '>
-                        <span>名前</span>
+                        <b><span>名前</span></b>
                       </div>
                       <div class='col-5 col-lg-1 col-md-1 col-sm-4 '>
-                        <%= f.label :"(姓)" %>
+                        <b><%= f.label :"(姓)" %></b></b>
                       </div>
                       <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
                         <%= f.text_field :last_name, class: "form-control" %>
                       </div>
                       <div class='col-5 col-lg-1 col-md-1 col-sm-4'>
-                        <%= f.label :"(名)" %>
+                        <b><%= f.label :"(名)" %></b>
                       </div>
                       <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
                         <%= f.text_field :first_name, class: "form-control" %>
@@ -33,7 +39,7 @@
                 <div class="field">
                   <div class='row login_input_field'>
                       <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
-                        <%= f.label :"公開用ネーム" %>
+                        <b><%= f.label :"公開用ネーム" %></b>
                       </div>
                       <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
                         <%= f.text_field :public_name, class: "form-control" %>
@@ -43,17 +49,17 @@
                 <div class="field">
                   <div class='row login_input_field'>
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
-                      <%= f.label :"性別" %>
+                      <b><%= f.label :"性別" %></b>
                     </div>
                     <div class='col-7 col-lg-3 col-md-4 col-sm-6'>
                       <div class='row'>
                         <div class="col-6">
                           <%= f.radio_button :sex, :man %>
-                          <%= f.label "男性" %>
+                          <b><%= f.label "男性" %></b>
                         </div>
                         <div class="col-6">
                           <%= f.radio_button :sex, :woman %>
-                          <%= f.label "女性" %>
+                          <b><%= f.label "女性" %></b>
                         </div>
                       </div>
                     </div>
@@ -62,7 +68,7 @@
                 <div class="field">
                   <div class='row login_input_field'>
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
-                      <%= f.label :"生年月日" %>
+                      <b><%= f.label :"生年月日" %></b>
                     </div>
                     <div class='col-7'>
                       <%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: @customer.birthday, class: "form-control" %>
@@ -72,7 +78,7 @@
                 <div class="field">
                   <div class='row login_input_field'>
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
-                      <%= f.label :"身長" %>
+                      <b><%= f.label :"身長" %></b>
                     </div>
                     <div class='col-5 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
                       <%= f.select :height,[
@@ -144,7 +150,7 @@
                 <div class="field">
                   <div class='row login_input_field'>
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
-                      <%= f.label :"体重" %>
+                      <b><%= f.label :"体重" %></b>
                     </div>
                     <div class='col-5 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
                       <%= f.select :weight,[
@@ -239,13 +245,20 @@
                   </div>
                 </div>
                 <div class='row login_input_field login_button'>
-                  <div class='col-10'>
+                  <div class='col-11'>
                     <div class="actions">
                       <%= f.submit "変更する",class: 'btn col-8 col-lg-4 col-md-5 col-sm-8 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
                     </div>
                   </div>
                 </div>
                 <% end %>
+                <div class="row">
+                  <div class="col-11 text-center">
+                    <%= link_to customers_mypage_path do %>
+                      <b>マイページに戻る</b>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
