@@ -3,6 +3,7 @@ class Public::CustomersController < Public::ApplicationController
   end
 
   def edit
+    @customer = current_customer
   end
 
   def edit_mail_address

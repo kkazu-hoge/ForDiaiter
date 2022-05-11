@@ -1,2 +1,256 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center main_contents edit-contents'>
+    <div class="col-10 content_background">
+      <div class="text-error">
+        <%= render 'layouts/public/errors', obj: @customer %>
+      </div>
+      <h4 class="font-weight-bold"><u>会員情報変更</u></h4>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <%= form_with model: @customer, url: customer_path(@customer), method: :patch do |f| %>
+                <div class="field">
+                  <div class='row login_input_field'>
+                      <div class='col-12 col-lg-2 col-md-2 col-sm-12 '>
+                        <span>名前</span>
+                      </div>
+                      <div class='col-5 col-lg-1 col-md-1 col-sm-4 '>
+                        <%= f.label :"(姓)" %>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                        <%= f.text_field :last_name, class: "form-control" %>
+                      </div>
+                      <div class='col-5 col-lg-1 col-md-1 col-sm-4'>
+                        <%= f.label :"(名)" %>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                        <%= f.text_field :first_name, class: "form-control" %>
+                      </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class='row login_input_field'>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                        <%= f.label :"公開用ネーム" %>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                        <%= f.text_field :public_name, class: "form-control" %>
+                      </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class='row login_input_field'>
+                    <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <%= f.label :"性別" %>
+                    </div>
+                    <div class='col-7 col-lg-3 col-md-4 col-sm-6'>
+                      <div class='row'>
+                        <div class="col-6">
+                          <%= f.radio_button :sex, :man %>
+                          <%= f.label "男性" %>
+                        </div>
+                        <div class="col-6">
+                          <%= f.radio_button :sex, :woman %>
+                          <%= f.label "女性" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class='row login_input_field'>
+                    <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <%= f.label :"生年月日" %>
+                    </div>
+                    <div class='col-7'>
+                      <%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: @customer.birthday, class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class='row login_input_field'>
+                    <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <%= f.label :"身長" %>
+                    </div>
+                    <div class='col-5 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
+                      <%= f.select :height,[
+                        ["200cm",200],
+                        ["199cm",199],
+                        ["198cm",198],
+                        ["197cm",197],
+                        ["196cm",196],
+                        ["195cm",195],
+                        ["194cm",194],
+                        ["193cm",193],
+                        ["192cm",192],
+                        ["191cm",191],
+                        ["190cm",190],
+                        ["189cm",189],
+                        ["188cm",188],
+                        ["187cm",187],
+                        ["186cm",186],
+                        ["185cm",185],
+                        ["184cm",184],
+                        ["183cm",183],
+                        ["182cm",182],
+                        ["181cm",181],
+                        ["180cm",180],
+                        ["179cm",179],
+                        ["178cm",178],
+                        ["177cm",177],
+                        ["176cm",176],
+                        ["175cm",175],
+                        ["174cm",174],
+                        ["173cm",173],
+                        ["172cm",172],
+                        ["171cm",171],
+                        ["170cm",170],
+                        ["169cm",169],
+                        ["168cm",168],
+                        ["167cm",167],
+                        ["166cm",166],
+                        ["165cm",165],
+                        ["164cm",164],
+                        ["163cm",163],
+                        ["162cm",162],
+                        ["161cm",161],
+                        ["160cm",160],
+                        ["159cm",159],
+                        ["158cm",158],
+                        ["157cm",157],
+                        ["156cm",156],
+                        ["155cm",155],
+                        ["154cm",154],
+                        ["153cm",153],
+                        ["152cm",152],
+                        ["151cm",151],
+                        ["150cm",150],
+                        ["149cm",149],
+                        ["148cm",148],
+                        ["147cm",147],
+                        ["146cm",146],
+                        ["145cm",145],
+                        ["144cm",144],
+                        ["143cm",143],
+                        ["142cm",142],
+                        ["141cm",141],
+                        ["140cm",140]
+                        ],{ include_blank: true, selected: @customer.height }, { class: "form-control" } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class='row login_input_field'>
+                    <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <%= f.label :"体重" %>
+                    </div>
+                    <div class='col-5 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
+                      <%= f.select :weight,[
+                      ["130kg",130],
+                      ["129kg",129],
+                      ["128kg",128],
+                      ["127kg",127],
+                      ["126kg",126],
+                      ["125kg",125],
+                      ["124kg",124],
+                      ["123kg",123],
+                      ["122kg",122],
+                      ["121kg",121],
+                      ["120kg",120],
+                      ["119kg",119],
+                      ["118kg",118],
+                      ["117kg",117],
+                      ["116kg",116],
+                      ["115kg",115],
+                      ["114kg",114],
+                      ["113kg",113],
+                      ["112kg",112],
+                      ["111kg",111],
+                      ["110kg",110],
+                      ["109kg",109],
+                      ["108kg",108],
+                      ["107kg",107],
+                      ["106kg",106],
+                      ["105kg",105],
+                      ["104kg",104],
+                      ["103kg",103],
+                      ["102kg",102],
+                      ["101kg",101],
+                      ["100kg",100],
+                      ["99kg",99],
+                      ["98kg",98],
+                      ["97kg",97],
+                      ["96kg",96],
+                      ["95kg",95],
+                      ["94kg",94],
+                      ["93kg",93],
+                      ["92kg",92],
+                      ["91kg",91],
+                      ["90kg",90],
+                      ["89kg",89],
+                      ["88kg",88],
+                      ["87kg",87],
+                      ["86kg",86],
+                      ["85kg",85],
+                      ["84kg",84],
+                      ["83kg",83],
+                      ["82kg",82],
+                      ["81kg",81],
+                      ["80kg",80],
+                      ["79kg",79],
+                      ["78kg",78],
+                      ["77kg",77],
+                      ["76kg",76],
+                      ["75kg",75],
+                      ["74kg",74],
+                      ["73kg",73],
+                      ["72kg",72],
+                      ["71kg",71],
+                      ["70kg",70],
+                      ["69kg",69],
+                      ["68kg",68],
+                      ["67kg",67],
+                      ["66kg",66],
+                      ["65kg",65],
+                      ["64kg",64],
+                      ["63kg",63],
+                      ["62kg",62],
+                      ["61kg",61],
+                      ["60kg",60],
+                      ["59kg",59],
+                      ["58kg",58],
+                      ["57kg",57],
+                      ["56kg",56],
+                      ["55kg",55],
+                      ["54kg",54],
+                      ["53kg",53],
+                      ["52kg",52],
+                      ["51kg",51],
+                      ["50kg",50],
+                      ["49kg",49],
+                      ["48kg",48],
+                      ["47kg",47],
+                      ["46kg",46],
+                      ["45kg",45]
+                      ],{ include_blank: true, selected: @customer.weight }, { class: "form-control" } %>
+                    </div>
+                  </div>
+                </div>
+                <div class='row login_input_field login_button'>
+                  <div class='col-10'>
+                    <div class="actions">
+                      <%= f.submit "変更する",class: 'btn col-8 col-lg-4 col-md-5 col-sm-8 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
