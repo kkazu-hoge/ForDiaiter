@@ -44,6 +44,14 @@ class Public::CustomersController < Public::ApplicationController
   end
 
   def defection
+    @customer = current_customer
+    # is_deletedカラムをtrueに変更して削除フラグを立てる
+    if @customer.update(is_deleted: true)
+      reset_session
+      redirect_to root_path, notice: "退会処理を実行しました"
+    else
+      redirect_to request.referer, notice: "退会処理が正常に完了しませんでした(管理者にお問い合わせください)"
+    end
   end
 
 

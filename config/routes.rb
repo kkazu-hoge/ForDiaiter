@@ -22,7 +22,6 @@ Rails.application.routes.draw do
       patch :update_password,       on: :member
       patch :update_physical_info,  on: :member
       get   :unsubscribe,           on: :member
-      get   :unsubscribe,           on: :member
       patch :defection,             on: :member
     end
 
@@ -98,7 +97,6 @@ end
 #                 update_password_customer PATCH  /customers/:id/update_password(.:format)                     public/customers#update_password
 #           update_physical_info_customer PATCH  /customers/:id/update_physical_info(.:format)                public/customers#update_physical_info
 #                     unsubscribe_customer GET    /customers/:id/unsubscribe(.:format)                         public/customers#unsubscribe
-#                                         GET    /customers/:id/unsubscribe(.:format)                         public/customers#unsubscribe
 #                       defection_customer PATCH  /customers/:id/defection(.:format)                           public/customers#defection
 #                           edit_customer GET    /customers/:id/edit(.:format)                                public/customers#edit
 #                                 customer PATCH  /customers/:id(.:format)                                     public/customers#update

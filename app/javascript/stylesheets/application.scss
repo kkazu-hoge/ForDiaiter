@@ -462,8 +462,18 @@ h2.mypage_area {
 
 /*#### ↑会員情報編集画面 ####*/
 
+/*#### ↓退会確認画面 ####*/
+.unsubscribe-contents .card{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: none;
+}
 
+.unsubscribe-contents .content_background{
+  padding-top: 1rem;
+}
 
+/*#### ↑退会確認画面 ####*/
 
 /*------------------------------------
 - COLOR primary

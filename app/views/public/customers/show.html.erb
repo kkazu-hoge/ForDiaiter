@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row justify-content-center main_contents'>
-    <div class="col-12 mypage_area">
+    <div class="col-11 mypage_area">
       <nav class="navbar navbar-dark mypage_nav_bg_color">
         <div class="container-fluid navbar-brand">
           <%= current_customer.public_name %>さんのマイページ
@@ -67,6 +67,13 @@
                   <p class="mbr-fonts-style text1 mbr-text display-6">規約のご確認はこちら　　　　　　　　　　　　　　　　　</p>
                 </div>
               </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-12">
+              <%= link_to unsubscribe_customer_path(current_customer.id) do %>
+                <b>※退会はこちらから</b>
               <% end %>
             </div>
           </div>
