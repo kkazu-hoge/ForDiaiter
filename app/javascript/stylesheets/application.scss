@@ -446,6 +446,11 @@ h2.mypage_area {
   border: 2px solid;
 }
 
+.home_add_icon:hover {
+  transition: all 0.2s ease;
+  transform: scale(1.1)
+}
+
 /*#### ↑会員ホーム画面 ####*/
 
 
@@ -477,7 +482,7 @@ h2.mypage_area {
 
 /*------------------------------------
 - COLOR primary
-色を一括変更
+bootstrapのprimary色を一括変更
 URL: https://lingtalfi.com/bootstrap4-color-generator#
 ------------------------------------*/
 

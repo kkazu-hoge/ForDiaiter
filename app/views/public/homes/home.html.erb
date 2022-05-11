@@ -10,10 +10,12 @@
                 <%= f.select :sex, {"プロジェクト1": "project_id", "プロジェクト2": "project_id"}, { include_blank: 'プロジェクトを選択してください'}, { class: 'form-control' , required: true } %>
               <% end %>
             </div>
-              <div class="col-2 col-lg-1 col-md-2 col-sm-2">
-              <%= link_to new_project_path do %>
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" aria-labelledby="addIconTitle" stroke="#9400d3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#9400d3"> <title id="addIconTitle">新規プロジェクト作成</title> <path d="M17 12L7 12M12 17L12 7"/> <circle cx="12" cy="12" r="10"/> </svg>
-              <% end %>
+            <div class="col-2 col-lg-1 col-md-2 col-sm-2">
+              <div class="home_add_icon">
+                <%= link_to new_project_path do %>
+                  <svg role="img" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" aria-labelledby="addIconTitle" stroke="#9400d3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#9400d3"> <title id="addIconTitle">新規プロジェクト作成</title> <path d="M17 12L7 12M12 17L12 7"/> <circle cx="12" cy="12" r="10"/></svg>
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -61,7 +63,7 @@
                 <div class="card-body">
                   <h6 class="card-title text-center">1日の自然総消費カロリー</h6>
                   <h4 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h4>
-                  <p class="card-text card_annotation_fontsize">基礎代謝量とプロジェクト作成時に設定した活動強度からプロジェクト外の消費カロリーを算出しています</p>
+                  <p class="card-text card_annotation_fontsize">基礎代謝量とプロジェクト作成時に設定した普段の活動傾向からプロジェクト外の消費カロリーを算出しています</p>
                 </div>
               </div>
             </div>

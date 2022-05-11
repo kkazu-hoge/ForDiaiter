@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       # get   :edit_physical_info,    on: :member
       patch :update_mail_address,   on: :member
       patch :update_password,       on: :member
-      patch :update_physical_info,  on: :member
+      # patch :update_physical_info,  on: :member
       get   :unsubscribe,           on: :member
       patch :defection,             on: :member
     end

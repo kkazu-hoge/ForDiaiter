@@ -13,8 +13,8 @@ class Public::CustomersController < Public::ApplicationController
   def edit_password
   end
 
-  def edit_physical_info
-  end
+  # def edit_physical_info
+  # end
 
   def update
     @customer = current_customer
@@ -37,8 +37,8 @@ class Public::CustomersController < Public::ApplicationController
   def update_password
   end
 
-  def update_physical_info
-  end
+  # def update_physical_info
+  # end
 
   def unsubscribe
   end
