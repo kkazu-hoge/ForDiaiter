@@ -52,7 +52,7 @@
                   <h6 class="card-title text-center">実績消費カロリー</h6>
                   <h4 class="card-subtitle mb-2 text-muted text-center">
                     <b class = "home_calorie_disp">
-                      ？kcal
+                      <%= number_to_currency(@result_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
                     </b>
                   </h4>
                   <p class="card-text card_annotation_fontsize">プロジェクトの実績値に基づいたカロリー消費量を表示しています</p>

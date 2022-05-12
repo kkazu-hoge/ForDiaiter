@@ -47,6 +47,12 @@ class Public::HomesController < Public::ApplicationController
     end
 
     ######## 実績消費カロリー ########
+    @result_burn_kcal = 0
+    pj_evnets = project.pj_events
+
+    pj_evnets.each do |pj_ev|
+      @result_burn_kcal += pj_ev.pj_event_details.sum(:burn_calories)
+    end
 
     ######## 進捗率 ########
 
