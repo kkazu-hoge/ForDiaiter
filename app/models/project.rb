@@ -7,4 +7,6 @@ class Project < ApplicationRecord
 
   enum sex: { man: 1, woman: 2 }
 
+  scope :get_projects_sort_desc_createday, ->  (customer) {where(customer_id: customer.id).order(created_at: :desc)}
+
 end
