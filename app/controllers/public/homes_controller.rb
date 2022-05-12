@@ -6,36 +6,55 @@ class Public::HomesController < Public::ApplicationController
   end
 
   def home
-    @projects = Project.where(customer_id: current_customer.id).order("created_at": :desc)
 
-    project = @projects.order("created_at": :desc).limit(1)
+    @projects = Project.where(customer_id: current_customer.id).order(created_at: :desc)
 
-    # 目標総消費カロリー
+    # if @projects.blank?
+    #   #0各インスタンス変数の値に"-"を入れる
+    # else
+    #   #処理を実行する
+    # end
+
+    project = @projects.first
+    # project = Project.where(customer_id: current_customer.id).order(created_at: :desc).first
+
+    ######## 目標総消費カロリー ########
     @target_burn_kcal = 7200 * (project.weight - project.target_weight)
 
-    # 計画消費カロリー
-    #現在の日付とプロジェクトの終了日どちらをカロリー計算に使用するか判定
-    project.pj_finish_day <= Date.current ? calc_pj_finish_day = project.pj_finish_day : calc_pj_finish_day = Date.current
-    #プロジェクト内の現時点でのイベント(運動)計画回数
-    plan_activity_counts = (calc_pj_finish_day - project.pj_start_day).to_i / project.interval
-    # １回あたりのイベントの総消費カロリー　イベントに紐づくトレーニング数分繰り返し処理
-    
-    # 計画イベント.計画イベント詳細.activity_minutes ×　計画イベント.計画イベント詳細.burn_calories　×　プロジェクト.weight ×1.05
+    ######## 計画消費カロリー ########
+    #そもそもpj_start_dayがまだ始まっていなければ計画消費カロリーの値は0kcal
+    if project.pj_start_day < Date.current
+      # 計画消費カロリーの値は0kcalでセット
+    else
+      # 計算処理を実行
 
-    each_event_tarining_allkcal =
+      #現在の日付とプロジェクトの終了日どちらを計画消費カロリー計算に使用するか判定
+      project.pj_finish_day <= Date.current ? calc_pj_finish_day = project.pj_finish_day : calc_pj_finish_day = Date.current
+      #プロジェクトの現時点での計画イベント(運動)回数(開始日を含めるため＋１する)
+      plan_event_counts = ((calc_pj_finish_day - project.pj_start_day).to_i / project.interval) + 1
+      # binding.pry
+      # １回あたりのイベントの総消費カロリー　イベントに紐づくトレーニング数分繰り返し処理
+      each_event_tarining_allkcal = 0
+      plan_pj_event = project.plan_pj_events.first
+      plan_pj_event_details = plan_pj_event.plan_pj_event_details
+      plan_pj_event_details.each do |plan_ed|
+        each_event_tarining_allkcal += plan_ed.burn_calories.to_i
+      end
 
-    @plan_burn_kcal =
+      # 計画イベントの総消費カロリー/１回　×　現時点のイベント回数　で計画進捗の消費カロリーを算出する
+      @plan_burn_kcal = each_event_tarining_allkcal * plan_event_counts
 
-    # 実績消費カロリー
+    end
 
-    # 進捗率
+    ######## 実績消費カロリー ########
 
-    # 1日の自然総消費カロリー
+    ######## 進捗率 ########
 
-    # 1日の想定摂取カロリー
+    ######## 1日の自然総消費カロリー ########
 
-    # 日常生活でのカロリー差
+    ######## 1日の想定摂取カロリー ########
 
+    ######## 日常生活でのカロリー差 ########
 
   end
 

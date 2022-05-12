@@ -24,7 +24,7 @@
               <div class="card">
                 <div class="card-body text-center">
                   <h6 class="card-title"><%= current_customer.public_name %>さんの目標総消費カロリー</h6>
-                  <h4 class="card-subtitle mb-2 text-muted"><b>？kcal</b></h4>
+                  <h4 class="card-subtitle mb-2 text-muted"><b><%= @target_burn_kcal %>kcal</b></h4>
                   <p class="card-text">算出式：7200[kcal/kg]　×　(現在の体重[kg] － 目標の体重[kg])</p>
                   <!--<a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>-->
                   <!--<a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>-->
@@ -35,7 +35,7 @@
               <div class="card second-row-card">
                 <div class="card-body">
                   <h6 class="card-title text-center">計画消費カロリー</h6>
-                  <h4 class="card-subtitle mb-2 text-muted text-center"><b>？kcal</b></h4>
+                  <h4 class="card-subtitle mb-2 text-muted text-center"><b><%= @plan_burn_kcal %>kcal</b></h4>
                   <p class="card-text card_annotation_fontsize">プロジェクト作成時の計画に沿って進行した場合のカロリー消費量を表示しています</p>
                 </div>
               </div>
