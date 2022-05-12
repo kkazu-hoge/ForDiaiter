@@ -12,6 +12,9 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+import Chart from "chart.js/auto";
+global.Chart = Chart;
+import "home_graph"
 
 Rails.start()
 Turbolinks.start()

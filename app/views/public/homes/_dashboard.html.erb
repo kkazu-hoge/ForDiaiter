@@ -54,7 +54,7 @@
   <div class="col-12 col-lg-4 col-md-6 col-sm-12">
     <div class="card second-row-card">
       <div class="card-body">
-        <h6 class="card-title text-center">1日の自然総消費カロリー</h6>
+        <h6 class="card-title text-center">自然総消費カロリー/日</h6>
         <h4 class="card-subtitle mb-2 text-muted text-center">
           <b class = "home_calorie_disp">
             <%= number_to_currency(naturally_burn_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
@@ -67,7 +67,7 @@
   <div class="col-12 col-lg-4 col-md-6 col-sm-12">
     <div class="card second-row-card">
       <div class="card-body">
-        <h6 class="card-title text-center">1日の想定摂取カロリー</h6>
+        <h6 class="card-title text-center">想定摂取カロリー/日</h6>
         <h4 class="card-subtitle mb-2 text-muted text-center">
           <b class = "home_calorie_disp">
             <%= number_to_currency(intake_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
@@ -87,7 +87,7 @@
             <!--%= number_to_currency(intake_calorie_perday - naturally_burn_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>-->
           </b>
         </h4>
-        <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後であれば1日の食事がオーバーカロリーでないことの目安になります</p>
+        <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後がオーバーカロリーでないことの目安になります</p>
       </div>
     </div>
   </div>
@@ -96,8 +96,62 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">グラフエリア</h4>
+        <h6 class="card-title">直近1週間の消費カロリー累計</h6>
         <!--#グラフコンテンツを入れる想定-->
+        <canvas id="myChart" width="500" height="300"></canvas>
+        <!--<script>-->
+        <!--$(document).on('turbolinks:load', function() {-->
+        <!--  const ctx = document.getElementById('myChart').getContext('2d');-->
+        <!--  const myChart = new Chart(ctx, {-->
+        <!--    type: 'line',-->
+        <!--    data: {-->
+        <!--        labels: ["a", "b", "c", "d", "e"],-->
+        <!--        datasets: [{-->
+        <!--            label: '投稿した本の数1',-->
+        <!--            data: [10, 20, 30, 40, 50],-->
+        <!--            backgroundColor: [-->
+        <!--                'rgba(54, 162, 235, 0.2)'-->
+        <!--            ],-->
+        <!--            borderColor: [-->
+        <!--                'rgba(54, 162, 235, 1)'-->
+        <!--            ],-->
+        <!--            borderWidth: 5,-->
+        <!--            tension: 0.2-->
+        <!--        },-->
+        <!--        {-->
+        <!--            label: '投稿した本の数2',-->
+        <!--            data: [-10, -15],-->
+        <!--            backgroundColor: [-->
+        <!--                'rgba(54, 162, 235, 0.2)'-->
+        <!--            ],-->
+        <!--            borderColor: [-->
+        <!--                'rgba(54, 162, 235, 1)'-->
+        <!--            ],-->
+        <!--            borderWidth: 5,-->
+        <!--            tension: 0.2-->
+        <!--        }]-->
+        <!--    },-->
+        <!--    options: {-->
+        <!--      responsive: true,-->
+        <!--      // plugins: {-->
+        <!--      //   title: {-->
+        <!--      //     display: true,-->
+        <!--      //     text: '7日間の投稿数の比較'-->
+        <!--      //   }-->
+        <!--      // },-->
+        <!--      scales: {-->
+        <!--        y: {-->
+        <!--          suggestedMin: 0,-->
+        <!--          suggestedMax: 100,-->
+        <!--          ticks: {-->
+        <!--            stepSize: 5-->
+        <!--          }-->
+        <!--        }-->
+        <!--      },-->
+        <!--    }-->
+        <!--  });-->
+        <!--});-->
+        <!--</script>-->
       </div>
     </div>
   </div>

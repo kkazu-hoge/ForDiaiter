@@ -24,7 +24,7 @@ class Public::HomesController < Public::ApplicationController
       @diff_calorie_perday = diff_calorie_perday(@intake_calorie_perday, @naturally_burn_calorie_perday)
 
       ######## 目標総消費カロリー ########
-      #日常生活のカロリー差をプロジェクト期間の日数で集計
+      #日常生活のカロリー差の総和をプロジェクト期間の日数で集計
       sum_diff_calorie = @diff_calorie_perday * pj_scope_day_counts
       @target_burn_kcal = target_burn_kcal(project, sum_diff_calorie)
 
@@ -33,7 +33,7 @@ class Public::HomesController < Public::ApplicationController
 
       ######## 実績消費カロリー ########
       @result_burn_kcal = result_burn_kcal_calc(project)
-
+      
       #　※”進捗率”は画面側で処理
     end
   end
