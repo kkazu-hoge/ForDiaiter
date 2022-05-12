@@ -55,13 +55,34 @@ class Public::HomesController < Public::ApplicationController
     end
 
     ######## 進捗率 ########
+    #画面側で計算
 
     ######## 1日の自然総消費カロリー ########
+    # 基礎代謝
+    # binding.pry
+    def basal_metabolic_rate(sex, height, weight, age)
+      if sex == "man"
+        result_bmr = 13.397 * weight + 4.799 * height + 88.362 - 5.677 * age
+      elsif sex == "women"
+        result_bmr = 9.247 * weight + 3.098 * height + 447.593 - 4.33 * age
+      else
+        #エラー処理
+      end
+      return result_bmr
+    end
+
+    bmr = basal_metabolic_rate(project.sex, project.height, project.weight, project.age)
+    @naturally_burn_calorie_perday = bmr * project.life_stress_factor.coefficient
+
 
     ######## 1日の想定摂取カロリー ########
 
-    ######## 日常生活でのカロリー差 ########
+    @intake_calorie_perday = project.intake_calorie_perday
 
+    ######## 日常生活でのカロリー差 ########
+    
+    # diff_calorie_perday
+    
   end
 
   def pj_alter

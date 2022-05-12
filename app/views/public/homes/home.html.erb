@@ -20,7 +20,6 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <!--border-primaryをclass指定すると枠線の色を紫に変更可能-->
               <div class="card">
                 <div class="card-body text-center">
                   <h6 class="card-title"><%= current_customer.public_name %>さんの目標総消費カロリー</h6>
@@ -65,7 +64,7 @@
                   <h6 class="card-title text-center">進捗率</h6>
                   <h4 class="card-subtitle mb-2 text-muted text-center">
                     <b class = "home_calorie_disp">
-                      ？%
+                      <%= number_to_currency((@result_burn_kcal.to_f/@plan_burn_kcal.to_f)*100, unit: " %", format: "%n%u", precision: 0) %>
                     </b>
                   </h4>
                   <p class="card-text card_annotation_fontsize">計画消費カロリーと実績消費カロリーから進捗率を算出しています<br>※100%を超えていれば進捗が良好であることの目安になります</p>
@@ -78,7 +77,7 @@
                   <h6 class="card-title text-center">1日の自然総消費カロリー</h6>
                   <h4 class="card-subtitle mb-2 text-muted text-center">
                     <b class = "home_calorie_disp">
-                      ？kcal
+                      <%= number_to_currency(@naturally_burn_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
                     </b>
                   </h4>
                   <p class="card-text card_annotation_fontsize">基礎代謝量とプロジェクト作成時に設定した普段の活動傾向からプロジェクト外の消費カロリーを算出しています</p>
@@ -91,7 +90,7 @@
                   <h6 class="card-title text-center">1日の想定摂取カロリー</h6>
                   <h4 class="card-subtitle mb-2 text-muted text-center">
                     <b class = "home_calorie_disp">
-                      ？kcal
+                      <%= number_to_currency(@intake_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
                     </b>
                   </h4>
                   <p class="card-text card_annotation_fontsize">プロジェクト作成時に設定した日々の摂取カロリーを表示しています</p>
@@ -104,10 +103,10 @@
                   <h6 class="card-title text-center">日常生活でのカロリー差</h6>
                   <h4 class="card-subtitle mb-2 text-muted text-center">
                     <b class = "home_calorie_disp">
-                      ？kcal
+                      <%= number_to_currency(@intake_calorie_perday - @naturally_burn_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
                     </b>
                   </h4>
-                  <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後であれば食生活がオーバーカロリーでないことの目安になります</p>
+                  <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後であれば1日の食事がオーバーカロリーでないことの目安になります</p>
                 </div>
               </div>
             </div>
