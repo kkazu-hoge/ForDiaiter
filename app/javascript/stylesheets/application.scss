@@ -13,7 +13,7 @@
 
 /* ヘッダーの後ろに要素が隠れないようにする */
 body {
-  padding-top: 80px;
+  padding-top: 69px;
   color: #696969;
   font-size: 13px;
 }
@@ -63,7 +63,7 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 69px;
   padding-bottom: 80px;
   z-index: 999;
 }
@@ -75,14 +75,24 @@ a:hover {
   border-color: #ba55d3;
 }
 
-.icon_image {
+.icon_area {
   margin-left: 85px;
   margin-right: 15px;
 }
 
+.icon_image:hover {
+  transition: all 0.2s ease;
+  transform: scale(1.1)
+}
+
 .heaedr-link {
-  font-size: 30px;
+  font-size: 20px;
   margin-right: 40px;
+}
+
+.heaedr-link:hover {
+  transition: all 0.2s ease;
+  transform: scale(1.2)
 }
 
 

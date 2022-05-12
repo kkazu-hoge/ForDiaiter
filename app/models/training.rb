@@ -7,4 +7,6 @@ class Training < ApplicationRecord
 　has_many :ordermade_event_details
 # 　, foreign_key: "training_id"
 
+
+
 end
