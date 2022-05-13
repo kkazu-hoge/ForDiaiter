@@ -21,7 +21,7 @@ module CalorieCalcuration
 
   ######  日常生活でのカロリー差 ######
   def diff_calorie_perday(intake_calorie_perday, naturally_burn_calorie_perday)
-    result = (@intake_calorie_perday.to_i - @naturally_burn_calorie_perday.to_i)
+    result = (intake_calorie_perday.to_i - naturally_burn_calorie_perday.to_i)
     return result
   end
 
