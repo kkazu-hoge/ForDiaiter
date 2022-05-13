@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stress_level_param: 1
+  activity_type_param: 1
+  place_param: 1
+  equipment_param: 1
+  burn_calories: 1
+
+two:
+  stress_level_param: 1
+  activity_type_param: 1
+  place_param: 1
+  equipment_param: 1
+  burn_calories: 1

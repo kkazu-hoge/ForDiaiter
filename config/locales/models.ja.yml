@@ -1,0 +1,61 @@
+ja:
+  activerecord:
+    attributes:
+    #   customer:
+    #     email: メールアドレス
+    #     password: パスワード
+    #     password_confirmation: 確認用パスワード
+    #     remember_me: 次回から自動的にログイン
+    #     last_name: 名前（姓）
+    #     first_name: 名前（名）
+    #     last_name_kana: フリガナ（セイ）
+    #     first_name_kana: フリガナ（メイ）
+    #     post_code: 郵便番号
+    #     address: 住所
+    #     phone_number: 電話番号
+    #   admin:
+    #     email: メールアドレス
+    #     password: パスワード
+    #   cart_item:
+    #     customer_id: 会員ID
+    #     item_id: 商品ID
+    #     amount: 数量
+    #   genre:
+    #     name: ジャンル名
+    #   item:
+    #     genre_id: ジャンルID
+    #     name: 商品名
+    #     summary: 商品説明
+    #     price_non_tax: 税抜き価格
+    #     is_active: 会員ステータス
+    #   order_detail:
+    #     order_id: 注文ID
+    #     item_id: 商品ID
+    #     amount: 数量
+    #     price: 税込み価格
+    #     product_status: 製作ステータス
+    #   order:
+    #     customer_id: 会員ID
+    #     payment_type: 支払方法
+    #     t.string "post_code: 配送先郵便番号
+    #     t.string "address: 配送先住所
+    #     t.string "to_name: 宛名
+    #     shipping_fee: 送料
+    #     total_payment: 請求金額
+    #     status: 注文ステータス
+    #   shipping_addresses:
+    #     customer_id: 会員ID
+    #     t.string "post_code: 配送先郵便番号
+    #     t.string "address: 配送先住所
+    #     t.string "to_name: 宛名
+
+    # models:
+    #   customer: 会員
+    #   admin: 管理者
+    #   cart_item: カート商品
+    #   genre: ジャンル
+    #   item: 商品
+    #   order_detail: 注文詳細
+    #   order: 注文
+    #   shipping_addresses: 配送先住所
+
