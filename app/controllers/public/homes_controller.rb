@@ -55,24 +55,18 @@ class Public::HomesController < Public::ApplicationController
   def home_dashboard_date_get(project)
     pj_scope_day_counts = day_counts(project.pj_start_day, project.pj_finish_day)
     dashboard_data_hash = {}
-
     ######## ダッシュボード表示用データ取得 ########
     bmr = basal_metabolic_rate(project)
     dashboard_data_hash[:naturally_burn_calorie_perday] = bmr.to_f * project.life_stress_factor.coefficient.to_f
-
     dashboard_data_hash[:intake_calorie_perday] = project.intake_calorie_perday
-
     dashboard_data_hash[:diff_calorie_perday] = diff_calorie_perday(
                                                 dashboard_data_hash[:intake_calorie_perday],
                                                 dashboard_data_hash[:naturally_burn_calorie_perday]
                                                 )
-
     #日常生活のカロリー差の総和をプロジェクト期間の日数で集計
     sum_diff_calorie = @diff_calorie_perday.to_i * pj_scope_day_counts.to_i
     dashboard_data_hash[:target_burn_kcal] = target_burn_kcal(project, sum_diff_calorie)
-
     dashboard_data_hash[:plan_burn_kcal] = plan_burn_kcal_calc(project, Date.current)
-
     dashboard_data_hash[:result_burn_kcal] = result_burn_kcal_calc(project)
 
     return dashboard_data_hash

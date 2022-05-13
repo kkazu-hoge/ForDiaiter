@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   # URLに"public"を含ませたくないためURLとファイル構成(public配下)が異なるscope moduleでルーティング定義
 
   scope module: 'public' do
-
     root :to          =>'homes#top'
     get   "/home"     =>'homes#home'
     get  "/pj_alter" =>'homes#pj_alter'
