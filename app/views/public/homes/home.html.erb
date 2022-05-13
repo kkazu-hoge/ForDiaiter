@@ -6,8 +6,7 @@
           <div class="row justify-content-center select_project_area">
             <div class="col-10 col-lg-6 col-md-8 col-sm-10">
               <%= form_with url: pj_alter_path, method: :get, remote: true do |f| %>
-                <%= f.select :project, options_for_select(@projects_array, @projects_array.first), {}, { class: "form-control select-drop-project" , required: true } %>
-                <!--include_blank: "―"-->
+                <%= f.select :project_id, options_for_select(@projects_array, @projects_array.first), {}, class: "form-control select-drop-project" , required: true %>
               <% end %>
             </div>
             <div class="col-2 col-lg-1 col-md-2 col-sm-2">
@@ -37,3 +36,21 @@
     </div>
   </div>
 </div>
+<script>
+// $(document).on('turbolinks:load', function() {
+//   $(".select-drop-project").change(function() {
+//       $(this).parent().submit();
+//     });
+// });
+
+jQuery(document).bind("ready ajaxComplete turbolinks:load", function() {
+  $(".select-drop-project").change(function() {
+    let inputpulldown = $(".select-drop-project").val();
+      if (inputpulldown == ""){
+        return;
+      }else{
+        $(this).parent().submit();
+      }
+    });
+});
+</script>

@@ -14,7 +14,8 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import Chart from "chart.js/auto";
 global.Chart = Chart;
-// import "home_graph"
+import "home_graph"
+// import "home_pulldown"
 
 Rails.start()
 Turbolinks.start()
