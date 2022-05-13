@@ -5,9 +5,14 @@
         <div class="container-fluid">
           <div class="row justify-content-center select_project_area">
             <div class="col-10 col-lg-6 col-md-8 col-sm-10">
-              <%= form_with url: pj_alter_path, method: :get, remote: true do |f| %>
-                <%= f.select :project_id, options_for_select(@projects_array, @projects_array.first), {}, class: "form-control select-drop-project" , required: true %>
-              <% end %>
+              <!--%= form_tag pj_alter_path, method: :get, remote: true do %>-->
+              <div class = "select-drop-area">
+                <%= form_with url: pj_alter_path, method: :get do |f| %>
+                  <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
+                  <!--% f.submit %>-->
+                  <!--%= select_tag :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), include_blank: true, class: "form-control select-drop-project" %>-->
+                <% end %>
+              </div>
             </div>
             <div class="col-2 col-lg-1 col-md-2 col-sm-2">
               <div class="home_add_icon">
@@ -16,20 +21,22 @@
                 <% end %>
               </div>
             </div>
-          </div>
+          </div class = "dashboard_contents">
           <% if @projects.blank? %>
             <div class="text-center">
               プロジェクトがありません。プロジェクト作成後にダッシュボードが表示されます。
             </div>
           <% else %>
-            <%= render "public/homes/dashboard", {
-            target_burn_kcal: @target_burn_kcal,
-            plan_burn_kcal: @plan_burn_kcal,
-            result_burn_kcal: @result_burn_kcal,
-            naturally_burn_calorie_perday: @naturally_burn_calorie_perday,
-            intake_calorie_perday: @intake_calorie_perday,
-            diff_calorie_perday: @diff_calorie_perday
-            }%>
+            <div class = "dashboard_contents">
+              <%= render "public/homes/dashboard", {
+              target_burn_kcal: @target_burn_kcal,
+              plan_burn_kcal: @plan_burn_kcal,
+              result_burn_kcal: @result_burn_kcal,
+              naturally_burn_calorie_perday: @naturally_burn_calorie_perday,
+              intake_calorie_perday: @intake_calorie_perday,
+              diff_calorie_perday: @diff_calorie_perday
+              }%>
+            </div>
           <% end %>
         </div>
       </div>
@@ -49,7 +56,9 @@ jQuery(document).bind("ready ajaxComplete turbolinks:load", function() {
       if (inputpulldown == ""){
         return;
       }else{
-        $(this).parent().submit();
+        // $(this).parent().submit();
+        Rails.fire($(this).parent()[0], "submit");
+        // Rails.fire($(this).parent().submit());
       }
     });
 });
