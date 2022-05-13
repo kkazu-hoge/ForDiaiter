@@ -22,7 +22,7 @@
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="" class="bs-wizard-dot"></a>
         </div>
-    </div>
+      </div>
     <!--<div class="row bs-wizard2" style="border-bottom:0;">-->
     <!--    <div class="col-4 bs-wizard-step complete">-->
     <!--      <div class="text-center bs-wizard-stepnum">基礎情報の入力</div>-->
@@ -58,13 +58,90 @@
     <!--      <a href="" class="bs-wizard-dot"></a>-->
     <!--    </div>-->
     <!--  </div>-->
-
+      <div class="row justify-content-center">
        <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-body">
 
+              <%= form_with model: @customer, url: customer_path(@customer), method: :get do |f| %>
+                <div class="field">
+                  <div class='row login_input_field'>
+                      <div class='col-12 col-lg-2 col-md-2 col-sm-12 '>
+                        <b><span>名前</span></b>
+                      </div>
+                      <div class='col-5 col-lg-1 col-md-1 col-sm-4 '>
+                        <b><%= f.label :"(姓)" %></b></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                        <%= f.text_field :last_name, class: "form-control" %>
+                      </div>
+                      <div class='col-5 col-lg-1 col-md-1 col-sm-4'>
+                        <b><%= f.label :"(名)" %></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                        <%= f.text_field :first_name, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                        <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                          <b><%= f.label :"公開用ネーム" %></b>
+                        </div>
+                        <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                          <%= f.text_field :public_name, class: "form-control" %>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                        <b><%= f.label :"性別" %></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-6'>
+                        <div class='row'>
+                          <div class="col-6">
+                            <%= f.radio_button :sex, :man %>
+                            <b><%= f.label "男性" %></b>
+                          </div>
+                          <div class="col-6">
+                            <%= f.radio_button :sex, :woman %>
+                            <b><%= f.label "女性" %></b>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                        <b><%= f.label :"生年月日" %></b>
+                      </div>
+                      <div class='col-7'>
+                        <%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: @customer.birthday, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='row login_input_field login_button'>
+                    <div class='col-11'>
+                      <div class="actions">
+                        <%= f.submit "変更する",class: 'btn col-8 col-lg-4 col-md-5 col-sm-8 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
+                      </div>
+                    </div>
+                  </div>
+                  <% end %>
+
+                  <div class="row">
+                    <div class="col-11 text-center">
+                      <%= link_to new_wizard2_projects_path do %>
+                        <b>次へ</b>
+                      <% end %>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>

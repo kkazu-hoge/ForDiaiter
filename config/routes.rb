@@ -24,7 +24,10 @@ Rails.application.routes.draw do
       patch :defection,             on: :member
     end
 
-    resources :projects,  only: [:index, :show, :new, :edit, :create, :update]
+    resources :projects,  only: [:index, :show, :new, :edit, :create, :update] do
+      get :new_wizard2, on: :collection
+      get :new_wizard3, on: :collection
+    end
     resources :pj_events, only: [:show, :new, :edit, :update, :destroy]
 
     resources :pj_template_events, only: [:new, :create, :destroy] do

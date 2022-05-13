@@ -6,6 +6,13 @@ class Public::ProjectsController < Public::ApplicationController
   end
 
   def new
+    @customer = current_customer
+  end
+
+  def new_wizard2
+  end
+
+  def new_wizard3
   end
 
   def edit
