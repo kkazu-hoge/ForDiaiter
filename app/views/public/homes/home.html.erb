@@ -6,13 +6,12 @@
           <div class="row justify-content-center select_project_area">
             <div class="col-10 col-lg-6 col-md-8 col-sm-10">
               <!--%= form_tag pj_alter_path, method: :get, remote: true do %>-->
-              <div class = "select-drop-area">
-                <%= form_with url: pj_alter_path, method: :get do |f| %>
+                <%= form_with url: pj_alter_path, method: :get, local: false do |f| %>
                   <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
-                  <!--% f.submit %>-->
-                  <!--%= select_tag :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), include_blank: true, class: "form-control select-drop-project" %>-->
+                  <div id="select-drop-submit" style="display:none;">
+                    <%= f.submit %>
+                  </div>
                 <% end %>
-              </div>
             </div>
             <div class="col-2 col-lg-1 col-md-2 col-sm-2">
               <div class="home_add_icon">
@@ -37,6 +36,9 @@
               diff_calorie_perday: @diff_calorie_perday
               }%>
             </div>
+            <div class = "graph_contents">
+              <%= render "public/homes/graph" %>
+            </div>
           <% end %>
         </div>
       </div>
@@ -44,21 +46,14 @@
   </div>
 </div>
 <script>
-// $(document).on('turbolinks:load', function() {
-//   $(".select-drop-project").change(function() {
-//       $(this).parent().submit();
-//     });
-// });
-
 jQuery(document).bind("ready ajaxComplete turbolinks:load", function() {
   $(".select-drop-project").change(function() {
     let inputpulldown = $(".select-drop-project").val();
       if (inputpulldown == ""){
         return;
       }else{
-        // $(this).parent().submit();
-        Rails.fire($(this).parent()[0], "submit");
-        // Rails.fire($(this).parent().submit());
+        $("#select-drop-submit > input[type='submit']").click()
+        // Rails.fire($(this).parent()[0], "submit");
       }
     });
 });

@@ -9,7 +9,7 @@ class Public::HomesController < Public::ApplicationController
     @projects = Project.get_projects_sort_desc_createday(current_customer)
     @projects.blank? ? @projects_array = [] : @projects_array = @projects.get_projects_pulldown_list
     @pj_pulldown_initial_set_value = @projects_array.first
-    
+
     unless @projects.blank?
       project = @projects.first
       pj_scope_day_counts = day_counts(project.pj_start_day, project.pj_finish_day)
@@ -63,8 +63,10 @@ class Public::HomesController < Public::ApplicationController
 
       @result_burn_kcal = result_burn_kcal_calc(project)
 
+      @result_burn_kcal = 60
+
       #　※”進捗率”は画面側で処理
     end
-    binding.pry
+    # binding.pry
   end
 end
