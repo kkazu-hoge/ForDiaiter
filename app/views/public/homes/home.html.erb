@@ -5,9 +5,9 @@
         <div class="container-fluid">
           <div class="row justify-content-center select_project_area">
             <div class="col-10 col-lg-6 col-md-8 col-sm-10">
-              <%= form_with url: home_path, method: :get, remote: true do |f| %>
-                <!--% f.hidden_field :id, current_customer.id %>-->
-                <%= f.select :sex, {"プロジェクト1": "project_id", "プロジェクト2": "project_id"}, { include_blank: 'プロジェクトを選択してください'}, { class: 'form-control' , required: true } %>
+              <%= form_with url: pj_alter_path, method: :get, remote: true do |f| %>
+                <%= f.select :project, options_for_select(@projects_array, @projects_array.first), {}, { class: "form-control select-drop-project" , required: true } %>
+                <!--include_blank: "―"-->
               <% end %>
             </div>
             <div class="col-2 col-lg-1 col-md-2 col-sm-2">

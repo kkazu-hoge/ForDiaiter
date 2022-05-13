@@ -7,6 +7,8 @@ class Public::HomesController < Public::ApplicationController
 
   def home
     @projects = Project.get_projects_sort_desc_createday(current_customer)
+    @projects.blank? ? @projects_array = [] : @projects_array = @projects.get_projects_pulldown_list
+    # @projects.blank? ? @projects_array = [] : @projects_array = @projects.order(created_at: :desc).map{|pe| [pe[:name], pe[:id]]}
 
     unless @projects.blank?
       project = @projects.first
@@ -33,7 +35,7 @@ class Public::HomesController < Public::ApplicationController
 
       ######## 実績消費カロリー ########
       @result_burn_kcal = result_burn_kcal_calc(project)
-      
+
       #　※”進捗率”は画面側で処理
     end
   end

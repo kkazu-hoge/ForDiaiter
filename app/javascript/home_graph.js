@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
             tension: 0.4
         },
         {
-            label: '実績消費カロリー',
+            label: "実績消費カロリー",
             data: [-10, -15],
             backgroundColor: [
                 'rgba(54, 162, 235, 0.2)'

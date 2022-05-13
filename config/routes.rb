@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     root :to          =>'homes#top'
     get   "/home"     =>'homes#home'
-    post  "/pj_alter" =>'homes#pj_alter'
+    get  "/pj_alter" =>'homes#pj_alter'
 
     devise_for :customers,skip: [:passwords], controllers: {
       registrations: 'public/registrations'
