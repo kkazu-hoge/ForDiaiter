@@ -4,7 +4,12 @@
       <div class="home-contents">
         <div class="container-fluid">
           <div class="row justify-content-center select_project_area">
-            <div class="col-10 col-lg-6 col-md-8 col-sm-10">
+            <div class="col-12 text-center">
+              <!--<div class="col-12 col-lg-2 col-md-12 col-sm-12 text-center">-->
+                <b><h6 style = "padding-top:10px;">【プロジェクト選択】</h6></b>
+              <!--</div>-->
+            </div>
+            <div class="col-10 col-lg-5 col-md-8 col-sm-10">
               <!--%= form_tag pj_alter_path, method: :get, remote: true do %>-->
                 <%= form_with url: pj_alter_path, method: :get, local: false do |f| %>
                   <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
