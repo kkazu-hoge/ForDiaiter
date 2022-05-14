@@ -1,9 +1,15 @@
 class Public::CustomersController < Public::ApplicationController
+
+  include Common
+
   def show
   end
 
   def edit
     @customer = current_customer
+    @height_pulldown = height_pulldown_get
+    @weight_pulldown = weight_pulldown_get
+
   end
 
   def edit_mail_address
