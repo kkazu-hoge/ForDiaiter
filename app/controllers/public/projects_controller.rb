@@ -28,8 +28,11 @@ class Public::ProjectsController < Public::ApplicationController
   def new_wizard2
     #基礎情報入力画面でセットしたリクエストパラメータをsession情報に保存
     session[:project] = new_params
-
-
+      #仮置き
+      @customer = session[:project]
+      @customer_age = @customer["age"]
+      @customer_target_weight = @customer["target_weight"]
+      @project = Project.new
     # #session情報をクリアする
     # session[:project] = nil
 
