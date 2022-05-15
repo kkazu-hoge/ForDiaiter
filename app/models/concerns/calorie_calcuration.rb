@@ -37,7 +37,7 @@ module CalorieCalcuration
     if pj_obj[:pj_start_day] > current_day
       result = 0
     else
-      #現在の日付がプロジェクトの終了日を経過していなければ消費カロリー計算に使用
+      #現在の日付がプロジェクトの終了日を経過していなければ消費カロリー計算に現在の日付を使用
       pj_obj[:pj_finish_day] <= current_day ? calc_pj_finish_day = pj_obj[:pj_finish_day] : calc_pj_finish_day = current_day
 
       plan_event_counts = ((calc_pj_finish_day - pj_obj[:pj_start_day]).to_i / pj_obj[:interval]) + 1

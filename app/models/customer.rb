@@ -17,10 +17,10 @@ class Customer < ApplicationRecord
 
 
   ######インスタンスメソッド######
-  def birthday_transfer_age
-    
-    
-  
+  def birthday_transfer_age(birthday)#birtday = date型
+    (Date.current.strftime("%Y%m%d").to_i -  birthday.strftime("%Y%m%d").to_i) / 10000
+  end
+
 
 
   ######クラスメソッド######
