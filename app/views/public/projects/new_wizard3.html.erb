@@ -65,6 +65,79 @@
                     <div class="card">
                       <div class="card-body">
                         <!--トレーニング選択エリア-->
+                        <%= form_with url: new_wizard3_projects_path, method: :get do |f| %>
+                        <ul class="sample1 training_select_scroll">
+                          <li>
+                            <div class="row">
+                              <div class="col-6">
+                                トレーニング１
+                              </div>
+                              <div class="col-3">
+                              <%= f.text_field :name, class: "form-control form-control-sm" %>
+                              </div>
+                              <div class="col-2">
+                                <btn>削除</btn>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="row">
+                              <div class="col-6">
+                                トレーニング２
+                              </div>
+                              <div class="col-3">
+                              <%= f.text_field :name, class: "form-control form-control-sm" %>
+                              </div>
+                              <div class="col-2">
+                                <btn>削除</btn>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="row">
+                              <div class="col-6">
+                                トレーニング３
+                              </div>
+                              <div class="col-3">
+                              <%= f.text_field :name, class: "form-control form-control-sm" %>
+                              </div>
+                              <div class="col-2">
+                                <btn>削除</btn>
+                              </div>
+                            </div>
+                          </li>
+                        <!--  <li>-->
+                        <!--    <div class="row">-->
+                        <!--      <div class="col-4">-->
+                        <!--        トレーニング４-->
+                        <!--      </div>-->
+                        <!--      <div class="col-4">-->
+                        <!--      <%= f.text_field :name, class: "form-control form-control-sm" %>-->
+                        <!--      </div>-->
+                        <!--    </div>-->
+                        <!--  </li>-->
+                        <!--  <li>-->
+                        <!--    <div class="row">-->
+                        <!--      <div class="col-4">-->
+                        <!--        トレーニング５-->
+                        <!--      </div>-->
+                        <!--      <div class="col-4">-->
+                        <!--      <%= f.text_field :name, class: "form-control form-control-sm" %>-->
+                        <!--      </div>-->
+                        <!--    </div>-->
+                        <!--  </li>-->
+                        <!--  <li>-->
+                        <!--    <div class="row">-->
+                        <!--      <div class="col-4">-->
+                        <!--        トレーニング６-->
+                        <!--      </div>-->
+                        <!--      <div class="col-4">-->
+                        <!--      <%= f.text_field :name, class: "form-control form-control-sm" %>-->
+                        <!--      </div>-->
+                        <!--    </div>-->
+                        <!--  </li>-->
+                        <!--</ul>-->
+                        <% end %>
                       </div>
                     </div>
                   </div>
