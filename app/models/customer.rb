@@ -16,6 +16,14 @@ class Customer < ApplicationRecord
             presence: true
 
 
+  ######インスタンスメソッド######
+  def birthday_transfer_age
+    
+    
+  
+
+
+  ######クラスメソッド######
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
