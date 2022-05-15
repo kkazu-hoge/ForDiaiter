@@ -67,19 +67,7 @@
               <div class="card-body">
 
               <%= form_with model: @customer, url: customer_path(@customer), method: :get do |f| %>
-                </div>
-                  <div class="field">
-                    <div class='row login_input_field'>
-                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
-                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
-                        <b><%= f.label :"身長" %></b>
-                      </div>
-                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
-                        <%= f.select :height, @height_pulldown,{ include_blank: true, selected: @customer.height }, { class: "form-control" } %>
-                      </div>
-                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
-                    </div>
-                  </div>
+
                   <div class="field">
                     <div class='row login_input_field'>
                       <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
@@ -109,6 +97,42 @@
                       </div>
                       <div class='col-5'>
                         <%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: @customer.birthday, class: "form-control" %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"身長" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :height, @height_pulldown,{ include_blank: true, selected: @customer.height }, { class: "form-control" } %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"体重" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :weight, @weight_pulldown,{ include_blank: true, selected: @customer.weight }, { class: "form-control" } %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"目標体重" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :target_weight, @weight_pulldown,{ include_blank: true, selected:"" }, { class: "form-control" } %>
                       </div>
                       <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
                     </div>
