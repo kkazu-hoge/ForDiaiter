@@ -29,6 +29,7 @@ class Public::ProjectsController < Public::ApplicationController
     #基礎情報入力画面でセットしたリクエストパラメータをsession情報に保存
     session[:project] = new_params
 
+
     # #session情報をクリアする
     # session[:project] = nil
 
@@ -47,6 +48,7 @@ class Public::ProjectsController < Public::ApplicationController
   end
 
 
+
   private
 
   def initial_value_set
@@ -62,6 +64,17 @@ class Public::ProjectsController < Public::ApplicationController
       :height,
       :weight,
       :target_weight
+      )
+  end
+
+  def new_wizard2_params
+    params.require(:project).permit(
+      :name,
+      :pj_start_day,
+      :pj_finish_day,
+      :life_stress_factor_id,
+      :intake_calorie_perday,
+      :interval
       )
   end
 

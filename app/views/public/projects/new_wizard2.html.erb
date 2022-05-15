@@ -30,7 +30,84 @@
             <div class="card">
               <div class="card-body">
 
+              <%= form_with model: @project, url: new_wizard3_projects_path, method: :get do |f| %>
 
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"プロジェクト名" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.text_field :name, class: "form-control" %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"年齢" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :age, @age_pulldown,{ include_blank: true, selected: @customer_age }, { class: "form-control" } %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"身長" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :height, @height_pulldown,{ include_blank: true, selected: @customer["height"] }, { class: "form-control" } %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"体重" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :weight, @weight_pulldown,{ include_blank: true, selected: @customer["weight"] }, { class: "form-control" } %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"目標体重" %></b>
+                      </div>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :target_weight, @weight_pulldown,{ include_blank: true, selected: @customer_target_weight}, { class: "form-control" } %>
+                      </div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
+                    </div>
+                  </div>
+                  <div class='row login_input_field login_button'>
+                    <div class='col-12'>
+                      <div class="actions">
+                        <%= f.submit "次へ",class: 'btn col-8 col-lg-3 col-md-4 col-sm-6 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
+                      </div>
+                    </div>
+                  </div>
+                  <% end %>
+
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <%= link_to new_wizard3_projects_path, class:"js-trigger-transition" do %>
+                        <b>次へ</b>
+                      <% end %>
+                    </div>
+                  </div>
 
               </div>
             </div>
