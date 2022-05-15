@@ -38,10 +38,10 @@ class Public::ProjectsController < Public::ApplicationController
 
     #基礎情報入力画面でセットしたリクエストパラメータをsession情報に保存
     unless params[:project].blank?
-      session[:project][:sex] = params[:project][:sex]
-      session[:project][:age] = params[:project][:age]
-      session[:project][:height] = params[:project][:height]
-      session[:project][:weight] = params[:project][:weight]
+      session[:project][:sex] =           params[:project][:sex]
+      session[:project][:age] =           params[:project][:age]
+      session[:project][:height] =        params[:project][:height]
+      session[:project][:weight] =        params[:project][:weight]
       session[:project][:target_weight] = params[:project][:target_weight]
     end
 
@@ -69,14 +69,15 @@ class Public::ProjectsController < Public::ApplicationController
   def new_wizard3
     #プロジェクト設定画面でセットしたリクエストパラメータをsession情報に保存
     unless params[:project].blank?
-      session[:project][:name] = params[:project][:name]
       pj_start_day = Date.new params[:project]["pj_start_day(1i)"].to_i,params[:project]["pj_start_day(2i)"].to_i,params[:project]["pj_start_day(3i)"].to_i
       pj_finish_day = Date.new params[:project]["pj_finish_day(1i)"].to_i,params[:project]["pj_finish_day(2i)"].to_i,params[:project]["pj_finish_day(3i)"].to_i
-      session[:project][:pj_start_day] = pj_start_day
-      session[:project][:pj_finish_day] = pj_finish_day
+
+      session[:project][:name] =                  params[:project][:name]
+      session[:project][:pj_start_day] =          pj_start_day
+      session[:project][:pj_finish_day] =         pj_finish_day
       session[:project][:life_stress_factor_id] = params[:project][:life_stress_factor_id]
       session[:project][:intake_calorie_perday] = params[:project][:intake_calorie_perday]
-      session[:project][:interval] = params[:project][:interval]
+      session[:project][:interval] =              params[:project][:interval]
     end
 
 
@@ -98,6 +99,7 @@ class Public::ProjectsController < Public::ApplicationController
 
 
 
+
   private
 
   def initial_value_set
@@ -113,17 +115,6 @@ class Public::ProjectsController < Public::ApplicationController
       :height,
       :weight,
       :target_weight
-      )
-  end
-
-  def new_wizard2_params
-    params.require(:project).permit(
-      :name,
-      :pj_start_day,
-      :pj_finish_day,
-      :life_stress_factor_id,
-      :intake_calorie_perday,
-      :interval
       )
   end
 
