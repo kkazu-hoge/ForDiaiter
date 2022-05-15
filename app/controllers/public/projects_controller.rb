@@ -1,4 +1,10 @@
 class Public::ProjectsController < Public::ApplicationController
+
+  include Common
+
+  before_action :initial_valu_set, only: [:new]
+
+
   def index
   end
 
@@ -7,6 +13,7 @@ class Public::ProjectsController < Public::ApplicationController
 
   def new
     @customer = current_customer
+
   end
 
   def new_wizard2
@@ -23,4 +30,13 @@ class Public::ProjectsController < Public::ApplicationController
 
   def update
   end
+
+
+  private
+
+  def initial_valu_set
+    @height_pulldown = height_pulldown_get  #Commonメソッド
+    @weight_pulldown = weight_pulldown_get  #Commonメソッド
+  end
+
 end

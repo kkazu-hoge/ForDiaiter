@@ -67,46 +67,26 @@
               <div class="card-body">
 
               <%= form_with model: @customer, url: customer_path(@customer), method: :get do |f| %>
-                <div class="field">
-                  <div class='row login_input_field'>
-                    <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
-                    <div class='col-12 col-lg-2 col-md-2 col-sm-12 '>
-                      <b><span>名前</span></b>
-                    </div>
-                    <div class='col-5 col-lg-1 col-md-1 col-sm-4 '>
-                      <b><%= f.label :"(姓)" %></b></b>
-                    </div>
-                    <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                      <%= f.text_field :last_name, class: "form-control" %>
-                    </div>
-                    <div class='col-5 col-lg-1 col-md-1 col-sm-4'>
-                      <b><%= f.label :"(名)" %></b>
-                    </div>
-                    <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                      <%= f.text_field :first_name, class: "form-control" %>
-                  </div>
-                  <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
-                </div>
                 </div>
                   <div class="field">
                     <div class='row login_input_field'>
-                      <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
-                        <b><%= f.label :"公開用ネーム" %></b>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
+                        <b><%= f.label :"身長" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                        <%= f.text_field :public_name, class: "form-control" %>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
+                        <%= f.select :height, @height_pulldown,{ include_blank: true, selected: @customer.height }, { class: "form-control" } %>
                       </div>
-                      <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
                     </div>
                   </div>
                   <div class="field">
                     <div class='row login_input_field'>
-                      <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
                         <b><%= f.label :"性別" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-6'>
+                      <div class='col-4 col-lg-2 col-md-3 col-sm-5'>
                         <div class='row'>
                           <div class="col-6">
                             <%= f.radio_button :sex, :man %>
@@ -118,25 +98,25 @@
                           </div>
                         </div>
                       </div>
-                      <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
+                      <div class='col-1 col-lg-2 col-md-1 col-sm-1 '></div>
                     </div>
                   </div>
                   <div class="field">
                     <div class='row login_input_field'>
-                      <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <div class='col-2 col-lg-4 col-md-3 col-sm-2 '></div>
+                      <div class='col-3 col-lg-2 col-md-2 col-sm-3'>
                         <b><%= f.label :"生年月日" %></b>
                       </div>
-                      <div class='col-7'>
+                      <div class='col-5'>
                         <%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: @customer.birthday, class: "form-control" %>
                       </div>
-                      <div class='col-0 col-lg-1 col-md-0 col-sm-0 '></div>
+                      <div class='col-1 col-lg-1 col-md-1 col-sm-1 '></div>
                     </div>
                   </div>
                   <div class='row login_input_field login_button'>
                     <div class='col-12'>
                       <div class="actions">
-                        <%= f.submit "変更する",class: 'btn col-8 col-lg-3 col-md-4 col-sm-6 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
+                        <%= f.submit "次へ",class: 'btn col-8 col-lg-3 col-md-4 col-sm-6 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
                       </div>
                     </div>
                   </div>
