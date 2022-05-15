@@ -9,11 +9,12 @@
   background-color: #e8d1ff;
   color: #8b008b;
   font-weight: bold;
+  margin-top: 2px;
 }
 
 /* ヘッダーの後ろに要素が隠れないようにする */
 body {
-  padding-top: 69px;
+  padding-top: 67px;
   color: #696969;
   font-size: 13px;
 }
@@ -63,16 +64,20 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 69px;
-  padding-bottom: 80px;
+  height: 67px;
+  padding-bottom: 67px;
   z-index: 999;
+  // border-shadow: 0px 3px 0px rgba(0,0,0,.1);
 }
 
 .nav_bg_color{
   background-color: #ffffff;
-  border-bottom-style: groove;
-  border-width: 3px;
-  border-color: #ba55d3;
+  // border-bottom-style: groove;
+  box-shadow: 0px 3px 5px rgba(0,0,0,.1);
+  // border-width: 1px;
+  // border-color: #8b008b;
+  // border-width: 3px;
+  // border-color: #ba55d3;
 }
 
 .icon_area {
