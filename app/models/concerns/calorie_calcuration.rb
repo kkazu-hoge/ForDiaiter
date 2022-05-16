@@ -3,10 +3,10 @@ module CalorieCalcuration
 
   ###### 基礎代謝の計算 ######
   def basal_metabolic_rate(obj)
-    if obj[:sex] == "man"
-      result = 13.397 * obj[:weight] + 4.799 * obj[:height] + 88.362 - 5.677 * obj[:age]
+    if obj["sex"] == "man"
+      result = 13.397 * obj["weight"].to_i + 4.799 * obj["height"].to_i + 88.362 - 5.677 * obj["age"].to_i
     elsif obj[:sex] == "women"
-      result = 9.247 * obj[:weight] + 3.098 * obj[:height] + 447.593 - 4.33 * obj[:age]
+      result = 9.247 * obj["weight"].to_i + 3.098 * obj["height"].to_i + 447.593 - 4.33 * obj["age"].to_i
     else
       result = "erorr"
     end
@@ -27,27 +27,27 @@ module CalorieCalcuration
 
   ###### 目標総消費カロリーの計算 ######
   def target_burn_kcal(pj_obj, sum_diff_calorie)
-    result = 7200 * (pj_obj[:weight] - pj_obj[:target_weight]) + sum_diff_calorie
+    result = 7200 * (pj_obj["weight"].to_i - pj_obj["target_weight"].to_i) + sum_diff_calorie.to_i
     return result
   end
 
   ###### イベント回数の計算 ######
   def event_counts_calc(finish_day, start_day, interval)
-    result = ((finish_day - start_day).to_i / interval) + 1
+    result = ((finish_day.to_date - start_day.to_date).to_i / interval.to_i) + 1
     return result
   end
 
   ###### 計画消費カロリーの計算 ######
   # プロジェクト開始日に到達していない場合は"0"、到達している場合は"計算値"をセットし、計算結果を返却する
   def plan_burn_kcal_calc(pj_obj, current_day)
-    if pj_obj[:pj_start_day] > current_day
+    if pj_obj["pj_start_day"].to_date > current_day
       result = 0
     else
       #現在の日付がプロジェクトの終了日を経過していなければ消費カロリー計算に現在の日付を使用
 
-      pj_obj[:pj_finish_day] <= current_day ? calc_pj_finish_day = pj_obj[:pj_finish_day] : calc_pj_finish_day = current_day
+      pj_obj["pj_finish_day"].to_date <= current_day ? calc_pj_finish_day = pj_obj["pj_finish_day"].to_date : calc_pj_finish_day = current_day
 
-      plan_event_counts = event_counts_calc(calc_pj_finish_day, pj_obj[:pj_start_day], pj_obj[:interval])
+      plan_event_counts = event_counts_calc(calc_pj_finish_day, pj_obj["pj_start_day"].to_date, pj_obj["interval"])
       # plan_event_counts = ((calc_pj_finish_day - pj_obj[:pj_start_day]).to_i / pj_obj[:interval]) + 1
 
       each_event_training_allkcal = 0
@@ -69,7 +69,7 @@ module CalorieCalcuration
     pj_evnets = pj_obj.pj_events
     #イベント詳細(１トレーニング)の消費カロリー × イベント詳細数 × イベント数
     pj_evnets.each do |pj_ev|
-      result += pj_ev.pj_event_details.sum(:burn_calories)
+      result += pj_ev.pj_event_details.sum("burn_calories")
     end
     return result
   end

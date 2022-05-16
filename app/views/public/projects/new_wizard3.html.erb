@@ -37,8 +37,8 @@
                       <div class="card-header"><b>目標の体重を達成するための総消費カロリー</b></div>
                       <div class="card-body">
                         <!--参考情報-->
-                      （現在の体重：kg　＞＞　目標体重：kg）
-                        <h4>14,400kcal</h4>
+                      （現在の体重：<%= @weight %>kg　＞＞　目標体重：<%= @target_weight %>kg）
+                        <h4><%= @target_burn_kcal %>kcal</h4>
                       </div>
                     </div>
                   </div>
@@ -47,8 +47,8 @@
                     <div class="card-header"><b>イベント1回あたりの推奨消費カロリー量</b></div>
                       <div class="card-body">
                         <!--参考情報-->
-                        プロジェクト期間のイベント回数：？回
-                        <h4>1,440kcal</h4>
+                        プロジェクト期間のイベント回数：<%= @event_counts %> 回
+                        <h4><%= @target_burn_kcal_per_event %>kcal</h4>
                       </div>
                     </div>
                   </div>
