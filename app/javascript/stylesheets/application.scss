@@ -600,35 +600,53 @@ h5 .wizard-contents {
 
 // wizard_3の画面
 
+// ul.sample1{
+//   padding: 0;
+//   font: 14px/1.6 'arial narrow', sans-serif;
+//   width: 80%;
+//   list-style: none;
+// }
+// ul.sample1 li{
+//   position: relative;
+//   padding: 7px 5px 7px 35px;
+//   margin-bottom:5px;
+//   background: #5c9ee7;
+//   color: #fff;
+// }
+// ul.sample1 li:before{
+//   content: "";
+//   position: absolute;
+//   left: 10px;
+//   display: block;
+//   width: 1em;
+//   height: 1em;
+//   border-radius: 50%;
+//   background: #fff;
+//   top: 50%;
+//   -moz-transform: translateY(-50%);
+//   -webkit-transform: translateY(-50%);
+//   -o-transform: translateY(-50%);
+//   -ms-transform: translateY(-50%);
+//   transform: translateY(-50%);
+// }
+
 ul.sample1{
   padding: 0;
-  font: 14px/1.6 'arial narrow', sans-serif;
-  width: 80%;
-  list-style: none;
+  width: 100%;
 }
-ul.sample1 li{
-  position: relative;
-  padding: 7px 5px 7px 35px;
-  margin-bottom:5px;
-  background: #5c9ee7;
-  color: #fff;
+
+ul.sample1 li , ol.sample1 li{
+  // color: #404040;
+  border-left: solid 6px #9400d3;/*左側の線*/
+  border-bottom: solid 2px #dadada;/*下に灰色線*/
+  background: whitesmoke;
+  margin-bottom: 5px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;/*ポチ消す*/
+  font-weight: bold;
 }
-ul.sample1 li:before{
-  content: "";
-  position: absolute;
-  left: 10px;
-  display: block;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  background: #fff;
-  top: 50%;
-  -moz-transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+
 
 .training_select_scroll{
   height: 170px;
