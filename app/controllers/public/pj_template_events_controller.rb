@@ -1,5 +1,7 @@
 class Public::PjTemplateEventsController < Public::ApplicationController
   def new
+    @pj_event_details = PjEventDetail.new
+    @trainings = Training.all
   end
 
   def create
@@ -9,7 +11,10 @@ class Public::PjTemplateEventsController < Public::ApplicationController
   end
 
   def pj_event_add_training
-    
+    # @pj_event_details = PjEventDetail.new
+    # binding.pry
+    # @trainings = Training.all
+
   end
 
   def show_event
