@@ -52,20 +52,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 col-lg-12 col-md-6 col-sm-6">
-                    <div class="card text-center">
-                      <div class="card-body">
-                        <!--参考情報-->
-                        現在選択中のトレーニング消費カロリー量<br>※イベント1回あたり
-                        <div class="d-flex justify-content-center align-items-center">
-                          <h4>360kcal</h4>
-                          <h6>　＞＞　</h6>
-                          <!-- ifで表示内容出し分け -->
-                          <h6>推奨カロリーから1100kcal不足</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <div class="row">
@@ -74,8 +60,8 @@
                       <div class="card-header"><b>トレーニングメニュー</b></div>
                       <div class="card-body">
                         <!--トレーニング選択エリア-->
-                        <div class="row traini">
-                          <div class="col-12 col-lg-12 col-md-6 col-sm-6">
+                        <div class="row training_select_caption justify-content-center">
+                          <div class="col-12 col-lg-8 col-md-12 col-sm-12 ">
                             <div class="card text-center">
                               <div class="card-body">
                                 <!--参考情報-->
@@ -84,7 +70,7 @@
                                   <h4>360kcal</h4>
                                   <h6>　＞＞　</h6>
                                   <!-- ifで表示内容出し分け -->
-                                  <h6>推奨カロリーから1100kcal不足</h6>
+                                  <h6>推奨消費カロリーから1100kcal不足</h6>
                                 </div>
                               </div>
                             </div>
@@ -98,7 +84,7 @@
                                 <li>
                                   <div class="row">
                                     <div class="col-6">
-                                      トレーニング１
+                                      トレーニング１（10分:?kcal）
                                     </div>
                                     <div class="col-3">
                                       <%= f.text_field :name, class: "form-control form-control-sm", placeholder: "時間：分" %>

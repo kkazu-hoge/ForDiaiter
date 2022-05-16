@@ -35,9 +35,9 @@ class Public::ProjectsController < Public::ApplicationController
     if session[:project].blank?
       session[:project] = Project.new
     end
-    
+
     #リクエスト内容の入力チェック・バリデーションの実装が必要
-    
+
     #基礎情報入力画面でセットしたリクエストパラメータをsession情報に保存
     unless params[:project].blank?
       session[:project][:sex] =           params[:project][:sex]
@@ -70,7 +70,7 @@ class Public::ProjectsController < Public::ApplicationController
 
   def new_wizard3
     #リクエスト内容の入力チェック・バリデーションの実装が必要
-    
+
     #プロジェクト設定画面でセットしたリクエストパラメータをsession情報に保存
     unless params[:project].blank?
       pj_start_day = Date.new params[:project]["pj_start_day(1i)"].to_i,params[:project]["pj_start_day(2i)"].to_i,params[:project]["pj_start_day(3i)"].to_i
@@ -84,6 +84,9 @@ class Public::ProjectsController < Public::ApplicationController
       session[:project][:interval] =              params[:project][:interval]
     end
 
+    #表示用データ
+    # @weight =
+    # @target_weight =
 
 
   end

@@ -64,7 +64,7 @@ class Public::HomesController < Public::ApplicationController
                                                 dashboard_data_hash[:naturally_burn_calorie_perday]
                                                 )
     #日常生活のカロリー差の総和をプロジェクト期間の日数で集計
-    sum_diff_calorie = @diff_calorie_perday.to_i * pj_scope_day_counts.to_i
+    sum_diff_calorie = dashboard_data_hash[:diff_calorie_perday].to_i * pj_scope_day_counts.to_i
     dashboard_data_hash[:target_burn_kcal] = target_burn_kcal(project, sum_diff_calorie)
     dashboard_data_hash[:plan_burn_kcal] = plan_burn_kcal_calc(project, Date.current)
     dashboard_data_hash[:result_burn_kcal] = result_burn_kcal_calc(project)
