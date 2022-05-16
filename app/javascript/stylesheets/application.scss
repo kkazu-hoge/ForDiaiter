@@ -662,6 +662,76 @@ ul.sample1 li , ol.sample1 li{
 }
 
 
+ol.sample2,
+ol.sample2 ol{
+  counter-reset: list;
+  list-style: none;
+  padding: 0;
+  width:100%;
+  font: 14px/1.6;
+}
+ol.sample2 ol{
+  margin: 0 0 0 35px;
+  width:315px;
+}
+
+.sample2 li{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  padding: 3px 3px 3px 8px;
+  margin: 8px 0 8px 30px;
+  background: #f2e5ff;
+  // color: #333;
+  font-weight: bold;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.sample2 li:hover{
+  background: #ffd9d3;
+}
+
+.sample2 li:before{
+  content: counter(list);
+  counter-increment: list;
+  position: absolute;
+  left: -35px;
+  top: 50%;
+  height: 28px;
+  width: 28px;
+  margin-top: -1em;
+  background: #9400d3;
+  line-height: 28px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.sample2 li:after{
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  margin-top: -6px;
+  border: 6px solid transparent;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -ms-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.sample2 li:hover:after{
+  left: -6px;
+  border-left-color: #9400d3;
+}
+
+
+
 /*#### ↑プロジェクト作成画面 ####*/
 
 

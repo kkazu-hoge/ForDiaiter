@@ -4,21 +4,26 @@
       <h5 class="modal-title">トレーニング選択</h5>
     </div>
     <div class="modal-body">
+      <ol class="sample2">
       <% @trainings.each do |t| %>
-        <%= form_with model: @pj_event_details, url: pj_event_add_training_pj_template_events_path, local: true do |f| %>
-        <div class="field">
-          <div class="row">
-            <div class="col-9 col-lg-9 col-md-9 col-sm-9">
-            <%= f.label :id, t.name %>
-            </div>
-            <%= f.hidden_field :id, :value => t.id %>
-            <div class="col-3 col-lg-3 col-md-3 col-sm-3">
-            <%= f.submit "追加",class: 'btn btn-sm mx-auto btn-outline-secondary font-weight-bold btn-block'%>
+      <!--model: @pj_event_details,-->
+        <%= form_with  url: pj_event_add_training_pj_template_events_path, local: true do |f| %>
+        <li>
+          <div class="field">
+            <div class="row">
+              <div class="col-9 col-lg-9 col-md-9 col-sm-9">
+              <%= f.label :id, t.name %>
+              </div>
+              <%= f.hidden_field :id, :value => t.id %>
+              <div class="col-3 col-lg-3 col-md-3 col-sm-3">
+              <%= f.submit "追加",class: "btn btn-sm mx-auto btn-outline-secondary font-weight-bold btn-block"%>
+              </div>
             </div>
           </div>
-        </div>
+        </li>
         <% end %>
       <% end %>
+      </ol>
     </div>
   </div>
 </div>
