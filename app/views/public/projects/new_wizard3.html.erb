@@ -32,40 +32,64 @@
               <div class="card-body">
 
                 <div class="row">
-                  <div class="col-12">
-                    <div class="card">
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <div class="card text-center">
+                      <div class="card-header"><b>目標の体重を達成するための総消費カロリー</b></div>
                       <div class="card-body">
                         <!--参考情報-->
-                        現在の体重　＞　目標の体重
-                        <br>達成するための総消費カロリー
+                      （現在の体重：kg　＞＞　目標体重：kg）
+                        <h4>14,400kcal</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                    <div class="card text-center">
+                    <div class="card-header"><b>イベント1回あたりの推奨消費カロリー量</b></div>
+                      <div class="card-body">
+                        <!--参考情報-->
+                        プロジェクト期間のイベント回数：？回
+                        <h4>1,440kcal</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-12 col-md-6 col-sm-6">
+                    <div class="card text-center">
+                      <div class="card-body">
+                        <!--参考情報-->
+                        現在選択中のトレーニング消費カロリー量<br>※イベント1回あたり
+                        <div class="d-flex justify-content-center align-items-center">
+                          <h4>360kcal</h4>
+                          <h6>　＞＞　</h6>
+                          <!-- ifで表示内容出し分け -->
+                          <h6>推奨カロリーから1100kcal不足</h6>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                      <div class="card-body">
-                        <!--参考情報-->
-                        イベント1回あたりの<br>推奨消費カロリー量
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-4 col-md-6 col-sm-6">
-                    <div class="card">
-                      <div class="card-body">
-                        <!--参考情報-->
-                        現在選択している<br>トレーニングの消費カロリー量
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
                 <div class="row">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header"><b>トレーニングメニュー</b></div>
                       <div class="card-body">
                         <!--トレーニング選択エリア-->
+                        <div class="row traini">
+                          <div class="col-12 col-lg-12 col-md-6 col-sm-6">
+                            <div class="card text-center">
+                              <div class="card-body">
+                                <!--参考情報-->
+                                現在選択中のトレーニング消費カロリー量<br>※イベント1回あたり
+                                <div class="d-flex justify-content-center align-items-center">
+                                  <h4>360kcal</h4>
+                                  <h6>　＞＞　</h6>
+                                  <!-- ifで表示内容出し分け -->
+                                  <h6>推奨カロリーから1100kcal不足</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <%= form_with url: new_wizard3_projects_path, method: :get do |f| %>
                           <div class="row">
 
