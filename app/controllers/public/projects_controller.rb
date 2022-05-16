@@ -85,9 +85,10 @@ class Public::ProjectsController < Public::ApplicationController
     end
 
     #表示用データ
-    # @weight =
-    # @target_weight =
-
+    @weight =
+    @target_weight =
+    @target_burn_calorie =
+    @
 
   end
 

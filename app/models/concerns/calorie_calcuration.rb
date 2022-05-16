@@ -31,6 +31,12 @@ module CalorieCalcuration
     return result
   end
 
+  ###### イベント回数の計算 ######
+  def event_counts_calc(finish_day, start_day, interval)
+    result = ((finish_day - start_day).to_i / interval) + 1
+    return result
+  end
+
   ###### 計画消費カロリーの計算 ######
   # プロジェクト開始日に到達していない場合は"0"、到達している場合は"計算値"をセットし、計算結果を返却する
   def plan_burn_kcal_calc(pj_obj, current_day)
@@ -38,9 +44,11 @@ module CalorieCalcuration
       result = 0
     else
       #現在の日付がプロジェクトの終了日を経過していなければ消費カロリー計算に現在の日付を使用
+
       pj_obj[:pj_finish_day] <= current_day ? calc_pj_finish_day = pj_obj[:pj_finish_day] : calc_pj_finish_day = current_day
 
-      plan_event_counts = ((calc_pj_finish_day - pj_obj[:pj_start_day]).to_i / pj_obj[:interval]) + 1
+      plan_event_counts = event_counts_calc(calc_pj_finish_day, pj_obj[:pj_start_day], pj_obj[:interval])
+      # plan_event_counts = ((calc_pj_finish_day - pj_obj[:pj_start_day]).to_i / pj_obj[:interval]) + 1
 
       each_event_training_allkcal = 0
       plan_pj_event = pj_obj.plan_pj_events.first
