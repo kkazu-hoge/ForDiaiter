@@ -1,6 +1,6 @@
 class Public::PjTemplateEventsController < Public::ApplicationController
   def new
-    @pj_event_details = PjEventDetail.new
+    @pj_event_details = 
     @trainings = Training.all
   end
 

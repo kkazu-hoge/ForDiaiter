@@ -1,20 +1,24 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
-    <%= form_with(model: @pj_event_details, url: pj_event_add_training_pj_template_events_path, local: true) do |form| %>
-      <div class="modal-header">
-        <h5 class="modal-title">トレーニング選択</h5>
-      </div>
-      <div class="modal-body">
-        <ul>
-        <% @trainings.each do |t| %>
-          <li>
-            <%= t.name %>
-            <!--%= form.check_box "training", "#{t.id}" ,unchecked_value = "0" %>-->
-          </li>
+    <div class="modal-header">
+      <h5 class="modal-title">トレーニング選択</h5>
+    </div>
+    <div class="modal-body">
+      <% @trainings.each do |t| %>
+        <%= form_with model: @pj_event_details, url: pj_event_add_training_pj_template_events_path, local: true do |f| %>
+        <div class="field">
+          <div class="row">
+            <div class="col-9 col-lg-9 col-md-9 col-sm-9">
+            <%= f.label :id, t.name %>
+            </div>
+            <%= f.hidden_field :id, :value => t.id %>
+            <div class="col-3 col-lg-3 col-md-3 col-sm-3">
+            <%= f.submit "追加",class: 'btn btn-sm mx-auto btn-outline-secondary font-weight-bold btn-block'%>
+            </div>
+          </div>
+        </div>
         <% end %>
-        </ul>
-      </div>
-      <%= form.submit "追加する",class: 'btn col-8 col-lg-3 col-md-4 col-sm-6 mx-auto btn-outline-secondary  font-weight-bold btn-block'%>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
