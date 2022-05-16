@@ -16,6 +16,7 @@ import Chart from "chart.js/auto";
 global.Chart = Chart;
 // import "home_graph"
 // import "home_pulldown"
+window.jQuery = window.$ = require('jquery')
 
 Rails.start()
 Turbolinks.start()

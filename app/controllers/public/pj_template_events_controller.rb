@@ -9,6 +9,7 @@ class Public::PjTemplateEventsController < Public::ApplicationController
   end
 
   def pj_event_add_training
+    
   end
 
   def show_event
