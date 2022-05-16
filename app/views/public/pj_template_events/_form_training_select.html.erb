@@ -5,10 +5,14 @@
         <h5 class="modal-title">トレーニング選択</h5>
       </div>
       <div class="modal-body">
+        <ul>
         <% @trainings.each do |t| %>
-          <%= t.name %>
-          <!--%= form.check_box "trainig", "#{t.id}" ,unchecked_value = "0" %>-->
+          <li>
+            <%= t.name %>
+            <!--%= form.check_box "training", "#{t.id}" ,unchecked_value = "0" %>-->
+          </li>
         <% end %>
+        </ul>
       </div>
       <%= form.submit "追加する",class: 'btn col-8 col-lg-3 col-md-4 col-sm-6 mx-auto btn-outline-secondary  font-weight-bold btn-block'%>
     <% end %>
