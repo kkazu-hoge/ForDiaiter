@@ -29,7 +29,6 @@ class Public::PjTemplateEventsController < Public::ApplicationController
     @training_name = training_obj.name
     minutes = 10
     @calorie_per_ten_min = burn_calories_training(training_obj.mets_value, session[:project]["weight"], minutes).ceil
-
     respond_to do |format|
       if session[:pj_event_details]["#{training_obj.id}"].blank?
         format.js { @status = "fail" }

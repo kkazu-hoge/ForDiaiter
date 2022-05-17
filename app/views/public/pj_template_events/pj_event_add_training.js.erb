@@ -1,5 +1,6 @@
 <% if @status == 'success' %>
-    $("ul").append("<%= escape_javascript(render("li_training", {training_name: @training_name, calorie_per_ten_min: @calorie_per_ten_min})) %>");
+    $("#training_form_area").html("<%= escape_javascript(render("li_training", {training_name: @training_name, calorie_per_ten_min: @calorie_per_ten_min})) %>");
+    <!--$("ul.sample1").append("%= escape_javascript(render("li_training", {training_name: @training_name, calorie_per_ten_min: @calorie_per_ten_min})) %>");-->
 <%  elsif @status == 'fail' %>
     alert('error!')
 <% end %>
