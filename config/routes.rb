@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :projects,  only: [:index, :show, :new, :edit, :create, :update] do
       get :new_wizard2, on: :collection
       get :new_wizard3, on: :collection
+      get :complete, on: :collection
     end
     resources :pj_events, only: [:show, :new, :edit, :update, :destroy]
 

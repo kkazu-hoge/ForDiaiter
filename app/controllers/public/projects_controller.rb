@@ -107,11 +107,24 @@ class Public::ProjectsController < Public::ApplicationController
   def edit
   end
 
-  def cretae
+  def create
+    binding.pry
+    #１ projectを保存する
 
-    # #session情報をクリアする
-    # session[:project] = nil
-  
+    #２ plan_pj_eventsを保存する
+
+    #３ plan_pj_event_detailsを保存する
+
+    #４ pj_eventsを保存する
+
+    #５ pj_event_detailsを保存する
+
+
+    #６ session情報をクリアする
+    # session[:project] = nil、session[:project_detail] = nil
+
+    #7  完了画面に遷移する
+    # redirect_to complete_projects_path
   end
 
   def update

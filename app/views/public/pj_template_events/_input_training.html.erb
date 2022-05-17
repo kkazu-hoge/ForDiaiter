@@ -1,4 +1,4 @@
-                        <%= form_with url: new_wizard3_projects_path, method: :get do |f| %>
+                        <%= form_with url: projects_path, method: :post do |f| %>
                           <div class="row">
                             <div class="col-8">
                               <ul class="sample1 training_select_scroll">
@@ -9,7 +9,7 @@
                                       <%= ped[1]["training_name"] %>（10分:<%= ped[1]["calorie_per_ten_min"] %>kcal)
                                     </div>
                                     <div class="col-3">
-                                      <%= f.text_field :activity_minutes, class: "form-control form-control-sm", placeholder: "時間：分" %>
+                                      <%= f.text_field :"#{ped[1]["training_id"]}", class: "form-control form-control-sm", placeholder: "時間：分" %>
                                     </div>
                                     <div class="col-2">
                                       <%=link_to "削除", pj_event_delete_training_pj_template_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true %>
