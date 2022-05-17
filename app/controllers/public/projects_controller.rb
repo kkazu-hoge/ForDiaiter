@@ -94,14 +94,13 @@ class Public::ProjectsController < Public::ApplicationController
     bmr =                           basal_metabolic_rate(tmp_project)
     naturally_burn_calorie_perday = bmr.to_f * LifeStressFactor.find(tmp_project["life_stress_factor_id"].to_i).coefficient
     intake_calorie_perday =         tmp_project["intake_calorie_perday"].to_f
-    diff_calorie_perday =           diff_calorie_perday(naturally_burn_calorie_perday,intake_calorie_perday)
+    diff_calorie_perday =           diff_calorie_perday(intake_calorie_perday,naturally_burn_calorie_perday)
     pj_scope_day_counts =           day_counts(tmp_project["pj_start_day"].to_date, tmp_project["pj_finish_day"].to_date)
     sum_diff_calorie =              diff_calorie_perday.to_i * pj_scope_day_counts.to_i
     @target_burn_kcal =             target_burn_kcal(tmp_project, sum_diff_calorie)
     @event_counts =                 event_counts_calc(tmp_project["pj_finish_day"].to_date, tmp_project["pj_start_day"].to_date,tmp_project["interval"].to_i)
     @target_burn_kcal_per_event =  (@target_burn_kcal.to_f/@event_counts).ceil
-    # binding.pry
-    # @pj_event_details = PjEventDetail.new
+
 
   end
 

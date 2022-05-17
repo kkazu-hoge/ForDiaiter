@@ -27,10 +27,7 @@ class Public::PjTemplateEventsController < Public::ApplicationController
     #セッションに1トレーニング分のハッシュデータを追加する
     session[:pj_event_details]["#{training_obj.id}"] = hash_add_training
 
-    # @training_name = training_obj.name
-
     @pj_event_details = session[:pj_event_details]
-
 
     respond_to do |format|
       if session[:pj_event_details]["#{training_obj.id}"].blank?
@@ -39,7 +36,6 @@ class Public::PjTemplateEventsController < Public::ApplicationController
         format.js { @status = "success" }
       end
     end
-    # binding.pry
   end
 
   def show_event
