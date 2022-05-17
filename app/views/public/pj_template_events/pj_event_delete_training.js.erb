@@ -1,0 +1,5 @@
+<% if @status == 'success' %>
+    $("#detail_<%= @training_id %>").remove();
+<%  elsif @status == 'fail' %>
+    alert('error!')
+<% end %>

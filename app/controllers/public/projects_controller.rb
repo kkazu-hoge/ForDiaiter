@@ -111,7 +111,7 @@ class Public::ProjectsController < Public::ApplicationController
 
     # #session情報をクリアする
     # session[:project] = nil
-
+  
   end
 
   def update

@@ -13,6 +13,9 @@ class Public::PjTemplateEventsController < Public::ApplicationController
   def destroy
   end
 
+  def show_event
+  end
+
   def pj_event_add_training
 
     #リクエストパラメータのトレーニングidからトレーニングデータを取得
@@ -38,6 +41,19 @@ class Public::PjTemplateEventsController < Public::ApplicationController
     end
   end
 
-  def show_event
+  def pj_event_delete_training
+    #セッションから該当の情報を削除する
+    session[:pj_event_details].delete(params[:training_id])
+    @training_id = params[:training_id]
+
+    #jsに渡す処理結果を定義
+    respond_to do |format|
+      if session[:pj_event_details][@training_id].blank?
+        format.js { @status = "success" }
+      else
+        format.js { @status = "fail" }
+      end
+    end
   end
+
 end

@@ -31,8 +31,9 @@ Rails.application.routes.draw do
     resources :pj_events, only: [:show, :new, :edit, :update, :destroy]
 
     resources :pj_template_events, only: [:new, :create, :destroy] do
-      get :pj_event_add_training, on: :collection
-      get :show_event,            on: :collection
+      get :pj_event_add_training,    on: :collection
+      get :pj_event_delete_training, on: :collection
+      get :show_event,               on: :collection
     end
 
     resources :callenders,  only: [:show, :new, :edit]
