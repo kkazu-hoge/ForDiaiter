@@ -3,19 +3,21 @@
                             <div class="col-8">
                               <ul class="sample1 training_select_scroll">
                                 <!-- //eachでリストを動的に追加する -->
+                                <% pj_event_details.each do |ped| %>
                                 <li>
                                   <div class="row">
                                     <div class="col-6">
-                                      <%= training_name %>（10分:<%= calorie_per_ten_min %>kcal）
+                                      <%= ped[1]["training_name"] %>（10分:<%= ped[1]["calorie_per_ten_min"] %>kcal)
                                     </div>
                                     <div class="col-3">
-                                      <%= f.text_field :name, class: "form-control form-control-sm", placeholder: "時間：分" %>
+                                      <%= f.text_field :activity_minutes, class: "form-control form-control-sm", placeholder: "時間：分" %>
                                     </div>
                                     <div class="col-2">
                                       <btn>削除</btn>
                                     </div>
                                   </div>
                                 </li>
+                                <% end %>
                               </ul>
                             </div>
                             <div class="col-4">
