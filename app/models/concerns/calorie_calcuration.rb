@@ -74,4 +74,10 @@ module CalorieCalcuration
     return result
   end
 
+  ######## トレーニングの消費カロリー計算 ########
+  def burn_calories_training(mets_value, weight, minutes)
+    result = mets_value.to_f*weight.to_i* minutes.to_i*1.05
+    return result
+  end
+
 end

@@ -100,7 +100,8 @@ class Public::ProjectsController < Public::ApplicationController
     @target_burn_kcal =             target_burn_kcal(tmp_project, sum_diff_calorie)
     @event_counts =                 event_counts_calc(tmp_project["pj_finish_day"].to_date, tmp_project["pj_start_day"].to_date,tmp_project["interval"].to_i)
     @target_burn_kcal_per_event =  (@target_burn_kcal.to_f/@event_counts).ceil
-
+    # binding.pry
+    # @pj_event_details = PjEventDetail.new
 
   end
 
