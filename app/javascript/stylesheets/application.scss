@@ -738,12 +738,61 @@ ol.sample2 ol{
 
 /*#### ↑プロジェクト作成画面 ####*/
 
+.subscribe-area {
+// background-image: linear-gradient(to top, #00c6fb 10%, #005bea 90%);
+background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
+}
+
+.pb-50 {
+    padding-bottom: 50px;
+}
+.pt-70 {
+    padding-top: 70px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.subscribe-text span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 5px;
+}
+
+.subscribe-text h2 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 0;
+    margin-top: 6px;
+}
+
+.subscribe-text h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 0;
+    margin-top: 6px;
+}
+
+.subscribe-wrapper {
+    overflow: hidden;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+
+
+/*#### ↓プロジェクト作成完了画面 ####*/
 
 
 
 
-
-
+/*#### ↑プロジェクト作成完了画面 ####*/
 
 /*------------------------------------
 - COLOR primary
