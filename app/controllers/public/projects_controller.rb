@@ -58,7 +58,6 @@ class Public::ProjectsController < Public::ApplicationController
       @project["intake_calorie_perday"] = ""
       @project["interval"] =              ""
     else
-      # binding/pry
       @project["name"] =                  session[:project]["name"]
       @project["pj_start_day"] =          session[:project]["pj_start_day"]
       @project["pj_finish_day"] =         session[:project]["pj_finish_day"]

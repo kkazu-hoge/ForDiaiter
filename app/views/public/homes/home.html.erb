@@ -10,7 +10,6 @@
               <!--</div>-->
             </div>
             <div class="col-10 col-lg-5 col-md-8 col-sm-10">
-              <!--%= form_tag pj_alter_path, method: :get, remote: true do %>-->
                 <%= form_with url: pj_alter_path, method: :get, local: false do |f| %>
                   <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
                   <div id="select-drop-submit" style="display:none;">
