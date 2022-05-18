@@ -903,12 +903,25 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   border:#8b008b;
 }
 
-.simple-calendar .card-body{
-  padding: 1px;
-}
 
 .simple-calendar .card{
-  border-radius: 10px;
+  border-radius: 5px;
+  background-color: #7f00ff;
+  border: none;
+}
+
+.simple-calendar .card-body{
+  padding: 1px;
+  color: #ffffff;
+}
+
+.cards {
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+.cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
 }
 
 
