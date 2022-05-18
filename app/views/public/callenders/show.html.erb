@@ -1,2 +1,11 @@
 <h1>Public::Callenders#show</h1>
 <p>Find me in app/views/public/callenders/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-12">
+        <%= month_calendar do |date| %>
+          <%= date.to_formatted_s(:short) %>
+        <% end %>
+    </div>
+  </div>
+</div>
