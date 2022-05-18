@@ -144,9 +144,7 @@ class Public::ProjectsController < Public::ApplicationController
       plan_pj_event_details.save
     end
 
-    # binding.pry
     #４ pj_eventsを保存する
-
     #５ pj_event_detailsを保存する
       event_counts = event_counts_calc(project[:pj_finish_day], project[:pj_start_day], project[:interval])
       num = 1
@@ -154,6 +152,7 @@ class Public::ProjectsController < Public::ApplicationController
       while num <= event_counts do
       	pj_event = PjEvent.new(project_id: project.id)
       	pj_event[:action_day] = action_day
+      	pj_event[:start_time] = pj_event[:action_day].to_time.to_datetime
       	pj_event.save
 
       	session[:pj_event_details].each do |ped|
