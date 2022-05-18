@@ -49,15 +49,16 @@
           <b class = "home_calorie_disp ">
             <% if (result_burn_kcal.to_f/plan_burn_kcal.to_f)*100 > 100 %>
               <i class="fas fa-grin-beam" style="color: blue;"></i>
-              <!--<svg role="img" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" aria-labelledby="happyFaceIconTitle" stroke="blue" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none" color="blue"> <title id="happyFaceIconTitle">Happy Face</title> <path d="M7.3010863,14.0011479 C8.0734404,15.7578367 9.98813711,17 11.9995889,17 C14.0024928,17 15.913479,15.7546194 16.6925307,14.0055328"/> <line stroke-linecap="round" x1="9" y1="9" x2="9" y2="9"/> <line stroke-linecap="round" x1="15" y1="9" x2="15" y2="9"/> <circle cx="12" cy="12" r="10"/></svg>-->
             <% elsif (result_burn_kcal.to_f/plan_burn_kcal.to_f)*100 < 70 %>
               <i class="fas fa-dizzy" style="color: red;"></i>
-              <!--<svg role="img" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" aria-labelledby="sadFaceIconTitle" stroke="red" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none" color="red"> <title id="sadFaceIconTitle">sad Face</title> <line stroke-linecap="round" x1="9" y1="9" x2="9" y2="9"/> <line stroke-linecap="round" x1="15" y1="9" x2="15" y2="9"/> <path d="M8,16 C9.33333333,15.3333333 10.6656028,15.0003822 11.9968085,15.0011466 C13.3322695,15.0003822 14.6666667,15.3333333 16,16"/> <circle cx="12" cy="12" r="10"/> </svg>-->
+            <% elsif plan_burn_kcal.to_f <= 0 %>
+              ---
             <% else %>
               <i class="fas fa-smile"></i>
-              <!--<svg role="img" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24" aria-labelledby="neutralFaceIconTitle" stroke="#9400d3" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#9400d3"> <title id="neutralFaceIconTitle">Neutral Face</title> <line stroke-linecap="round" x1="9" y1="9" x2="9" y2="9"/> <line stroke-linecap="round" x1="15" y1="9" x2="15" y2="9"/> <path d="M16,15 L8,15" opacity=".9"/> <circle cx="12" cy="12" r="10"/> </svg>-->
             <% end %>
-            <%= number_to_currency((result_burn_kcal.to_f/plan_burn_kcal.to_f)*100, unit: " %", format: "%n%u", precision: 0) %>
+            <% if plan_burn_kcal.to_f > 0 %>
+              <%= number_to_currency((result_burn_kcal.to_f/plan_burn_kcal.to_f)*100, unit: " %", format: "%n%u", precision: 0) %>
+            <% end %>
           </b>
         </h4>
         <p class="card-text card_annotation_fontsize">計画消費カロリーと実績消費カロリーから進捗率を算出しています<br>※100%を超えていれば進捗が良好であることの目安になります</p>
