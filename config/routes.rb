@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   # URLに"public"を含ませたくないためURLとファイル構成(public配下)が異なるscope moduleでルーティング定義
 
   scope module: 'public' do
-
     root :to          =>'homes#top'
     get   "/home"     =>'homes#home'
-    post  "/pj_alter" =>'homes#pj_alter'
+    get  "/pj_alter" =>'homes#pj_alter'
 
     devise_for :customers,skip: [:passwords], controllers: {
       registrations: 'public/registrations'
@@ -17,21 +16,25 @@ Rails.application.routes.draw do
     resources :customers, only: [:edit, :update] do
       get   :edit_mail_address,     on: :member
       get   :edit_password,         on: :member
-      get   :edit_physical_info,    on: :member
+      # get   :edit_physical_info,    on: :member
       patch :update_mail_address,   on: :member
       patch :update_password,       on: :member
-      patch :update_physical_info,  on: :member
-      get   :unsubscribe,           on: :member
+      # patch :update_physical_info,  on: :member
       get   :unsubscribe,           on: :member
       patch :defection,             on: :member
     end
 
-    resources :projects,  only: [:index, :show, :new, :edit, :create, :update]
+    resources :projects,  only: [:index, :show, :new, :edit, :create, :update] do
+      get :new_wizard2, on: :collection
+      get :new_wizard3, on: :collection
+      get :complete, on: :collection
+    end
     resources :pj_events, only: [:show, :new, :edit, :update, :destroy]
 
     resources :pj_template_events, only: [:new, :create, :destroy] do
-      get :pj_event_add_training, on: :collection
-      get :show_event,            on: :collection
+      get :pj_event_add_training,    on: :collection
+      get :pj_event_delete_training, on: :collection
+      get :show_event,               on: :collection
     end
 
     resources :callenders,  only: [:show, :new, :edit]
@@ -98,7 +101,6 @@ end
 #                 update_password_customer PATCH  /customers/:id/update_password(.:format)                     public/customers#update_password
 #           update_physical_info_customer PATCH  /customers/:id/update_physical_info(.:format)                public/customers#update_physical_info
 #                     unsubscribe_customer GET    /customers/:id/unsubscribe(.:format)                         public/customers#unsubscribe
-#                                         GET    /customers/:id/unsubscribe(.:format)                         public/customers#unsubscribe
 #                       defection_customer PATCH  /customers/:id/defection(.:format)                           public/customers#defection
 #                           edit_customer GET    /customers/:id/edit(.:format)                                public/customers#edit
 #                                 customer PATCH  /customers/:id(.:format)                                     public/customers#update

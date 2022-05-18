@@ -1,0 +1,18 @@
+$(".dashboard_contents").html(
+  "<%= escape_javascript(
+    render 'dashboard',
+    { target_burn_kcal: @target_burn_kcal,
+    plan_burn_kcal: @plan_burn_kcal,
+    result_burn_kcal: @result_burn_kcal,
+    naturally_burn_calorie_perday: @naturally_burn_calorie_perday,
+    intake_calorie_perday: @intake_calorie_perday,
+    diff_calorie_perday: @diff_calorie_perday }
+    )
+  %>"
+)
+$(".graph_contents").html(
+  "<%= escape_javascript(
+    render 'graph'
+    )
+  %>"
+)

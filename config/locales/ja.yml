@@ -5,7 +5,7 @@
           man: "男性"
           woman: "女性"
         is_deleted:
-          available: "有効"
+          no_delete: "有効"
           unsubscribing: "退会"
       project:
         sex:
@@ -86,3 +86,4 @@
       - :year
       - :month
       - :day
+      

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_09_024843) do
+ActiveRecord::Schema.define(version: 2022_05_18_131600) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_024843) do
 
   create_table "life_stress_factors", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "coefficient", null: false
+    t.float "coefficient", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 2022_05_09_024843) do
     t.date "action_day", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "start_time", null: false
   end
 
   create_table "plan_pj_event_details", force: :cascade do |t|
@@ -147,11 +148,13 @@ ActiveRecord::Schema.define(version: 2022_05_09_024843) do
     t.integer "interval", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
+    t.integer "intake_calorie_perday", null: false
   end
 
   create_table "trainings", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "mets_value", null: false
+    t.float "mets_value", null: false
     t.text "summary", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

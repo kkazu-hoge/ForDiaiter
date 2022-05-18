@@ -1,2 +1,64 @@
-<h1>Public::Homes#home</h1>
-<p>Find me in app/views/public/homes/home.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center main_contents'>
+    <div class="col-10 content_background">
+      <div class="home-contents">
+        <div class="container-fluid">
+          <div class="row justify-content-center select_project_area">
+            <div class="col-12 text-center">
+              <!--<div class="col-12 col-lg-2 col-md-12 col-sm-12 text-center">-->
+                <b><h6 style = "padding-top:10px;">【プロジェクト選択】</h6></b>
+              <!--</div>-->
+            </div>
+            <div class="col-10 col-lg-5 col-md-8 col-sm-10">
+                <%= form_with url: pj_alter_path, method: :get, local: false do |f| %>
+                  <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
+                  <div id="select-drop-submit" style="display:none;">
+                    <%= f.submit %>
+                  </div>
+                <% end %>
+            </div>
+            <div class="col-2 col-lg-1 col-md-2 col-sm-2">
+              <div class="home_add_icon">
+                <%= link_to new_project_path do %>
+                  <svg role="img" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 24 24" aria-labelledby="addIconTitle" stroke="#9400d3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#9400d3"> <title id="addIconTitle">新規プロジェクト作成</title> <path d="M17 12L7 12M12 17L12 7"/> <circle cx="12" cy="12" r="10"/></svg>
+                <% end %>
+              </div>
+            </div>
+          </div class = "dashboard_contents">
+          <% if @projects.blank? %>
+            <div class="text-center">
+              プロジェクトがありません。プロジェクト作成後にダッシュボードが表示されます。
+            </div>
+          <% else %>
+            <div class = "dashboard_contents">
+              <%= render "public/homes/dashboard", {
+              target_burn_kcal: @target_burn_kcal,
+              plan_burn_kcal: @plan_burn_kcal,
+              result_burn_kcal: @result_burn_kcal,
+              naturally_burn_calorie_perday: @naturally_burn_calorie_perday,
+              intake_calorie_perday: @intake_calorie_perday,
+              diff_calorie_perday: @diff_calorie_perday
+              }%>
+            </div>
+            <div class = "graph_contents">
+              <%= render "public/homes/graph" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+jQuery(document).bind("ready ajaxComplete turbolinks:load", function() {
+  $(".select-drop-project").change(function() {
+    let inputpulldown = $(".select-drop-project").val();
+      if (inputpulldown == ""){
+        return;
+      }else{
+        $("#select-drop-submit > input[type='submit']").click()
+        // Rails.fire($(this).parent()[0], "submit");
+      }
+    });
+});
+</script>

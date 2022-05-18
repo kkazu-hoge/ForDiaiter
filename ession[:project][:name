@@ -1,0 +1,16 @@
+=> [32m#<Project:0x00007f6d180d3b58[0m
+ id: [1;36mnil[0m,
+ customer_id: [1;36mnil[0m,
+ life_stress_factor_id: [1;36mnil[0m,
+ sex: [1;36mnil[0m,
+ age: [1;36mnil[0m,
+ height: [1;36mnil[0m,
+ weight: [1;36mnil[0m,
+ target_weight: [1;36mnil[0m,
+ pj_start_day: [1;36mnil[0m,
+ pj_finish_day: [1;36mnil[0m,
+ interval: [1;36mnil[0m,
+ created_at: [1;36mnil[0m,
+ updated_at: [1;36mnil[0m,
+ name: [1;36mnil[0m,
+ intake_calorie_perday: [1;36mnil[0m[32m>[0m
