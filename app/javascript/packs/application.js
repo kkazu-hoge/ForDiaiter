@@ -14,8 +14,10 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 import Chart from "chart.js/auto";
 global.Chart = Chart;
+import "home_pulldown"
 // import "home_graph"
-// import "home_pulldown"
+
+
 // .modalを使用できるようにグローバルに定義
 window.jQuery = window.$ = require('jquery')
 
