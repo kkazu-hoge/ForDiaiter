@@ -962,6 +962,18 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 
 
 /*#### ↓トレーニング詳細画面 ####*/
+.training-index .side-area{
+  background-color:#9933ff;
+  height: 118px;
+}
+.training-index{
+  height: 480px;
+  overflow: auto;
+}
+
+.training-index .card{
+  border-radius: 5px;
+}
 
 .training-movie-scroll{
   height: 400px;
