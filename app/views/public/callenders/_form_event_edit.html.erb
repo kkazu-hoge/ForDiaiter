@@ -20,13 +20,18 @@
               <div class="col-12">
                 <div class="row">
                   <div class="col-12 text-center">
-                    ～参考：初回計画時のトレーニング情報～</br>
-                    1イベントの総消費カロリー：<%= @plan_sum_burn_cals %>kcal
+                    <b>～初回計画時のトレーニング情報～</h6></b></br>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12">
+                    <div class="row">
+                      <div class="col-12 text-center">
+                        イベント1回の総消費カロリー：<%= @plan_sum_burn_cals %>kcal
+                      </div>
+                    </div>
                     <ul>
+                      <b>内訳）</b>
                       <% @plan_pj_event_details.each do |pped| %>
                       <li id="detail_<%= pped["training_id"]%>">
                         <div class="row">

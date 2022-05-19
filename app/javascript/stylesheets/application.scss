@@ -925,7 +925,8 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 }
 
 .result-input-info-area{
-  border: 1px solid #000000;
+  border: 1px #000000;
+  border-style: double;
   margin-bottom: 10px;
   padding-top: 10px;
 }
