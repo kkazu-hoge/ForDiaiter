@@ -1,5 +1,6 @@
 <div class="simple-calendar">
   <div class="text-center" style="font-size:25px; font-weight:bold;">
+    <span style="font-size: 15px;">表示中のプロジェクト：<%= @project["name"] %></span>
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: "<<　"), calendar.url_for_previous_view %>
     <span class="calendar-title"><%= start_date.year %>年 <%= t('date.month_names')[start_date.month] %></span>

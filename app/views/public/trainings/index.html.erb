@@ -1,2 +1,40 @@
-<h1>Public::Trainings#index</h1>
-<p>Find me in app/views/public/trainings/index.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center main_contents'>
+    <div class="col-10 content_background">
+      トレーニング一覧
+      <div class = "row training-index">
+        <% @trainings.each do |t| %>
+        <div class="col-12">
+          <div class="card second-row-card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3 col-lg-2 col-md-3 col-sm-4 side-area">
+
+                </div>
+                <div class="col-8 col-lg-9 col-md-8 col-sm-7" style="margin-left: 3%;">
+                  <div class="row">
+                    <div class="col-12">
+                      <h5 class="card-title"><b><%= t.name %></b></h5>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-lg-8 col-md-7 col-sm-12">
+                      <div class="card-text card_annotation_fontsize">内容</div>
+                    </div>
+                    <div class="col-12 col-lg-4 col-md-5 col-sm-12">
+                      <div class="col-12">
+                        <%= link_to "参考動画", training_path(t.id), method: :get, class: "btn col-12 mx-auto btn-danger font-weight-bold btn-block" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div><!--<div class='container'>-->
+  </div><!--<div class='row justify-content-center main_contents'>-->
+</div><!--<div class='container'>-->

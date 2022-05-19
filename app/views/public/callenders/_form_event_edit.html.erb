@@ -1,0 +1,92 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content callender-event-input">
+    <div class="modal-header">
+      <h5 class="modal-title">イベント実績入力</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body training_custome_scroll">
+      <!--, local: false-->
+      <%= form_with model: @pj_event_details, url: callender_path(pj_event_id:@pj_event.id), method: :patch, id: "training_form_area" , local:false do |f| %>
+        <div class="row justify-content-center">
+          <div class="col-11">
+            <div class="row">
+              <div class="col-12">
+                <h6>トレーニングメニュー</h6>
+              </div>
+            </div>
+            <div class="row justify-content-center result-input-info-area">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <b>～初回計画時のトレーニング情報～</h6></b></br>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-12 text-center">
+                        イベント1回の総消費カロリー：<%= @plan_sum_burn_cals %>kcal
+                      </div>
+                    </div>
+                    <ul>
+                      <b>内訳）</b>
+                      <% @plan_pj_event_details.each do |pped| %>
+                      <li id="detail_<%= pped["training_id"]%>">
+                        <div class="row">
+                          <div class="col-8">
+                            <%= pped.training.name %>
+                          </div>
+                          <div class="col-4">
+                            時間：<%= pped.activity_minutes %>分
+                          </div>
+                        </div>
+                      </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <ul class="sample1 training_select_scroll">
+                  <% @pj_event_details.each do |ped| %>
+                  <li id="detail_<%= ped["training_id"]%>">
+                    <div class="row">
+                      <div class="col-7">
+                        <%= ped.training.name %>（10分:<%= ped["calorie_per_ten_min"] %>kcal)
+                      </div>
+                      <div class="col-3">
+                        時間(分)：
+                      </div>
+                      <div class="col-2">
+                        <%= f.text_field :"#{ped["id"]}", value: ped.activity_minutes, class: "form-control form-control-sm", placeholder: "時間：分" %>
+                      </div>
+                    </div>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-6">
+                    <%=link_to "イベント編集", new_pj_template_event_path, class: 'btn col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true %>
+                  </div>
+                  <div class="col-6">
+                    <div class="actions">
+                      <%= f.submit "実績入力完了",class: "btn col-12 mx-auto btn-outline-secondary font-weight-bold btn-block" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

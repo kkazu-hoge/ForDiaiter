@@ -48,10 +48,9 @@ module CalorieCalcuration
       pj_obj["pj_finish_day"].to_date <= current_day ? calc_pj_finish_day = pj_obj["pj_finish_day"].to_date : calc_pj_finish_day = current_day
 
       plan_event_counts = event_counts_calc(calc_pj_finish_day, pj_obj["pj_start_day"].to_date, pj_obj["interval"])
-      # plan_event_counts = ((calc_pj_finish_day - pj_obj[:pj_start_day]).to_i / pj_obj[:interval]) + 1
 
       each_event_training_allkcal = 0
-      plan_pj_event = pj_obj.plan_pj_events.first
+      plan_pj_event = Project.find(pj_obj["id"]).plan_pj_events.first
       plan_pj_event_details = plan_pj_event.plan_pj_event_details
       #計画イベントに紐づく詳細(トレーニング)の数だけ加算処理して１イベントの消費カロリーを計算
       plan_pj_event_details.each do |plan_ed|
@@ -66,7 +65,7 @@ module CalorieCalcuration
   ######## 実績消費カロリーの計算 ########
   def result_burn_kcal_calc(pj_obj)
     result = 0
-    pj_evnets = pj_obj.pj_events
+    pj_evnets = Project.find(pj_obj["id"]).pj_events
     #イベント詳細(１トレーニング)の消費カロリー × イベント詳細数 × イベント数
     pj_evnets.each do |pj_ev|
       result += pj_ev.pj_event_details.sum("burn_calories")
