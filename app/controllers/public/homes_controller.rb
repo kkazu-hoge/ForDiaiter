@@ -15,11 +15,19 @@ class Public::HomesController < Public::ApplicationController
   def home
     @projects = Project.get_projects_sort_desc_createday(current_customer)
     @projects.blank? ? @projects_array = [] : @projects_array = @projects.get_projects_pulldown_list
-    @pj_pulldown_initial_set_value = @projects_array.first
-    project = @projects.first
+    #セッションに選択中のプロジェクトがあればそちらを使用する
+    if session[:selected_project].blank?
+      @pj_pulldown_initial_set_value = @projects_array.first
+      project = @projects.first
+    else
+      # binding.pry
+      project_id = 1
+      @pj_pulldown_initial_set_value = @projects_array.find{|val| val[project_id] == session[:selected_project]["id"]}
+      project = session[:selected_project]
+    end
 
     unless @projects.blank?
-      disp_data = home_dashboard_date_get(project)
+      disp_data = home_dashboard_data_get(project)
       @naturally_burn_calorie_perday =  disp_data[:naturally_burn_calorie_perday] # ※１
       @intake_calorie_perday =          disp_data[:intake_calorie_perday]         # ※２
       @diff_calorie_perday =            disp_data[:diff_calorie_perday]           # ※３
@@ -34,11 +42,14 @@ class Public::HomesController < Public::ApplicationController
     @projects = Project.get_projects_sort_desc_createday(current_customer)
     @projects.blank? ? @projects_array = [] : @projects_array = @projects.get_projects_pulldown_list
 
-    project = Project.find(params[:project_id])
+    # project = Project.find(params[:project_id])
+    session[:selected_project] = Project.find(params[:project_id])
+    project = session[:selected_project]
+
     #非同期処理のためプルダウンの初期値は取得する必要なし
 
     unless @projects.blank?
-      disp_data = home_dashboard_date_get(project)
+      disp_data = home_dashboard_data_get(project)
       @naturally_burn_calorie_perday =  disp_data[:naturally_burn_calorie_perday] # ※１
       @intake_calorie_perday =          disp_data[:intake_calorie_perday]         # ※２
       @diff_calorie_perday =            disp_data[:diff_calorie_perday]           # ※３
@@ -52,13 +63,13 @@ class Public::HomesController < Public::ApplicationController
 
 
   private
-  def home_dashboard_date_get(project)
-    pj_scope_day_counts = day_counts(project.pj_start_day, project.pj_finish_day)
+  def home_dashboard_data_get(project)
+    pj_scope_day_counts = day_counts(project["pj_start_day"].to_date, project["pj_finish_day"].to_date)
     dashboard_data_hash = {}
     ######## ダッシュボード表示用データ取得 ########
     bmr = basal_metabolic_rate(project)
-    dashboard_data_hash[:naturally_burn_calorie_perday] = bmr.to_f * project.life_stress_factor.coefficient.to_f
-    dashboard_data_hash[:intake_calorie_perday] = project.intake_calorie_perday
+    dashboard_data_hash[:naturally_burn_calorie_perday] = bmr.to_f * LifeStressFactor.find(project["life_stress_factor_id"]).coefficient.to_f
+    dashboard_data_hash[:intake_calorie_perday] = project["intake_calorie_perday"]
     dashboard_data_hash[:diff_calorie_perday] = diff_calorie_perday(
                                                 dashboard_data_hash[:intake_calorie_perday],
                                                 dashboard_data_hash[:naturally_burn_calorie_perday]
