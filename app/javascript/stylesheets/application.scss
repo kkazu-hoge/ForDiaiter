@@ -56,6 +56,22 @@ a:hover {
     background-color: #f1f4fa;
 }
 
+
+
+::-webkit-scrollbar {
+width: 7px;
+height: 7px;
+}
+::-webkit-scrollbar-track {
+background-color: #ccc;
+}
+::-webkit-scrollbar-thumb {
+background: linear-gradient(45deg, #7f00ff, #ff7f00);
+width: 130px;
+}
+
+
+
 /*##### ↑共通フォーマット ####*/
 
 /*#### ↓ヘッダーエリア ####*/
