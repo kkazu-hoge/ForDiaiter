@@ -14,10 +14,10 @@
           <% pj_events.each.with_index(1) do |pj_event, i| %>
             <%= link_to edit_callender_path(pj_event_id: pj_event.id), remote: true do %>
               <div class="card cards">
-                <div class="card-body">
+                <div class="card-body text-center">
                 <!--%= i %>-->
                 <b>
-                  <%= "イベント" %>
+                  <%= "イベント " %><i class="fas fa-dumbbell"></i><br>
                   <%= "("+"#{pj_event.action_day.strftime("%m/%d")}"+")" %>
                 </b>
                 </div>
