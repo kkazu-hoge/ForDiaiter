@@ -24,17 +24,17 @@ class Public::CallendersController < Public::ApplicationController
     #セッションに選択中のプロジェクトがあればそちらを使用する
     if session[:selected_project].blank?
       @pj_pulldown_initial_set_value = @projects_array.first
-      project = @projects.first
+      @project = @projects.first
     else
       project_id = 1
       @pj_pulldown_initial_set_value = @projects_array.find{|val| val[project_id] == session[:selected_project]["id"]}
-      project = session[:selected_project]
+      @project = session[:selected_project]
     end
 
-    if project.blank?
+    if @project.blank?
       @pj_events = ""
     else
-      @pj_events = PjEvent.where(project_id: project["id"])
+      @pj_events = PjEvent.where(project_id: @project["id"])
     end
   end
 
