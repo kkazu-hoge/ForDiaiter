@@ -79,9 +79,14 @@
                           </div>
                         </div>
 
-                        <%= form_with url: home_path, method: :get, id: "training_form_area" do |f| %>
+                        <%= form_with url: projects_path, method: :post, id: "training_form_area" do |f| %>
                           <div class="row">
                             <div class="col-8">
+                              <% if session[:pj_event_details].blank? %>
+                                <div class="text-center">
+                                  <h5>追加したトレーニングはこちらに一覧表示されます</h5>
+                                </div>
+                              <% else %>
                                 <ul class="sample1 training_select_scroll">
                                   <% session[:pj_event_details].each do |ped| %>
                                   <li id="detail_<%= ped[1]["training_id"]%>">
