@@ -17,16 +17,27 @@ class Public::CallendersController < Public::ApplicationController
   end
 
   def show
+    #プルダウン用のデータ取得
     @projects = Project.get_projects_sort_desc_createday(current_customer)
     @projects.blank? ? @projects_array = [] : @projects_array = @projects.get_projects_pulldown_list
-    @pj_pulldown_initial_set_value = @projects_array.first
-    project = @projects.first
+
+    #セッションに選択中のプロジェクトがあればそちらを使用する
+    if session[:selected_project].blank?
+      @pj_pulldown_initial_set_value = @projects_array.first
+      project = @projects.first
+    else
+      project_id = 1
+      @pj_pulldown_initial_set_value = @projects_array.find{|val| val[project_id] == session[:selected_project]["id"]}
+      project = session[:selected_project]
+    end
+
     if project.blank?
       @pj_events = ""
     else
-      @pj_events = PjEvent.where(project_id: project.id)
+      @pj_events = PjEvent.where(project_id: project["id"])
     end
   end
+
 
   def update
     #プロジェクトの体重情報が必要なためproject取得
