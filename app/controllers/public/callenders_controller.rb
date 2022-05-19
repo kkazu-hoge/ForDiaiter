@@ -24,4 +24,9 @@ class Public::CallendersController < Public::ApplicationController
       @pj_events = PjEvent.where(project_id: project.id)
     end
   end
+
+  def update
+
+  end
+
 end
