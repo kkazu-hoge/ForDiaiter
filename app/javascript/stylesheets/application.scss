@@ -927,10 +927,38 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 .result-input-info-area{
   border: 1px solid #000000;
   margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 /*#### ↑カレンダー画面 ####*/
 
+
+
+
+/*#### ↓トレーニング詳細画面 ####*/
+
+.training-movie-scroll{
+  height: 400px;
+  overflow: auto;
+}
+
+.vid {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.vid iframe,
+.vid object,
+.vid embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+}
+
+/*####   ↑トレーニング詳細画面 ####*/
 
 
 
