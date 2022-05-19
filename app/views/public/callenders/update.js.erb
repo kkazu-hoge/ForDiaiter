@@ -1,6 +1,7 @@
-$("#event-edit-modal").html(
-"<%= escape_javascript(
-  render "form_event_edit")
-%>"
-)
-$("#event-edit-modal").modal("show")
+<% if @status == 'success' %>
+    <!--処理結果保存するだけのため、部分レンダリングの必要性なし(モーダルを閉じるだけ)-->
+    <!--$("#training_form_area").html("%= escape_javascript(render("input_training", {pj_event_details: @pj_event_details})) %>");-->
+<%  elsif @status == 'fail' %>
+    alert('error!')
+<% end %>
+$("#event-edit-modal").modal("hide");
