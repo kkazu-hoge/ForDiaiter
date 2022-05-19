@@ -932,6 +932,8 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 }
 
 .callender-event-input .training_select_scroll{
+  height: 110px;
+  overflow: auto;
   overflow-x: hidden;
 }
 
