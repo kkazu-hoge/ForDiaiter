@@ -1,5 +1,9 @@
 class Public::CallendersController < Public::ApplicationController
   def edit
+    @trainings = Training.all
+    @pj_event = PjEvent.find(params[:pj_event_id])
+    @pj_event_details = 
+    
   end
 
   def new
@@ -12,6 +16,5 @@ class Public::CallendersController < Public::ApplicationController
     project = @projects.first
 
     @pj_events = PjEvent.where(project_id: project.id)
-
   end
 end

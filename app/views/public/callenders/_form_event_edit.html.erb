@@ -1,0 +1,59 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">イベント編集</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body training_custome_scroll">
+      <%= form_with url: projects_path, method: :post, id: "training_form_area" do |f| %>
+        <div class="row">
+          <div class="col-8">
+            <% if session[:pj_event_details].blank? %>
+              <div class="text-center">
+                <h5>追加したトレーニングはこちらに一覧表示されます</h5>
+              </div>
+            <% else %>
+              <ul class="sample1 training_select_scroll">
+                <% session[:pj_event_details].each do |ped| %>
+                <li id="detail_<%= ped[1]["training_id"]%>">
+                  <div class="row">
+                    <div class="col-6">
+                      <%= ped[1]["training_name"] %>（10分:<%= ped[1]["calorie_per_ten_min"] %>kcal)
+                    </div>
+                    <div class="col-3">
+                      <%= f.text_field :"#{ped[1]["training_id"]}", class: "form-control form-control-sm", placeholder: "時間：分" %>
+                    </div>
+                    <div class="col-2">
+                      <%=link_to "削除", pj_event_delete_training_pj_template_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', data: { confirm: "削除してもよろしいですか?" } , remote: true %>
+                    </div>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+      <!--<ol class="sample2">-->
+      <!--% @trainings.each do |t| %>-->
+      <!--model: @pj_event_details,-->
+      <!--  %= form_with  url: pj_event_add_training_pj_template_events_path, method: :get, local: false do |f| %>-->
+      <!--  <li>-->
+      <!--    <div class="field">-->
+      <!--      <div class="row">-->
+      <!--        <div class="col-9 col-lg-9 col-md-9 col-sm-9">-->
+      <!--        %= f.label :training_id, t.name %>-->
+      <!--        </div>-->
+      <!--        %= f.hidden_field :training_id, :value => t.id %>-->
+      <!--        <div class="col-3 col-lg-3 col-md-3 col-sm-3">-->
+      <!--        %= f.submit "追加",class: "btn btn-sm mx-auto btn-outline-secondary font-weight-bold btn-block"%>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <!--  </li>-->
+      <!--  % end %>-->
+      <!--% end %>-->
+      <!--</ol>-->
+    </div>
+  </div>
+</div>
