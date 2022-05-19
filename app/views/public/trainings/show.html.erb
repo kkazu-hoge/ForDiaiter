@@ -18,9 +18,19 @@
 
         <div class="col-12 col-lg-8 col-md-7 col-sm-12">
           <div class = "training-movie-scroll">
+            <!--<div class="vid">-->
+            <!--    <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>-->
+            <!--</div>-->
             <div class="vid">
-                <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
-            </div><!--./vid -->
+              <% @youtube_data.items.each do |item| %>
+                <% snippet = item.snippet %>
+                <p><%= snippet.title %></p>
+                <p><%= snippet.published_at %><%= snippet.channel_title %></p>
+                <div>
+                  <iframe width="400" height="250" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div><!--.col -->
 
