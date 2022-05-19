@@ -4,6 +4,11 @@
 <div class='container'>
   <div class='row justify-content-center'>
     <div class="col-12 col-lg-10 col-md-12 col-sm-12">
+      <% if @pj_events.blank? %>
+        <div class="text-center">
+          <h5>プロジェクト登録後にご利用いただけます</h5>
+        </div>
+      <% else %>
         <%= month_calendar events: @pj_events do |date, pj_events| %>
           <%= date.day %>
           <% pj_events.each.with_index(1) do |pj_event, i| %>
@@ -20,6 +25,7 @@
             <% end %>
           <% end %>
         <% end %>
+      <% end %>
     </div>
   </div>
 </div>
