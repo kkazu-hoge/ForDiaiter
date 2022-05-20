@@ -1,26 +1,24 @@
 <div class='container'>
   <div class='row justify-content-center main_contents'>
-    <nav class="col-10 navbar navbar-dark mypage_nav_bg_color p-1">
+    <nav class="col-11 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
         <b>ダッシュボード</b>
       </div>
     </nav>
-    <div class="col-10 content_background">
+    <div class="col-11 content_background">
       <div class="home-contents">
         <div class="container-fluid">
           <div class="row justify-content-center select_project_area">
             <div class="col-12 text-center">
-              <!--<div class="col-12 col-lg-2 col-md-12 col-sm-12 text-center">-->
-                <b><h6 style = "padding-top:10px;">【プロジェクト選択】</h6></b>
-              <!--</div>-->
+              <b><h6 style = "padding-top:10px;">【プロジェクト選択】</h6></b>
             </div>
             <div class="col-10 col-lg-5 col-md-8 col-sm-10">
-                <%= form_with url: pj_alter_path, method: :get, local: false do |f| %>
-                  <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
-                  <div id="select-drop-submit" style="display:none;">
-                    <%= f.submit %>
-                  </div>
-                <% end %>
+              <%= form_with url: pj_alter_path, method: :get, local: false do |f| %>
+                <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
+                <div id="select-drop-submit" style="display:none;">
+                  <%= f.submit %>
+                </div>
+              <% end %>
             </div>
             <div class="col-2 col-lg-1 col-md-2 col-sm-2">
               <div class="home_add_icon">
