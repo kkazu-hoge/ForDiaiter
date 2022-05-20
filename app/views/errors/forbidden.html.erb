@@ -1,0 +1,19 @@
+<div class="container">
+  <div class ="row">
+    <div class="col-12 text-center">
+      <div id="error">
+        <h1>403 Forbidden</h1>
+        <p>
+          <%=
+            case @exception
+            when Public::ApplicationController::IpAddressRejected
+              "あなたのIPアドレス（#{request.ip}）からは利用できません。"
+            else
+              "指定されたページを閲覧する権限がありません。"
+            end
+          %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
