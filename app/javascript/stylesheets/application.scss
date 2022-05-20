@@ -996,6 +996,56 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
     transform: scale(1.1)
 }
 
+
+
+.searchbar{
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 40px;
+  background-color: #dcdcdc;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.search_input{
+  color: #7f00ff;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color:transparent;
+  line-height: 20px;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+  padding: 0 10px;
+  width: 130px;
+  caret-color: #9400d3;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+  background: white;
+  color: #7f00ff;
+}
+
+.search_icon{
+  height: 20px;
+  width: 20px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color:#696969;
+  text-decoration:none;
+}
+
+
+
+
 .training-movie-scroll{
   height: 400px;
   overflow: auto;
