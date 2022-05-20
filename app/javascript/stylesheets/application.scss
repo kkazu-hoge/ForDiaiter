@@ -452,9 +452,6 @@ h2.mypage_area {
 
 .mypage_nav_bg_color{
   background-color: #bf7fff;
-  // border-bottom-style: groove;
-  // border-width: 3px;
-  // border-color: #ba55d3;
 }
 
 
@@ -866,6 +863,7 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 
   .day {
     height: 80px;
+    background: #ffffff;
   }
 
   .wday-0 {
@@ -955,6 +953,15 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   overflow: auto;
   overflow-x: hidden;
 }
+
+.event-callender .main_contents{
+  margin-top: 0;
+}
+
+.event-callender .content_background{
+  padding-top: 0;
+}
+
 
 /*#### ↑カレンダー画面 ####*/
 
