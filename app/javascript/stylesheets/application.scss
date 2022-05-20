@@ -986,15 +986,26 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   color: #ff2d2d;
 }
 
-.training-index a{
+// .training-index .fa-youtube{
+//     transition: all 0.2s ease;
+//     cursor: pointer
+// }
+
+// .training-index .fa-youtube:hover{
+//     box-shadow: 5px 6px 6px 2px #e9ecef;
+//     transform: scale(1.1)
+// }
+
+.training-index svg{
     transition: all 0.2s ease;
     cursor: pointer
 }
 
-.training-index a:hover{
+.training-index svg:hover{
     box-shadow: 5px 6px 6px 2px #e9ecef;
     transform: scale(1.1)
 }
+
 
 
 
@@ -1042,8 +1053,6 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   color:#696969;
   text-decoration:none;
 }
-
-
 
 
 .training-movie-scroll{
