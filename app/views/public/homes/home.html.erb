@@ -12,7 +12,7 @@
             <div class="col-12 text-center">
               <b><h6 style = "padding-top:10px;">【プロジェクト選択】</h6></b>
             </div>
-            <div class="col-10 col-lg-5 col-md-8 col-sm-10">
+            <div class="col-8 col-lg-4 col-md-6 col-sm-8">
               <%= form_with url: pj_alter_path, method: :get, local: false do |f| %>
                 <%= f.select :project_id, options_for_select(@projects_array, @pj_pulldown_initial_set_value), {}, class: "form-control select-drop-project", required: true %>
                 <div id="select-drop-submit" style="display:none;">
