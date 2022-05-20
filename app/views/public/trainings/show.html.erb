@@ -3,37 +3,45 @@
       <div class="col-12">
         <h3>トレーニング参考動画</h3>
       </div>
-    </div><!--.row -->
-</div><!--./container -->
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-lg-4 col-md-5 col-sm-12">
+        <div class="col-12 col-lg-5 col-md-5 col-sm-12">
             <h4>腕立て伏せ</h4>
             <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
             </p><img src="http://farm7.staticflickr.com/6043/6311448642_841c424a65.jpg" class="img-responsive center-block" width="100%" height="50%" alt="tv">
 
-        </div><!--.col -->
+        </div>
 
-        <div class="col-12 col-lg-8 col-md-7 col-sm-12">
+        <div class="col-12 col-lg-7 col-md-7 col-sm-12">
           <div class = "training-movie-scroll">
-            <!--<div class="vid">-->
-            <!--    <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>-->
-            <!--</div>-->
             <div class="vid">
-              <% @youtube_data.items.each do |item| %>
-                <% snippet = item.snippet %>
-                <p><%= snippet.title %></p>
-                <p><%= snippet.published_at %><%= snippet.channel_title %></p>
-                <div>
-                  <iframe width="400" height="250" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-              <% end %>
+              <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
             </div>
+            <div class="vid">
+              <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
+            </div>
+            <div class="vid">
+              <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
+            </div>
+              <!--% @youtube_data.items.each do |item| %>-->
+              <!--<div class="vid">-->
+              <!--  % snippet = item.snippet %>-->
+              <!--  <div class="row">-->
+              <!--    <p>%= snippet.title %></p>-->
+              <!--    <p>%= snippet.published_at %>%= snippet.channel_title %></p>-->
+              <!--  </div>-->
+              <!--  <div class="row">-->
+              <!--    <iframe width="400" height="250" src="https://www.youtube.com/embed/%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+              <!--  </div>-->
+              <!--</div>-->
+              <!--% end %>-->
           </div>
-        </div><!--.col -->
+        </div>
 
-    </div><!--./row -->
+    </div>
 
 </div>

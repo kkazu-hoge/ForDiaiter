@@ -975,6 +975,20 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   border-radius: 5px;
 }
 
+.fa-youtube{
+  color: #ff2d2d;
+}
+
+.training-index a{
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.training-index a:hover{
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
 .training-movie-scroll{
   height: 400px;
   overflow: auto;
