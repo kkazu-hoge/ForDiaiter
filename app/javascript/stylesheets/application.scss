@@ -451,10 +451,7 @@ h2.mypage_area {
 }
 
 .mypage_nav_bg_color{
-  background-color: #ba55d3;
-  // border-bottom-style: groove;
-  // border-width: 3px;
-  // border-color: #ba55d3;
+  background-color: #bf7fff;
 }
 
 
@@ -866,6 +863,7 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 
   .day {
     height: 80px;
+    background: #ffffff;
   }
 
   .wday-0 {
@@ -956,6 +954,15 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   overflow-x: hidden;
 }
 
+.event-callender .main_contents{
+  margin-top: 0;
+}
+
+.event-callender .content_background{
+  padding-top: 0;
+}
+
+
 /*#### ↑カレンダー画面 ####*/
 
 
@@ -974,6 +981,79 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 .training-index .card{
   border-radius: 5px;
 }
+
+.fa-youtube{
+  color: #ff2d2d;
+}
+
+// .training-index .fa-youtube{
+//     transition: all 0.2s ease;
+//     cursor: pointer
+// }
+
+// .training-index .fa-youtube:hover{
+//     box-shadow: 5px 6px 6px 2px #e9ecef;
+//     transform: scale(1.1)
+// }
+
+.training-index svg{
+    transition: all 0.2s ease;
+    cursor: pointer
+}
+
+.training-index svg:hover{
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.1)
+}
+
+
+
+
+.searchbar{
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 40px;
+  background-color: #dcdcdc;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.search_input{
+  color: #7f00ff;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color:transparent;
+  line-height: 20px;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+  padding: 0 10px;
+  width: 130px;
+  caret-color: #9400d3;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+  background: white;
+  color: #7f00ff;
+}
+
+.search_icon{
+  height: 20px;
+  width: 20px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color:#696969;
+  text-decoration:none;
+}
+
 
 .training-movie-scroll{
   height: 400px;

@@ -1,10 +1,28 @@
 <div class='container'>
   <div class='row justify-content-center main_contents'>
+    <nav class="col-10 navbar navbar-dark mypage_nav_bg_color p-1">
+      <div class="container-fluid navbar-brand">
+        <b>トレーニング一覧</b>
+        <ul class="navbar-nav">
+          <%= form_with url: home_path, method: :get do |f| %>
+          <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+              <div class="searchbar">
+                <%= f.text_field :search_text, class: "search_input", placeholder: "キーワード..." %>
+                <%= f.button :type => "submit", style: 'border-style: none; background: none;', class: "search_icon" do %>
+                  <i class="fas fa-search"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
     <div class="col-10 content_background">
-      トレーニング一覧
       <div class = "row training-index">
         <% @trainings.each do |t| %>
-        <div class="col-12">
+        <div class="col-12 col-lg-6 col-md-12 col-sm-12">
           <div class="card second-row-card">
             <div class="card-body">
               <div class="row">
@@ -18,15 +36,28 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-12 col-lg-8 col-md-7 col-sm-12">
-                      <div class="card-text card_annotation_fontsize">内容</div>
+                    <div class="col-5 col-lg-5 col-md-6 col-sm-4">
+                      <div class="card-text card_annotation_fontsize">タイトル</div>
                     </div>
-                    <div class="col-12 col-lg-4 col-md-5 col-sm-12">
-                      <div class="col-12">
-                        <%= link_to "参考動画", training_path(t.id), method: :get, class: "btn col-12 mx-auto btn-danger font-weight-bold btn-block" %>
+                    <div class="col-7 col-lg-7 col-md-6 col-sm-8">
+                      <div class="col-12 text-center">
+                        【参考動画】
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-5 col-lg-5 col-md-6 col-sm-4">
+                      <div class="card-text card_annotation_fontsize">内容</div>
+                    </div>
+                    <div class="col-7 col-lg-7 col-md-6 col-sm-8">
+                      <div class="col-12 text-center">
+                        <%= link_to  training_path(t.id), method: :get, class: "col-12 mx-auto font-weight-bold" do %>
+                          <i class="fab fa-youtube fa-3x"></i>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
