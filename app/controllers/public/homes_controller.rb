@@ -83,4 +83,5 @@ class Public::HomesController < Public::ApplicationController
     return dashboard_data_hash
   end
 
+
 end

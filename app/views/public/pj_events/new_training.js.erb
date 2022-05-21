@@ -1,0 +1,7 @@
+$("#training-modal").html(
+"<%= escape_javascript(
+  render "form_training_select_new")
+%>"
+)
+$("#training-modal").modal("show")
+<!--,{ project_id: @project_id }-->

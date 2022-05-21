@@ -36,6 +36,8 @@ class Public::CallendersController < Public::ApplicationController
     else
       @pj_events = PjEvent.where(project_id: @project["id"])
     end
+
+
   end
 
 

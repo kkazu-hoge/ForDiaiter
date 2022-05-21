@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+    $("#training_form_area").html("<%= escape_javascript(render("input_training_new", {pj_event_details: @pj_event_details, project: @project})) %>");
+<%  elsif @status == 'fail' %>
+    alert('error!')
+<% end %>
+$("#training-modal").modal("hide");
