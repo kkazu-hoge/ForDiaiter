@@ -1,4 +1,14 @@
-                        <%= form_with url: projects_path, method: :post do |f| %>
+                        <%= form_with url: pj_events_path(project_id: project.id), method: :post do |f| %>
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="card text-center">
+                                <div class="card-body">
+                                  イベント実施予定日：
+                                  <%= f.date_field :action_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @action_day, class: "form-control" %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                           <div class="row">
                             <div class="col-8">
                               <ul class="sample1 training_select_scroll">

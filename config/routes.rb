@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       get :new_wizard3, on: :collection
       get :complete, on: :collection
     end
-    resources :pj_events, only: [:show, :new, :edit, :update, :destroy] do
+    resources :pj_events, only: [:show, :new, :create, :edit, :update, :destroy] do
       get :new_training, on: :collection
       get :pj_event_add_training_new,    on: :collection
       get :pj_event_delete_training_new, on: :collection

@@ -14,53 +14,47 @@
             <div class="card">
               <div class="card-body">
 
-                <div class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="card text-center">
-                      <div class="card-header"><b>目標の体重を達成するための総消費カロリー</b></div>
-                      <div class="card-body">
+                <!--<div class="row">-->
+                <!--  <div class="col-12 col-lg-6 col-md-6 col-sm-6">-->
+                <!--    <div class="card text-center">-->
+                <!--      <div class="card-header"><b>目標の体重を達成するための総消費カロリー</b></div>-->
+                <!--      <div class="card-body">-->
                         <!--参考情報-->
-                      （現在の体重：？kg　＞＞　目標体重：？kg）
-                        <h4>？kcal</h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
-                    <div class="card text-center">
-                    <div class="card-header"><b>イベント1回あたりの推奨消費カロリー量</b></div>
-                      <div class="card-body">
+                <!--      （現在の体重：？kg　＞＞　目標体重：？kg）-->
+                <!--        <h4>？kcal</h4>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </div>-->
+                <!--  <div class="col-12 col-lg-6 col-md-6 col-sm-6">-->
+                <!--    <div class="card text-center">-->
+                <!--    <div class="card-header"><b>イベント1回あたりの推奨消費カロリー量</b></div>-->
+                <!--      <div class="card-body">-->
                         <!--参考情報-->
-                        プロジェクト期間のイベント回数：？ 回
-                        <h4> ？kcal</h4>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <!--        プロジェクト期間のイベント回数：？ 回-->
+                <!--        <h4> ？kcal</h4>-->
+                <!--      </div>-->
+                <!--    </div>-->
+                <!--  </div>-->
+                <!--</div>-->
 
                 <div class="row">
                   <div class="col-12">
                     <div class="card">
-                      <div class="card-header"><b>トレーニングメニュー</b></div>
+                      <div class="card-header"><b>イベントメニュー</b></div>
                       <div class="card-body">
-                        <!--トレーニング選択エリア-->
-                        <div class="row training_select_caption justify-content-center">
-                          <div class="col-12 col-lg-8 col-md-12 col-sm-12 ">
-                            <div class="card text-center">
-                              <div class="card-body">
-                                <!--参考情報-->
-                                現在選択中のトレーニング消費カロリー量<br>※イベント1回あたり
-                                <div class="d-flex justify-content-center align-items-center">
-                                  <h4>360kcal</h4>
-                                  <h6>　＞＞　</h6>
-                                  <!-- ifで表示内容出し分け -->
-                                  <h6>推奨消費カロリーから1100kcal不足</h6>
-                                </div>
+
+                        <%= form_with url: pj_events_path(project_id: @project_id), method: :post, id: "training_form_area" do |f| %>
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="card text-center">
+                                <div class="card-body">
+                                イベント実施予定日：
+                                <%= f.date_field :action_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @action_day, class: "form-control" %>
+                                <!--%= f.date_select :action_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, default: @action_day, class: "form-control" %>-->
+                                <div>
                               </div>
                             </div>
                           </div>
-                        </div>
-
-                        <%= form_with url: projects_path, method: :post, id: "training_form_area" do |f| %>
                           <div class="row">
                             <div class="col-8">
                               <% if session[:pj_event_details_new].blank? %>

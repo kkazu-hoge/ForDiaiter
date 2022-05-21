@@ -7,12 +7,47 @@ class Public::PjEventsController < Public::ApplicationController
 
   def new
     @project_id = params[:project_id]
+    # if session[:pj_event_details_new]["action_day"].blank?
+      @action_day = Date.current
+      # session[:pj_event_details_new]["action_day"] = @action_day
+    # else
+    #   @action_day = session[:pj_event_details_new]["action_day"]
+    # end
   end
 
   def edit
   end
 
   def update
+  end
+
+  def create
+
+    project = Project.find(params[:project_id])
+    action_day = params[:action_day].to_date
+
+    # pj_eventを保存する
+    pj_event = PjEvent.new(project_id: project.id)
+    pj_event[:action_day] = action_day
+    pj_event[:start_time] = pj_event[:action_day].to_time.to_datetime
+    pj_event.save
+
+    # pj_event_detailsを保存する
+    session[:pj_event_details_new].each do |ped|
+  	  pj_event_details = PjEventDetail.new
+      pj_event_details[:pj_event_id] = pj_event.id
+    	pj_event_details[:training_id] = ped[1]["training_id"]
+    	training = Training.find(pj_event_details[:training_id].to_i)
+  	  pj_event_details[:activity_minutes] = params[training.id.to_s]
+  	  pj_event_details[:burn_calories] = burn_calories_training(training.mets_value, project["weight"], pj_event_details[:activity_minutes].to_i )
+  	  pj_event_details.save
+    end
+
+    # session情報をクリアする
+    session[:pj_event_details_new].clear
+
+    redirect_to callender_path(id: current_customer.id)
+
   end
 
   def destroy
@@ -25,8 +60,7 @@ class Public::PjEventsController < Public::ApplicationController
   end
 
   def pj_event_add_training_new
-
-        #リクエストパラメータのトレーニングidからトレーニングデータを取得
+    #リクエストパラメータのトレーニングidからトレーニングデータを取得
     training_obj = Training.find(params[:training_id])
     @project = Project.find(params[:project_id])
     minutes = 10
@@ -40,6 +74,7 @@ class Public::PjEventsController < Public::ApplicationController
     session[:pj_event_details_new]["#{training_obj.id}"] = hash_add_training
 
     @pj_event_details = session[:pj_event_details_new]
+    @action_day = Date.current
 
     respond_to do |format|
       if session[:pj_event_details_new]["#{training_obj.id}"].blank?
