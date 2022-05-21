@@ -1,0 +1,32 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">トレーニング選択</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body training_custome_scroll">
+      <ol class="sample2">
+      <% @trainings.each do |t| %>
+      <!--model: @pj_event_details,-->
+        <%= form_with  url: pj_event_add_training_pj_template_events_path, method: :get, local: false do |f| %>
+        <li>
+          <div class="field">
+            <div class="row">
+              <div class="col-9 col-lg-9 col-md-9 col-sm-9">
+              <%= f.label :training_id, t.name %>
+              </div>
+              <%= f.hidden_field :training_id, :value => t.id %>
+              <div class="col-3 col-lg-3 col-md-3 col-sm-3">
+              <%= f.submit "追加",class: "btn btn-sm mx-auto btn-outline-secondary font-weight-bold btn-block"%>
+              </div>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+      </ol>
+    </div>
+  </div>
+</div>

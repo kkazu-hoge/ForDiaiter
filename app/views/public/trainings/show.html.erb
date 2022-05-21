@@ -1,2 +1,41 @@
-<h1>Public::Trainings#show</h1>
-<p>Find me in app/views/public/trainings/show.html.erb</p>
+<div class='container'>
+  <div class="col-12">
+    <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
+      <div class="container-fluid navbar-brand">
+        <b>トレーニング参考動画</b>
+      </div>
+    </nav>
+    <div class="col-12 content_background">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-lg-5 col-md-5 col-sm-12">
+              <h4><%= @training.name %></h4>
+              <p>
+                マスタに登録予定の説明を表示する
+              </p>
+              <%= link_to trainings_path, class:"js-trigger-transition" do %>
+              　<b>＞ トレーニング一覧に戻る</b>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-lg-7 col-md-7 col-sm-12">
+              <div class = "training-movie-scroll">
+                <div class="vid">
+                  <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
+                </div>
+                <div class="vid">
+                  <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
+                </div>
+                <div class="vid">
+                  <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>
+                </div>
+              <!--%= render "movie_contents", {youtube_data: @youtube_data} %>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

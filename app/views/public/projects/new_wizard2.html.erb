@@ -1,0 +1,161 @@
+<div class='container'>
+  <div class='row main_contents wizard-contents'>
+    <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
+      <div class="container-fluid navbar-brand">
+        <b>新規プロジェクト作成</b>
+      </div>
+    </nav>
+    <div class="col-12 content_background main_contents ">
+      <div class="row bs-wizard2" style="border-bottom:0;">
+        <div class="col-4 bs-wizard-step complete">
+          <div class="text-center bs-wizard-stepnum">基礎情報の入力</div>
+          <div class="progress"><div class="progress-bar1"></div></div>
+          <a href="#" class="bs-wizard-dot"></a>
+        </div>
+        <div class="col-4 bs-wizard-step complete">
+          <div class="text-center bs-wizard-stepnum"><b><u>プロジェクト設定</b></u></div>
+          <div class="progress"><div class="progress-bar2"></div></div>
+          <a href="#" class="bs-wizard-dot"></a>
+        </div>
+        <div class="col-4 bs-wizard-step disabled">
+          <div class="text-center bs-wizard-stepnum">トレーニング設定</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="" class="bs-wizard-dot"></a>
+        </div>
+      </div>
+
+       <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+
+              <%= form_with model: @project, url: new_wizard3_projects_path, method: :get do |f| %>
+
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-5'>
+                        <b><%= f.label :"プロジェクト名" %></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                        <%= f.text_field :name, class: "form-control" %>
+                      </div>
+                      <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-5'>
+                        <b><%= f.label :"プロジェクト開始日" %></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-6'>
+                        <%= f.date_select :pj_start_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, default: @project["pj_start_day"], class: "form-control" %>
+                      </div>
+                      <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-5'>
+                        <b><%= f.label :"プロジェクト終了日" %></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                        <%= f.date_select :pj_finish_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, default: @project["pj_start_day"], class: "form-control" %>
+                      <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-5'>
+                        <b><%= f.label :"日々の活動スタイル" %></b>
+                      </div>
+                      <div class='col-7 col-lg-4 col-md-6 col-sm-5'>
+                        <div class='row'>
+                          <div class="col-6">
+                            <%= f.radio_button :life_stress_factor_id, 1, checked: @project["life_stress_factor_id"] == 1 %>
+                            <b><%= f.label "ほぼ運動しない" %></b>
+                          </div>
+                          <div class="col-6">
+                            <%= f.radio_button :life_stress_factor_id, 2, checked: @project["life_stress_factor_id"] == 2 %>
+                            <b><%= f.label "軽い運動" %></b>
+                          </div>
+                        </div>
+                        <div class='row'>
+                          <div class="col-6">
+                            <%= f.radio_button :life_stress_factor_id, 3, checked: @project["life_stress_factor_id"] == 3 %>
+                            <b><%= f.label "適度に運動" %></b>
+                          </div>
+                          <div class="col-6">
+                            <%= f.radio_button :life_stress_factor_id, 4, checked: @project["life_stress_factor_id"] == 4 %>
+                            <b><%= f.label "激しめの運動" %></b>
+                          </div>
+                        </div>
+                        <div class='row'>
+                          <div class="col-12">
+                            <%= f.radio_button :life_stress_factor_id, 5, checked: @project["life_stress_factor_id"] == 5 %>
+                            <b><%= f.label "アスリート並みに運動をする" %></b>
+                          </div>
+                        </div>
+                      </div>
+                      <div class='col-0 col-lg-2 col-md-1 col-sm-0 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-5'>
+                        <!--<b>%= f.label do %>プロジェクト中の</br>摂取カロリー/日% end %></b>-->
+                        <b><%= f.label :"一日の摂取カロリー計画（kcal/日）" %></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                        <%= f.text_field :intake_calorie_perday, class: "form-control" , placeholder: "例:2000"%>
+                      </div>
+                      <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class='row login_input_field'>
+                      <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
+                      <div class='col-5 col-lg-3 col-md-3 col-sm-5'>
+                        <b><%= f.label :"プロジェクト中の運動の実施間隔" %></b>
+                      </div>
+                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                        <%= f.select :interval,
+                        [["毎日",1],["中１日(2日に一度)",2],["中２日",3],["中３日",4],["中４日",5],["中５日",6],["週１",7]],
+                        { include_blank: true, selected: @project["interval"] }, { class: "form-control" } %>
+                      </div>
+                      <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
+                    </div>
+                  </div>
+
+                  <div class='row login_input_field login_button'>
+                    <div class='col-12'>
+                      <div class="actions">
+                        <%= f.submit "次へ",class: 'btn col-8 col-lg-3 col-md-4 col-sm-6 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
+                      </div>
+                    </div>
+                  </div>
+                  <% end %>
+
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <%= link_to new_project_path, class:"js-trigger-transition" do %>
+                        <b>前の画面に戻る</b>
+                      <% end %>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

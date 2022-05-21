@@ -1,0 +1,38 @@
+                        <%= form_with url: projects_path, method: :post do |f| %>
+                          <div class="row">
+                            <div class="col-8">
+                              <ul class="sample1 training_select_scroll">
+                                <% pj_event_details.each do |ped| %>
+                                <li id="detail_<%= ped[1]["training_id"]%>">
+                                  <div class="row">
+                                    <div class="col-6">
+                                      <%= ped[1]["training_name"] %>（10分:<%= ped[1]["calorie_per_ten_min"] %>kcal)
+                                    </div>
+                                    <div class="col-3">
+                                      <%= f.text_field :"#{ped[1]["training_id"]}", class: "form-control form-control-sm", placeholder: "時間：分" %>
+                                    </div>
+                                    <div class="col-2">
+                                      <%=link_to "削除", pj_event_delete_training_pj_template_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true %>
+                                    </div>
+                                  </div>
+                                </li>
+                                <% end %>
+                              </ul>
+                            </div>
+                            <div class="col-4">
+                              <div class="row">
+                                <div class='col-12'>
+                                  <%=link_to "トレーニング追加", new_pj_template_event_path, class: 'btn col-8 mx-auto btn-primary font-weight-bold btn-block', remote: true %>
+                                </div>
+                              </div>
+                              <div class='row login_input_field login_button'>
+                                <div class='col-12'>
+                                  <div class="actions">
+                                    <%= f.submit "PJ作成完了",class: 'btn col-8 mx-auto btn-outline-secondary font-weight-bold btn-block' %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        <% end %>

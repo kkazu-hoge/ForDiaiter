@@ -4,37 +4,37 @@
   <% end %>
 </li>
 <li>
-  <%= link_to customers_mypage_path do %>
+  <%= link_to new_project_path do %>
     <i class="fab fa-product-hunt"></i>　新規プロジェクト
   <% end %>
 </li>
 <li>
-  <%= link_to customers_mypage_path do %>
-    <i class="fas fa-tasks"></i>　プロジェクト編集
+  <%= link_to projects_path do %>
+    <i class="fas fa-tasks"></i>　プロジェクト一覧
   <% end %>
 </li>
 <li>
-  <%= link_to customers_mypage_path do %>
+  <%= link_to callender_path(id: current_customer.id) do %>
     <i class="fas fa-calendar-alt"></i>　プロジェクトカレンダー
   <% end %>
 </li>
 <li>
-  <%= link_to customers_mypage_path do %>
-    <i class="fas fa-chart-line"></i>　記録
+  <%= link_to record_path(id: current_customer.id) do %>
+    <i class="fas fa-chart-bar"></i>　記録
   <% end %>
 </li>
 <li>
-  <%= link_to customers_mypage_path do %>
+  <%= link_to trainings_path do %>
     <i class="fas fa-dumbbell"></i>　トレーニング一覧
   <% end %>
 </li>
 <li>
-  <%= link_to customers_mypage_path do %>
+  <%= link_to search_gyms_path do %>
     <i class="fas fa-search-location"></i>　ジム検索
   <% end %>
 </li>
 <li>
-  <%= link_to customers_mypage_path do %>
+  <%= link_to columns_path do %>
     <i class="fas fa-columns"></i>　コラム
   <% end %>
 </li>

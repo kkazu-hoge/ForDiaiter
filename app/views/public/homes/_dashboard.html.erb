@@ -1,0 +1,156 @@
+<div class="row">
+  <div class="row flex-row flex-nowrap overflow-auto">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body text-center">
+          <h6 class="card-title"><%= current_customer.public_name %>さんの目標総消費カロリー</h6>
+          <h4 class="card-subtitle mb-2 text-muted">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-flag-checkered"></i>
+              <%= number_to_currency(target_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text">算出式：7200[kcal/kg]　×　(現在の体重[kg] － 目標の体重[kg]) + (日常生活でのカロリー差 ×　プロジェクト期間(日数))</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">追加コンテンツ予定</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-chart-line"></i>
+              <%= number_to_currency(plan_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">プロジェクト作成時の計画に沿って進行した場合のカロリー消費量を表示しています</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row flex-row flex-nowrap overflow-auto">
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">計画消費カロリー(累計)</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-chart-line"></i>
+              <%= number_to_currency(plan_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">プロジェクト作成時の計画に沿って進行した場合のカロリー消費量を表示しています</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">実績消費カロリー(累計)</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-running"></i>
+              <%= number_to_currency(result_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">プロジェクトの実績値に基づいたカロリー消費量を表示しています</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">進捗率</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp ">
+              <% if plan_burn_kcal.to_i <= 0 %>
+                ---
+              <% elsif (result_burn_kcal.to_f/plan_burn_kcal.to_f)*100 > 100 %>
+                <i class="fas fa-grin-beam" style="color: #7fff7f;"></i>
+              <% elsif (result_burn_kcal.to_f/plan_burn_kcal.to_f)*100 < 70 %>
+                <i class="fas fa-dizzy" style="color: #ff7f7f;"></i>
+              <% else %>
+                <i class="fas fa-smile"></i>
+              <% end %>
+              <% if plan_burn_kcal.to_i > 0 %>
+                <%= number_to_currency((result_burn_kcal.to_f/plan_burn_kcal.to_f)*100, unit: " %", format: "%n%u", precision: 0) %>
+              <% end %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">計画消費カロリーと実績消費カロリーから進捗率を算出しています<br>※100%を超えていれば進捗が良好であることの目安になります</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">追加コンテンツ予定</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-running"></i>
+              <%= number_to_currency(result_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">プロジェクトの実績値に基づいたカロリー消費量を表示しています</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row flex-row flex-nowrap overflow-auto">
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">自然総消費カロリー/日</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-heartbeat"></i>
+              <%= number_to_currency(naturally_burn_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">基礎代謝量とプロジェクト作成時に設定した普段の活動傾向からプロジェクト外の消費カロリーを算出しています</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">想定摂取カロリー/日</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-utensils"></i>
+              <%= number_to_currency(intake_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">プロジェクト作成時に設定した1日あたりの摂取カロリーを表示しています</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">日常生活でのカロリー差</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <%= number_to_currency(diff_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後がオーバーカロリーでないことの目安になります</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">追加コンテンツ予定</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <%= number_to_currency(diff_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後がオーバーカロリーでないことの目安になります</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

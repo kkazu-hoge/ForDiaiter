@@ -1,2 +1,84 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center main_contents'>
+    <div class="col-11 mypage_area">
+      <nav class="navbar navbar-dark mypage_nav_bg_color p-1">
+        <div class="container-fluid navbar-brand">
+          <b><%= current_customer.public_name %>さんのマイページ</b>
+        </div>
+      </nav>
+      <section>
+        <div class="container">
+      		<div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+              <%= link_to edit_customer_path(current_customer.id) do %>
+              <div class="wrap_mypage">
+                <div class="ico-wrap_mypage">
+                  <span class="mbr-iconfont fas fa-info-circle"></span>
+                </div>
+                <div class="text-wrap vcenter">
+                  <h4 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                    <span>会員情報変更</span>
+                  </h4>
+                  <p class="mbr-fonts-style text1 mbr-text display-6">氏名、公開用ネーム、生年月日の変更はこちら　　　　　　　</p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="col-lg-5 col-md-7">
+              <%= link_to edit_mail_address_customer_path(current_customer.id) do %>
+              <div class="wrap_mypage">
+                <div class="ico-wrap_mypage">
+                  <span class="mbr-iconfont far fa-envelope"></span>
+                </div>
+                <div class="text-wrap vcenter">
+                  <h4 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                    <span>メールアドレス変更</span>
+                  </h4>
+                  <p class="mbr-fonts-style text1 mbr-text display-6">メールアドレスの変更はこちら　　　　　　　　　　 　　</p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="col-lg-5 col-md-7">
+              <%= link_to edit_password_customer_path(current_customer.id) do %>
+              <div class="wrap_mypage">
+                <div class="ico-wrap_mypage">
+                  <span class="mbr-iconfont fas fa-key"></span>
+                </div>
+                <div class="text-wrap vcenter">
+                  <h4 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                    <span>パスワード変更</span>
+                  </h4>
+                  <p class="mbr-fonts-style text1 mbr-text display-6">パスワードの変更はこちら　　　　　　　　　　　　　　　　</p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="col-lg-5 col-md-7">
+              <%= link_to home_path do %>
+              <div class="wrap_mypage">
+                <div class="ico-wrap_mypage">
+                  <span class="mbr-iconfont fas fa-exclamation-triangle"></span>
+                </div>
+                <div class="text-wrap vcenter">
+                  <h4 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                    <span>利用規約</span>
+                  </h4>
+                  <p class="mbr-fonts-style text1 mbr-text display-6">規約のご確認はこちら　　　　　　　　　　　　　　　　　</p>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-12">
+              <%= link_to unsubscribe_customer_path(current_customer.id) do %>
+                <b>※退会はこちらから</b>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

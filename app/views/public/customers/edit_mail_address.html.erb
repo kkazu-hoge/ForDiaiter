@@ -1,2 +1,52 @@
-<h1>Public::Customers#edit_mail_address</h1>
-<p>Find me in app/views/public/customers/edit_mail_address.html.erb</p>
+<div class='container'>
+  <div class="col-12">
+    <div class="text-error">
+      <%= render 'layouts/public/errors', obj: @customer %>
+    </div>
+  </div>
+  <div class='row justify-content-center main_contents edit-contents'>
+    <nav class="col-10 navbar navbar-dark mypage_nav_bg_color p-1">
+      <div class="container-fluid navbar-brand">
+        <b>メールアドレス変更</b>
+      </div>
+    </nav>
+    <div class="col-10 content_background">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <%= form_with model: @customer, url: update_mail_address_customer_path(@customer), method: :patch do |f| %>
+                <div class="field">
+                  <div class='row login_input_field'>
+                    <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <b><%= f.label :"メールアドレス" %></b>
+                    </div>
+                    <div class='col-7 col-lg-7 col-md-9 col-sm-8'>
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class='row login_input_field login_button'>
+                  <div class='col-11'>
+                    <div class="actions">
+                      <%= f.submit "変更する",class: 'btn col-8 col-lg-4 col-md-5 col-sm-8 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+                <div class="row">
+                  <div class="col-11 text-center">
+                    <%= link_to customers_mypage_path do %>
+                      <b>マイページに戻る</b>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

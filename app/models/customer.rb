@@ -16,6 +16,11 @@ class Customer < ApplicationRecord
             presence: true
 
 
+  ######インスタンスメソッド######
+
+
+
+  ######クラスメソッド######
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
@@ -30,5 +35,13 @@ class Customer < ApplicationRecord
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
+
+
+  def self.birthday_transfer_age(birthday)#birtday = date型
+    result = (Date.current.strftime("%Y%m%d").to_i -  birthday.strftime("%Y%m%d").to_i) / 10000
+    return result
+  end
+
+
 
 end
