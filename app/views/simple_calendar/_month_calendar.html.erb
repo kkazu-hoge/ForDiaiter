@@ -3,7 +3,8 @@
     <!--<span style="font-size: 15px;">表示中のプロジェクト：%= @project["name"] %></span>-->
     <div class="calendar-heading">
       <div class="row">
-        <div class="col-12 col-lg-3 col-md-3 col-sm-12">
+        <div class="col-12 col-lg-3 col-md-3 col-sm-12 text-center
+        ">
           <span style="font-size: 15px;">プロジェクト：<%= @project["name"] %></span>
         </div>
         <div class="col-8 col-lg-6 col-md-6 col-sm-8">
@@ -14,7 +15,7 @@
         <div class="col-4 col-lg-3 col-md-3 col-sm-4">
           <div class="row text-right">
             <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-              <%=link_to "新規イベント", new_pj_event_path(project_id: @project["id"]), class: 'btn btn-sm btn-outline-secondary font-weight-bold btn-block' %>
+              <%=link_to "新規イベント", new_pj_event_path(project_id: @project["id"]), class: 'btn btn-sm btn-outline-secondary font-weight-bold btn-block', style: "font-size: <15></15>px;" %>
             </div>
           </div>
         </div>
