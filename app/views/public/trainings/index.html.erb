@@ -26,30 +26,35 @@
           <div class="card second-row-card">
             <div class="card-body">
               <div class="row">
-                <div class="col-3 col-lg-2 col-md-3 col-sm-4 side-area">
+                <div class="col-1 col-lg-1 col-md-1 col-sm-1 side-area">
 
                 </div>
-                <div class="col-8 col-lg-9 col-md-8 col-sm-7" style="margin-left: 3%;">
+                <div class="col-10 col-lg-10 col-md-10 col-sm-10" style="margin-left: 3%;">
                   <div class="row">
                     <div class="col-12">
                       <h5 class="card-title"><b><%= t.name %></b></h5>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-5 col-lg-5 col-md-6 col-sm-4">
-                      <div class="card-text card_annotation_fontsize">タイトル</div>
+                    <div class="col-7 col-lg-7 col-md-8 col-sm-8">
+                      <div class="">【補足情報】</div>
                     </div>
-                    <div class="col-7 col-lg-7 col-md-6 col-sm-8">
+                    <div class="col-5 col-lg-5 col-md-4 col-sm-4">
                       <div class="col-12 text-center">
-                        【参考動画】
+                        参考動画
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-5 col-lg-5 col-md-6 col-sm-4">
-                      <div class="card-text card_annotation_fontsize">内容</div>
+                    <div class="col-7 col-lg-7 col-md-8 col-sm-8">
+                      <div class="card-text card_annotation_fontsize">
+                        <ul>
+                          <li>運動強度(METs)：<%= (t.mets_value*60).to_i %></li>
+                          <li>消費カロリー<br>：約<%= (t.mets_value.to_f * current_customer.weight.to_i * 10 * 1.05).to_i %>(kcal/10min)</li>
+                        </ul>
+                      </div>
                     </div>
-                    <div class="col-7 col-lg-7 col-md-6 col-sm-8">
+                    <div class="col-5 col-lg-5 col-md-4 col-sm-4">
                       <div class="col-12 text-center">
                         <%= link_to  training_path(t.id), method: :get, class: "col-12 mx-auto font-weight-bold" do %>
                           <i class="fab fa-youtube fa-3x"></i>
@@ -57,8 +62,8 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
+
               </div>
             </div>
           </div>
