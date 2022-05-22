@@ -54,7 +54,7 @@ class Public::ProjectsController < Public::ApplicationController
     unless params[:project].blank?
       if project_info_validation(params[:project], session[:project]) == success
 
-        pj_start_day = Date.new params[:project]["pj_start_day(1i)"].to_i,params[:project]["pj_start_day(2i)"].to_i,params[:project]["pj_start_day(3i)"].to_i
+        pj_start_day =  Date.new params[:project]["pj_start_day(1i)"].to_i,params[:project]["pj_start_day(2i)"].to_i,params[:project]["pj_start_day(3i)"].to_i
         pj_finish_day = Date.new params[:project]["pj_finish_day(1i)"].to_i,params[:project]["pj_finish_day(2i)"].to_i,params[:project]["pj_finish_day(3i)"].to_i
         #プロジェクト設定画面でセットしたリクエストパラメータをsession情報に保存
         session[:project]["name"] =                  params[:project][:name]
