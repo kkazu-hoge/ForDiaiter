@@ -10,14 +10,17 @@ class Public::ProjectsController < Public::ApplicationController
   def index
   end
 
+
   def show
   end
+
 
   def new
     project = Project.new
     #sessionに情報保持していなければ会員情報の値をprojectにセット(ServiceProject module)
     @project = basic_info_set(project, session[:project], current_customer)
   end
+
 
 
   def new_wizard2
@@ -48,6 +51,7 @@ class Public::ProjectsController < Public::ApplicationController
     project = Project.new
     @project = project_info_set(project, session[:project])
   end
+
 
 
   def new_wizard3
@@ -112,7 +116,6 @@ class Public::ProjectsController < Public::ApplicationController
     plan_pj_event.save
 
     #３ plan_pj_event_detailsを保存する
-    # binding.pry
     session[:pj_event_details].each do |ped|
       plan_pj_event_details = PlanPjEventDetail.new
       plan_pj_event_details[:plan_pj_event_id] = plan_pj_event.id
@@ -120,7 +123,7 @@ class Public::ProjectsController < Public::ApplicationController
       plan_pj_event_details[:activity_minutes] = params[ped[1]["training_id"].to_s]
       training = Training.find(plan_pj_event_details[:training_id].to_i)
       plan_pj_event_details[:burn_calories] = burn_calories_training(training.mets_value, project[:weight], plan_pj_event_details[:activity_minutes] )
-      # binding.pry
+
       plan_pj_event_details.save
     end
 
@@ -150,9 +153,6 @@ class Public::ProjectsController < Public::ApplicationController
     session[:project].clear
     session[:pj_event_details].clear
 
-    # session[:project] = nil
-    # session[:pj_event_details] = nil
-
     #7  完了画面に遷移する
     redirect_to complete_projects_path
   end
@@ -161,13 +161,12 @@ class Public::ProjectsController < Public::ApplicationController
   end
 
 
-
-
   private def initial_value_set
     @height_pulldown = height_pulldown_get  #Commonメソッド
     @weight_pulldown = weight_pulldown_get  #Commonメソッド
     @age_pulldown    = age_pulldown_get  #Commonメソッド
   end
+
 
   private def new_params
     params.require(:project).permit(
