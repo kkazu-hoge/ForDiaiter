@@ -31,8 +31,6 @@ class Customer < ApplicationRecord
       customer.birthday = "2000-07-07"
       customer.height = 170
       customer.weight = 70
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
-      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
 
