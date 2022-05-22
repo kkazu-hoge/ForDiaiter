@@ -36,6 +36,7 @@ class Public::ProjectsController < Public::ApplicationController
         session[:project]["target_weight"] = params[:project][:target_weight]
       else
         redirect_to request.referer, notice: "入力されていない項目、または入力値が異常な項目があります"
+        return
         # @project = basic_info_set(Project.new, session[:project], current_customer)
         # render "/projects/new"
       end
@@ -65,6 +66,7 @@ class Public::ProjectsController < Public::ApplicationController
         session[:project]["interval"] =              params[:project][:interval]
       else
         redirect_to request.referer, notice: "入力されていない項目、または入力値が異常な項目があります"
+        return
       end
     end
 

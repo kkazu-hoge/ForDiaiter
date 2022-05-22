@@ -16,8 +16,10 @@ module ServiceProject
       new_pj_obj["weight"] =        session_obj["weight"]
       new_pj_obj["target_weight"] = session_obj["target_weight"]
     end
+
     return new_pj_obj
   end
+
 
 
   #プロジェクト作成の基礎情報の入力内容チェック
@@ -43,6 +45,7 @@ module ServiceProject
   end
 
 
+
   #プロジェクト新規作成時のプロジェクト設定入力の表示内容に関する処理
   def project_info_set(new_pj_obj, session_obj)
     if session_obj["name"].blank?
@@ -60,8 +63,10 @@ module ServiceProject
       new_pj_obj["intake_calorie_perday"] = session_obj["intake_calorie_perday"]
       new_pj_obj["interval"] =              session_obj["interval"]
     end
+
     return new_pj_obj
   end
+
 
 
   #プロジェクト作成のプロジェクト設定の入力内容チェック
@@ -89,16 +94,18 @@ module ServiceProject
   end
 
 
+
+  #プロジェクト新規作成時のトレーニング設定入力の表示内容に関する処理
   def training_info_set(session_obj)
     result = {}
-    bmr =                           basal_metabolic_rate(session_obj)
-    naturally_burn_calorie_perday = bmr.to_f * LifeStressFactor.find(session_obj["life_stress_factor_id"].to_i).coefficient
-    intake_calorie_perday =         session_obj["intake_calorie_perday"].to_f
-    diff_calorie_perday =           diff_calorie_perday(intake_calorie_perday,naturally_burn_calorie_perday)
-    pj_scope_day_counts =           day_counts(session_obj["pj_start_day"].to_date, session_obj["pj_finish_day"].to_date)
-    sum_diff_calorie =              diff_calorie_perday.to_i * pj_scope_day_counts.to_i
-    result["target_burn_kcal"] =             target_burn_kcal(session_obj, sum_diff_calorie)
-    result["event_counts"] =                 event_counts_calc(session_obj["pj_finish_day"].to_date, session_obj["pj_start_day"].to_date, session_obj["interval"].to_i)
+    bmr =                                   basal_metabolic_rate(session_obj)
+    naturally_burn_calorie_perday =         bmr.to_f * LifeStressFactor.find(session_obj["life_stress_factor_id"].to_i).coefficient
+    intake_calorie_perday =                 session_obj["intake_calorie_perday"].to_f
+    diff_calorie_perday =                   diff_calorie_perday(intake_calorie_perday,naturally_burn_calorie_perday)
+    pj_scope_day_counts =                   day_counts(session_obj["pj_start_day"].to_date, session_obj["pj_finish_day"].to_date)
+    sum_diff_calorie =                      diff_calorie_perday.to_i * pj_scope_day_counts.to_i
+    result["target_burn_kcal"] =            target_burn_kcal(session_obj, sum_diff_calorie)
+    result["event_counts"] =                event_counts_calc(session_obj["pj_finish_day"].to_date, session_obj["pj_start_day"].to_date, session_obj["interval"].to_i)
     result["target_burn_kcal_per_event"] =  (result["target_burn_kcal"].to_f/result["event_counts"]).ceil
 
     return result
