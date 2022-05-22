@@ -100,7 +100,7 @@ module ServiceProject
     result["target_burn_kcal"] =             target_burn_kcal(session_obj, sum_diff_calorie)
     result["event_counts"] =                 event_counts_calc(session_obj["pj_finish_day"].to_date, session_obj["pj_start_day"].to_date, session_obj["interval"].to_i)
     result["target_burn_kcal_per_event"] =  (result["target_burn_kcal"].to_f/result["event_counts"]).ceil
-    binding.pry
+
     return result
   end
 
