@@ -27,7 +27,9 @@ class Public::ProjectsController < Public::ApplicationController
     unless params[:project].blank?
       if basic_info_validation(params[:project]) == success
         #セッションにprojectが紐づいていない場合はオブジェクトを生成する
-        session[:project].blank? ? session[:project] = Project.new :
+        if session[:project].blank?
+          session[:project] = Project.new
+        end
         #基礎情報入力画面でセットしたリクエストパラメータをsession情報に保存
         session[:project]["sex"] =           params[:project][:sex]
         session[:project]["age"] =           params[:project][:age]
