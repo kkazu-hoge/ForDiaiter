@@ -72,6 +72,17 @@ width: 130px;
 border-radius: 5px;
 }
 
+#error_exception {
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 4px #666666;
+  background-color: #e8d1ff;
+  text-align: center;
+  // p.url { font-family: monospace; }
+}
+
 
 
 /*##### ↑共通フォーマット ####*/
