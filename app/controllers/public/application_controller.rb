@@ -4,7 +4,7 @@ class Public::ApplicationController < ActionController::Base
   # before_action :authenticate_customer!, except: [:top, :about]
 
   # デプロイ時にコメントアウト解放
-  # include ErrorHandlers
+  include ErrorHandlers
 
 
 end

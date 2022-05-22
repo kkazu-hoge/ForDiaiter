@@ -75,6 +75,9 @@ Rails.application.routes.draw do
 
   end
 
+  #ルーティングに該当しないURLに対して例外処理
+  match "*path" => "application#rescue404", via: :all
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
