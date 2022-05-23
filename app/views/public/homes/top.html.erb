@@ -2,19 +2,20 @@
 	<div class="wrap-top">
 		<%= video_tag("video_top.mp4", :autoplay => true, :loop => true, muted: :true, controls: :false, style: "width:100%; z-index:1;") %>
 		<div class="dots"></div>
-		<p class="top-text">Video background</p>
+		<p class="top-text">Start for ForDiaiter!!</p>
+	</div>
 		<section class="search-sec">
 			<div class="container">
 			  <div class="row">
 			    <div class="col-lg-12">
 			      <div class="row">
-			        <div class="ol-lg-4 col-md-4 col-sm-4 p-0">
+			        <div class="col-12 ol-lg-4 col-md-4 col-sm-4 p-0 mt-1 mb-1">
 			          <%=link_to "新規アカウント", new_customer_registration_path, class: 'btn col-11 mx-auto btn-danger font-weight-bold btn-block' %>
 			        </div>
-			        <div class="ol-lg-4 col-md-4 col-sm-4 p-0">
+			        <div class="col-12 col-lg-4 col-md-4 col-sm-4 p-0 mt-1 mb-1">
 			          <%=link_to "ログイン", new_customer_session_path, class: 'btn col-11 mx-auto btn-danger font-weight-bold btn-block' %>
 			        </div>
-			        <div class="ol-lg-4 col-md-4 col-sm-4 p-0">
+			        <div class="col-12 col-lg-4 col-md-4 col-sm-4 p-0 mt-1 mb-1">
 			          <%=link_to "ゲストログイン", guest_sign_in_path, method: :post, class: 'btn col-11 mx-auto btn-danger font-weight-bold btn-block' %>
 			        </div>
 			      </div>
@@ -22,5 +23,4 @@
 			  </div>
 			</div>
 		</section>
-	</div>
 </div>

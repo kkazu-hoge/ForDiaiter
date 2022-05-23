@@ -370,11 +370,11 @@ p.top_title_link:hover {
   border-radius:0;
 }
 
-@media (min-width: 300px){
+@media (min-width: 100px){
   .search-sec{
     position: relative;
     // top: -334px;
-    top: -40%;
+    top: -20%;
     background: rgba(26, 70, 104, 0.51);
   }
 }
