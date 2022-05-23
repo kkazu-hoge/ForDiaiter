@@ -117,12 +117,12 @@ class Public::ProjectsController < Public::ApplicationController
 
     #３ plan_pj_event_detailsを保存する
     session[:pj_event_details].each do |ped|
-      plan_pj_event_details = PlanPjEventDetail.new
-      plan_pj_event_details[:plan_pj_event_id] = plan_pj_event.id
-      plan_pj_event_details[:training_id] = ped[1]["training_id"]
-      plan_pj_event_details[:activity_minutes] = params[ped[1]["training_id"].to_s]
-      training = Training.find(plan_pj_event_details[:training_id].to_i)
-      plan_pj_event_details[:burn_calories] = burn_calories_training(training.mets_value, project[:weight], plan_pj_event_details[:activity_minutes] )
+      plan_pj_event_details =                     PlanPjEventDetail.new
+      plan_pj_event_details[:plan_pj_event_id] =  plan_pj_event.id
+      plan_pj_event_details[:training_id] =       ped[1]["training_id"]
+      plan_pj_event_details[:activity_minutes] =  params[ped[1]["training_id"].to_s]
+      training =                                  Training.find(plan_pj_event_details[:training_id].to_i)
+      plan_pj_event_details[:burn_calories] =     burn_calories_training(training.mets_value, project[:weight], plan_pj_event_details[:activity_minutes] )
 
       plan_pj_event_details.save
     end
@@ -133,13 +133,13 @@ class Public::ProjectsController < Public::ApplicationController
       num = 1
       action_day = project[:pj_start_day]
       while num <= event_counts do
-      	pj_event = PjEvent.new(project_id: project.id)
+      	pj_event =              PjEvent.new(project_id: project.id)
       	pj_event[:action_day] = action_day
       	pj_event[:start_time] = pj_event[:action_day].to_time.to_datetime
       	pj_event.save
 
       	session[:pj_event_details].each do |ped|
-      	  pj_event_details = PjEventDetail.new
+      	  pj_event_details =               PjEventDetail.new
           pj_event_details[:pj_event_id] = pj_event.id
         	pj_event_details[:training_id] = ped[1]["training_id"]
       	  pj_event_details.save

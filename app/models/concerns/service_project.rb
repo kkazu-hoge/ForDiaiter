@@ -16,7 +16,6 @@ module ServiceProject
       new_pj_obj["weight"] =        session_obj["weight"]
       new_pj_obj["target_weight"] = session_obj["target_weight"]
     end
-
     return new_pj_obj
   end
 
