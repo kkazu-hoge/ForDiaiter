@@ -374,7 +374,7 @@ p.top_title_link:hover {
   .search-sec{
     position: relative;
     // top: -334px;
-    top: -20%;
+    top: 0;
     background: rgba(26, 70, 104, 0.51);
   }
 }
@@ -421,9 +421,8 @@ p.top_title_link:hover {
             -1px 1px 0 #FFF, 1px -1px 0 #FFF,
             0px 1px 0 #FFF,  0-1px 0 #FFF,
             -1px 0 0 #FFF, 1px 0 0 #FFF;
+  background: rgba(26, 70, 104, 0.51);
 }
-
-
 
 
 
