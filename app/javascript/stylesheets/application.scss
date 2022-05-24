@@ -424,6 +424,20 @@ p.top_title_link:hover {
   background: rgba(26, 70, 104, 0.51);
 }
 
+p.top-comment{
+	position: absolute;
+	top: 100px;
+	display:flex;
+	z-index: 4;/*重なり順を一番上に*/
+	align-items:center;
+	justify-content:center;
+	width: 100%;
+	height: 100vh;
+// 	margin: 0;
+	font-size: 1.5vmax;
+	color: #fff;
+}
+
 
 
 
