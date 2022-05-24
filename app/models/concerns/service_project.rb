@@ -71,8 +71,6 @@ module ServiceProject
   #プロジェクト作成のプロジェクト設定の入力内容チェック
   def project_info_validation(pj_obj, session_obj)
     status = 9 # 0：success 9: error
-    # pj_start_day = Date.new pj_obj["pj_start_day(1i)"].to_i, pj_obj["pj_start_day(2i)"].to_i, pj_obj["pj_start_day(3i)"].to_i
-    # pj_finish_day = Date.new pj_obj["pj_finish_day(1i)"].to_i, pj_obj["pj_finish_day(2i)"].to_i, pj_obj["pj_finish_day(3i)"].to_i
     check_project = Project.new(
       sex:                    session_obj["sex"],
       age:                    session_obj["age"],
