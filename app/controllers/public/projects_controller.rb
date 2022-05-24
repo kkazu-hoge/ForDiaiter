@@ -61,12 +61,10 @@ class Public::ProjectsController < Public::ApplicationController
     unless params[:project].blank?
       if project_info_validation(params[:project], session[:project]) == success
 
-        pj_start_day =  Date.new params[:project]["pj_start_day(1i)"].to_i,params[:project]["pj_start_day(2i)"].to_i,params[:project]["pj_start_day(3i)"].to_i
-        pj_finish_day = Date.new params[:project]["pj_finish_day(1i)"].to_i,params[:project]["pj_finish_day(2i)"].to_i,params[:project]["pj_finish_day(3i)"].to_i
         #プロジェクト設定画面でセットしたリクエストパラメータをsession情報に保存
         session[:project]["name"] =                  params[:project][:name]
-        session[:project]["pj_start_day"] =          pj_start_day
-        session[:project]["pj_finish_day"] =         pj_finish_day
+        session[:project]["pj_start_day"] =          params[:project]["pj_start_day"]
+        session[:project]["pj_finish_day"] =         params[:project]["pj_finish_day"]
         session[:project]["life_stress_factor_id"] = params[:project][:life_stress_factor_id]
         session[:project]["intake_calorie_perday"] = params[:project][:intake_calorie_perday]
         session[:project]["interval"] =              params[:project][:interval]

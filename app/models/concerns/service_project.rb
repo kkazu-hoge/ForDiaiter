@@ -50,7 +50,7 @@ module ServiceProject
     if session_obj["name"].blank?
       new_pj_obj["name"] =                  ""
       new_pj_obj["pj_start_day"] =          Date.current
-      new_pj_obj["pj_finish_day"] =         Date.current
+      new_pj_obj["pj_finish_day"] =         Date.current+1
       new_pj_obj["life_stress_factor_id"] = 1
       new_pj_obj["intake_calorie_perday"] = ""
       new_pj_obj["interval"] =              ""
@@ -71,8 +71,8 @@ module ServiceProject
   #プロジェクト作成のプロジェクト設定の入力内容チェック
   def project_info_validation(pj_obj, session_obj)
     status = 9 # 0：success 9: error
-    pj_start_day = Date.new pj_obj["pj_start_day(1i)"].to_i, pj_obj["pj_start_day(2i)"].to_i, pj_obj["pj_start_day(3i)"].to_i
-    pj_finish_day = Date.new pj_obj["pj_finish_day(1i)"].to_i, pj_obj["pj_finish_day(2i)"].to_i, pj_obj["pj_finish_day(3i)"].to_i
+    # pj_start_day = Date.new pj_obj["pj_start_day(1i)"].to_i, pj_obj["pj_start_day(2i)"].to_i, pj_obj["pj_start_day(3i)"].to_i
+    # pj_finish_day = Date.new pj_obj["pj_finish_day(1i)"].to_i, pj_obj["pj_finish_day(2i)"].to_i, pj_obj["pj_finish_day(3i)"].to_i
     check_project = Project.new(
       sex:                    session_obj["sex"],
       age:                    session_obj["age"],
@@ -81,8 +81,8 @@ module ServiceProject
       target_weight:          session_obj["target_weight"],
       customer_id:            current_customer.id,
       life_stress_factor_id:  pj_obj["life_stress_factor_id"],
-      pj_start_day:           pj_start_day,
-      pj_finish_day:          pj_finish_day,
+      pj_start_day:           pj_obj["pj_start_day"],
+      pj_finish_day:          pj_obj["pj_finish_day"],
       interval:               pj_obj["interval"],
       name:                   pj_obj["name"],
       intake_calorie_perday:  pj_obj["intake_calorie_perday"]

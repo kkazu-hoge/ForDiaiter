@@ -51,7 +51,7 @@
                         <b><%= f.label :"プロジェクト開始日" %></b>
                       </div>
                       <div class='col-7 col-lg-3 col-md-4 col-sm-6'>
-                        <%= f.date_select :pj_start_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, default: @project["pj_start_day"], class: "form-control" %>
+                        <%= f.date_field :pj_start_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @project["pj_start_day"], class: "form-control" %>
                       </div>
                       <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
                     </div>
@@ -63,7 +63,7 @@
                         <b><%= f.label :"プロジェクト終了日" %></b>
                       </div>
                       <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
-                        <%= f.date_select :pj_finish_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, default: @project["pj_start_day"], class: "form-control" %>
+                        <%= f.date_field :pj_finish_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @project["pj_finish_day"], class: "form-control" %>
                       <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
                     </div>
                   </div>
