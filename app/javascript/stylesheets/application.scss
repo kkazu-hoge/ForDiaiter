@@ -72,6 +72,17 @@ width: 130px;
 border-radius: 5px;
 }
 
+#error_exception {
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 4px #666666;
+  background-color: #e8d1ff;
+  text-align: center;
+  // p.url { font-family: monospace; }
+}
+
 
 
 /*##### ↑共通フォーマット ####*/
@@ -359,32 +370,75 @@ p.top_title_link:hover {
   border-radius:0;
 }
 
-@media (min-width: 992px){
+@media (min-width: 100px){
   .search-sec{
     position: relative;
-    top: -114px;
+    // top: -334px;
+    top: 0;
     background: rgba(26, 70, 104, 0.51);
   }
 }
 
-// .btn-danger {
-//   color: #ffffff;
-//   background: #9400d3;
-//   border-color: #9400d3;
-//   margin-bottom: 2px;
-// }
+.wrap-top {
+	position: relative;
+	width: 100%;/*幅いっぱいに表示*/
+	height: 100vh;/*ビューポートの高さいっぱいに表示*/
+	overflow: hidden;
+// 	background: url(img/bk.jpg) no-repeat center center/cover;/*動画が読み込めないプラウザ対応*/
+}
 
-// .btn-danger:hover {
-//   color: #ffffff;
-//   background: #ba55d3;
-//   border-color: #ba55d3;
-// }
+.top-video {
+	z-index: 1;
+}
 
-// .btn-danger:active:focus {
-//   color: #ffffff;
-//   background: #9400d3;
-//   border: 3px solid #9400d3;
-// }
+.dots {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.1);
+	background-image: radial-gradient(#000000 15%, transparent 15%),
+						 radial-gradient(#000000 15%, transparent 15%);
+	background-position: 0 0, 5px 5px;
+	background-size: 10px 10px;/*IE11向けにする場合は10px以下にしない*/
+	z-index: 2;/*重なり順を二番目に*/
+}
+
+ p.top-text{
+	position: absolute;
+	top: 0;
+	display:flex;
+	z-index: 3;/*重なり順を一番上に*/
+	align-items:center;
+	justify-content:center;
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	font-size: 6vmax;
+	color: #fff;
+  text-shadow:2px 1px 0 #FFF, -1px -1px 0 #FFF,
+            -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+            0px 1px 0 #FFF,  0-1px 0 #FFF,
+            -1px 0 0 #FFF, 1px 0 0 #FFF;
+  background: rgba(26, 70, 104, 0.51);
+}
+
+p.top-comment{
+	position: absolute;
+	top: 100px;
+	display:flex;
+	z-index: 4;/*重なり順を一番上に*/
+	align-items:center;
+	justify-content:center;
+	width: 100%;
+	height: 100vh;
+// 	margin: 0;
+	font-size: 1.5vmax;
+	color: #fff;
+}
+
+
 
 
 /*#### ↑会員トップ画面 ####*/

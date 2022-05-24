@@ -2,16 +2,20 @@ module ErrorHandlers
   extend ActiveSupport::Concern
 
   class Forbidden < ActionController::ActionControllerError; end
-  class IpAddressRejected < ActionController::ActionControllerError; end
-  class RecordNotFound < ActionController::ActionControllerError; end
-  class ParameterMissing < ActionController::ActionControllerError; end
+  class RecordNotSaved < ActiveRecord::RecordNotSaved; end
+  class RecordInvalid < ActiveRecord::RecordInvalid; end
+  class RecordNotFound < ActiveRecord::RecordNotFound; end
+  class RoutingError < ActionController::RoutingError; end
+  class ParameterMissing < ActionController::BadRequest; end
 
 
   included do
-    rescue_from StandardError, with: :rescue500
+    rescue_from Exception, with: :rescue500
     rescue_from Forbidden, with: :rescue403
-    rescue_from IpAddressRejected, with: :rescue403
+    rescue_from RecordNotSaved, with: :rescue422
+    rescue_from RecordInvalid, with: :rescue422
     rescue_from RecordNotFound, with: :rescue404
+    rescue_from RoutingError, with: :rescue404
     rescue_from ParameterMissing, with: :rescue400
   end
 
@@ -24,8 +28,12 @@ module ErrorHandlers
     render "errors/forbidden", status: 403
   end
 
-  private def rescue404(e)
+  def rescue404(e)
     render "errors/not_found", status: 404
+  end
+
+  def rescue422(e)
+    render "errors/unprocessable_entity", status: 422
   end
 
   private def rescue500(e)
