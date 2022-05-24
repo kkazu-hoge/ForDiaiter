@@ -26,22 +26,25 @@ class Public::PjEventsController < Public::ApplicationController
     project = Project.find(params[:project_id])
     action_day = params[:action_day].to_date
 
-    # pj_eventを保存する
-    pj_event = PjEvent.new(project_id: project.id)
-    pj_event[:action_day] = action_day
-    pj_event[:start_time] = pj_event[:action_day].to_time.to_datetime
-    pj_event.save
+    # ActiveRecord::Base.transaction do
+      # pj_eventを保存する
+      pj_event = PjEvent.new(project_id: project.id)
+      pj_event[:action_day] = action_day
+      pj_event[:start_time] = pj_event[:action_day].to_time.to_datetime
+      pj_event.save!
+      # pj_event_detailsを保存する
+      session[:pj_event_details_new]
+      session[:pj_event_details_new].each do |ped|
 
-    # pj_event_detailsを保存する
-    session[:pj_event_details_new].each do |ped|
-  	  pj_event_details = PjEventDetail.new
-      pj_event_details[:pj_event_id] = pj_event.id
-    	pj_event_details[:training_id] = ped[1]["training_id"]
-    	training = Training.find(pj_event_details[:training_id].to_i)
-  	  pj_event_details[:activity_minutes] = params[training.id.to_s]
-  	  pj_event_details[:burn_calories] = burn_calories_training(training.mets_value, project["weight"], pj_event_details[:activity_minutes].to_i )
-  	  pj_event_details.save
-    end
+    	  pj_event_details = PjEventDetail.new
+        pj_event_details[:pj_event_id] = pj_event.id
+      	pj_event_details[:training_id] = ped[1]["training_id"]
+      	training = Training.find(pj_event_details[:training_id].to_i)
+    	  pj_event_details[:activity_minutes] = params[training.id.to_s]
+    	  pj_event_details[:burn_calories] = burn_calories_training(training.mets_value, project["weight"], pj_event_details[:activity_minutes].to_i )
+    	  pj_event_details.save!
+      end
+    # end
 
     # session情報をクリアする
     session[:pj_event_details_new].clear

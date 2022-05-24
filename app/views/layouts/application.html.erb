@@ -1,19 +1,41 @@
 <!--こちらには記述せず各ネームスペースのapplication.html.erbを利用-->
-
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--  <head>-->
-<!--    <title>ForDiaiter</title>-->
-<!--    <meta name="viewport" content="width=device-width,initial-scale=1">-->
-<!--    %= csrf_meta_tags %>-->
-<!--    %= csp_meta_tag %>-->
+<!--ルーティングに該当しないリクエストが来た場合のみ使用されるフォーマット-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ForDiaiter</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
     <!--%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-<!--    %= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>-->
-<!--    %= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-<!--  </head>-->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<!--  <body>-->
-<!--    %= yield %>-->
-<!--  </body>-->
-<!--</html>-->
+  <body>
+    <%= yield %>
+    <div class="container" style="margin-top:20px;">
+      <div class="row text-center">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-6 offset-6">
+              <%= link_to root_path do %>
+                <b>会員TOPに戻る</b>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-6">
+              <%= link_to admin_root_path do %>
+                <b>管理者TOPに戻る</b>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
