@@ -1134,6 +1134,20 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 
 
 
+/*####   ↓ジム検索画面 ####*/
+
+/* マップを表示する div 要素の高さを必ず明示的に指定します。 */
+#map {
+  height: 400px;
+  width: 600px;
+}
+
+
+
+/*####   ↑シム検索画面 ####*/
+
+
+
 
 /*------------------------------------
 - COLOR primary
