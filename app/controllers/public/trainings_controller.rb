@@ -9,7 +9,7 @@ class Public::TrainingsController < Public::ApplicationController
 
   def show
     @training = Training.find(params[:id])
-    # @youtube_data = find_videos("#{@training.name}"+" トレーニング")
+    @youtube_data = find_videos("#{@training.name}"+" トレーニング")
     # # @youtube_data = find_videos("#{@training.name}")
 
   end

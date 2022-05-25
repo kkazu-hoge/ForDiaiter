@@ -428,12 +428,11 @@ p.top-comment{
 	position: absolute;
 	top: 100px;
 	display:flex;
-	z-index: 4;/*重なり順を一番上に*/
+	z-index: 3;/*重なり順を一番上に*/
 	align-items:center;
 	justify-content:center;
 	width: 100%;
 	height: 100vh;
-// 	margin: 0;
 	font-size: 1.5vmax;
 	color: #fff;
 }
@@ -1132,6 +1131,72 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 }
 
 /*####   ↑トレーニング詳細画面 ####*/
+
+
+
+/*####   ↓ジム検索画面 ####*/
+
+/* マップを表示する div 要素の高さを必ず明示的に指定します。 */
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+#target {
+  width: 800px;
+  height: 500px;
+}
+
+.gym-facilities-scroll{
+  height: 400px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.gym-search .content_background{
+  padding-top: 1rem;
+}
+
+.gym-search form{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.gym-search .search {
+	box-sizing: border-box;
+	width: 80%;
+	height: 30px;
+	padding: 10px 20px;
+	background-size: 20px;
+	border: 1px solid #333;
+	border-right: 0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	transition: all 0.5s;
+}
+
+.gym-search .searchsubmit {
+	box-sizing: border-box;
+	width: 15%;
+	height: 30px;
+	padding: 5px;
+	cursor: pointer;
+	border: 1px solid #333;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.gym-search .card-body{
+  padding: 0;
+}
+
+.gym-search .row{
+  padding: 0;
+}
+
+
+/*####   ↑シム検索画面 ####*/
 
 
 

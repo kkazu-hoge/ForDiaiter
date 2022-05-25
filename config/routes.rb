@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     resources :trainings,   only: [:index, :show]
 
     resources :search_gyms, only: [:index] do
-      post :search, on: :collection
+      get :search, on: :collection
     end
 
     resources :columns, only: [:index, :show]
