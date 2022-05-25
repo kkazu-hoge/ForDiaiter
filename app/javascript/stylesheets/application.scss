@@ -1139,12 +1139,17 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 /* マップを表示する div 要素の高さを必ず明示的に指定します。 */
 #map {
   height: 400px;
-  width: 600px;
+  width: 100%;
 }
 
 #target {
   width: 800px;
   height: 500px;
+}
+
+.gym-facilities-scroll{
+  height: 400px;
+  overflow: auto;
 }
 
 

@@ -1,10 +1,6 @@
               <% youtube_data.items.each do |item| %>
               <div class="vid">
                 <% snippet = item.snippet %>
-                <!--<div class="row">-->
-                <!--  <p>%= snippet.title %></p>-->
-                <!--  <p>%= snippet.published_at %>%= snippet.channel_title %></p>-->
-                <!--</div>-->
                 <div class="row">
                   <iframe width="400" height="250" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
