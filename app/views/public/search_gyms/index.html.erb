@@ -9,22 +9,14 @@
     <div class="col-12 content_background">
       <div class="container-fluid">
         <div class="container">
-          <!--<div class="row justify-content-center">-->
 
             <div class="row">
               <div class="col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
-              <!--<div class="col-12 col-lg-8 col-md-12col-sm-12 justify-content-center">-->
                 <%= form_with url: search_search_gyms_path, method: :get do |f| %>
-                <!--<div class="container h-100">-->
-                <!--  <div class="d-flex justify-content-center h-100">-->
-                <!--    <div class="searchbar">-->
-                      <%= f.text_field :search_text, class:"search", placeholder: "地名/場所を入力ください" %>
-                      <%= f.button :type => "submit", class:"searchsubmit" do %>
-                        <i class="fas fa-search"></i>
-                      <% end %>
-                <!--    </div>-->
-                <!--  </div>-->
-                <!--</div>-->
+                  <%= f.text_field :place_name, class:"search", placeholder: "地名/場所を入力ください" %>
+                  <%= f.button :type => "submit", class:"searchsubmit" do %>
+                    <i class="fas fa-search"></i>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -72,7 +64,6 @@
               </div>
             </div>
 
-          <!--</div>-->
         </div>
       </div>
     </div>
@@ -97,7 +88,7 @@
 <!--    // mapの初期位置設定-->
 <!--    map = new google.maps.Map(document.getElementById('map'), {-->
 <!--      center: LatLng,-->
-<!--      zoom: 13-->
+<!--      zoom: 14-->
 <!--    });-->
 <!--    // map.setCenterで地図が初期位置に移動-->
 <!--    map.setCenter(LatLng);-->
@@ -135,7 +126,7 @@
 <!--</script>-->
 
 <!--<script async defer-->
-<!--      src="https://maps.googleapis.com/maps/api/js?key=%=Rails.application.credentials.googlemap[:api_key]%>&callback=initMap">-->
+<!--      src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=%=Rails.application.credentials.googlemap[:api_key]%>&callback=initMap">-->
 <!--</script>-->
 
 
