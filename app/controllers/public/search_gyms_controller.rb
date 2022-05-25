@@ -15,7 +15,7 @@ class Public::SearchGymsController < Public::ApplicationController
     else
       @map_center_lat = results.first.coordinates[0]
       @map_center_lng = results.first.coordinates[1]
-      client = GooglePlaces::Client.new Rails.application.credentials.googlemap[:api_key]
+      client = GooglePlaces::Client.new(Rails.application.credentials.googlemap[:api_key])
       @places = client.spots(@map_center_lat, @map_center_lng, :language => 'ja', :types => 'gym', :radius => 1000)
       if @places.blank?
         redirect_to request.referer, notice: "半径1km以内にジムが見つかりませんでした。条件を変更して再度検索ください。"
