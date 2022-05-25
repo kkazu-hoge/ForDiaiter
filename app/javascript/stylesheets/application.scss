@@ -1186,7 +1186,13 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 	border-bottom-right-radius: 10px;
 }
 
+.gym-search .card-body{
+  padding: 0;
+}
 
+.gym-search .row{
+  padding: 0;
+}
 
 
 /*####   ↑シム検索画面 ####*/

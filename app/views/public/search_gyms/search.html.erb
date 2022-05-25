@@ -13,7 +13,7 @@
             <div class="row">
               <div class="col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
                 <%= form_with url: search_search_gyms_path, method: :get do |f| %>
-                  <%= f.text_field :place_name, class:"search", value: @place_name,placeholder: "地名/場所を入力ください" %>
+                  <%= f.text_field :place_name, class:"search", value: @center_name,placeholder: "地名/場所を入力ください" %>
                   <%= f.button :type => "submit", class:"searchsubmit" do %>
                     <i class="fas fa-search"></i>
                   <% end %>
@@ -21,36 +21,27 @@
               </div>
             </div>
             <div class="row ustify-content-center">
-              <div class="col-12 col-lg-4 col-md-12 col-sm-12">
+              <div class="col-12 col-lg-5 col-md-12 col-sm-12">
                 <div class = "gym-facilities-scroll">
                   <%  @places.each do |place| %>
                   <div class="card second-row-card">
-                    <div class="card-title"><%= place["name"] %></div>
                     <div class="card-body">
-                      評価：<%= place["rating"] %><br>
-                      <!--写真：%= image_tag('#{place.photos[0].fetch_url(100%)}', size: '100x100', class:"icon_image") %>-->
-                      住所：<%= place["json_result_object"]["vicinity"] %><br>
+                      <div class="row">
+                        <div class="col-5">
+                          <%= image_tag "#{place.photos[0].fetch_url(200)}", size: '140x158' %>
+                        </div>
+                        <div class="col-7" style="padding-top: 5%;">
+                          <span><i class="fas fa-building"></i>　<%= place["name"] %></span><br>
+                          <span><i class="fas fa-star" style="color:yellow;"></i>　<%= place["rating"] %></span><br>
+                          <span><i class="fas fa-map-marker-alt" style="color:red;"></i>　<%= place["json_result_object"]["vicinity"] %></span><br>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <% end %>
-                  <!--<div class="card second-row-card">-->
-                  <!--  <div class="card-body">-->
-                  <!--    施設詳細-->
-                  <!--  </div>-->
-                  <!--</div>-->
-                  <!--<div class="card second-row-card">-->
-                  <!--  <div class="card-body">-->
-                  <!--    施設詳細-->
-                  <!--  </div>-->
-                  <!--</div>-->
-                  <!--<div class="card second-row-card">-->
-                  <!--  <div class="card-body">-->
-                  <!--    施設詳細-->
-                  <!--  </div>-->
-                  <!--</div>-->
                 </div>
               </div>
-              <div class="col-12 col-lg-8 col-md-12 col-sm-12">
+              <div class="col-12 col-lg-7 col-md-12 col-sm-12">
                 <div id="map"></div>
               </div>
             </div>
@@ -79,7 +70,7 @@ function initMap(){
     // mapの初期位置設定
     map = new google.maps.Map(document.getElementById('map'), {
       center: LatLng,
-      zoom: 14
+      zoom: 15
     });
     // map.setCenterで地図が初期位置に移動
     map.setCenter(LatLng);
