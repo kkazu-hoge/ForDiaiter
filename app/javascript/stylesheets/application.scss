@@ -1152,6 +1152,41 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   overflow: auto;
 }
 
+.gym-search .content_background{
+  padding-top: 1rem;
+}
+
+.gym-search form{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.gym-search .search {
+	box-sizing: border-box;
+	width: 80%;
+	height: 30px;
+	padding: 10px 20px;
+	background-size: 20px;
+	border: 1px solid #333;
+	border-right: 0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	transition: all 0.5s;
+}
+
+.gym-search .searchsubmit {
+	box-sizing: border-box;
+	width: 15%;
+	height: 30px;
+	padding: 5px;
+	cursor: pointer;
+	border: 1px solid #333;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+
 
 
 /*####   ↑シム検索画面 ####*/
