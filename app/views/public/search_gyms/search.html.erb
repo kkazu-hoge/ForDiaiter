@@ -9,9 +9,9 @@
     <div class="col-12 content_background">
       <div class="container-fluid">
         <div class="container">
-
-            <div class="row">
+          <div class="row">
               <div class="col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
+                ※検索地点から半径1km圏内のジムを最大20件ピックアップします
                 <%= form_with url: search_search_gyms_path, method: :get do |f| %>
                   <%= f.text_field :place_name, class:"search", value: @center_name,placeholder: "地名/場所を入力ください" %>
                   <%= f.button :type => "submit", class:"searchsubmit" do %>
@@ -19,33 +19,32 @@
                   <% end %>
                 <% end %>
               </div>
-            </div>
-            <div class="row ustify-content-center">
-              <div class="col-12 col-lg-5 col-md-12 col-sm-12">
-                <div class = "gym-facilities-scroll">
-                  <%  @places.each do |place| %>
-                  <div class="card second-row-card">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-5">
-                          <%= image_tag "#{place.photos[0].fetch_url(200)}", size: '140x158' %>
-                        </div>
-                        <div class="col-7" style="padding-top: 5%;">
-                          <span><i class="fas fa-building"></i>　<%= place["name"] %></span><br>
-                          <span><i class="fas fa-star" style="color:yellow;"></i>　<%= place["rating"] %></span><br>
-                          <span><i class="fas fa-map-marker-alt" style="color:red;"></i>　<%= place["json_result_object"]["vicinity"] %></span><br>
-                        </div>
+          </div>
+          <div class="row ustify-content-center">
+            <div class="col-12 col-lg-5 col-md-12 col-sm-12">
+              <div class = "gym-facilities-scroll">
+                <%  @places.each do |place| %>
+                <div class="card second-row-card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-5">
+                        <%= image_tag "#{place.photos[0].fetch_url(200)}", size: '140x158' %>
+                      </div>
+                      <div class="col-7" style="padding-top: 5%;">
+                        <span><i class="fas fa-building"></i>　<%= place["name"] %></span><br>
+                        <span><i class="fas fa-star" style="color:yellow;"></i>　<%= place["rating"] %>点</span><br>
+                        <span><i class="fas fa-map-marker-alt" style="color:red;"></i>　<%= place["json_result_object"]["vicinity"] %></span><br>
                       </div>
                     </div>
                   </div>
-                  <% end %>
                 </div>
-              </div>
-              <div class="col-12 col-lg-7 col-md-12 col-sm-12">
-                <div id="map"></div>
+                <% end %>
               </div>
             </div>
-
+            <div class="col-12 col-lg-7 col-md-12 col-sm-12">
+              <div id="map"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
