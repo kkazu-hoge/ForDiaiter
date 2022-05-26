@@ -100,7 +100,7 @@ function initMap(){
         // contentで中身を指定
         // 今回は文字にリンクを貼り付けた形で表示
         // name, rating, vicinity
-        content: `<p>${name}</p><br><p>${rating}</p><br><p>${vicinity}</p>`
+        content: `ジム名：${name}<br>評価：${rating}<br>住所：  ${vicinity}`
       });
       // markerがクリックされた時、
       marker[i].addListener("click", function(){
