@@ -4,7 +4,8 @@ class Public::SearchGymsController < Public::ApplicationController
 
   def search
     @center_name = params[:place_name]
-    results = Geocoder.search(@center_name) #本番ではエラーが発生する
+    # binding.pry
+    results = Geocoder.search(@center_name) #本番ではエラーが発生する(原因は本番だとhttp通信でセキュアでないためAPI側で許可されない)
     if results.blank?
       redirect_to request.referer, notice: "検索対象の場所情報を取得できませんでした。条件を変更して再度検索ください。"
       return
