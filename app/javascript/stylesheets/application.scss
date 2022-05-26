@@ -1150,7 +1150,7 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 .gym-facilities-scroll{
   height: 400px;
   overflow: auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .gym-search .content_background{
@@ -1195,6 +1195,9 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   padding: 0;
 }
 
+.gym-search .second-row-card{
+  height: 140px;
+}
 
 /*####   ↑シム検索画面 ####*/
 
