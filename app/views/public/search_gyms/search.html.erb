@@ -78,31 +78,37 @@ function initMap(){
     // 変数iを0と定義し、
     // その後gonで定義したstudios分繰り返し加える処理を行う
     // *********************************************************
-    // for (let i = 0; i < studios.length; i++){
-    //   // studios[i]は変数iのユーザーを取得している
-    //   marker[i] = new google.maps.Marker({
-    //     map: map,
-    //     position: {
-    //       // DBに保存してある、緯度・経度を呼び出す
-    //       lat: studios[i].latitude,
-    //       lng: studios[i].longitude
-    //     }
-    //   });
-    //   // 変数iを変数idに代入
-    //   let id = studios[i]['id']
+    let studios = gon.array_marker_places
+    for (let i = 0; i < studios.length; i++){
+      // studios[i]は変数iのユーザーを取得している
+      marker[i] = new google.maps.Marker({
+        map: map,
+        position: {
+          // 配列内の、緯度・経度を呼び出す
+          lat: studios[i][1].lat,
+          lng: studios[i][1].lng
+        }
+      });
+      // // 変数iを変数idに代入
+      // // let id = studios[i]['id']
+      let name = studios[i][1].name
+      let rating = studios[i][1].rating
+      let vicinity = studios[i][1].vicinity
 
-    //   // infoWindowは吹き出し
-    //   infoWindow[i] = new google.maps.InfoWindow({
-    //     // contentで中身を指定
-    //     // 今回は文字にリンクを貼り付けた形で表示
-    //     content: `<a href='/studios/${id}'>${studios[i].name}</a>`
-    //   });
-    //   // markerがクリックされた時、
-    //   marker[i].addListener("click", function(){
-    //     // infoWindowを表示
-    //     infoWindow[i].open(map, marker[i]);
-    //   });
-    // }
+      // infoWindowは吹き出し
+      infoWindow[i] = new google.maps.InfoWindow({
+        // contentで中身を指定
+        // 今回は文字にリンクを貼り付けた形で表示
+        // name, rating, vicinity
+        content: `<p>${name}</p><br><p>${rating}</p><br><p>${vicinity}</p>`
+      });
+      // markerがクリックされた時、
+      marker[i].addListener("click", function(){
+        // infoWindowを表示
+        infoWindow[i].open(map, marker[i]);
+      });
+
+    }
     // *********************************************************
 
   // });
