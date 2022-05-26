@@ -1,14 +1,11 @@
 class Public::SearchGymsController < Public::ApplicationController
   def index
-    # results = Geocoder.search("東京")
-    # @lat = results.first.coordinates[0]
-    # @lng = results.first.coordinates[1]
-
   end
 
   def search
     @center_name = params[:place_name]
-    results = Geocoder.search(@center_name)
+    # binding.pry
+    results = Geocoder.search(@center_name) #本番ではエラーが発生する(原因は本番だとhttp通信でセキュアでないためAPI側で許可されない)
     if results.blank?
       redirect_to request.referer, notice: "検索対象の場所情報を取得できませんでした。条件を変更して再度検索ください。"
       return
@@ -35,17 +32,6 @@ class Public::SearchGymsController < Public::ApplicationController
     #   i++
     # end
 
-    #↓コンソールでテストする用
-    # places.each do |place|
-    #   hash_place[i]["name"] = place["name"]
-    #   hash_place[i]["lat"] = place["lat"]
-    #   hash_place[i]["lng"] = place["lng"]
-    #   hash_place[i]["rating"] = place["rating"]
-    #   hash_place[i]["photo"] = place.photos[0].fetch_url(400)
-    #   hash_place[i]["vicinity"] = place["json_result_object"]["vicinity"]
-    #   hash_place[i]["compound_code"] = place["json_result_object"]["plus_code"]["compound_code"]
-    #   i++
-    # end
   end
 
 end
