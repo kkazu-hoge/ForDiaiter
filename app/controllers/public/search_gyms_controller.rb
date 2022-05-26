@@ -27,14 +27,12 @@ class Public::SearchGymsController < Public::ApplicationController
       @marker_places[i]["lng"] = place["lng"]
       @marker_places[i]["rating"] = place["rating"]
       @marker_places[i]["vicinity"] = place["json_result_object"]["vicinity"]
-
-      # @marker_places[i]["name"].push(place["name"])
-      # @marker_places[i]["lat"].push(place["lat"])
-      # @marker_places[i]["lng"].push(place["lng"])
-      # @marker_places[i]["rating"].push(place["rating"])
-      # # @marker_places[i]["photo"].push(place.photos[0].fetch_url(200)
-      # @marker_places[i]["vicinity"].push(place["json_result_object"]["vicinity"])
-      # # @marker_places[i]["compound_code"].push( place["json_result_object"]["plus_code"]["compound_code"]
+      # binding.pry
+      unless place.photos[0].blank?
+        @marker_places[i]["photo_image"] = place.photos[0].fetch_url(200)
+      else
+        @marker_places[i]["photo_image"] = ""
+      end
       i = i+1
     end
 
