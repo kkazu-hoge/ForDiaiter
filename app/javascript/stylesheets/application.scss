@@ -131,6 +131,47 @@ border-radius: 5px;
 }
 
 
+.tooltip {
+	position: absolute;
+	top: 35px;
+	left: 20%;
+	padding: 10px;
+	font-size: small;
+	color: #fff;
+	visibility: hidden;
+// 	background: #911;
+	background: #9400d3;
+	opacity: 0;
+	transition: 0.5s all;
+	transform: translate(-50%, 0);
+}
+.tooltip::before {
+	position: absolute;
+	top: -15px;
+	left: 40%;
+	width: 0;
+	height: 0;
+	content: "";
+	border: 8px solid transparent;
+// 	border-right-color: #911;
+	border-right-color: #9400d3;
+	transform: translate(-50%, 0) rotate(90deg);
+}
+input:focus {
+	border: 2px solid #666;
+	outline: none;
+}
+input:focus + .tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+@media screen and (max-width: 768px) {
+	input {
+		width: 100%;
+	}
+}
+
+
 
 /*##### ↑共通フォーマット ####*/
 
@@ -484,6 +525,24 @@ p.top-comment{
 	color: #fff;
 }
 
+
+.title-fadeIn {
+	opacity: 0;
+	animation-name: fadeIn;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-delay: .25s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn{
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
 
 

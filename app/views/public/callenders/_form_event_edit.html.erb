@@ -58,14 +58,12 @@
                   <% @pj_event_details.each do |ped| %>
                   <li id="detail_<%= ped["training_id"]%>">
                     <div class="row">
-                      <div class="col-7">
+                      <div class="col-8">
                         <%= ped.training.name %>（10分:<%= ped["calorie_per_ten_min"] %>kcal)
                       </div>
-                      <div class="col-3">
-                        時間(分)：
-                      </div>
-                      <div class="col-2">
+                      <div class="col-4">
                         <%= f.text_field :"#{ped["id"]}", value: ped.activity_minutes, class: "form-control form-control-sm", placeholder: "時間：分" %>
+                        <span class="tooltip">イベント１回あたりのトレーニング時間（分）を入力ください</span>
                       </div>
                     </div>
                   </li>
