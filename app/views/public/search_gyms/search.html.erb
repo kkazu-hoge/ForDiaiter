@@ -1,6 +1,5 @@
 <div class='container gym-search'>
   <div class="col-12">
-
     <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
         <b>周辺ジム検索</b>
@@ -23,17 +22,17 @@
           <div class="row ustify-content-center">
             <div class="col-12 col-lg-5 col-md-12 col-sm-12">
               <div class = "gym-facilities-scroll">
-                <%  @places.each do |place| %>
+                <% @marker_places.each do |place| %>
                 <div class="card second-row-card">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-5">
-                        <%= image_tag "#{place.photos[0].fetch_url(200)}", size: '140x138' %>
+                        <%= image_tag "#{place[1]["photo_image"]}", size: '140x138' %>
                       </div>
                       <div class="col-7" style="padding-top: 5%;">
-                        <span><i class="fas fa-building"></i>　<%= place["name"] %></span><br>
-                        <span><i class="fas fa-star" style="color:yellow;"></i>　評価：<%= place["rating"] %>点</span><br>
-                        <span><i class="fas fa-map-marker-alt" style="color:red;"></i>　<%= place["json_result_object"]["vicinity"] %></span><br>
+                        <span><i class="fas fa-building"></i>　<%= place[1]["name"] %></span><br>
+                        <span><i class="fas fa-star" style="color:yellow;"></i>　評価：<%= place[1]["rating"] %>点</span><br>
+                        <span><i class="fas fa-map-marker-alt" style="color:red;"></i>　<%= place[1]["vicinity"] %></span><br>
                       </div>
                     </div>
                   </div>
@@ -48,7 +47,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -56,8 +54,8 @@
 let map;
 let marker = []; // マーカーを複数表示させたいので、配列化
 let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
-const studios = []
-// const studios = gon.studios; // コントローラーで定義したインスタンス変数を変数に代入
+const gyms = []
+// const gyms = gon.gyms; // コントローラーで定義したインスタンス変数を変数に代入
 
 function initMap(){
   // 現在位置の特定
@@ -76,251 +74,42 @@ function initMap(){
 
     // forは繰り返し処理
     // 変数iを0と定義し、
-    // その後gonで定義したstudios分繰り返し加える処理を行う
-    // *********************************************************
-    // for (let i = 0; i < studios.length; i++){
-    //   // studios[i]は変数iのユーザーを取得している
-    //   marker[i] = new google.maps.Marker({
-    //     map: map,
-    //     position: {
-    //       // DBに保存してある、緯度・経度を呼び出す
-    //       lat: studios[i].latitude,
-    //       lng: studios[i].longitude
-    //     }
-    //   });
-    //   // 変数iを変数idに代入
-    //   let id = studios[i]['id']
+    // その後gonで定義したgyms分繰り返し加える処理を行う
+    let gyms = gon.array_marker_places
+    for (let i = 0; i < gyms.length; i++){
+      // gyms[i]は変数iのユーザーを取得している
+      marker[i] = new google.maps.Marker({
+        map: map,
+        position: {
+          // 配列内の、緯度・経度を呼び出す
+          lat: gyms[i][1].lat,
+          lng: gyms[i][1].lng
+        }
+      });
+      // // 変数iを変数idに代入
+      // // let id = gyms[i]['id']
+      let name = gyms[i][1].name
+      let rating = gyms[i][1].rating
+      let vicinity = gyms[i][1].vicinity
 
-    //   // infoWindowは吹き出し
-    //   infoWindow[i] = new google.maps.InfoWindow({
-    //     // contentで中身を指定
-    //     // 今回は文字にリンクを貼り付けた形で表示
-    //     content: `<a href='/studios/${id}'>${studios[i].name}</a>`
-    //   });
-    //   // markerがクリックされた時、
-    //   marker[i].addListener("click", function(){
-    //     // infoWindowを表示
-    //     infoWindow[i].open(map, marker[i]);
-    //   });
-    // }
-    // *********************************************************
+      // infoWindowは吹き出し
+      infoWindow[i] = new google.maps.InfoWindow({
+        // contentで中身を指定
+        // 今回は文字にリンクを貼り付けた形で表示
+        // name, rating, vicinity
+        content: `ジム名：${name}<br>評価：${rating}<br>住所：  ${vicinity}`
+      });
+      // markerがクリックされた時、
+      marker[i].addListener("click", function(){
+        // infoWindowを表示
+        infoWindow[i].open(map, marker[i]);
+      });
+
+    }
 
   // });
 }
 </script>
-
 <script async defer
       src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%=Rails.application.credentials.googlemap[:api_key]%>&callback=initMap">
 </script>
-
-
-
-
-
-<!--#2-->
-<!--// <script>-->
-<!--//   var myMap;-->
-<!--//   var service;-->
-
-<!--//   // マップの初期設定-->
-<!--//   function initialize() {-->
-<!--//       // Mapクラスのインスタンスを作成（緯度経度は池袋駅に設定）-->
-<!--//       var initPos = new google.maps.LatLng(35.729756, 139.711069);-->
-<!--//       // 地図のプロパティを設定（倍率、マーカー表示位置、地図の種類）-->
-<!--//       var myOptions = {-->
-<!--//           zoom: 15,-->
-<!--//           center: initPos,-->
-<!--//           mapTypeId: google.maps.MapTypeId.ROADMAP-->
-<!--//       };-->
-<!--//       // #map_canva要素にMapクラスの新しいインスタンスを作成-->
-<!--//       myMap = new google.maps.Map(document.getElementById("map_canvas"), myOptions);-->
-<!--//       // 検索の条件を指定（緯度経度、半径、検索の分類）-->
-<!--//       var request = {-->
-<!--//           location: initPos,-->
-<!--//           radius: 1000,      // ※１ 表示する半径領域を設定(1 = 1M)-->
-<!--//           types: ['cafe']    // ※２ typesプロパティの施設タイプを設定-->
-<!--//       };-->
-<!--//       var service = new google.maps.places.PlacesService(myMap);-->
-<!--//       service.search(request, Result_Places);-->
-<!--//   }-->
-
-<!--//   // 検索結果を受け取る-->
-<!--//   function Result_Places(results, status){-->
-<!--//       // Placesが検家に成功したかとマうかをチェック-->
-<!--//       if(status == google.maps.places.PlacesServiceStatus.OK) {-->
-<!--//           for (var i = 0; i < results.length; i++) {-->
-<!--//               // 検索結果の数だけ反復処理を変数placeに格納-->
-<!--//               var place = results[i];-->
-<!--//               createMarker({-->
-<!--//                   text : place.name,-->
-<!--//                   position : place.geometry.location-->
-<!--//               });-->
-<!--//           }-->
-<!--//       }-->
-<!--//   }-->
-
-<!--//   // 入力キーワードと表示範囲を設定-->
-<!--//   function SearchGo() {-->
-<!--//       var initPos = new google.maps.LatLng(0,0);-->
-<!--//       var mapOptions = {-->
-<!--//           center : initPos,-->
-<!--//           zoom: 0,-->
-<!--//           mapTypeId : google.maps.MapTypeId.ROADMAP-->
-<!--//       };-->
-<!--//       // #map_canva要素にMapクラスの新しいインスタンスを作成-->
-<!--//       myMap = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);-->
-<!--//       service = new google.maps.places.PlacesService(myMap);-->
-<!--//       // input要素に入力されたキーワードを検索の条件に設定-->
-<!--//       var myword = document.getElementById("search");-->
-<!--//       var request = {-->
-<!--//           query : myword.value,-->
-<!--//           radius : 5000,-->
-<!--//           location : myMap.getCenter()-->
-<!--//       };-->
-<!--//       service.textSearch(request, result_search);-->
-<!--//   }-->
-
-<!--//   // 検索の結果を受け取る-->
-<!--//   function result_search(results, status) {-->
-<!--//       var bounds = new google.maps.LatLngBounds();-->
-<!--//       for(var i = 0; i < results.length; i++){-->
-<!--//           createMarker({-->
-<!--//               position : results[i].geometry.location,-->
-<!--//               text : results[i].name,-->
-<!--//               map : myMap-->
-<!--//           });-->
-<!--//           bounds.extend(results[i].geometry.location);-->
-<!--//       }-->
-<!--//       myMap.fitBounds(bounds);-->
-<!--//   }-->
-
-<!--//   // 該当する位置にマーカーを表示-->
-<!--//   function createMarker(options) {-->
-<!--//       // マップ情報を保持しているmyMapオブジェクトを指定-->
-<!--//       options.map = myMap;-->
-<!--//       // Markcrクラスのオブジェクトmarkerを作成-->
-<!--//       var marker = new google.maps.Marker(options);-->
-<!--//       // 各施設の吹き出し(情報ウインドウ)に表示させる処理-->
-<!--//       var infoWnd = new google.maps.InfoWindow();-->
-<!--//       infoWnd.setContent(options.text);-->
-<!--//       // addListenerメソッドを使ってイベントリスナーを登録-->
-<!--//       google.maps.event.addListener(marker, 'click', function(){-->
-<!--//           infoWnd.open(myMap, marker);-->
-<!--//       });-->
-<!--//       return marker;-->
-<!--//   }-->
-
-
-
-<!--//   // ページ読み込み完了後、Googleマップを表示-->
-<!--//   google.maps.event.addDomListener(window, 'load', initialize);-->
-<!--// </script-->
-
-<!--<script src="https://maps.google.com/maps/api/js?key=%=Rails.application.credentials.googlemap[:api_key]%>&libraries=places"></script>-->
-
-
-
-
-<!--#1-->
-<!--script>-->
-<!--      var map;-->
-<!--      var marker;-->
-<!--      var infoWindow;-->
-
-<!--      function initMap() {-->
-
-<!--        //マップ初期表示の位置設定-->
-<!--        var target = document.getElementById('target');-->
-<!--        var centerp = {lat: 35.681167, lng: 139.767052};-->
-
-<!--        //マップ表示-->
-<!--        map = new google.maps.Map(target, {-->
-<!--          center: centerp,-->
-<!--          zoom: 16,-->
-<!--        });-->
-
-<!--        // 検索実行ボタンが押下されたとき-->
-<!--        document.getElementById('search').addEventListener('click', function() {-->
-
-<!--          var place = document.getElementById('keyword').value;-->
-<!--          var geocoder = new google.maps.Geocoder();      // geocoderのコンストラクタ-->
-
-<!--        geocoder.geocode({-->
-<!--            address: place-->
-<!--          }, function(results, status) {-->
-<!--            if (status == google.maps.GeocoderStatus.OK) {-->
-
-<!--              var bounds = new google.maps.LatLngBounds();-->
-
-<!--              for (var i in results) {-->
-<!--                if (results[0].geometry) {-->
-<!--                  // 緯度経度を取得-->
-<!--                  var latlng = results[0].geometry.location;-->
-<!--                  // 住所を取得-->
-<!--                  var address = results[0].formatted_address;-->
-<!--                  // 検索結果地が含まれるように範囲を拡大-->
-<!--                  bounds.extend(latlng);-->
-<!--                  // マーカーのセット-->
-<!--                  setMarker(latlng);-->
-<!--                  // マーカーへの吹き出しの追加-->
-<!--                  setInfoW(place, latlng, address);-->
-<!--                  // マーカーにクリックイベントを追加-->
-<!--                  markerEvent();-->
-<!--                }-->
-<!--              }-->
-<!--            } else if (status == google.maps.GeocoderStatus.ZERO_RESULTS) {-->
-<!--              alert("見つかりません");-->
-<!--            } else {-->
-<!--              console.log(status);-->
-<!--              alert("エラー発生");-->
-<!--            }-->
-<!--          });-->
-
-<!--        });-->
-
-<!--        // 結果クリアーボタン押下時-->
-<!--        document.getElementById('clear').addEventListener('click', function() {-->
-<!--          deleteMakers();-->
-<!--        });-->
-
-<!--      }-->
-
-<!--      // マーカーのセットを実施する-->
-<!--      function setMarker(setplace) {-->
-<!--        // 既にあるマーカーを削除-->
-<!--        deleteMakers();-->
-
-<!--        var iconUrl = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';-->
-<!--          marker = new google.maps.Marker({-->
-<!--            position: setplace,-->
-<!--            map: map,-->
-<!--            icon: iconUrl-->
-<!--          });-->
-<!--      }-->
-
-<!--      //マーカーを削除する-->
-<!--      function deleteMakers() {-->
-<!--        if(marker != null){-->
-<!--          marker.setMap(null);-->
-<!--        }-->
-<!--        marker = null;-->
-<!--      }-->
-
-<!--      // マーカーへの吹き出しの追加-->
-<!--      function setInfoW(place, latlng, address) {-->
-<!--          infoWindow = new google.maps.InfoWindow({-->
-<!--          content: "<a href='http://www.google.com/search?q=" + place + "' target='_blank'>" + place + "</a><br><br>" + latlng + "<br><br>" + address + "<br><br><a href='http://www.google.com/search?q=" + place + "&tbm=isch' target='_blank'>画像検索 by google</a>"-->
-<!--        });-->
-<!--      }-->
-
-<!--      // クリックイベント-->
-<!--      function markerEvent() {-->
-<!--        marker.addListener('click', function() {-->
-<!--          infoWindow.open(map, marker);-->
-<!--        });-->
-<!--      }-->
-<!--</script>-->
-
-<!--<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=%=Rails.application.credentials.googlemap[:api_key]%>&callback=initMap" async defer></script>-->
-
-
