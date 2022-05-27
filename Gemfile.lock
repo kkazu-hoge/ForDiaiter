@@ -102,6 +102,10 @@ GEM
     ffi (1.15.5)
     gems (1.2.0)
     geocoder (1.8.0)
+    geokit (1.13.1)
+    geokit-rails (2.3.2)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     gon (6.4.0)
@@ -332,6 +336,7 @@ DEPENDENCIES
   dotenv-rails
   enum_help
   geocoder
+  geokit-rails
   gon
   google-api-client (~> 0.11)
   google_places
