@@ -1,6 +1,5 @@
 <div class='container gym-search'>
   <div class="col-12">
-
     <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
         <b>周辺ジム検索</b>
@@ -9,67 +8,25 @@
     <div class="col-12 content_background">
       <div class="container-fluid">
         <div class="container">
-
-            <div class="row">
-              <div class="col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
-                ※検索地点から半径1km圏内のジムを最大20件ピックアップします
-                <%= form_with url: search_search_gyms_path, method: :get do |f| %>
-                  <%= f.text_field :place_name, class:"search", placeholder: "地名/場所を入力ください" %>
-                  <%= f.button :type => "submit", class:"searchsubmit" do %>
-                    <i class="fas fa-search"></i>
-                  <% end %>
+          <div class="row">
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
+              ※検索地点から半径1km圏内のジム（運動施設）を最大20件ピックアップします
+              <%= form_with url: search_search_gyms_path, method: :get do |f| %>
+                <%= f.text_field :place_name, class:"search", placeholder: "地名/場所を入力ください" %>
+                <%= f.button :type => "submit", class:"searchsubmit" do %>
+                  <i class="fas fa-search"></i>
                 <% end %>
-              </div>
+              <% end %>
             </div>
-            <div class="row justify-content-center">
-              <div class="col-12 text-center">
-                <h4>こちらに検索結果（施設一覧とマップ）が表示されます</h4>
-              </div >
-              <div class="col-12 col-lg-5 col-md-12 col-sm-12">
-                <div class = "gym-facilities-scroll">
-
-                  <div class="card second-row-card">
-                    <div class="card-body">
-                    <div class="row">
-                        <div class="col-5">
-                          <%= image_tag "https://lh3.googleusercontent.com/places/AAcXr8qY-aiYI0kpL4iQMOq_NhJN9jA4SLxeI5nESpgaD6cDOuLStkEWBWrMWarJM_HQsiv-UeGYQbY9hN5erxTheiAkZooPTWwbscM=s1600-w200", size: "140x138" %>
-                        </div>
-                        <div class="col-7" style="padding-top: 5%;">
-                          <span><i class="fas fa-building"></i>　綿本ヨーガスタジオ</span><br>
-                          <span><i class="fas fa-star" style="color:yellow;"></i>　評価：4.2点</span><br>
-                          <span><i class="fas fa-map-marker-alt" style="color:red;"></i>　中央区京橋３丁目３−１３</span><br>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card second-row-card">
-                    <div class="card-body">
-                      <%= image_tag "https://lh3.googleusercontent.com/places/AAcXr8pb29MrBVY1juxJCL28ZDes3qMfS0BYdxWu7UmeLYqh9q_-4FADY4Qyws_EAXpxsbQnqP5F7XwaauUISiA5ba607PleGUuREqA=s1600-w200", size: "140x138" %>
-                      施設詳細
-                    </div>
-                  </div>
-                  <div class="card second-row-card">
-                    <div class="card-body">
-                      施設詳細
-                    </div>
-                  </div>
-                  <div class="card second-row-card">
-                    <div class="card-body">
-                      施設詳細
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-12 col-lg-7 col-md-12 col-sm-12">
-                <div id="map"></div>
-              </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+              <h4>こちらに検索結果（施設一覧とマップ）が表示されます</h4>
             </div>
-
+          </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
