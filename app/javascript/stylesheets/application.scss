@@ -103,6 +103,33 @@ border-radius: 5px;
 	}
 }
 
+.fadeinR {
+  animation: fadeinR 1.5s;
+}
+@keyframes fadeinR {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fadeinL {
+  animation: fadeinL 1.5s;
+}
+@keyframes fadeinL {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 
 /*##### ↑共通フォーマット ####*/
