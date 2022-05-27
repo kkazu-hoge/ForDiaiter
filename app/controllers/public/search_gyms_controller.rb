@@ -1,22 +1,44 @@
 class Public::SearchGymsController < Public::ApplicationController
+  include Geokit::Geocoders
+
   def index
   end
 
   def search
     @center_name = params[:place_name]
-    results = Geocoder.search(@center_name) #本番ではエラーが発生する(原因は本番だとhttp通信でセキュアでないためAPI側で許可されない)
-    if results.blank?
-      redirect_to request.referer, notice: "検索対象の場所情報を取得できませんでした。条件を変更して再度検索ください。"
-      return
-    else
-      @map_center_lat = results.first.coordinates[0]
-      @map_center_lng = results.first.coordinates[1]
+    ###########geokit-rails使用時##########
+    results = GoogleGeocoder.geocode(@center_name)
+
+    if results.success
+      @map_center_lat = results.lat
+      @map_center_lng = results.lng
       client = GooglePlaces::Client.new(Rails.application.credentials.googlemap[:api_key])
       places = client.spots(@map_center_lat, @map_center_lng, :language => 'ja', :types => 'gym', :radius => 1000)
       if places.blank?
         redirect_to request.referer, notice: "半径1km以内にジムが見つかりませんでした。条件を変更して再度検索ください。"
       end
+    else
+      redirect_to request.referer, notice: "検索地点の場所情報を取得できませんでした。条件を変更して再度検索ください。"
+      return
     end
+    ########################################
+
+    ##########geo-coderの利用時#############
+    # results = Geocoder.search(@center_name) #本番ではエラーが発生する(原因は本番だとhttp通信でセキュアでないためAPI側で許可されない)
+
+    # if results.blank?
+    #   redirect_to request.referer, notice: "検索対象の場所情報を取得できませんでした。条件を変更して再度検索ください。"
+    #   return
+    # else
+    #   @map_center_lat = results.first.coordinates[0]
+    #   @map_center_lng = results.first.coordinates[1]
+    #   client = GooglePlaces::Client.new(Rails.application.credentials.googlemap[:api_key])
+    #   places = client.spots(@map_center_lat, @map_center_lng, :language => 'ja', :types => 'gym', :radius => 1000)
+    #   if places.blank?
+    #     redirect_to request.referer, notice: "半径1km以内にジムが見つかりませんでした。条件を変更して再度検索ください。"
+    #   end
+    # end
+    ########################################
 
     # 3次元hashの初期化
     @marker_places = Hash.new { |h,k| h[k] = Hash.new(&h.default_proc) }
