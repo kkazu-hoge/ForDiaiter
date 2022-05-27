@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       get :show_event,               on: :collection
     end
 
-    resources :callenders,  only: [:show, :new, :edit, :update]
+    resources :callenders,  only: [:show, :edit, :update]
     resources :records,     only: [:index, :show]
     resources :trainings,   only: [:index, :show]
 

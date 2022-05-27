@@ -13,9 +13,6 @@ class Public::CallendersController < Public::ApplicationController
     end
   end
 
-  def new
-  end
-
   def show
     #プルダウン用のデータ取得
     @projects = Project.get_projects_sort_desc_createday(current_customer)
