@@ -29,6 +29,7 @@
                                       </div>
                                       <div class="col-7 col-lg-3 col-md-3 col-sm-4">
                                         <%= f.text_field :"#{ped[1]["training_id"]}", class: "form-control form-control-sm", placeholder: "時間：分" %>
+                                        <span class="tooltip">イベント１回あたりのトレーニング時間（分）を入力ください</span>
                                       </div>
                                       <div class="col-5 col-lg-2 col-md-2 col-sm-3">
                                         <%=link_to "削除", pj_event_delete_training_new_pj_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true %>
