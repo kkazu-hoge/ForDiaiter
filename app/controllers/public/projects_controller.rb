@@ -25,8 +25,8 @@ class Public::ProjectsController < Public::ApplicationController
 
   def new_wizard2
     #処理ステータスコードの定義
-    success = 0
-    weight_error = 8
+    success       = 0
+    weight_error  = 8
     #リクエスト内容の入力チェック(基礎情報入力画面からのリクエスト時のみチェック)
     unless params[:project].blank?
       if basic_info_validation(params[:project]) == success
@@ -57,9 +57,9 @@ class Public::ProjectsController < Public::ApplicationController
 
   def new_wizard3
     #処理ステータスコードの定義
-    success = 0
-    pj_date_error = 8
-    intake_calorie_error = 7
+    success               = 0
+    pj_date_error         = 8
+    intake_calorie_error  = 7
     #リクエスト内容の入力をチェックし問題なければセッションに保存(プロジェクト設定画面からのリクエスト時のみチェック)
     unless params[:project].blank?
       if project_info_validation(params[:project], session[:project]) == success
@@ -99,10 +99,10 @@ class Public::ProjectsController < Public::ApplicationController
 
   def create
     #処理ステータスコードの定義
-    success = 0
-    training_blank_error = 8
-    input_type_error = 7
-    activity_minutes_blank_error = 6
+    success                       = 0
+    training_blank_error          = 8
+    input_type_error              = 7
+    activity_minutes_blank_error  = 6
     #セッションに保持しているトレーニング内容の入力チェック(プロジェクト設定画面からのリクエスト時のみチェック)
     status_code = training_info_validation(session[:pj_event_details], params)
     if status_code == success

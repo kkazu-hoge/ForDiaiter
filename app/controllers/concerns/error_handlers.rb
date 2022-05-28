@@ -19,11 +19,11 @@ module ErrorHandlers
     rescue_from ParameterMissing, with: :rescue400
   end
 
-  private def rescue500(e)
+  private def rescue500
     render "errors/internal_server_error", status: 500
   end
 
-  private def rescue400(e)
+  private def rescue400
     render "errors/bad_request", status: 400
   end
 
@@ -32,11 +32,11 @@ module ErrorHandlers
     render "errors/forbidden", status: 403
   end
 
-  def rescue404(e)
+  def rescue404
     render "errors/not_found", status: 404
   end
 
-  def rescue422(e)
+  def rescue422
     render "errors/unprocessable_entity", status: 422
   end
 
