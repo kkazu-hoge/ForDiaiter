@@ -40,14 +40,15 @@
               <% end %>
             </div>
             <div class="col-lg-5 col-md-7">
-              <%= link_to edit_password_customer_path(current_customer.id) do %>
-              <div class="wrap_mypage">
+              <!--%= link_to edit_password_customer_path(current_customer.id) do %>-->
+              <%= link_to customers_mypage_path(current_customer.id) do %>
+              <div class="wrap_mypage" style="background: #808080;">
                 <div class="ico-wrap_mypage">
                   <span class="mbr-iconfont fas fa-key"></span>
                 </div>
                 <div class="text-wrap vcenter">
                   <h4 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
-                    <span>パスワード変更</span>
+                    <span>パスワード変更<br>（利用不可）</span>
                   </h4>
                   <p class="mbr-fonts-style text1 mbr-text display-6">パスワードの変更はこちら　　　　　　　　　　　　　　　　</p>
                 </div>
@@ -55,7 +56,7 @@
               <% end %>
             </div>
             <div class="col-lg-5 col-md-7">
-              <%= link_to home_path do %>
+              <%= link_to term_of_service_customers_path do %>
               <div class="wrap_mypage">
                 <div class="ico-wrap_mypage">
                   <span class="mbr-iconfont fas fa-exclamation-triangle"></span>

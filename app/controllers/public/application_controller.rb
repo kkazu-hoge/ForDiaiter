@@ -1,9 +1,9 @@
 class Public::ApplicationController < ActionController::Base
 
   layout 'public/application'
-  # before_action :authenticate_customer!, except: [:top, :about]
+  before_action :authenticate_customer!, except: [:top, :about]
 
-  # include ErrorHandlers
+  include ErrorHandlers
 
 
 end

@@ -20,7 +20,6 @@ class Public::HomesController < Public::ApplicationController
       @pj_pulldown_initial_set_value = @projects_array.first
       project = @projects.first
     else
-      # binding.pry
       project_id = 1
       @pj_pulldown_initial_set_value = @projects_array.find{|val| val[project_id] == session[:selected_project]["id"]}
       project = session[:selected_project]
