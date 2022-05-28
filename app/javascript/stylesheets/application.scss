@@ -279,7 +279,7 @@ input[type=checkbox] {
   z-index: 99;
   height: 100%;
   width: 100%;
-  top: 28px;
+  top: 24px;
   left: 30px;
   height: 40px;
   width: 28px;
@@ -325,14 +325,14 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
   transition: all 0.3s;
   box-sizing: border-box;
   transform: rotate(135deg);
-  margin-top: 10px;
+  margin-top: 9px;
 }
 
 input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   transition: all 0.3s;
   box-sizing: border-box;
   transform: rotate(-135deg);
-  margin-top: -11px;
+  margin-top: -10px;
 }
 
 .sidebarMenuInner a {
