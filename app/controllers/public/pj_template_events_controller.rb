@@ -17,7 +17,6 @@ class Public::PjTemplateEventsController < Public::ApplicationController
   end
 
   def pj_event_add_training
-
     #リクエストパラメータのトレーニングidからトレーニングデータを取得
     training_obj = Training.find(params[:training_id])
     minutes = 10

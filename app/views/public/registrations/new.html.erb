@@ -1,296 +1,309 @@
 <div class='container'>
-  <div class='row justify-content-center main_contents' style = "margin-left: 13%;" >
+  <div class='row  main_contents justify-content-center'>
     <div class="col-12">
+
       <div class="row">
         <div class="col-12">
           <%= devise_error_messages! %>
         </div>
       </div>
-      <h5 class="signin_content_title"><b>新規アカウント登録</b></h5>
-      <div class="container">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <div class="field">
-            <div class='row login_input_field'>
-                <div class='col-12 col-lg-2 col-md-2 col-sm-12  required'>
-                  <b><span>名前</span></b>
-                </div>
-                <div class='col-5 col-lg-1 col-md-1 col-sm-4 '>
-                  <b><%= f.label :"(姓)" %></b>
-                </div>
-                <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                  <%= f.text_field :last_name, class: "form-control" %>
-                </div>
-                <div class='col-5 col-lg-1 col-md-1 col-sm-4'>
-                  <b><%= f.label :"(名)" %></b>
-                </div>
-                <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                  <%= f.text_field :first_name, class: "form-control" %>
-                </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-                <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                  <b><%= f.label :"公開用ネーム" %></b>
-                </div>
-                <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                  <%= f.text_field :public_name, class: "form-control" %>
-                  <span class="tooltip">アプリ上で表示される名前になります</span>
-                </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                <b><%= f.label :"メールアドレス" %></b>
-              </div>
-              <div class='col-7 col-lg-7 col-md-9 col-sm-8'>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                <b><%= f.label :"性別" %></b>
-              </div>
-              <div class='col-4'>
-                <div class='row'>
-                  <div class="col-6">
-                    <%= f.radio_button :sex, :man %>
-                    <b><%= f.label "男性" %></b>
-                  </div>
-                  <div class="col-6">
-                    <%= f.radio_button :sex, :woman %>
-                    <b><%= f.label "女性" %></b>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                <b><%= f.label :"生年月日" %></b>
-              </div>
-              <div class='col-7'>
-                <%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: Date.today-20.year, class: "form-control" %>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                <b><%= f.label :"身長" %></b>
-              </div>
-              <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
-                <%= f.select :height,[
-                  ["200cm",200],
-                  ["199cm",199],
-                  ["198cm",198],
-                  ["197cm",197],
-                  ["196cm",196],
-                  ["195cm",195],
-                  ["194cm",194],
-                  ["193cm",193],
-                  ["192cm",192],
-                  ["191cm",191],
-                  ["190cm",190],
-                  ["189cm",189],
-                  ["188cm",188],
-                  ["187cm",187],
-                  ["186cm",186],
-                  ["185cm",185],
-                  ["184cm",184],
-                  ["183cm",183],
-                  ["182cm",182],
-                  ["181cm",181],
-                  ["180cm",180],
-                  ["179cm",179],
-                  ["178cm",178],
-                  ["177cm",177],
-                  ["176cm",176],
-                  ["175cm",175],
-                  ["174cm",174],
-                  ["173cm",173],
-                  ["172cm",172],
-                  ["171cm",171],
-                  ["170cm",170],
-                  ["169cm",169],
-                  ["168cm",168],
-                  ["167cm",167],
-                  ["166cm",166],
-                  ["165cm",165],
-                  ["164cm",164],
-                  ["163cm",163],
-                  ["162cm",162],
-                  ["161cm",161],
-                  ["160cm",160],
-                  ["159cm",159],
-                  ["158cm",158],
-                  ["157cm",157],
-                  ["156cm",156],
-                  ["155cm",155],
-                  ["154cm",154],
-                  ["153cm",153],
-                  ["152cm",152],
-                  ["151cm",151],
-                  ["150cm",150],
-                  ["149cm",149],
-                  ["148cm",148],
-                  ["147cm",147],
-                  ["146cm",146],
-                  ["145cm",145],
-                  ["144cm",144],
-                  ["143cm",143],
-                  ["142cm",142],
-                  ["141cm",141],
-                  ["140cm",140]
-                  ],{ include_blank: true, selected: 165 }, { class: "form-control" } %>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                <b><%= f.label :"体重" %></b>
-              </div>
-              <div class='col-4 col-lg-2 col-md-3 col-sm-4'>
-                <%= f.select :weight,[
-                ["130kg",130],
-                ["129kg",129],
-                ["128kg",128],
-                ["127kg",127],
-                ["126kg",126],
-                ["125kg",125],
-                ["124kg",124],
-                ["123kg",123],
-                ["122kg",122],
-                ["121kg",121],
-                ["120kg",120],
-                ["119kg",119],
-                ["118kg",118],
-                ["117kg",117],
-                ["116kg",116],
-                ["115kg",115],
-                ["114kg",114],
-                ["113kg",113],
-                ["112kg",112],
-                ["111kg",111],
-                ["110kg",110],
-                ["109kg",109],
-                ["108kg",108],
-                ["107kg",107],
-                ["106kg",106],
-                ["105kg",105],
-                ["104kg",104],
-                ["103kg",103],
-                ["102kg",102],
-                ["101kg",101],
-                ["100kg",100],
-                ["99kg",99],
-                ["98kg",98],
-                ["97kg",97],
-                ["96kg",96],
-                ["95kg",95],
-                ["94kg",94],
-                ["93kg",93],
-                ["92kg",92],
-                ["91kg",91],
-                ["90kg",90],
-                ["89kg",89],
-                ["88kg",88],
-                ["87kg",87],
-                ["86kg",86],
-                ["85kg",85],
-                ["84kg",84],
-                ["83kg",83],
-                ["82kg",82],
-                ["81kg",81],
-                ["80kg",80],
-                ["79kg",79],
-                ["78kg",78],
-                ["77kg",77],
-                ["76kg",76],
-                ["75kg",75],
-                ["74kg",74],
-                ["73kg",73],
-                ["72kg",72],
-                ["71kg",71],
-                ["70kg",70],
-                ["69kg",69],
-                ["68kg",68],
-                ["67kg",67],
-                ["66kg",66],
-                ["65kg",65],
-                ["64kg",64],
-                ["63kg",63],
-                ["62kg",62],
-                ["61kg",61],
-                ["60kg",60],
-                ["59kg",59],
-                ["58kg",58],
-                ["57kg",57],
-                ["56kg",56],
-                ["55kg",55],
-                ["54kg",54],
-                ["53kg",53],
-                ["52kg",52],
-                ["51kg",51],
-                ["50kg",50],
-                ["49kg",49],
-                ["48kg",48],
-                ["47kg",47],
-                ["46kg",46],
-                ["45kg",45],
-                ["44kg",44],
-                ["43kg",43],
-                ["42kg",42],
-                ["41kg",41],
-                ["40kg",40]
-                ],{ include_blank: true, selected: 60 }, { class: "form-control" } %>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                <b><%= f.label :"パスワード" %></b>
-              </div>
-              <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-                <span class="tooltip">半角英数字の6文字以上で入力してください</span>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <div class='col-5 col-lg-3 col-md-3 col-sm-4 required'>
-                <b><%= f.label :"パスワード(確認用)" %></b>
-              </div>
-              <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-                <span class="tooltip">上記パスワードを再度入力ください</span>
-              </div>
-            </div>
-          </div>
-          <div class='row login_input_field login_button'>
-            <div class='col-10'>
-              <div class="actions">
-                <%= f.submit "アカウント登録",class: 'btn col-7 col-lg-4 col-md-5 col-sm-8 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
-              </div>
-            </div>
-          </div>
-        <% end %>
+      <div class="text-center">
+        <h5 class="signin_content_title"><b>新規アカウント登録</b></h5>
       </div>
-      <div class="navigation_area">
-        <h6 class="signin_content_title"><b>既にアカウント登録済の方</b></h6>
-        <div class='row'>
-          <div class='col-10'>
-            <%= link_to "Log in", new_customer_session_path %>からログインしてください
+      <div class="container login-form fadeUp signin-form">
+    		<div class="row main">
+    		  <div class="col-12">
+      			<div class="main-login main-center">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :名前（姓） %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fas fa-user" aria-hidden="true"></i></span>
+      								<%= f.text_field :last_name, class: "form-control" %>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :名前（名） %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fas fa-user" aria-hidden="true"></i></span>
+      								<%= f.text_field :first_name, class: "form-control" %>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :公開用ネーム %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fas fa-user-tag" aria-hidden="true"></i></span>
+      							  <%= f.text_field :public_name, class: "form-control" %>
+                      <span class="tooltip">アプリ上で表示される名前になります</span>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :メールアドレス %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+      								<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :性別 %>
+      						</div>
+      						<div class="cols-sm-10">
+                    <div class='row'>
+                      <div class="col-5 col-lg-4 col-md-5 col-sm-5">
+                        <%= f.radio_button :sex, :man %>
+                        <%= f.label "男性" %>
+                      </div>
+                      <div class="col-5 col-lg-4 col-md-5 col-sm-5">
+                        <%= f.radio_button :sex, :woman %>
+                        <%= f.label "女性" %>
+                      </div>
+                    </div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :生年月日 %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: Date.today-20.year, class: "form-control" %>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :身長 %>
+      						</div>
+      						<div class="cols-sm-6">
+      							<div class="input-group">
+                      <%= f.select :height,[
+                      ["200cm",200],
+                      ["199cm",199],
+                      ["198cm",198],
+                      ["197cm",197],
+                      ["196cm",196],
+                      ["195cm",195],
+                      ["194cm",194],
+                      ["193cm",193],
+                      ["192cm",192],
+                      ["191cm",191],
+                      ["190cm",190],
+                      ["189cm",189],
+                      ["188cm",188],
+                      ["187cm",187],
+                      ["186cm",186],
+                      ["185cm",185],
+                      ["184cm",184],
+                      ["183cm",183],
+                      ["182cm",182],
+                      ["181cm",181],
+                      ["180cm",180],
+                      ["179cm",179],
+                      ["178cm",178],
+                      ["177cm",177],
+                      ["176cm",176],
+                      ["175cm",175],
+                      ["174cm",174],
+                      ["173cm",173],
+                      ["172cm",172],
+                      ["171cm",171],
+                      ["170cm",170],
+                      ["169cm",169],
+                      ["168cm",168],
+                      ["167cm",167],
+                      ["166cm",166],
+                      ["165cm",165],
+                      ["164cm",164],
+                      ["163cm",163],
+                      ["162cm",162],
+                      ["161cm",161],
+                      ["160cm",160],
+                      ["159cm",159],
+                      ["158cm",158],
+                      ["157cm",157],
+                      ["156cm",156],
+                      ["155cm",155],
+                      ["154cm",154],
+                      ["153cm",153],
+                      ["152cm",152],
+                      ["151cm",151],
+                      ["150cm",150],
+                      ["149cm",149],
+                      ["148cm",148],
+                      ["147cm",147],
+                      ["146cm",146],
+                      ["145cm",145],
+                      ["144cm",144],
+                      ["143cm",143],
+                      ["142cm",142],
+                      ["141cm",141],
+                      ["140cm",140]
+                      ],{ include_blank: true, selected: 165 }, { class: "form-control" } %>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :体重 %>
+      						</div>
+      						<div class="cols-sm-12">
+      							<div class="input-group">
+                      <%= f.select :weight,[
+                      ["130kg",130],
+                      ["129kg",129],
+                      ["128kg",128],
+                      ["127kg",127],
+                      ["126kg",126],
+                      ["125kg",125],
+                      ["124kg",124],
+                      ["123kg",123],
+                      ["122kg",122],
+                      ["121kg",121],
+                      ["120kg",120],
+                      ["119kg",119],
+                      ["118kg",118],
+                      ["117kg",117],
+                      ["116kg",116],
+                      ["115kg",115],
+                      ["114kg",114],
+                      ["113kg",113],
+                      ["112kg",112],
+                      ["111kg",111],
+                      ["110kg",110],
+                      ["109kg",109],
+                      ["108kg",108],
+                      ["107kg",107],
+                      ["106kg",106],
+                      ["105kg",105],
+                      ["104kg",104],
+                      ["103kg",103],
+                      ["102kg",102],
+                      ["101kg",101],
+                      ["100kg",100],
+                      ["99kg",99],
+                      ["98kg",98],
+                      ["97kg",97],
+                      ["96kg",96],
+                      ["95kg",95],
+                      ["94kg",94],
+                      ["93kg",93],
+                      ["92kg",92],
+                      ["91kg",91],
+                      ["90kg",90],
+                      ["89kg",89],
+                      ["88kg",88],
+                      ["87kg",87],
+                      ["86kg",86],
+                      ["85kg",85],
+                      ["84kg",84],
+                      ["83kg",83],
+                      ["82kg",82],
+                      ["81kg",81],
+                      ["80kg",80],
+                      ["79kg",79],
+                      ["78kg",78],
+                      ["77kg",77],
+                      ["76kg",76],
+                      ["75kg",75],
+                      ["74kg",74],
+                      ["73kg",73],
+                      ["72kg",72],
+                      ["71kg",71],
+                      ["70kg",70],
+                      ["69kg",69],
+                      ["68kg",68],
+                      ["67kg",67],
+                      ["66kg",66],
+                      ["65kg",65],
+                      ["64kg",64],
+                      ["63kg",63],
+                      ["62kg",62],
+                      ["61kg",61],
+                      ["60kg",60],
+                      ["59kg",59],
+                      ["58kg",58],
+                      ["57kg",57],
+                      ["56kg",56],
+                      ["55kg",55],
+                      ["54kg",54],
+                      ["53kg",53],
+                      ["52kg",52],
+                      ["51kg",51],
+                      ["50kg",50],
+                      ["49kg",49],
+                      ["48kg",48],
+                      ["47kg",47],
+                      ["46kg",46],
+                      ["45kg",45],
+                      ["44kg",44],
+                      ["43kg",43],
+                      ["42kg",42],
+                      ["41kg",41],
+                      ["40kg",40]
+                      ],{ include_blank: true, selected: 60 }, { class: "form-control" } %>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :パスワード %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+      								<%= f.password_field :password, autofocus: true, autocomplete: "current-password", class: "form-control" %>
+                      <span class="tooltip">半角英数字の6文字以上で入力してください</span>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label required">
+      						  <%= f.label :パスワード（確認用） %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+      								<%= f.password_field :password_confirmation, autofocus: true, autocomplete: "current-password", class: "form-control" %>
+                      <span class="tooltip">半角英数字の6文字以上で入力してください</span>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group ">
+      					  <%= f.submit "アカウント登録",class: 'btn btn-lg btn-primary col-10 mx-auto font-weight-bold btn-block login-button', style: "background: #dcdcdc; color: #696969;" %>
+      					</div>
+              <% end %>
+      			</div>
+      		</div>
+    		</div>
+    	</div>
+      <div class="row text-center">
+        <div class="col-12">
+          <div class="login_sign_up_nav_area">
+            <h6 class="signin_content_title"><b>既にアカウント登録済の方</b></h6>
+            <div class='row'>
+              <div class='col-12'>
+                <%= link_to "こちら", new_customer_session_path %>からログインしてください
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
