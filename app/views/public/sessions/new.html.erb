@@ -1,43 +1,53 @@
 <div class='container'>
-  <div class='row justify-content-center' style = "margin-top: 50px; margin-left: 5%;">
-    <div class="col-6">
+  <div class='row' style = "margin-top: 50px;">
+    <div class="col-12">
       <%= devise_error_messages! %>
-      <div class='row'>
-        <h5 class= "login_content_title"><b>ログイン</b></h5>
-      </div>
-      <h6 class="login_content_title"><b>アカウントをお持ちの方はこちらからログイン</b></h6>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <div class='row login_input_field'>
-              <span class="col-12 col-lg-3 col-md-4 col-sm-12">
-                <%= f.label :メールアドレス %>
-              </span>
-              <span class="col-12 col-lg-6 col-md-8 col-sm-12">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-              </span>
-            </div>
-          </div>
-          <div class="field">
-            <div class='row login_input_field'>
-              <span class="col-12 col-lg-3 col-md-4 col-sm-12">
-                <%= f.label :パスワード %>
-              </span>
-              <span class="col-12 col-lg-6 col-md-8 col-sm-12">
-                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-                <span class="tooltip">半角英数字の6文字以上で入力してください</span>
-              </span>
-            </div>
-          </div>
-          <div class="actions col-12 col-lg-10 col-md-12 col-sm-12 login_button">
-            <%= f.submit "ログイン",class: 'btn col-8 mx-auto btn-outline-secondary font-weight-bold btn-block' %>
-          </div>
-        <% end %>
-      <div class="login_sign_up_nav_area">
-        <h6 class="login_content_title"><b>アカウント登録がお済でない方</b></h6>
-        <div class='row'>
-          <div class='col-md-10'>
+      <div class="text-center">
+        <h6 class="login_content_title"><b>アカウントをお持ちの方</b></h6>
+    	</div>
+    	<div class="container login-form fadeUp">
+    		<div class="row main">
+    		  <div class="col-12">
+      			<div class="main-login main-center">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label">
+      						  <%= f.label :メールアドレス %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+      								<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      							</div>
+      						</div>
+      					</div>
+
+      					<div class="form-group">
+      						<div class="cols-sm-2 control-label">
+      						  <%= f.label :パスワード %>
+      						</div>
+      						<div class="cols-sm-10">
+      							<div class="input-group">
+      								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+      								<%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                      <span class="tooltip">半角英数字の6文字以上で入力してください</span>
+      							</div>
+      						</div>
+      					</div>
+      					<div class="form-group ">
+      					  <%= f.submit "ログイン",class: 'btn btn-lg col-10 mx-auto btn-light font-weight-bold btn-block login-button' %>
+      					</div>
+              <% end %>
+      			</div>
+      		</div>
+    		</div>
+    	</div>
+      <div class="row text-center">
+        <div class="col-12">
+        <div class="login_sign_up_nav_area">
+          <h6 class="login_content_title"><b>アカウント登録がお済でない方</b></h6>
           <%= render "public/shared/links" %>から新規登録してください
-          </div>
+        </div>
         </div>
       </div>
     </div>

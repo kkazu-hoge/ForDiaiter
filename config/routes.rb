@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     root :to          =>'homes#top'
     get   "/home"     =>'homes#home'
     get  "/pj_alter" =>'homes#pj_alter'
-
+  
     devise_for :customers,skip: [:passwords], controllers: {
       registrations: 'public/registrations'
     }
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:edit, :update] do
       get   :edit_mail_address,     on: :member
       get   :edit_password,         on: :member
+      get   :term_of_service,       on: :collection
       # get   :edit_physical_info,    on: :member
       patch :update_mail_address,   on: :member
       patch :update_password,       on: :member
