@@ -26,6 +26,7 @@ class Public::ProjectsController < Public::ApplicationController
   def new_wizard2
     #処理ステータスコードの定義
     success = 0
+    weight_error = 8
     #リクエスト内容の入力チェック(基礎情報入力画面からのリクエスト時のみチェック)
     unless params[:project].blank?
       if basic_info_validation(params[:project]) == success
@@ -39,14 +40,14 @@ class Public::ProjectsController < Public::ApplicationController
         session[:project]["height"] =        params[:project][:height]
         session[:project]["weight"] =        params[:project][:weight]
         session[:project]["target_weight"] = params[:project][:target_weight]
+      elsif basic_info_validation(params[:project]) == weight_error
+        redirect_to request.referer, notice: "目標体重は現在の体重より小さい値を入力ください"
+        return
       else
         redirect_to request.referer, notice: "入力されていない項目、または入力値が異常な項目があります"
         return
-        # @project = basic_info_set(Project.new, session[:project], current_customer)
-        # render "/projects/new"
       end
     end
-
     #プロジェクト設定画面の表示値をセット
     project = Project.new
     @project = project_info_set(project, session[:project])
@@ -57,6 +58,8 @@ class Public::ProjectsController < Public::ApplicationController
   def new_wizard3
     #処理ステータスコードの定義
     success = 0
+    pj_date_error = 8
+    intake_calorie_error = 7
     #リクエスト内容の入力チェック(プロジェクト設定画面からのリクエスト時のみチェック)
     unless params[:project].blank?
       if project_info_validation(params[:project], session[:project]) == success
@@ -68,12 +71,17 @@ class Public::ProjectsController < Public::ApplicationController
         session[:project]["life_stress_factor_id"] = params[:project][:life_stress_factor_id]
         session[:project]["intake_calorie_perday"] = params[:project][:intake_calorie_perday]
         session[:project]["interval"] =              params[:project][:interval]
+      elsif project_info_validation(params[:project], session[:project]) == pj_date_error
+        redirect_to request.referer, notice: "プロジェクト開始日は本日以降の日付、プロジェクト終了日はプロジェクト開始日より未来の日付を入力ください"
+        return
+      elsif project_info_validation(params[:project], session[:project]) == intake_calorie_error
+        redirect_to request.referer, notice: "摂取カロリーは３～４桁の値を入力ください"
+        return
       else
         redirect_to request.referer, notice: "入力されていない項目、または入力値が異常な項目があります"
         return
       end
     end
-
     #トレーニング設定画面の表示値をセット
     @weight = session[:project]["weight"]
     @target_weight = session[:project]["target_weight"]
@@ -82,7 +90,6 @@ class Public::ProjectsController < Public::ApplicationController
     @target_burn_kcal =            tmp_project["target_burn_kcal"]
     @event_counts =                tmp_project["event_counts"]
     @target_burn_kcal_per_event =  tmp_project["target_burn_kcal_per_event"]
-
   end
 
 

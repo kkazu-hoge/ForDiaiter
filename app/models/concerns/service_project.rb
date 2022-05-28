@@ -23,7 +23,8 @@ module ServiceProject
 
   #プロジェクト作成の基礎情報の入力内容チェック
   def basic_info_validation(pj_obj)
-    status = 9 # 0：success 9: error
+    # 0：success, 9: validation_error, 8: weight_error
+    status = 9
     check_project = Project.new(
       sex:                    pj_obj["sex"],
       age:                    pj_obj["age"],
@@ -40,6 +41,7 @@ module ServiceProject
       )
 
     status = 0 if check_project.valid?
+    status = 8 if pj_obj["target_weight"] > pj_obj["weight"] && pj_obj["target_weight"].blank? == false
     return status
   end
 
@@ -70,7 +72,8 @@ module ServiceProject
 
   #プロジェクト作成のプロジェクト設定の入力内容チェック
   def project_info_validation(pj_obj, session_obj)
-    status = 9 # 0：success 9: error
+    # 0：success, 9: validation_error, 8: pj_date_error, 7: intake_calorie_error
+    status = 9
     check_project = Project.new(
       sex:                    session_obj["sex"],
       age:                    session_obj["age"],
@@ -87,6 +90,11 @@ module ServiceProject
       )
 
     status = 0 if check_project.valid?
+    # binding.pry
+    if status == 0
+      status = 8 if pj_obj["pj_finish_day"].to_date <= pj_obj["pj_start_day"].to_date || pj_obj["pj_start_day"].to_date < Date.current
+      status = 7 if pj_obj["intake_calorie_perday"].to_s.length < 3 || pj_obj["intake_calorie_perday"].to_s.length > 4
+    end
     return status
   end
 
