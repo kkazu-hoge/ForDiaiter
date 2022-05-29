@@ -17,14 +17,13 @@
     <div class="col-12 col-lg-4 col-md-6 col-sm-12">
       <div class="card second-row-card">
         <div class="card-body">
-          <h6 class="card-title text-center">追加コンテンツ予定</h6>
+          <h6 class="card-title text-center">現在の体重と目標体重</h6>
           <h4 class="card-subtitle mb-2 text-muted text-center">
             <b class = "home_calorie_disp">
-              <i class="fas fa-chart-line"></i>
-              <%= number_to_currency(plan_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
+              <%= weight %>kg >> <%= target_weight %>kg
             </b>
           </h4>
-          <p class="card-text card_annotation_fontsize">プロジェクト作成時の計画に沿って進行した場合のカロリー消費量を表示しています</p>
+          <p class="card-text card_annotation_fontsize">プロジェクト作成時に設定した現在の体重、目標体重を表示しています</p>
         </div>
       </div>
     </div>
@@ -85,14 +84,28 @@
     <div class="col-12 col-lg-4 col-md-6 col-sm-12">
       <div class="card second-row-card">
         <div class="card-body">
-          <h6 class="card-title text-center">計画時のイベント回数</h6>
+          <h6 class="card-title text-center">プロジェクト期間</h6>
           <h4 class="card-subtitle mb-2 text-muted text-center">
             <b class = "home_calorie_disp">
-              <i class="fas fa-running"></i>
-              <%= number_to_currency(result_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
+              開始日：<%= pj_start_day %><br>
+              終了日：<%= pj_finish_day %>
             </b>
           </h4>
-          <p class="card-text card_annotation_fontsize">プロジェクトの実績値に基づいたカロリー消費量を表示しています</p>
+          <p class="card-text card_annotation_fontsize"></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">計画時の総イベント回数</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-stopwatch"></i>
+              <%= plan_event_counts %>回
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">プロジェクト期間と運動間隔から計画時の総イベント回数を表示しています</p>
         </div>
       </div>
     </div>
@@ -145,10 +158,38 @@
           <h6 class="card-title text-center">基礎代謝</h6>
           <h4 class="card-subtitle mb-2 text-muted text-center">
             <b class = "home_calorie_disp">
-              <%= number_to_currency(diff_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
+              <%= number_to_currency(bmr, unit: " kcal/日", format: "%n%u", precision: 0) %>
             </b>
           </h4>
-          <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後がオーバーカロリーでないことの目安になります</p>
+          <p class="card-text card_annotation_fontsize">生命を維持するために必要なエネルギー量を表示しています</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">BMI</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-balance-scale"></i>
+              <%= bmi %>
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">18.5～25の数値が普通体重の判定基準になります</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+      <div class="card second-row-card">
+        <div class="card-body">
+          <h6 class="card-title text-center">適正体重</h6>
+          <h4 class="card-subtitle mb-2 text-muted text-center">
+            <b class = "home_calorie_disp">
+              <i class="fas fa-weight"></i>
+              <%= normal_weight %>kg
+            </b>
+          </h4>
+          <p class="card-text card_annotation_fontsize">BMI値が22を適正体重として身長から割り出しています</p>
         </div>
       </div>
     </div>
