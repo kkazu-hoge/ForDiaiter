@@ -17,19 +17,14 @@
               <%= link_to trainings_path, class:"js-trigger-transition" do %>
               　<b>＞ トレーニング一覧に戻る</b>
               <% end %>
+              <div class="row justify-content-center ", style="margin-top: 15px; text-align: center; ">
+                <div class="col-10", style="border-top: solid; border-color: #dcdcdc;">
+                  <%= image_tag "developed-with-youtube-sentence-case-dark.png", size: '150x50' %>
+                </div>
+              </div>
             </div>
-
             <div class="col-12 col-lg-7 col-md-7 col-sm-12">
               <div class = "training-movie-scroll">
-                <!--<div class="vid">-->
-                <!--  <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>-->
-                <!--</div>-->
-                <!--<div class="vid">-->
-                <!--  <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>-->
-                <!--</div>-->
-                <!--<div class="vid">-->
-                <!--  <iframe width="400" height="250" src="//www.youtube.com/embed/ac7KhViaVqc" allowfullscreen=""></iframe>-->
-                <!--</div>-->
                 <%= render "movie_contents", {youtube_data: @youtube_data} %>
               </div>
             </div>

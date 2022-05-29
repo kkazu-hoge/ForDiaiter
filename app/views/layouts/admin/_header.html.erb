@@ -21,7 +21,7 @@
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
       <li>Menu <span>一覧</span></li>
-      <% if customer_signed_in? %>
+      <% if admin_signed_in? %>
         <%= render "layouts/admin/afterLoginMenu" %>
       <% else %>
         <%= render 'layouts/admin/beforeLoginMenu' %>
