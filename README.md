@@ -40,4 +40,3 @@
 
 ### 使用素材
 - 【動画素材】サービス名：Pexels, URL：https://www.pexels.com/
-- 
