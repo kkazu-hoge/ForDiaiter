@@ -18,14 +18,14 @@
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header"><b>イベントメニュー</b></div>
-                      <div class="card-body">
+                        <div class="card-body">
 
                         <%= form_with url: pj_events_path(project_id: @project_id), method: :post, id: "training_form_area" do |f| %>
                           <div class="row">
                             <div class="col-12">
                               <div class="card text-center">
                                 <div class="card-body">
-                                【イベント実施予定日】
+                                【イベント実施予定日を選択してください】
                                   <div class="row justify-content-center">
                                     <div class="col-12 col-lg-4 col-md-6 col-sm-12">
                                       <%= f.date_field :action_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @action_day, class: "form-control" %>
