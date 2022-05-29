@@ -9,12 +9,12 @@ class Public::PjEventsController < Public::ApplicationController
 
   def new
     @project_id = params[:project_id]
-    # if session[:pj_event_details_new]["action_day"].blank?
-      @action_day = Date.current
-      # session[:pj_event_details_new]["action_day"] = @action_day
-    # else
-    #   @action_day = session[:pj_event_details_new]["action_day"]
-    # end
+  # if session[:pj_event_details_new]["action_day"].blank?
+    @action_day = Date.current
+    # session[:pj_event_details_new]["action_day"] = @action_day
+  # else
+  #   @action_day = session[:pj_event_details_new]["action_day"]
+  # end
   end
 
 
@@ -34,10 +34,12 @@ class Public::PjEventsController < Public::ApplicationController
     action_day = params[:action_day].to_date
     #処理コード定義
     success = 0
-    action_day_pj_scope_error = 9
-    action_day_event_duplicate_error = 8
+    pj_event_detail_blank_error = 9
+    action_day_pj_scope_error = 8
+    action_day_event_duplicate_error = 7
     #リクエストパラメータチェック
     status = success
+    status = pj_event_detail_blank_error if session[:pj_event_details_new].blank?
     status = action_day_pj_scope_error if action_day < project.pj_start_day.to_date || action_day > project.pj_finish_day.to_date
     if status == success
       check_pj_events = PjEvent.where(project_id: project.id)
@@ -54,7 +56,6 @@ class Public::PjEventsController < Public::ApplicationController
       pj_event[:start_time] = pj_event[:action_day].to_time.to_datetime
       pj_event.save!
       # pj_event_detailsを保存する
-      session[:pj_event_details_new]
       session[:pj_event_details_new].each do |ped|
     	  pj_event_details = PjEventDetail.new
         pj_event_details[:pj_event_id] = pj_event.id
@@ -74,10 +75,12 @@ class Public::PjEventsController < Public::ApplicationController
       session[:pj_event_details_new].clear
       redirect_to callender_path(id: current_customer.id)
 
-    elsif status == action_day_pj_scope_error
-      redirect_to request.referer, notice: "イベント実施日はプロジェクト期間内で設定ください"
     elsif status == action_day_event_duplicate_error
       redirect_to request.referer, notice: "イベント実施日が重複しています。1日1イベント単位で設定ください。"
+    elsif status == action_day_pj_scope_error
+      redirect_to request.referer, notice: "イベント実施日はプロジェクト期間内で設定ください"
+    elsif status == pj_event_detail_blank_error
+      redirect_to request.referer, notice: "トレーニングを追加してください"
     else
       redirect_to request.referer, notice: "システムエラーです。管理者に問い合わせてください。"
     end
