@@ -35,32 +35,29 @@
           <% else %>
             <div class = "dashboard_contents">
               <%= render "public/homes/dashboard", {
-              target_burn_kcal: @target_burn_kcal,
-              plan_burn_kcal: @plan_burn_kcal,
-              result_burn_kcal: @result_burn_kcal,
-              naturally_burn_calorie_perday: @naturally_burn_calorie_perday,
-              intake_calorie_perday: @intake_calorie_perday,
-              diff_calorie_perday: @diff_calorie_perday
+              target_burn_kcal:               @target_burn_kcal,
+              plan_burn_kcal:                 @plan_burn_kcal,
+              result_burn_kcal:               @result_burn_kcal,
+              naturally_burn_calorie_perday:  @naturally_burn_calorie_perday,
+              intake_calorie_perday:          @intake_calorie_perday,
+              diff_calorie_perday:            @diff_calorie_perday,
+              weight:                         @weight,
+              target_weight:                  @target_weight,
+              pj_start_day:                   @pj_start_day,
+              pj_finish_day:                  @pj_finish_day,
+              bmr:                            @bmr,
+              plan_event_counts:              @plan_event_counts,
+              bmi:                            @bmi,
+              normal_weight:                  @normal_weight
               }%>
             </div>
-            <div class = "graph_contents">
-              <%= render "public/homes/graph" %>
-            </div>
+            <!--#コンテンツ追加予定-->
+            <!--<div class = "graph_contents">-->
+            <!--  %= render "public/homes/graph" %>-->
+            <!--</div>-->
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!--script>-->
-<!--jQuery(document).bind("ready ajaxComplete turbolinks:load", function() {-->
-<!--  $(".select-drop-project").change(function() {-->
-<!--    let inputpulldown = $(".select-drop-project").val();-->
-<!--      if (inputpulldown == ""){-->
-<!--        return;-->
-<!--      }else{-->
-<!--        $("#select-drop-submit > input[type='submit']").click()-->
-<!--      }-->
-<!--    });-->
-<!--});-->
-<!--</script-->
