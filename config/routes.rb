@@ -70,7 +70,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
     root :to =>'homes#home'
-    resources :customerss,  only: [:index, :edit, :update]
+    resources :customers,  only: [:index, :edit, :update]
     resources :columns,     only: [:index, :edit, :update]
     resources :trainings,   only: [:index, :edit, :create, :update, :destroy]
 
