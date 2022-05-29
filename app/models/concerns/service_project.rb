@@ -20,7 +20,6 @@ module ServiceProject
   end
 
 
-
   #プロジェクト作成の基礎情報の入力内容チェック
   def basic_info_validation(pj_obj)
     # 0：success, 9: validation_error, 8: weight_error
@@ -41,7 +40,8 @@ module ServiceProject
       )
 
     status = 0 if check_project.valid?
-    status = 8 if pj_obj["target_weight"] > pj_obj["weight"] && pj_obj["target_weight"].blank? == false
+    status = 8 if pj_obj["target_weight"].to_i > pj_obj["weight"].to_i && pj_obj["target_weight"].blank? == false
+
     return status
   end
 
