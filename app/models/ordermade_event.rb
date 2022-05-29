@@ -7,4 +7,8 @@ class OrdermadeEvent < ApplicationRecord
   enum place_param: { indoor_only: 28, outdoor_available: 36 }
   enum equipment_param: { no_equipment: 45, no_limit_equipment: 55 }
 
+  validates :stress_level_param, :activity_type_param,
+           :place_param, :equipment_param,:burn_calories,
+           presence: true
+
 end
