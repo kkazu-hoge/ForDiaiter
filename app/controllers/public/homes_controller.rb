@@ -27,13 +27,21 @@ class Public::HomesController < Public::ApplicationController
 
     unless @projects.blank?
       disp_data = home_dashboard_data_get(project)
-      @naturally_burn_calorie_perday =  disp_data[:naturally_burn_calorie_perday] # ※１
-      @intake_calorie_perday =          disp_data[:intake_calorie_perday]         # ※２
-      @diff_calorie_perday =            disp_data[:diff_calorie_perday]           # ※３
-      @target_burn_kcal =               disp_data[:target_burn_kcal]              # ※４
-      @plan_burn_kcal =                 disp_data[:plan_burn_kcal]                # ※５
-      @result_burn_kcal =               disp_data[:result_burn_kcal]              # ※６
+      @naturally_burn_calorie_perday  = disp_data[:naturally_burn_calorie_perday] # ※１
+      @intake_calorie_perday          = disp_data[:intake_calorie_perday]         # ※２
+      @diff_calorie_perday            = disp_data[:diff_calorie_perday]           # ※３
+      @target_burn_kcal               = disp_data[:target_burn_kcal]              # ※４
+      @plan_burn_kcal                 = disp_data[:plan_burn_kcal]                # ※５
+      @result_burn_kcal               = disp_data[:result_burn_kcal]              # ※６
     #　※”進捗率”は画面側で処理
+      @weight                         = disp_data[:weight]
+      @target_weight                  = disp_data[:target_weight]
+      @pj_start_day                   = disp_data[:pj_start_day]
+      @pj_finish_day                  = disp_data[:pj_finish_day]
+      @bmr                            = disp_data[:bmr]
+      @plan_event_counts              = disp_data[:plan_event_counts]
+      @bmi                            = disp_data[:bmi]
+      @normal_weight                  = disp_data[:normal_weight]
     end
   end
 
@@ -56,6 +64,14 @@ class Public::HomesController < Public::ApplicationController
       @plan_burn_kcal =                 disp_data[:plan_burn_kcal]                # ※５
       @result_burn_kcal =               disp_data[:result_burn_kcal]              # ※６
     #　※”進捗率”は画面側で処理
+      @weight                         = disp_data[:weight]
+      @target_weight                  = disp_data[:target_weight]
+      @pj_start_day                   = disp_data[:pj_start_day]
+      @pj_finish_day                  = disp_data[:pj_finish_day]
+      @bmr                            = disp_data[:bmr]
+      @plan_event_counts              = disp_data[:plan_event_counts]
+      @bmi                            = disp_data[:bmi]
+      @normal_weight                  = disp_data[:normal_weight]
     end
   end
 
@@ -78,7 +94,15 @@ class Public::HomesController < Public::ApplicationController
     dashboard_data_hash[:target_burn_kcal] = target_burn_kcal(project, sum_diff_calorie)
     dashboard_data_hash[:plan_burn_kcal] = plan_burn_kcal_calc(project, Date.current)
     dashboard_data_hash[:result_burn_kcal] = result_burn_kcal_calc(project)
-
+    #追加コンテンツ
+    dashboard_data_hash[:weight] = project["weight"]
+    dashboard_data_hash[:target_weight] = project["target_weight"]
+    dashboard_data_hash[:pj_start_day] = project["pj_start_day"]
+    dashboard_data_hash[:pj_finish_day] = project["pj_finish_day"]
+    dashboard_data_hash[:bmr] = bmr
+    dashboard_data_hash[:plan_event_counts] = event_counts_calc(project["pj_finish_day"], project["pj_start_day"], project["interval"])
+    dashboard_data_hash[:bmi] = body_mass_index(project["height"], project["weight"])
+    dashboard_data_hash[:normal_weight] = normal_weight(project["height"])
     return dashboard_data_hash
   end
 

@@ -1,7 +1,7 @@
 module CalorieCalcuration
   extend ActiveSupport::Concern
 
-  ###### 基礎代謝の計算 ######
+  ###### 基礎代謝(bmr)の計算 ######
   def basal_metabolic_rate(obj)
     if obj["sex"] == "man"
       result = 13.397 * obj["weight"].to_i + 4.799 * obj["height"].to_i + 88.362 - 5.677 * obj["age"].to_i
@@ -11,6 +11,18 @@ module CalorieCalcuration
       result = "erorr"
     end
     return result
+  end
+  
+  ###### ボディマス指数(bmi)の計算 ######
+  def body_mass_index(height, weight)
+    result = weight.to_i / (height.to_f/100).to_f**2
+    return result.round(1)
+  end
+  
+    ###### 適正体重の計算 ######
+  def normal_weight(height)
+    result = (height.to_f/100).to_f**2 * 22
+    return result.round(1)
   end
 
   ###### 日数計算 ######

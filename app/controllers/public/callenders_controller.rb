@@ -66,15 +66,5 @@ class Public::CallendersController < Public::ApplicationController
     end
   end
 
-  private
-  # def new_params
-  #   params.require(:pj_event_detail).permit(
-  #     :sex,
-  #     :age,
-  #     :height,
-  #     :weight,
-  #     :target_weight
-  #     )
-  # end
 
 end
