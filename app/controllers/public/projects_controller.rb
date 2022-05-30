@@ -51,6 +51,9 @@ class Public::ProjectsController < Public::ApplicationController
     #プロジェクト設定画面の表示値をセット
     project = Project.new
     @project = project_info_set(project, session[:project])
+    #基礎代謝を参考情報として表示する
+    bmr = basal_metabolic_rate(session[:project])
+    @life_stress_factor_id_1 = bmr * LifeStressFactor.find(1).coefficient #ほぼ運動しない
   end
 
 
@@ -159,7 +162,8 @@ class Public::ProjectsController < Public::ApplicationController
         	num +=1
         end
 
-      #６ session情報をクリアする
+      #６ セレクトしているプロジェクトを上書きし、他のpj関連のsession情報をクリアする
+      session[:selected_project] = Project.find(project.id)
       session[:project].clear
       session[:pj_event_details].clear
 
