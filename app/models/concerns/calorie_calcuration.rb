@@ -12,14 +12,14 @@ module CalorieCalcuration
     end
     return result
   end
-  
+
   ###### ボディマス指数(bmi)の計算 ######
   def body_mass_index(height, weight)
     result = weight.to_i / (height.to_f/100).to_f**2
     return result.round(1)
   end
-  
-    ###### 適正体重の計算 ######
+
+  ###### 適正体重の計算 ######
   def normal_weight(height)
     result = (height.to_f/100).to_f**2 * 22
     return result.round(1)
@@ -56,7 +56,6 @@ module CalorieCalcuration
       result = 0
     else
       #現在の日付がプロジェクトの終了日を経過していなければ消費カロリー計算に現在の日付を使用
-
       pj_obj["pj_finish_day"].to_date <= current_day ? calc_pj_finish_day = pj_obj["pj_finish_day"].to_date : calc_pj_finish_day = current_day
 
       plan_event_counts = event_counts_calc(calc_pj_finish_day, pj_obj["pj_start_day"].to_date, pj_obj["interval"])
