@@ -89,7 +89,6 @@ class Public::PjEventsController < Public::ApplicationController
 
 
   def destroy
-    # binding.pry
     pj_event = PjEvent.find(params[:id])
     if pj_event.destroy
       redirect_to callender_path(id: current_customer.id), notice: "イベントを1件(#{pj_event.action_day.strftime("%m/%d")})削除しました"
