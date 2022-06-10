@@ -1,22 +1,20 @@
-name: CI
+name: Rails CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
-          script: |
-            cd ${{ secrets.SERVER_DEPLOY_DIR }}
-            whoami
+    - uses: actions/checkout@v2
+    - name: Deploy
+      env:
+        PRIVATE_KEY: ${{ secrets.KEY }}
+        USER_NAME: ${{ secrets.USERNAME }}
+        HOST_NAME: ${{ secrets.HOST }}
+      run: |
+        echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd ${{ secrets.SERVER_DEPLOY_DIR }} &&
+        whoami
