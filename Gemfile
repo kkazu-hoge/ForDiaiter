@@ -74,3 +74,5 @@ gem 'geocoder'
 gem 'google_places'
 gem 'gon'
 gem 'geokit-rails'
+
+gem 'news-api'
