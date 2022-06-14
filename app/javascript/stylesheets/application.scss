@@ -12,6 +12,29 @@
   margin-top: 2px;
 }
 
+/*loading */
+#loader-bg {
+  // background-color: #fff;
+  background-color: #e2c6ff;
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+}
+#loader-bg svg {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+/*loading */
+
 /* ヘッダーの後ろに要素が隠れないようにする */
 body {
   padding-top: 67px;
