@@ -1419,6 +1419,62 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   color: #9400d3;
   text-decoration: underline;
 }
+.articles section{
+  padding: 0px;
+}
+
+.articles .card {
+  margin: 30px auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  height: 450px;
+}
+.articles .card-img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: 250px;
+}
+.articles .card-content {
+  padding: 20px;
+  height: 150px;
+}
+.articles .card-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+.articles .card-text {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.articles .card-link {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 20px;
+    height: 50px;
+}
+.articles .card-link a {
+  text-decoration: none;
+  color: #0bd;
+  margin: 0 10px;
+}
+.articles .card-link a:hover {
+  color: #0090aa;
+}
+
+.aeticle_cards{
+  transition: all 0.2s ease;
+  cursor: pointer
+}
+
+.aeticle_cards:hover{
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.1)
+}
 
 
 /*####   ↑ニュース画面 ####*/
