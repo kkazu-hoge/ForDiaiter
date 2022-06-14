@@ -5,16 +5,15 @@ module Newsapi
 
   def find_news
     newsapi = News.new(Rails.application.credentials.newsapi[:api_key])
-
-    news_headlines = newsapi.get_top_headlines(q: 'ダイエット',
-                                          category: 'health',
+    #URLエンコードの値は"ダイエット"
+    news_headlines = newsapi.get_everything(q: '%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88',
+                                          searchIn: 'description',
+                                          from: (Date.current << 1).strftime("%Y-%m-%d"),
+                                          to: Date.current.strftime("%Y-%m-%d"),
+                                          excludeDomains: 'alfalfalfa.com, himasoku.com, livedoor.biz, 2chblog.jp, livedoor.jp',
                                           language: 'jp',
-                                          country: 'jp',
-                                          pageSize: 1)
-    # top_headlines = newsapi.get_top_headlines(category: 'health',
-    #                                       language: 'jp',
-    #                                       country: 'jp',
-    #                                       pageSize: 1)
+                                          sortBy: 'relevancy',
+                                          pageSize: 10)
     return news_headlines
   end
 

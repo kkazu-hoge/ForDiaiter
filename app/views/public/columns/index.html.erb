@@ -10,7 +10,30 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              テスト
+
+              <div class="articles" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+                <% @news_headlines.each do |news| %>
+                <div class="col-12 col-lg-6 col-md-12 col-sm-12">
+                  <%= link_to news.url do %>
+                  <section class="card aeticle_cards">
+                    <% if news.urlToImage.blank? %>
+                      <%= image_tag "no_image.jpg", class: "card-img" %>
+                    <% else %>
+                      <%= image_tag news.urlToImage, class: "card-img" %>
+                    <% end %>
+                    <div class="card-content">
+                      <h1 class="card-title"><%= "#{news.title.slice(0,45)}"+"..."  %></h1>
+                      <p class="card-text"><%= "#{news.description.slice(0,65)}"+"..." %></p>
+                    </div>
+                    <div class="card-link">
+                      <a href=#><%= news.publishedAt %></a>
+                      <a href=#><%= news.name %></a>
+                    </div>
+                  </section>
+                  <% end %>
+                </div>
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="row justify-content-center newsapi_link", style="margin-top:15px;">
