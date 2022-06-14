@@ -50,7 +50,7 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
 
-    resources :columns, only: [:index, :show]
+    resources :columns, only: [:index]
 
   end
   #ゲストログイン用のルーティング

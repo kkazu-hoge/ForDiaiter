@@ -9,8 +9,8 @@
       <div class="container-fluid">
         <div class="container">
           <div class="row">
-            <div class="col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
-              ※検索地点から半径1km圏内のジム（運動施設）を最大20件ピックアップします
+            <div class="col-12 justify-content-center">
+              ※検索地点から半径1km圏内のジムを最大20件ピックアップします。（利用回数に制限がございます。毎日17:00にリセットされます。）
               <%= form_with url: search_search_gyms_path, method: :get do |f| %>
                 <%= f.text_field :place_name, class:"search", placeholder: "地名/場所を入力ください" %>
                 <%= f.button :type => "submit", class:"searchsubmit" do %>

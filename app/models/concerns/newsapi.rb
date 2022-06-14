@@ -13,7 +13,7 @@ module Newsapi
                                           excludeDomains: 'alfalfalfa.com, himasoku.com, livedoor.biz, 2chblog.jp, livedoor.jp',
                                           language: 'jp',
                                           sortBy: 'relevancy',
-                                          pageSize: 10)
+                                          pageSize: 15)
     return news_headlines
   end
 
