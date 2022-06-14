@@ -1,6 +1,6 @@
 <div class='container'>
-  <div class='row justify-content-center main_contents'>
-    <nav class="col-10 navbar navbar-dark mypage_nav_bg_color p-1">
+  <div class='row col-12 justify-content-center main_contents'>
+    <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
         <b>トレーニング一覧</b>
         <ul class="navbar-nav">
@@ -19,7 +19,8 @@
         </ul>
       </div>
     </nav>
-    <div class="col-10 content_background">
+    <div class="col-12 content_background ">
+      ※参考動画は利用回数に制限がございます。毎日17:00にリセットされます。
       <div class = "row training-index">
         <% @trainings.each do |t| %>
         <div class="col-12 col-lg-6 col-md-12 col-sm-12">
