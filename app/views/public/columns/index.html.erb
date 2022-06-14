@@ -2,7 +2,7 @@
   <div class="col-12  main_contents">
     <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
-        <b>ニュース/記事（ヘルスケア）</b>
+        <b>ニュース/記事（ダイエット）</b>
       </div>
     </nav>
     <div class="col-12 content_background">
@@ -14,7 +14,7 @@
               <div class="articles" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
                 <% @news_headlines.each do |news| %>
                 <div class="col-12 col-lg-6 col-md-12 col-sm-12">
-                  <%= link_to news.url do %>
+                  <%= link_to news.url, target: "_blank", rel: "noopener noreferrer" do %>
                   <section class="card aeticle_cards">
                     <% if news.urlToImage.blank? %>
                       <%= image_tag "no_image.jpg", class: "card-img" %>
