@@ -61,6 +61,10 @@ ja:
         name: トレーニング名
         mets_value: メッツ値
         summary: トレーニング内容
+      contact:
+        name: お名前
+        content: お問い合わせ内容
+        customer_id: 会員ID
 
     models:
       customer: 会員
@@ -74,4 +78,5 @@ ja:
       plan_pj_event: 計画プロジェクトイベント
       project: プロジェクト
       training: トレーニング
+      contact: 問い合わせ
 

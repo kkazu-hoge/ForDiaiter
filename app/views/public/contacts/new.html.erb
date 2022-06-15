@@ -1,0 +1,65 @@
+<div class='container'>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="text-error">
+        <%= render 'layouts/public/errors', obj: @contact  %>
+      </div>
+    </div>
+  </div>
+  <div class='row justify-content-center main_contents edit-contents'>
+    <nav class="col-10 navbar navbar-dark mypage_nav_bg_color p-1">
+      <div class="container-fluid navbar-brand">
+        <b>お問い合わせフォーム</b>
+      </div>
+    </nav>
+    <div class="col-10 content_background">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body ">
+                <%= form_with model: @contact, url: contacts_path, method: :create do |f| %>
+                <%= f.hidden_field :customer_id, value: current_customer.id %>
+                <div class="field justify-content-center">
+                  <div class='row login_input_field '>
+                    <div class='col-12 col-lg-12 col-md-12 col-sm-12'>
+                      <b><%= f.label :"お名前" %></b>
+                    </div>
+                    <div class='col-11 col-lg-11 col-md-11 col-sm-11'>
+                      <%= f.text_field :name, placeholder: "お名前", autofocus: true, autocomplete: "email", class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class='row login_input_field'>
+                    <div class='col-12 col-lg-12 col-md-12 col-sm-12'>
+                      <b><%= f.label :"お問合せ内容" %></b>
+                    </div>
+                    <div class='col-11 col-lg-11 col-md-11 col-sm-11'>
+                      <%= f.text_area :content, placeholder: "お問合せ内容を入力してください", autofocus: true, autocomplete: "email", class: "form-control",  rows: "6" %>
+                    </div>
+                  </div>
+                </div>
+                <div class='row login_input_field login_button'>
+                  <div class='col-11'>
+                    <div class="actions">
+                      <%= f.submit "送信する",class: 'btn col-8 col-lg-4 col-md-5 col-sm-8 mx-auto btn-outline-secondary  font-weight-bold btn-block' %>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+                <div class="row">
+                  <div class="col-11 text-center">
+                    <%= link_to customers_mypage_path do %>
+                      <b>マイページに戻る</b>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
