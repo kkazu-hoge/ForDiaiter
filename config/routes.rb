@@ -15,13 +15,9 @@ Rails.application.routes.draw do
     get "customers/mypage"=>'customers#show'
     resources :customers, only: [:edit, :update] do
       get   :edit_mail_address,     on: :member
-      get   :edit_password,         on: :member
       get   :term_of_service,       on: :collection
       get   :privacy_policie,       on: :collection
-      # get   :edit_physical_info,    on: :member
       patch :update_mail_address,   on: :member
-      patch :update_password,       on: :member
-      # patch :update_physical_info,  on: :member
       get   :unsubscribe,           on: :member
       patch :defection,             on: :member
     end
@@ -31,16 +27,15 @@ Rails.application.routes.draw do
       get :new_wizard3, on: :collection
       get :complete, on: :collection
     end
-    resources :pj_events, only: [:show, :new, :create, :edit, :update, :destroy] do
+    resources :pj_events, only: [:new, :create, :update, :destroy] do
       get :new_training, on: :collection
       get :pj_event_add_training_new,    on: :collection
       get :pj_event_delete_training_new, on: :collection
     end
 
-    resources :pj_template_events, only: [:new, :create, :destroy] do
+    resources :pj_template_events, only: [:new] do
       get :pj_event_add_training,    on: :collection
       get :pj_event_delete_training, on: :collection
-      get :show_event,               on: :collection
     end
 
     resources :callenders,  only: [:show, :edit, :update]

@@ -7,14 +7,6 @@ class Public::PjTemplateEventsController < Public::ApplicationController
     @trainings = Training.all
   end
 
-  def create
-  end
-
-  def destroy
-  end
-
-  def show_event
-  end
 
   def pj_event_add_training
     #リクエストパラメータのトレーニングidからトレーニングデータを取得
