@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # 会員
   # URLに"public"を含ませたくないためURLとファイル構成(public配下)が異なるscope moduleでルーティング定義
 
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   scope module: 'public' do
     root :to          =>'homes#top'
     get   "/home"     =>'homes#home'
@@ -47,6 +49,8 @@ Rails.application.routes.draw do
     end
 
     resources :columns, only: [:index]
+
+    resources :contacts, only: [:new, :create]
 
   end
   #ゲストログイン用のルーティング
