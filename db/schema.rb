@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_131600) do
+ActiveRecord::Schema.define(version: 2022_06_15_114437) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2022_05_18_131600) do
     t.integer "burn_calories", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["pj_event_id"], name: "index_pj_event_details_on_pj_event_id"
   end
 
   create_table "pj_events", force: :cascade do |t|
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 2022_05_18_131600) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_time", null: false
+    t.index ["project_id"], name: "index_pj_events_on_project_id"
   end
 
   create_table "plan_pj_event_details", force: :cascade do |t|
@@ -127,12 +129,14 @@ ActiveRecord::Schema.define(version: 2022_05_18_131600) do
     t.integer "burn_calories", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_pj_event_id"], name: "index_plan_pj_event_details_on_plan_pj_event_id"
   end
 
   create_table "plan_pj_events", force: :cascade do |t|
     t.integer "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_plan_pj_events_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
