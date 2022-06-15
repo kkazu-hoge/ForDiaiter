@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get   :edit_mail_address,     on: :member
       get   :edit_password,         on: :member
       get   :term_of_service,       on: :collection
+      get   :privacy_policie,       on: :collection
       # get   :edit_physical_info,    on: :member
       patch :update_mail_address,   on: :member
       patch :update_password,       on: :member

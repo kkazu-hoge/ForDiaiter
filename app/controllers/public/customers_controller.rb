@@ -16,8 +16,8 @@ class Public::CustomersController < Public::ApplicationController
     @customer = current_customer
   end
 
-  def edit_password
-  end
+  # def edit_password
+  # end
 
 
   def update
@@ -40,7 +40,13 @@ class Public::CustomersController < Public::ApplicationController
     end
   end
 
-  def update_password
+  # def update_password
+  # end
+
+  def term_of_service
+  end
+
+  def privacy_policie
   end
 
   # def update_physical_info
@@ -79,7 +85,7 @@ class Public::CustomersController < Public::ApplicationController
       :email
       )
     end
-    
-    
-    
+
+
+
 end
