@@ -4,9 +4,6 @@ class Public::ColumnsController < Public::ApplicationController
 
   def index
     @news_headlines = find_news
-
   end
 
-  def show
-  end
 end

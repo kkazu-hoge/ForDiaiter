@@ -10,10 +10,18 @@ module Newsapi
                                           searchIn: 'description',
                                           from: (Date.current << 1).strftime("%Y-%m-%d"),
                                           to: Date.current.strftime("%Y-%m-%d"),
-                                          excludeDomains: 'alfalfalfa.com, himasoku.com, livedoor.biz, 2chblog.jp, livedoor.jp',
+                                          excludeDomains: 'alfalfalfa.com,
+                                            himasoku.com,
+                                            livedoor.biz,
+                                            2chblog.jp, livedoor.jp,
+                                            scienceplus2ch.com,
+                                            matometanews.com,
+                                            *2ch*, *4ch*, *5ch*,
+                                            *matome*, po-kaki-to.com,
+                                            goo.ne.jp',
                                           language: 'jp',
                                           sortBy: 'relevancy',
-                                          pageSize: 15)
+                                          pageSize: 20)
     return news_headlines
   end
 
