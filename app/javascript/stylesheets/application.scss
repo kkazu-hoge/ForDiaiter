@@ -12,6 +12,29 @@
   margin-top: 2px;
 }
 
+/*loading */
+#loader-bg {
+  // background-color: #fff;
+  background-color: #e2c6ff;
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+}
+#loader-bg svg {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+/*loading */
+
 /* ヘッダーの後ろに要素が隠れないようにする */
 body {
   padding-top: 67px;
@@ -1418,6 +1441,66 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 .newsapi_link a:hover {/*マウスが上に乗っている状態*/
   color: #9400d3;
   text-decoration: underline;
+}
+.articles section{
+  padding: 0px;
+}
+
+.articles .card {
+  margin: 30px auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+  height: 450px;
+}
+.articles .card-img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: 250px;
+}
+.articles .card-content {
+  padding: 20px;
+  height: 150px;
+}
+.articles .card-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+.articles .card-text {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.articles .card-link {
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 20px;
+    height: 50px;
+}
+.articles .card-link a {
+  text-decoration: none;
+  color: #0bd;
+  margin: 0 10px;
+}
+.articles .card-link a:hover {
+  color: #0090aa;
+}
+
+.news-contents .content_background {
+  padding-top: 2rem;
+}
+
+.aeticle_cards{
+  transition: all 0.2s ease;
+  cursor: pointer
+}
+
+.aeticle_cards:hover{
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.1)
 }
 
 

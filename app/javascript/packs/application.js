@@ -15,6 +15,7 @@ import '@fortawesome/fontawesome-free/js/all'
 import Chart from "chart.js/auto";
 global.Chart = Chart;
 import "home_pulldown"
+import "loading"
 // import "home_graph"
 
 

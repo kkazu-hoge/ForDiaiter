@@ -9,12 +9,7 @@ class Public::PjEventsController < Public::ApplicationController
 
   def new
     @project_id = params[:project_id]
-  # if session[:pj_event_details_new]["action_day"].blank?
     @action_day = Date.current
-    # session[:pj_event_details_new]["action_day"] = @action_day
-  # else
-  #   @action_day = session[:pj_event_details_new]["action_day"]
-  # end
   end
 
 

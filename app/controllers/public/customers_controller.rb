@@ -3,6 +3,7 @@ class Public::CustomersController < Public::ApplicationController
   include Common
 
   def show
+    #使用
   end
 
   def edit
@@ -12,11 +13,9 @@ class Public::CustomersController < Public::ApplicationController
 
   end
 
+
   def edit_mail_address
     @customer = current_customer
-  end
-
-  def edit_password
   end
 
 
@@ -40,13 +39,16 @@ class Public::CustomersController < Public::ApplicationController
     end
   end
 
-  def update_password
+  def term_of_service
+    #使用
   end
 
-  # def update_physical_info
-  # end
+  def privacy_policie
+    #使用
+  end
 
   def unsubscribe
+    #使用
   end
 
   def defection
@@ -79,7 +81,7 @@ class Public::CustomersController < Public::ApplicationController
       :email
       )
     end
-    
-    
-    
+
+
+
 end

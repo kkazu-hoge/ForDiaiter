@@ -1,3 +1,4 @@
+<%= render "layouts/loadicon"%>
 <div class='container gym-search'>
   <div class="col-12  main_contents">
     <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
@@ -9,15 +10,15 @@
       <div class="container-fluid">
         <div class="container">
           <div class="row">
-              <div class="col-12 col-lg-12 col-md-12 col-sm-12 justify-content-center">
-                ※検索地点から半径1km圏内のジムを最大20件ピックアップします
-                <%= form_with url: search_search_gyms_path, method: :get do |f| %>
-                  <%= f.text_field :place_name, class:"search", value: @center_name,placeholder: "地名/場所を入力ください" %>
-                  <%= f.button :type => "submit", class:"searchsubmit" do %>
-                    <i class="fas fa-search"></i>
-                  <% end %>
+            <div class="col-12 justify-content-center">
+              ※検索地点から半径1km圏内のジムを最大20件ピックアップします。（利用回数に制限がございます。毎日17:00にリセットされます。）
+              <%= form_with url: search_search_gyms_path, method: :get do |f| %>
+                <%= f.text_field :place_name, class:"search", value: @center_name,placeholder: "地名/場所を入力ください" %>
+                <%= f.button :type => "submit", class:"searchsubmit" do %>
+                  <i class="fas fa-search"></i>
                 <% end %>
-              </div>
+              <% end %>
+            </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-12 col-lg-5 col-md-12 col-sm-12">
@@ -27,7 +28,11 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-5">
-                        <%= image_tag "#{place[1]["photo_image"]}", size: '140x138' %>
+                        <% if place[1]["photo_image"].blank? %>
+                          <%= image_tag "no_image.jpg", size: '140x138' %>
+                        <% else %>
+                          <%= image_tag "#{place[1]["photo_image"]}", size: '140x138' %>
+                        <% end %>
                       </div>
                       <div class="col-7" style="padding-top: 5%;">
                         <span><i class="fas fa-building"></i>　<%= place[1]["name"] %></span><br>
@@ -45,7 +50,9 @@
             </div>
           </div>
           <div class="row justify-content-center", style="margin-top:15px;">
-            <%= image_tag "powered_by_google_on_white.png" %>
+            <%= link_to "https://developers.google.com/maps", target: "_blank", rel: "noopener noreferrer" do %>
+              <%= image_tag "powered_by_google_on_white.png" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -114,5 +121,6 @@ function initMap(){
 }
 </script>
 <script async defer
-      src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%=Rails.application.credentials.googlemap[:api_key]%>&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=<%=Rails.application.credentials.googlemap[:api_key]%>&callback=initMap">
 </script>
+

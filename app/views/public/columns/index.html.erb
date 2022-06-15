@@ -1,8 +1,9 @@
-<div class='container'>
+<%= render "layouts/loadicon"%>
+<div class='container news-contents'>
   <div class="col-12  main_contents">
     <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
-        <b>ニュース for health</b>
+        <b>ニュース/記事（ダイエット関連）</b>
       </div>
     </nav>
     <div class="col-12 content_background">
@@ -10,11 +11,34 @@
         <div class="container">
           <div class="row">
             <div class="col-12">
-              テスト
+              ※ネット上の"ダイエット"関連の記事を最大20件表示します。（利用回数に制限がございます。毎日18:00にリセットされます。）
+              <div class="articles" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+                <% @news_headlines.each do |news| %>
+                <div class="col-12 col-lg-6 col-md-12 col-sm-12">
+                  <%= link_to news.url, target: "_blank", rel: "noopener noreferrer" do %>
+                  <section class="card aeticle_cards">
+                    <% if news.urlToImage.blank? %>
+                      <%= image_tag "no_image.jpg", class: "card-img" %>
+                    <% else %>
+                      <%= image_tag news.urlToImage, class: "card-img" %>
+                    <% end %>
+                    <div class="card-content">
+                      <h1 class="card-title"><%= "#{news.title.slice(0,45)}"+"..."  %></h1>
+                      <p class="card-text"><%= "#{news.description.slice(0,65)}"+"..." %></p>
+                    </div>
+                    <div class="card-link">
+                      <a href=#><%= news.publishedAt %></a>
+                      <a href=#><%= news.name %></a>
+                    </div>
+                  </section>
+                  <% end %>
+                </div>
+                <% end %>
+              </div>
             </div>
           </div>
           <div class="row justify-content-center newsapi_link", style="margin-top:15px;">
-            Powered by <%= link_to "https://newsapi.org" do %>　News API　<% end %>
+            Powered by <%= link_to "https://newsapi.org", target: "_blank", rel: "noopener noreferrer" do %>　News API　<% end %>
           </div>
         </div>
       </div>
