@@ -31,7 +31,7 @@
 - 【ER図】<br/>
   <details>
   <summary>click</summary>
-  <img width="812" alt="ER_img_rev" src="https://user-images.githubusercontent.com/63903019/174010124-21d51b87-32e8-4efc-8c54-dcef047a0913.PNG">
+  <img width="658" alt="PF_ER_rev" src="https://user-images.githubusercontent.com/63903019/174015735-7cf4daad-bb72-462c-ba90-95389df1ec1c.PNG">
 </details>
 
 ### 開発環境
