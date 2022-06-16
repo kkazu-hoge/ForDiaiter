@@ -1,4 +1,9 @@
 ## ForDiaiter(フォーディアイター)
+
+<p>
+  <img width="387" alt="PF_img1" src="https://user-images.githubusercontent.com/63903019/174079757-23f8fbee-412a-4135-94a4-88a0c6c64d93.PNG">
+  <img width="383" alt="PF_img2" src="https://user-images.githubusercontent.com/63903019/174080005-98e84afa-c9da-4b14-b599-3ad7325c178e.PNG">
+</p>
 ※ForDiaiter(フォーディアイター)の由来<br>
 ギリシャ語でダイエットは「diaita」 ＋ ～する人「er」 ＋ ～ための「for」を組み合わせた造語
 
