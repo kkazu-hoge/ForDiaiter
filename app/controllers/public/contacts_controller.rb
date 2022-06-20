@@ -7,6 +7,7 @@ class Public::ContactsController < Public::ApplicationController
     @customer_id = current_customer.id
   end
 
+
   def create
     @customer_id = params[:contact][:customer_id]
     @contact = Contact.new(contact_params)
