@@ -17,7 +17,6 @@ class Public::CallendersController < Public::ApplicationController
     #プルダウン用のデータ取得
     @projects = Project.get_projects_sort_desc_createday(current_customer)
     @projects.blank? ? @projects_array = [] : @projects_array = @projects.get_projects_pulldown_list
-
     #セッションに選択中のプロジェクトがあればそちらを使用する
     if session[:selected_project].blank?
       @pj_pulldown_initial_set_value = @projects_array.first
@@ -37,6 +36,10 @@ class Public::CallendersController < Public::ApplicationController
 
 
   def update
+    #処理ステータスを定義
+    success = 0
+    input_error = 9
+    status = input_error
     #プロジェクトの体重情報が必要なためproject取得
     pj_event =  PjEvent.find(params[:pj_event_id])
     project =   Project.find(pj_event.project_id)
@@ -58,7 +61,7 @@ class Public::CallendersController < Public::ApplicationController
 
     # jsに渡す処理結果を定義
     respond_to do |format|
-      if
+      if 
         format.js { @status = "success" }
       else
         format.js { @status = "fail" }
