@@ -1,8 +1,6 @@
 <% if @status == 'success' %>
-    <!--処理結果保存するだけのため、部分レンダリングの必要性なし(モーダルを閉じるだけ)-->
-    <!--$("#training_form_area").html("%= escape_javascript(render("input_training", {pj_event_details: @pj_event_details})) %>");-->
     alert('正常に登録されました！')
 <%  elsif @status == 'fail' %>
-    alert('実績入力が正常に完了しませんでした。数値を入力ください。')
+    alert('登録エラー。半角数値(0 ~ 999)をご入力し、再度お試しください。')
 <% end %>
 $("#event-edit-modal").modal("hide");
