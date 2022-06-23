@@ -1,22 +1,23 @@
 <div class='container'>
-  <div class='row col-12 justify-content-center main_contents'>
+  <div class='row col-12  main_contents'>
     <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
         <b>トレーニング一覧</b>
-        <ul class="navbar-nav">
-          <%= form_with url: home_path, method: :get do |f| %>
-          <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
-              <div class="searchbar">
-                <%= f.text_field :search_text, class: "search_input", placeholder: "キーワード..." %>
-                <%= f.button :type => "submit", style: 'border-style: none; background: none;', class: "search_icon" do %>
-                  <i class="fas fa-search"></i>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </ul>
+        <!--検索機能は優先度下げる-->
+        <!--<ul class="navbar-nav">-->
+        <!--  %= form_with url: home_path, method: :get do |f| %>-->
+        <!--  <div class="container h-100">-->
+        <!--    <div class="d-flex justify-content-center h-100">-->
+        <!--      <div class="searchbar">-->
+        <!--        %= f.text_field :search_text, class: "search_input", placeholder: "キーワード..." %>-->
+        <!--        %= f.button :type => "submit", style: 'border-style: none; background: none;', class: "search_icon" do %>-->
+        <!--          <i class="fas fa-search"></i>-->
+        <!--        % end %>-->
+        <!--      </div>-->
+        <!--    </div>-->
+        <!--  </div>-->
+        <!--  % end %>-->
+        <!--</ul>-->
       </div>
     </nav>
     <div class="col-12 content_background ">
@@ -62,13 +63,11 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
         <% end %>
-
       </div>
     </div><!--<div class='container'>-->
   </div><!--<div class='row justify-content-center main_contents'>-->
