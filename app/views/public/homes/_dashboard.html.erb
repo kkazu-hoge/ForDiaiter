@@ -10,7 +10,8 @@
               <%= number_to_currency(target_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
             </b>
           </h4>
-          <p class="card-text">算出式：7200[kcal/kg]　×　(現在の体重[kg] － 目標の体重[kg])　+　(日常生活でのカロリー差　×　プロジェクト期間(日数))</p>
+          <p class="card-text">現在の体重、目標の体重、日常生活の消費カロリー、プロジェクト期間(日数)を考慮して算出しております</p>
+          <!--<p class="card-text">算出式：7200[kcal/kg]　×　(現在の体重[kg] － 目標の体重[kg])　+　(日常生活でのカロリー差　×　プロジェクト期間(日数))</p>-->
         </div>
       </div>
     </div>
@@ -20,7 +21,7 @@
           <h6 class="card-title text-center">現在の体重と目標体重</h6>
           <h4 class="card-subtitle mb-2 text-muted text-center">
             <b class = "home_calorie_disp">
-              <%= weight %>kg >> <%= target_weight %>kg
+              <%= weight %>kg -> <%= target_weight %>kg
             </b>
           </h4>
           <p class="card-text card_annotation_fontsize">プロジェクト作成時に設定した現在の体重、目標体重を表示しています</p>
@@ -148,7 +149,7 @@
               <%= number_to_currency(diff_calorie_perday, unit: " kcal/日", format: "%n%u", precision: 0) %>
             </b>
           </h4>
-          <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcal前後がオーバーカロリーでないことの目安になります</p>
+          <p class="card-text card_annotation_fontsize">自然総消費カロリーと想定摂取カロリーの差を表示しています<br>※0kcalを下回っていればオーバーカロリーでないことの目安になります</p>
         </div>
       </div>
     </div>

@@ -26,7 +26,11 @@
   </label>
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
-      <li>Menu <span>一覧</span></li>
+      <% if customer_signed_in? %>
+        <li>Menu <span>会員：<%= current_customer.public_name %>さん</span></li>
+      <% else %>
+        <li>Menu <span>一覧</span></li>
+      <% end %>
       <% if customer_signed_in? %>
         <%= render "layouts/public/afterLoginMenu" %>
       <% else %>

@@ -118,16 +118,21 @@ module ServiceProject
 
   #プロジェクト作成のトレーニング設定の入力内容チェック
   def training_info_validation(pj_event_detail_obj, params_hash)
-    # 0：success, 9: validation_error, 8: training_blank_error, 7: input_type_error, 6: activity_minutes_blank_error
-    status = 0
-    status = 8 if pj_event_detail_obj.blank?
-    unless status == 8
+    # 処理ステータスの
+    success                       = 0
+    training_blank_error          = 8
+    input_type_error              = 7
+    activity_minutes_blank_error  = 6
+
+    status = success
+    status = training_blank_error if pj_event_detail_obj.blank?
+    if status == success
       pj_event_detail_obj.each do |pedo|
         activity_minutes =  params_hash[pedo[1]["training_id"].to_s]
         unless activity_minutes.to_i == 0 #文字をintにキャストすると0になることを利用
-          status = 6 if activity_minutes.blank? || activity_minutes.to_i < 1 || activity_minutes.to_i > 999
+          status = activity_minutes_blank_error if activity_minutes.blank? || activity_minutes.to_i < 1 || activity_minutes.to_i > 999
         else
-          status = 7
+          status = input_type_error
         end
       end
     end

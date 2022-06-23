@@ -17,7 +17,6 @@ class Public::CallendersController < Public::ApplicationController
     #プルダウン用のデータ取得
     @projects = Project.get_projects_sort_desc_createday(current_customer)
     @projects.blank? ? @projects_array = [] : @projects_array = @projects.get_projects_pulldown_list
-
     #セッションに選択中のプロジェクトがあればそちらを使用する
     if session[:selected_project].blank?
       @pj_pulldown_initial_set_value = @projects_array.first
@@ -37,28 +36,40 @@ class Public::CallendersController < Public::ApplicationController
 
 
   def update
+    #処理ステータスを定義
+    success = 0
+    input_error = 9
+    status = success
     #プロジェクトの体重情報が必要なためproject取得
     pj_event =  PjEvent.find(params[:pj_event_id])
     project =   Project.find(pj_event.project_id)
     #配列要素指定のため変数として定義
     pj_event_details_id = 0
     activity_minutes =    1
-    #詳細の数だけトレーニング時間、消費カロリーを保存する
+    # 入力チェック
     params[:pj_event_detail].each do |ped|
-      pj_event_detail = PjEventDetail.find(ped[pj_event_details_id])
-      if ped[activity_minutes].blank?
-        pj_event_detail.activity_minutes = 0
-      else
-        pj_event_detail.activity_minutes = ped[activity_minutes]
+      unless ped[activity_minutes] == "0"
+        #キャスト時に数値変換不可な文字列は0に変換されるため前処理で入力が0の場合はチェックをスキップ
+        if ped[activity_minutes].to_i <= 0 || ped[activity_minutes].to_i > 999
+          status = input_error
+        end
       end
-      mets_value                    = Training.find(pj_event_detail.training_id).mets_value
-      pj_event_detail.burn_calories = burn_calories_training(mets_value.to_f, project.weight.to_i, pj_event_detail.activity_minutes.to_i)
-      pj_event_detail.save
     end
-
+    #詳細の数だけトレーニング時間、消費カロリーを保存する
+    if status == success
+      ActiveRecord::Base.transaction do
+        params[:pj_event_detail].each do |ped|
+          pj_event_detail                   = PjEventDetail.find(ped[pj_event_details_id])
+          pj_event_detail.activity_minutes  = ped[activity_minutes]
+          mets_value                        = Training.find(pj_event_detail.training_id).mets_value
+          pj_event_detail.burn_calories     = burn_calories_training(mets_value.to_f, project.weight.to_i, pj_event_detail.activity_minutes.to_i)
+          pj_event_detail.save!
+        end
+      end
+    end
     # jsに渡す処理結果を定義
     respond_to do |format|
-      if
+      if status == success
         format.js { @status = "success" }
       else
         format.js { @status = "fail" }
