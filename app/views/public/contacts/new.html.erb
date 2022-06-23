@@ -26,7 +26,7 @@
                       <b><%= f.label :"お名前" %></b>
                     </div>
                     <div class='col-11 col-lg-11 col-md-11 col-sm-11'>
-                      <%= f.text_field :name, placeholder: "お名前", autofocus: true, autocomplete: "email", class: "form-control" %>
+                      <%= f.text_field :name, placeholder: "例：田中 太郎", autofocus: true, autocomplete: "email", class: "form-control" %>
                     </div>
                   </div>
                 </div>
@@ -36,9 +36,12 @@
                       <b><%= f.label :"お問合せ内容" %></b>
                     </div>
                     <div class='col-11 col-lg-11 col-md-11 col-sm-11'>
-                      <%= f.text_area :content, placeholder: "お問合せ内容を入力してください", autofocus: true, autocomplete: "email", class: "form-control",  rows: "6" %>
+                      <%= f.text_area :content, placeholder: "内容をご入力ください", autofocus: true, autocomplete: "email", class: "form-control",  rows: "6" %>
                     </div>
                   </div>
+                </div>
+                <div>
+                  <span>※ご登録されているメールアドレス宛に自動返返信メールが届きます</span>
                 </div>
                 <div class='row login_input_field login_button'>
                   <div class='col-11'>
