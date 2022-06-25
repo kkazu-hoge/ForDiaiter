@@ -26,7 +26,7 @@
                       <b><%= f.label :"お名前" %></b>
                     </div>
                     <div class='col-11 col-lg-11 col-md-11 col-sm-11'>
-                      <%= f.text_field :name, placeholder: "例：田中 太郎", autofocus: true, autocomplete: "email", class: "form-control" %>
+                      <%= f.text_field :name, value: @customer_name, placeholder: "例：田中 太郎", autofocus: true, autocomplete: "email", class: "form-control" %>
                     </div>
                   </div>
                 </div>

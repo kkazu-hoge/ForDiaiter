@@ -5,6 +5,7 @@ class Public::ContactsController < Public::ApplicationController
   def new
     @contact = Contact.new
     @customer_id = current_customer.id
+    @customer_name = "#{current_customer.last_name}" +" "+ "#{current_customer.first_name}"
   end
 
 
@@ -14,6 +15,7 @@ class Public::ContactsController < Public::ApplicationController
     if @contact.save
       ContactMailer.contact_mail(@contact, Customer.find(@contact.customer_id)).deliver
       redirect_to home_path, notice: "お問い合わせ内容を送信しました"
+      # redirect_to home_path, flash: { info: "お問い合わせ内容を送信しました" }
     else
       render :new
     end
