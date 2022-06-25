@@ -3,37 +3,72 @@
   <div class="col-12  main_contents">
     <nav class="col-12 navbar navbar-dark mypage_nav_bg_color p-1">
       <div class="container-fluid navbar-brand">
-        <b>ニュース/記事（ダイエット関連）</b>
+        <b>ニュース/記事</b>
       </div>
     </nav>
     <div class="col-12 content_background">
       <div class="container-fluid">
         <div class="container">
           <div class="row">
-            <div class="col-12">
-              ※ネット上の"ダイエット"関連の記事を最大20件表示します。（利用回数に制限がございます。毎日18:00にリセットされます。）
-              <div class="articles" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
-                <% @news_headlines.each do |news| %>
-                <div class="col-12 col-lg-6 col-md-12 col-sm-12">
-                  <%= link_to news.url, target: "_blank", rel: "noopener noreferrer" do %>
-                  <section class="card aeticle_cards">
-                    <% if news.urlToImage.blank? %>
-                      <%= image_tag "no_image.jpg", class: "card-img" %>
-                    <% else %>
-                      <%= image_tag news.urlToImage, class: "card-img" %>
+            <div style="margin-bottom: 20px;">
+            ※ダイエット" "健康" 関連の記事を最大20件ずつ表示します。（利用回数に制限がございます。毎日18:00にリセットされます。）
+            </div>
+            <div class="wrap_tab">
+              <ul id="tab-menu">
+                <li><a href="#tab1" class="active"><h6><b>ダイエット関連</b></h6></a></li>
+                <li><a href="#tab2" class=""><h6><b>健康関連</b></h6></a></li>
+              </ul>
+              <div id="tab-contents">
+                <div id="tab1" class="tab">
+                  <div class="articles" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+                    <% @diet_news_headlines.each do |news| %>
+                    <div class="col-12 col-lg-6 col-md-12 col-sm-12">
+                      <%= link_to news.url, target: "_blank", rel: "noopener noreferrer" do %>
+                      <section class="card aeticle_cards">
+                        <% if news.urlToImage.blank? %>
+                          <%= image_tag "no_image.jpg", class: "card-img" %>
+                        <% else %>
+                          <%= image_tag news.urlToImage, class: "card-img" %>
+                        <% end %>
+                        <div class="card-content">
+                          <h1 class="card-title"><%= "#{news.title.slice(0,45)}"+"..."  %></h1>
+                          <p class="card-text"><%= "#{news.description.slice(0,65)}"+"..." %></p>
+                        </div>
+                        <div class="card-link">
+                          <a href=#><%= news.publishedAt %></a>
+                          <a href=#><%= news.name %></a>
+                        </div>
+                      </section>
+                      <% end %>
+                    </div>
                     <% end %>
-                    <div class="card-content">
-                      <h1 class="card-title"><%= "#{news.title.slice(0,45)}"+"..."  %></h1>
-                      <p class="card-text"><%= "#{news.description.slice(0,65)}"+"..." %></p>
-                    </div>
-                    <div class="card-link">
-                      <a href=#><%= news.publishedAt %></a>
-                      <a href=#><%= news.name %></a>
-                    </div>
-                  </section>
-                  <% end %>
+                  </div>
                 </div>
-                <% end %>
+                <div id="tab2" class="tab">
+                  <div class="articles" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+                    <% @health_news_headlines.each do |news| %>
+                    <div class="col-12 col-lg-6 col-md-12 col-sm-12">
+                      <%= link_to news.url, target: "_blank", rel: "noopener noreferrer" do %>
+                      <section class="card aeticle_cards">
+                        <% if news.urlToImage.blank? %>
+                          <%= image_tag "no_image.jpg", class: "card-img" %>
+                        <% else %>
+                          <%= image_tag news.urlToImage, class: "card-img" %>
+                        <% end %>
+                        <div class="card-content">
+                          <h1 class="card-title"><%= "#{news.title.slice(0,45)}"+"..."  %></h1>
+                          <p class="card-text"><%= "#{news.description.slice(0,65)}"+"..." %></p>
+                        </div>
+                        <div class="card-link">
+                          <a href=#><%= news.publishedAt %></a>
+                          <a href=#><%= news.name %></a>
+                        </div>
+                      </section>
+                      <% end %>
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -44,4 +79,40 @@
       </div>
     </div>
   </div>
+  <a href="#" id="page_top"></a>
 </div>
+<script>
+$('#tab-contents .tab[id != "tab1"]').hide();
+
+$('#tab-menu a').on('click', function(event) {
+  $("#tab-contents .tab").hide();
+  $("#tab-menu .active").removeClass("active");
+  $(this).addClass("active");
+  $($(this).attr("href")).show();
+  event.preventDefault();
+});
+
+$(function(){
+  var topBtn=$('#page_top');
+  topBtn.hide();
+
+  //ボタンの表示設定
+  $(window).scroll(function(){
+    if($(this).scrollTop()>80){
+      // 画面を80pxスクロールしたら、ボタンを表示する
+      topBtn.fadeIn();
+    }else{
+      // 画面が80pxより上なら、ボタンを表示しない
+      topBtn.fadeOut();
+    }
+  });
+
+  // ボタンをクリックしたら、スクロールして上に戻る
+  topBtn.click(function(){
+    $('body,html').animate({
+    scrollTop: 0},500);
+    return false;
+  });
+
+  });
+</script>
