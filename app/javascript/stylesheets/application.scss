@@ -14,7 +14,6 @@
 
 /*loading */
 #loader-bg {
-  // background-color: #fff;
   background-color: #e2c6ff;
   height: 100%;
   left: 0px;
@@ -162,7 +161,6 @@ border-radius: 5px;
 	font-size: small;
 	color: #fff;
 	visibility: hidden;
-// 	background: #911;
 	background: #9400d3;
 	opacity: 0;
 	transition: 0.5s all;
@@ -176,7 +174,6 @@ border-radius: 5px;
 	height: 0;
 	content: "";
 	border: 8px solid transparent;
-// 	border-right-color: #911;
 	border-right-color: #9400d3;
 	transform: translate(-50%, 0) rotate(90deg);
 }
@@ -410,7 +407,6 @@ p.footertopline{
 }
 
 .login_content_title {
-  // text-decoration: underline;
   margin-bottom: 20px;
 }
 
@@ -440,7 +436,6 @@ p.footertopline{
   margin-bottom: 20px;
 }
 
-/*お試し*/
 
 .login-form hr{
 	width: 10%;
@@ -458,7 +453,6 @@ p.footertopline{
 .login-form input,
 .login-form input::-webkit-input-placeholder {
     font-size: 11px;
-    // padding-top: 3px;
 }
 
 .login-form .main-login{
@@ -540,11 +534,6 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 .signin-form .main-center{
   max-width: 400px;
 }
-
-
-
-
-/*お試し*/
 
 /*#### ↑ログイン画面 ####*/
 
