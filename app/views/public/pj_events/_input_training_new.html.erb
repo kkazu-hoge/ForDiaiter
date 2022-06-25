@@ -32,7 +32,9 @@
                                         <span class="tooltip">イベント１回あたりのトレーニング時間（分）を入力ください</span>
                                       </div>
                                       <div class="col-5 col-lg-2 col-md-2 col-sm-3">
-                                        <%=link_to "削除", pj_event_delete_training_new_pj_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true %>
+                                        <%=link_to pj_event_delete_training_new_pj_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true do %>
+                                          <i class="fas fa-trash-alt"></i>
+                                        <% end %>
                                       </div>
                                     </div>
                                   </li>
