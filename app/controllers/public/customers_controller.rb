@@ -1,5 +1,7 @@
 class Public::CustomersController < Public::ApplicationController
 
+  before_action :check_guest_user, except: [:show, :term_of_service, :privacy_policie]
+
   include Common
 
   def show
@@ -82,6 +84,12 @@ class Public::CustomersController < Public::ApplicationController
       )
     end
 
+    def check_guest_user
+      @customer = Customer.find(current_customer.id)
+      if @customer.email == "guest@example.com"
+        redirect_to customers_mypage_path , notice: 'ゲストユーザーではご利用いただけない機能になります'
+      end
+    end
 
 
 end
