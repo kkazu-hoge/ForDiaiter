@@ -14,7 +14,6 @@
 
 /*loading */
 #loader-bg {
-  // background-color: #fff;
   background-color: #e2c6ff;
   height: 100%;
   left: 0px;
@@ -162,7 +161,6 @@ border-radius: 5px;
 	font-size: small;
 	color: #fff;
 	visibility: hidden;
-// 	background: #911;
 	background: #9400d3;
 	opacity: 0;
 	transition: 0.5s all;
@@ -176,7 +174,6 @@ border-radius: 5px;
 	height: 0;
 	content: "";
 	border: 8px solid transparent;
-// 	border-right-color: #911;
 	border-right-color: #9400d3;
 	transform: translate(-50%, 0) rotate(90deg);
 }
@@ -410,7 +407,6 @@ p.footertopline{
 }
 
 .login_content_title {
-  // text-decoration: underline;
   margin-bottom: 20px;
 }
 
@@ -440,7 +436,6 @@ p.footertopline{
   margin-bottom: 20px;
 }
 
-/*お試し*/
 
 .login-form hr{
 	width: 10%;
@@ -458,7 +453,6 @@ p.footertopline{
 .login-form input,
 .login-form input::-webkit-input-placeholder {
     font-size: 11px;
-    // padding-top: 3px;
 }
 
 .login-form .main-login{
@@ -540,11 +534,6 @@ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
 .signin-form .main-center{
   max-width: 400px;
 }
-
-
-
-
-/*お試し*/
 
 /*#### ↑ログイン画面 ####*/
 
@@ -700,7 +689,7 @@ section {
 }
 
 .wrap_mypage:hover {
-    background: linear-gradient(135deg,#9932cc 0%,#9400d3 100%);
+    background: linear-gradient(135deg,#9932cc 10%,#9400d3 90%);
     color: white;
 }
 
@@ -1503,6 +1492,90 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   transform: scale(1.1)
 }
 
+/*↓ タブ　*/
+.wrap_tab {
+  width: 100%;
+  margin: 0 auto;
+}
+.wrap_tab  ul {
+  margin: 0;
+  padding: 0;
+}
+
+#tab-menu {
+  display: flex;
+}
+
+#tab-menu li {
+  list-style-type: none;
+  width: 50%;
+}
+
+#tab-menu li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  background: #222222;
+  border: 1px solid #dcdcdc;
+  border-bottom: none;
+}
+
+#tab-menu .active {
+  background: #fff;
+  color: #696969;
+}
+
+#tab-contents .tab {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-top: none;
+}
+
+
+
+#page_top{
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background: #e25407;
+  opacity: 0.6;
+  }
+
+  #page_top::before {
+    font-weight: 900;
+    content: "▲";
+    font-size: 25px;
+    color: #ffffff;
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+  #page_top::after{
+    content: 'PAGE TOP';
+    font-size: 13px;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+/*↑ タブ　*/
 
 /*####   ↑ニュース画面 ####*/
 

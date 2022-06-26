@@ -108,13 +108,16 @@
                   <div class="field">
                     <div class="row" style="margin-bottom:5px;">
                       <div class="col-12 text-center">
-                      ＜摂取カロリー設定の参考情報＞<br>「ほぼ運動しない」状態でのあなたの自然消費カロリーは <b style="font-size:18px; color:red;"><%= "#{@life_stress_factor_id_1.round(0)}" %></b> kcal/日です
+                      ＜１日の摂取カロリー計画の参考情報＞
+                      <br>「ほぼ運動しない」状態でのあなたの自然消費カロリーは <b style="font-size:18px; color:red;"><%= "#{@life_stress_factor_id_1.round(0)}" %></b> kcal/日です
+                      <br><span style="font-size: 10px; color:red;"> ※摂取カロリーを考慮したくない場合は、活動スタイルを「ほぼ運動しない」を選択した上で、
+                      <br>上記赤字の自然消費カロリーの数値を「一日の摂取カロリー計画」のフォームにご入力ください。</span>
                       </div>
                     </div>
                     <div class='row login_input_field'>
                       <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
                       <div class='col-5 col-lg-3 col-md-3 col-sm-5 required'>
-                        <b><%= f.label :"一日の摂取カロリー計画（kcal/日）" %></b>
+                        <b><%= f.label :"１日の摂取カロリー計画（kcal/日）" %></b>
                       </div>
                       <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
                         <%= f.text_field :intake_calorie_perday, class: "form-control" , placeholder: "例:2000"%>

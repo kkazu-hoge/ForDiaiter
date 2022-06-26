@@ -3,10 +3,10 @@ module Newsapi
 
   require 'news-api'
 
-  def find_news
+  def find_news(key_word)
     newsapi = News.new(Rails.application.credentials.newsapi[:api_key])
-    #URIエンコードの値は"ダイエット"
-    news_headlines = newsapi.get_everything(q: '%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88',
+    search_key = URI.escape(key_word)
+    news_headlines = newsapi.get_everything(q: search_key,
                                           searchIn: 'description',
                                           from: (Date.current << 1).strftime("%Y-%m-%d"),
                                           to: Date.current.strftime("%Y-%m-%d"),

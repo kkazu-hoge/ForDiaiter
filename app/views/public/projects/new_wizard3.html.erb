@@ -31,16 +31,16 @@
             <div class="card fadeUp">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                  <div class="col-12 col-lg-6 col-md-12 col-sm-12">
                     <div class="card text-center">
                       <div class="card-header"><b>目標の体重を達成するための総消費カロリー</b></div>
                       <div class="card-body">
-                      （現在の体重：<%= @weight %>kg　＞＞　目標体重：<%= @target_weight %>kg）
+                      （現在の体重：<%= @weight %>kg　>>　目標体重：<%= @target_weight %>kg）
                         <h4><%= @target_burn_kcal %>kcal</h4>
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                  <div class="col-12 col-lg-6 col-md-12 col-sm-12">
                     <div class="card text-center">
                     <div class="card-header"><b>イベント1回あたりの推奨消費カロリー量</b></div>
                       <div class="card-body">
@@ -75,7 +75,9 @@
                                         <span class="tooltip">イベント１回あたりのトレーニング時間（分）を入力ください</span>
                                       </div>
                                       <div class="col-4 col-lg-2 col-md-2 col-sm-4">
-                                        <%=link_to "削除", pj_event_delete_training_pj_template_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true %>
+                                        <%=link_to pj_event_delete_training_pj_template_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block', remote: true do %>
+                                          <i class="fas fa-trash-alt"></i>
+                                        <% end %>
                                       </div>
                                     </div>
                                   </li>

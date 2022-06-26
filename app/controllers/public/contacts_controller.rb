@@ -1,10 +1,12 @@
 class Public::ContactsController < Public::ApplicationController
 
   protect_from_forgery
+  before_action :check_guest_user, only: [:new, :create]
 
   def new
     @contact = Contact.new
     @customer_id = current_customer.id
+    @customer_name = "#{current_customer.last_name}" << " " << "#{current_customer.first_name}"
   end
 
 
@@ -20,10 +22,15 @@ class Public::ContactsController < Public::ApplicationController
   end
 
 
-
   private def contact_params
     params.require(:contact).permit(:name, :content, :customer_id)
   end
 
+  private def check_guest_user
+    @customer = Customer.find(current_customer.id)
+    if @customer.email == "guest@example.com"
+      redirect_to home_path, notice: "お問い合わせはゲストユーザーではご利用いただけない機能になります"
+    end
+  end
 
 end

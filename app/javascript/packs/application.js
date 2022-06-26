@@ -4,19 +4,18 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs";
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
+import Turbolinks from "turbolinks";
+import * as ActiveStorage from "@rails/activestorage";
+import "channels";
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"
-import '@fortawesome/fontawesome-free/js/all'
+import "../stylesheets/application";
+import '@fortawesome/fontawesome-free/js/all';
 import Chart from "chart.js/auto";
 global.Chart = Chart;
-import "home_pulldown"
-import "loading"
-// import "home_graph"
+import "home_pulldown";
+import "loading";
 
 
 // .modalを使用できるようにグローバルに定義

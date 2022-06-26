@@ -1,5 +1,7 @@
 class Public::CustomersController < Public::ApplicationController
 
+  before_action :check_guest_user, except: [:show, :term_of_service, :privacy_policie]
+
   include Common
 
   def show
@@ -63,8 +65,7 @@ class Public::CustomersController < Public::ApplicationController
   end
 
 
-  private
-    def customer_info_params
+  private def customer_info_params
       params.require(:customer).permit(
         :last_name,
         :first_name,
@@ -76,12 +77,18 @@ class Public::CustomersController < Public::ApplicationController
         )
     end
 
-    def customer_email_params
+  private def customer_email_params
     params.require(:customer).permit(
       :email
       )
     end
 
+  private def check_guest_user
+      @customer = Customer.find(current_customer.id)
+      if @customer.email == "guest@example.com"
+        redirect_to customers_mypage_path , notice: 'ユーザー情報の編集はゲストユーザーではご利用いただけない機能になります'
+      end
+    end
 
 
 end
