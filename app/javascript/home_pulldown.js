@@ -1,4 +1,4 @@
-$(document).bind("ready ajaxComplete turbolinks:load", function() {
+$(document).bind("ajaxComplete turbolinks:load", function() {
   $(".select-drop-project").change(function() {
     let inputpulldown = $(".select-drop-project").val();
       if (inputpulldown == ""){
