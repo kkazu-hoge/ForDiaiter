@@ -16,6 +16,7 @@ import Chart from "chart.js/auto";
 global.Chart = Chart;
 import "home_pulldown";
 import "loading";
+import "column";
 
 
 // .modalを使用できるようにグローバルに定義

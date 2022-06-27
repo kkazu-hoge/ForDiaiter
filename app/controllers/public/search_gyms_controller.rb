@@ -4,18 +4,19 @@ class Public::SearchGymsController < Public::ApplicationController
 
 
   def index
+    #利用している
   end
 
   def search
     @center_name = params[:place_name]
     #検索キーワードを引数にマップ表示に必要な情報を取得する
-    map_info = mapinfo_get(@center_name)
-    status_code = map_info[0]
-    mapinfo_hash = map_info[1]
+    map_info      = mapinfo_get(@center_name)
+    status_code   = map_info[0]
+    mapinfo_hash  = map_info[1]
     marker_places = map_info[2]
 
     if status_code == 0
-      @marker_places = marker_places
+      @marker_places  = marker_places
       @map_center_lat = mapinfo_hash[:map_center_lat]
       @map_center_lng =  mapinfo_hash[:map_center_lng]
       gon.array_marker_places = @marker_places.to_a
