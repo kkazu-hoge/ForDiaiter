@@ -22,9 +22,9 @@ class Public::SearchGymsController < Public::ApplicationController
       gon.array_marker_places = @marker_places.to_a
 
     elsif status_code == 9
-      redirect_to request.referer, notice: "半径1km以内にジムが見つかりませんでした。条件を変更して再度検索ください。"
+      redirect_to request.referer, alert: "半径1km以内にジムが見つかりませんでした。条件を変更して再度検索ください。"
     else
-      redirect_to request.referer, notice: "検索地点の場所情報を取得できませんでした。条件を変更して再度検索ください。"
+      redirect_to request.referer, alert: "検索地点の場所情報を取得できませんでした。条件を変更して再度検索ください。"
     end
   end
 

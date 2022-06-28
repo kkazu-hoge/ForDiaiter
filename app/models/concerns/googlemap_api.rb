@@ -30,7 +30,7 @@ module GooglemapApi
           marker_places[i]["name"]      = place["name"]
           marker_places[i]["lat"]       = place["lat"]
           marker_places[i]["lng"]       = place["lng"]
-          marker_places[i]["rating"]    = place["rating"]
+          place["rating"].blank? ? marker_places[i]["rating"] = "?" : marker_places[i]["rating"] = place["rating"]
           marker_places[i]["vicinity"]  = place["json_result_object"]["vicinity"]
           place.photos[0].blank? ? marker_places[i]["photo_image"] = "" : marker_places[i]["photo_image"] = place.photos[0].fetch_url(200)
 
