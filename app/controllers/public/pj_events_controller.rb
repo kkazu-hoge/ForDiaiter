@@ -71,13 +71,13 @@ class Public::PjEventsController < Public::ApplicationController
       redirect_to callender_path(id: current_customer.id)
 
     elsif status == action_day_event_duplicate_error
-      redirect_to request.referer, notice: "イベント実施日が重複しています。1日1イベント単位で設定ください。"
+      redirect_to request.referer, alert: "イベント実施日が重複しています。1日1イベント単位で設定ください。"
     elsif status == action_day_pj_scope_error
-      redirect_to request.referer, notice: "イベント実施日はプロジェクト期間内で設定ください"
+      redirect_to request.referer, alert: "イベント実施日はプロジェクト期間内で設定ください"
     elsif status == pj_event_detail_blank_error
-      redirect_to request.referer, notice: "トレーニングを追加してください"
+      redirect_to request.referer, alert: "トレーニングを追加してください"
     else
-      redirect_to request.referer, notice: "システムエラーです。管理者に問い合わせてください。"
+      redirect_to request.referer, alert: "システムエラーです。管理者に問い合わせてください。"
     end
   end
 

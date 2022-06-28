@@ -41,10 +41,10 @@ class Public::ProjectsController < Public::ApplicationController
         session[:project]["weight"] =        params[:project][:weight]
         session[:project]["target_weight"] = params[:project][:target_weight]
       elsif basic_info_validation(params[:project]) == weight_error
-        redirect_to request.referer, notice: "目標体重は現在の体重より小さい値を入力ください"
+        redirect_to request.referer, alert: "目標体重は現在の体重より小さい値を入力ください"
         return
       else
-        redirect_to request.referer, notice: "入力されていない項目、または入力値が異常な項目があります"
+        redirect_to request.referer, alert: "入力されていない項目、または入力値が異常な項目があります"
         return
       end
     end
@@ -76,13 +76,13 @@ class Public::ProjectsController < Public::ApplicationController
         session[:project]["intake_calorie_perday"] = params[:project][:intake_calorie_perday]
         session[:project]["interval"] =              params[:project][:interval]
       elsif project_info_validation(params[:project], session[:project]) == pj_date_error
-        redirect_to request.referer, notice: "プロジェクト開始日は本日以降の日付、プロジェクト終了日はプロジェクト開始日より未来の日付を入力ください"
+        redirect_to request.referer, alert: "プロジェクト開始日は本日以降の日付、プロジェクト終了日はプロジェクト開始日より未来の日付を入力ください"
         return
       elsif project_info_validation(params[:project], session[:project]) == intake_calorie_error
-        redirect_to request.referer, notice: "摂取カロリーは３～４桁の値を入力ください"
+        redirect_to request.referer, alert: "摂取カロリーは３～４桁の値を入力ください"
         return
       else
-        redirect_to request.referer, notice: "入力されていない項目、または入力値が異常な項目があります"
+        redirect_to request.referer, alert: "入力されていない項目、または入力値が異常な項目があります"
         return
       end
     end
@@ -119,13 +119,13 @@ class Public::ProjectsController < Public::ApplicationController
 
     elsif status_code == training_blank_error
       # render :new_wizard3
-      redirect_to request.referer, notice: "トレーニングを追加してください"
+      redirect_to request.referer, alert: "トレーニングを追加してください"
     elsif status_code == input_type_error
-      redirect_to request.referer, notice: "トレーニング時間は数値を入力してください"
+      redirect_to request.referer, alert: "トレーニング時間は数値を入力してください"
     elsif status_code == activity_minutes_blank_error
-      redirect_to request.referer, notice: "トレーニング時間は1分~999分の間で入力ください"
+      redirect_to request.referer, alert: "トレーニング時間は1分~999分の間で入力ください"
     else
-      redirect_to request.referer, notice: "システムエラーです。管理者に問い合わせてください。"
+      redirect_to request.referer, alert: "システムエラーです。管理者に問い合わせてください。"
     end
   end
 
