@@ -1,7 +1,7 @@
 class Public::ContactsController < Public::ApplicationController
 
   protect_from_forgery
-  before_action :check_guest_user, only: [:new, :create]
+  before_action :check_guest_user, only: [:new]
 
   def new
     @contact = Contact.new
