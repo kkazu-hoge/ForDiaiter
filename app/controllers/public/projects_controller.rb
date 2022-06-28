@@ -53,7 +53,8 @@ class Public::ProjectsController < Public::ApplicationController
     @project = project_info_set(project, session[:project])
     #基礎代謝を参考情報として表示する
     bmr = basal_metabolic_rate(session[:project])
-    @life_stress_factor_id_1 = bmr * LifeStressFactor.find(1).coefficient #ほぼ運動しない
+    @life_stress_factor_id_1 = (bmr * LifeStressFactor.find(1).coefficient).to_i #ほぼ運動しない
+
   end
 
 

@@ -66,6 +66,7 @@ class Public::CustomersController < Public::ApplicationController
 
 
   private def customer_info_params
+      params.delete(:current_password)
       params.require(:customer).permit(
         :last_name,
         :first_name,

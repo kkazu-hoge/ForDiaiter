@@ -1,8 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe Customer, type: :model do
-    it "is valid with a name, email and password"
-    it "is invalid without a name"
-    it "is invalid without an email address"
-    it "is invalid without a duplicate email address"
+describe "会員モデルに関するテスト"  do
+
+  #正常ケース
+  context "性別：男性の全データが正常に設定されている場合" do
+    it "データが正常に登録される" do
+      customer = FactoryBot.build(:customer)
+      customer[:sex] = "man"
+      expect(customer).to be_valid
+    end
+  end
+
+  context "性別：女性の全データが正常に設定されている場合" do
+    it "データが正常に登録される" do
+      customer = FactoryBot.build(:customer)
+      customer[:sex] = "woman"
+      expect(customer).to be_valid
+    end
+  end
+
+  #
+
 end
