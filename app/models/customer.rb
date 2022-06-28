@@ -14,16 +14,18 @@ class Customer < ApplicationRecord
   validates :last_name, :first_name, :public_name,
             :sex, :birthday,:height,:weight,
             presence: true
-
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は6文字以上かつ英数字をそれぞれ含めてください" }, on: :create
+  validates :height, numericality: {greater_than: 139,less_than: 201, message: "はプルダウンの設定値を選択してください"}
+  validates :weight, numericality: {greater_than: 39,less_than: 131, message: "はプルダウンの設定値を選択してください"}
 
   ######インスタンスメソッド######
-
 
 
   ######クラスメソッド######
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|
-      customer.password = SecureRandom.urlsafe_base64
+      # customer.password = SecureRandom.urlsafe_base64
+      customer.password = SecureRandom.hex(20)
       customer.last_name = "ゲスト(姓)"
       customer.first_name = "ゲスト(名)"
       customer.public_name = "ゲスト"
@@ -35,7 +37,7 @@ class Customer < ApplicationRecord
   end
 
 
-  def self.birthday_transfer_age(birthday)#birtday = date型
+  def self.birthday_transfer_age(birthday)#birthday = date型
     result = (Date.current.strftime("%Y%m%d").to_i -  birthday.strftime("%Y%m%d").to_i) / 10000
     return result
   end

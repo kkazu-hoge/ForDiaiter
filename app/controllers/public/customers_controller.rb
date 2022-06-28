@@ -60,12 +60,13 @@ class Public::CustomersController < Public::ApplicationController
       reset_session
       redirect_to root_path, notice: "退会処理を実行しました"
     else
-      redirect_to request.referer, notice: "退会処理が正常に完了しませんでした(管理者にお問い合わせください)"
+      redirect_to request.referer, alert: "退会処理が正常に完了しませんでした(管理者にお問い合わせください)"
     end
   end
 
 
   private def customer_info_params
+      params.delete(:current_password)
       params.require(:customer).permit(
         :last_name,
         :first_name,

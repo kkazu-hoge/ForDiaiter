@@ -17,6 +17,7 @@ global.Chart = Chart;
 import "home_pulldown";
 import "loading";
 import "column";
+import "notice";
 
 
 // .modalを使用できるようにグローバルに定義

@@ -27,14 +27,14 @@
                 <div class="card second-row-card">
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-5">
+                      <div class="col-5 col-lg-5 col-md-4 col-sm-5">
                         <% if place[1]["photo_image"].blank? %>
                           <%= image_tag "no_image.jpg", size: '140x138' %>
                         <% else %>
                           <%= image_tag "#{place[1]["photo_image"]}", size: '140x138' %>
                         <% end %>
                       </div>
-                      <div class="col-7" style="padding-top: 5%;">
+                      <div class="col-7 col-lg-7 col-md-8 col-sm-7" style="padding-top: 5%;">
                         <span><i class="fas fa-building"></i>　<%= place[1]["name"] %></span><br>
                         <span><i class="fas fa-star" style="color:yellow;"></i>　評価：<%= place[1]["rating"] %>点</span><br>
                         <span><i class="fas fa-map-marker-alt" style="color:red;"></i>　<%= place[1]["vicinity"] %></span><br>

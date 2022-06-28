@@ -5,7 +5,7 @@ module CalorieCalcuration
   def basal_metabolic_rate(obj)
     if obj["sex"] == "man"
       result = 13.397 * obj["weight"].to_i + 4.799 * obj["height"].to_i + 88.362 - 5.677 * obj["age"].to_i
-    elsif obj["sex"] == "women"
+    elsif obj["sex"] == "woman"
       result = 9.247 * obj["weight"].to_i + 3.098 * obj["height"].to_i + 447.593 - 4.33 * obj["age"].to_i
     else
       result = "erorr"
