@@ -99,13 +99,17 @@
                 社名：K.Kunihara<br>
                 担当部署：○○○○事業部<br>
                 Eメールアドレス：XXXX@gmail.com</p>
-
                 <p class="tR">以上</p>
-
                 <div class="row">
                   <div class="col-11 text-center">
-                    <%= link_to home_path do %>
-                      <b>ホームに戻る</b>
+                    <% if customer_signed_in? %>
+                      <%= link_to home_path do %>
+                        <b>ホームに戻る</b>
+                      <% end %>
+                    <% else %>
+                      <%= link_to root_path do %>
+                        <b>ホームに戻る</b>
+                      <% end %>
                     <% end %>
                   </div>
                 </div>
