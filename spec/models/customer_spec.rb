@@ -24,7 +24,7 @@ describe "会員モデルに関するテスト"  do
 
 
 
-  describe '異常系テスト_入力値が空' do
+  describe '異常系テスト' do
 
     context "名前（姓）(last_name)が入力されていない場合" do
       it "データが登録されずバリデーションのエラーメッセージが表示される" do
@@ -71,12 +71,12 @@ describe "会員モデルに関するテスト"  do
       end
     end
 
-    context "誕生日が入力されていない場合" do
+    context "生年月日が入力されていない場合" do
       it "データが登録されずバリデーションのエラーメッセージが表示される" do
         customer = FactoryBot.build(:customer)
         customer[:birthday] = ""
         customer.valid?
-        expect(customer.errors.full_messages).to include("誕生日 が入力されていません")
+        expect(customer.errors.full_messages).to include("生年月日 が入力されていません")
       end
     end
 
