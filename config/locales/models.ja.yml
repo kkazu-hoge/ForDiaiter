@@ -10,7 +10,7 @@ ja:
         first_name: 名前（名）
         public_name: 公開ネーム
         sex: 性別
-        birthday: 誕生日
+        birthday: 生年月日
         height: 身長
         weight: 体重
       admin:
