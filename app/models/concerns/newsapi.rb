@@ -18,6 +18,8 @@ module Newsapi
                                             matometanews.com,
                                             *2ch*, *4ch*, *5ch*,
                                             *matome*, po-kaki-to.com,
+                                            4gamer.net,
+                                            *Esuteru.com*,
                                             goo.ne.jp',
                                           language: 'jp',
                                           sortBy: 'relevancy',
