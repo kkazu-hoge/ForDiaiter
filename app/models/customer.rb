@@ -14,7 +14,7 @@ class Customer < ApplicationRecord
   validates :last_name, :first_name, :public_name,
             :sex, :birthday,:height,:weight,
             presence: true
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は6文字以上かつ英数字をそれぞれ含めてください" }, on: :create
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は英数字をそれぞれ含めてください" }, on: :create
   validates :height, numericality: {greater_than: 139,less_than: 201, message: "はプルダウンの設定値を選択してください"}
   validates :weight, numericality: {greater_than: 39,less_than: 131, message: "はプルダウンの設定値を選択してください"}
 
