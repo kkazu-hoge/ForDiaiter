@@ -107,14 +107,32 @@ describe "会員モデルに関するテスト"  do
       end
     end
 
-    # context "が入力されていない場合" do
-    #   it "データが登録されずバリデーションのエラーメッセージが表示される" do
-    #     customer = FactoryBot.build(:customer)
-    #     customer[:public_name] = ""
-    #     customer.valid?
-    #     expect(customer.errors.full_messages).to include("公開ネーム が入力されていません")
-    #   end
-    # end
+    context "パスワードの入力桁数が6桁未満の場合" do
+      it "データが登録されずバリデーションのエラーメッセージが表示される" do
+        customer = FactoryBot.build(:customer)
+        customer.password = "1234x"
+        customer.valid?
+        expect(customer.errors.full_messages).to include("パスワード は6桁(文字)以上に設定して下さい")
+      end
+    end
+
+    context "パスワードの入力が数字のみの場合" do
+      it "データが登録されずバリデーションのエラーメッセージが表示される" do
+        customer = FactoryBot.build(:customer)
+        customer.password = "123456"
+        customer.valid?
+        expect(customer.errors.full_messages).to include("パスワード は英数字をそれぞれ含めてください")
+      end
+    end
+
+    context "パスワードの入力が英字のみの場合" do
+      it "データが登録されずバリデーションのエラーメッセージが表示される" do
+        customer = FactoryBot.build(:customer)
+        customer.password = "abcdef"
+        customer.valid?
+        expect(customer.errors.full_messages).to include("パスワード は英数字をそれぞれ含めてください")
+      end
+    end
 
   end
 
