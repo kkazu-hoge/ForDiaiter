@@ -80,7 +80,7 @@ describe "会員モデルに関するテスト"  do
       end
     end
 
-    context "身長が入力されていない場合" do
+    context "身長(height)が入力されていない場合" do
       it "データが登録されずバリデーションのエラーメッセージが表示される" do
         customer = FactoryBot.build(:customer)
         customer[:height] = ""
@@ -89,12 +89,48 @@ describe "会員モデルに関するテスト"  do
       end
     end
 
-    context "体重が入力されていない場合" do
+    context "身長(height)の入力値が設定値外(140cm未満)の場合" do
+      it "データが登録されずバリデーションのエラーメッセージが表示される" do
+        customer = FactoryBot.build(:customer)
+        customer[:height] = 139
+        customer.valid?
+        expect(customer.errors.full_messages).to include("身長 はプルダウンの設定値を選択してください")
+      end
+    end
+
+    context "身長(height)の入力値が設定値外(200cmより大きい)の場合" do
+      it "データが登録されずバリデーションのエラーメッセージが表示される" do
+        customer = FactoryBot.build(:customer)
+        customer[:height] = 201
+        customer.valid?
+        expect(customer.errors.full_messages).to include("身長 はプルダウンの設定値を選択してください")
+      end
+    end
+
+    context "体重(weight)が入力されていない場合" do
       it "データが登録されずバリデーションのエラーメッセージが表示される" do
         customer = FactoryBot.build(:customer)
         customer[:weight] = ""
         customer.valid?
         expect(customer.errors.full_messages).to include("体重 が入力されていません")
+      end
+    end
+
+    context "体重(weight)の入力値が設定値外(40kgより小さい)の場合" do
+      it "データが登録されずバリデーションのエラーメッセージが表示される" do
+        customer = FactoryBot.build(:customer)
+        customer[:weight] = 39
+        customer.valid?
+        expect(customer.errors.full_messages).to include("体重 はプルダウンの設定値を選択してください")
+      end
+    end
+
+    context "体重(weight)の入力値が設定値外(130kgより大きい)の場合" do
+      it "データが登録されずバリデーションのエラーメッセージが表示される" do
+        customer = FactoryBot.build(:customer)
+        customer[:weight] = 131
+        customer.valid?
+        expect(customer.errors.full_messages).to include("体重 はプルダウンの設定値を選択してください")
       end
     end
 
@@ -135,10 +171,6 @@ describe "会員モデルに関するテスト"  do
     end
 
   end
-
-  # describe '異常系のテスト_境界値' do
-
-  # end
 
 
 end
