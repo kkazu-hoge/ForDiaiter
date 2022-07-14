@@ -18,7 +18,7 @@ import "home_pulldown";
 import "loading";
 import "column";
 import "notice";
-const images = require.context('../images', true);
+const images = require.context('../../assets/images', true);
 const imagePath = (name) => images(name, true);
 
 
