@@ -18,6 +18,8 @@ import "home_pulldown";
 import "loading";
 import "column";
 import "notice";
+const images = require.context('../images', true);
+const imagePath = (name) => images(name, true);
 
 
 // .modalを使用できるようにグローバルに定義
