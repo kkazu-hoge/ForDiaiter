@@ -15,14 +15,16 @@ Rails.application.routes.draw do
       registrations: 'public/registrations'
     }
 
-    get "customers/mypage"=>'customers#show'
-    resources :customers, only: [:edit, :update] do
-      get   :edit_mail_address,     on: :member
-      get   :term_of_service,       on: :collection
-      get   :privacy_policie,       on: :collection
-      patch :update_mail_address,   on: :member
-      get   :unsubscribe,           on: :member
-      patch :defection,             on: :member
+    #deviseのルーティングと被るためeditとupdateは独自で定義
+    get "customers/mypage_edit"=>"customers#edit"
+    patch "customers/mypage_update"=>"customers#update"
+    resource :customers, only: [:show] do
+      get   :edit_mail_address
+      get   :term_of_service
+      get   :privacy_policie
+      patch :update_mail_address
+      get   :unsubscribe
+      patch :defection
     end
 
     resources :projects,  only: [:index, :show, :new, :edit, :create, :update] do
