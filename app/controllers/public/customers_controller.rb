@@ -12,7 +12,6 @@ class Public::CustomersController < Public::ApplicationController
     @customer = current_customer
     @height_pulldown = height_pulldown_get  #Commonメソッド
     @weight_pulldown = weight_pulldown_get  #Commonメソッド
-
   end
 
 
@@ -24,7 +23,7 @@ class Public::CustomersController < Public::ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_info_params)
-      redirect_to customers_mypage_path, notice: "会員情報が更新されました"
+      redirect_to customers_path, notice: "会員情報が更新されました"
     else
       @height_pulldown = height_pulldown_get  #Commonメソッド
       @weight_pulldown = weight_pulldown_get  #Commonメソッド
@@ -35,7 +34,7 @@ class Public::CustomersController < Public::ApplicationController
   def update_mail_address
     @customer = current_customer
     if @customer.update(customer_email_params)
-      redirect_to customers_mypage_path, notice: "メールアドレスが更新されました"
+      redirect_to customers_path, notice: "メールアドレスが更新されました"
     else
       render "edit_mail_address"
     end
@@ -87,7 +86,7 @@ class Public::CustomersController < Public::ApplicationController
   private def check_guest_user
       @customer = Customer.find(current_customer.id)
       if @customer.email == "guest@example.com"
-        redirect_to customers_mypage_path , notice: 'ユーザー情報の編集はゲストユーザーではご利用いただけない機能になります'
+        redirect_to customers_path , notice: 'ユーザー情報の編集はゲストユーザーではご利用いただけない機能になります'
       end
     end
 

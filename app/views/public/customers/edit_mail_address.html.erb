@@ -18,7 +18,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-body">
-                <%= form_with model: @customer, url: update_mail_address_customer_path(@customer), method: :patch do |f| %>
+                <%= form_with model: @customer, url: update_mail_address_customers_path(@customer), method: :patch do |f| %>
                 <div class="field">
                   <div class='row login_input_field'>
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
@@ -39,7 +39,7 @@
                 <% end %>
                 <div class="row">
                   <div class="col-11 text-center">
-                    <%= link_to customers_mypage_path do %>
+                    <%= link_to customers_path do %>
                       <b>マイページに戻る</b>
                     <% end %>
                   </div>
