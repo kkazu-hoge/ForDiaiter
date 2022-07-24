@@ -1548,7 +1548,7 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 /*####モバイル表示暫定対応####*/
 @media screen and (max-width: 500px) {
   body {
-    font-size: 0.4em;
+    font-size: 0.6rem;
   }
   .bs-wizard2 > .bs-wizard-step .bs-wizard-stepnum {
     color: #595959;
@@ -1577,6 +1577,10 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   }
 
   .wizard-contents h6 {
+      font-size: 0.8rem;
+  }
+
+  #tab-menu h6 {
       font-size: 0.8rem;
   }
 
