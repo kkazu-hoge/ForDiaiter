@@ -27,23 +27,23 @@
                       <div class='col-5 col-lg-1 col-md-1 col-sm-4 '>
                         <b><%= f.label :"(姓)" %></b></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-8 login_input_field'>
                         <%= f.text_field :last_name, class: "form-control" %>
                       </div>
                       <div class='col-5 col-lg-1 col-md-1 col-sm-4'>
                         <b><%= f.label :"(名)" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-8'>
                         <%= f.text_field :first_name, class: "form-control" %>
                       </div>
                   </div>
                 </div>
                 <div class="field">
                   <div class='row login_input_field'>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                      <div class='col-7 col-lg-3 col-md-3 col-sm-4'>
                         <b><%= f.label :"公開用ネーム" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-8'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-8'>
                         <%= f.text_field :public_name, class: "form-control" %>
                       </div>
                   </div>
@@ -72,7 +72,7 @@
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
                       <b><%= f.label :"生年月日" %></b>
                     </div>
-                    <div class='col-7'>
+                    <div class='col-12 col-lg-9 col-md-9 col-sm-8'>
                       <%= f.date_select :birthday, start_year: 1960, end_year: Time.now.year, use_month_numbers: true, default: @customer.birthday, class: "form-control" %>
                     </div>
                   </div>
@@ -82,7 +82,7 @@
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
                       <b><%= f.label :"身長" %></b>
                     </div>
-                    <div class='col-5 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
+                    <div class='col-12 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
                       <%= f.select :height, @height_pulldown,{ include_blank: true, selected: @customer.height }, { class: "form-control" } %>
                     </div>
                   </div>
@@ -92,7 +92,7 @@
                     <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
                       <b><%= f.label :"体重" %></b>
                     </div>
-                    <div class='col-5 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
+                    <div class='col-12 col-xl-2 col-lg-3 col-md-4 col-sm-5'>
                       <%= f.select :weight, @weight_pulldown,{ include_blank: true, selected: @customer.weight }, { class: "form-control" } %>
                     </div>
                   </div>

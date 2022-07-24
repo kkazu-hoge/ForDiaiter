@@ -21,10 +21,10 @@
                 <%= form_with model: @customer, url: update_mail_address_customers_path(@customer), method: :patch do |f| %>
                 <div class="field">
                   <div class='row login_input_field'>
-                    <div class='col-5 col-lg-3 col-md-3 col-sm-4'>
+                    <div class='col-12 col-lg-3 col-md-3 col-sm-4'>
                       <b><%= f.label :"メールアドレス" %></b>
                     </div>
-                    <div class='col-7 col-lg-7 col-md-9 col-sm-8'>
+                    <div class='col-12 col-lg-7 col-md-9 col-sm-8'>
                       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
                     </div>
                   </div>

@@ -2,12 +2,19 @@
   <div class="text-center" style="font-size:25px; font-weight:bold; margin-top: 10px;">
     <div class="calendar-heading">
       <div class="row">
-        <div class="col-12 col-lg-12 col-md-12 col-sm-12 text-center">
-          <span style="font-size: 15px;"><u>プロジェクト：<%= @project["name"] %></u>　(期間：<%= @project["pj_start_day"] %>～<%= @project["pj_finish_day"] %>)</span>
+        <div class="col-12 col-lg-12 col-md-12 col-sm-12 text-center calender-pjname">
+          <span>
+            <div class="col-12">
+              <u>プロジェクト：<%= @project["name"] %></u>
+            </div>
+            <div class="col-12">
+              (期間：<%= @project["pj_start_day"] %>～<%= @project["pj_finish_day"] %>)
+            </div>
+          </span>
         </div>
         <div class="col-12 col-lg-3 col-md-12 col-sm-12 text-left">
         </div>
-        <div class="col-8 col-lg-6 col-md-8 col-sm-8">
+        <div class="col-8 col-lg-6 col-md-8 col-sm-8 calender-ym">
           <%= link_to t('simple_calendar.previous', default: "<<　"), calendar.url_for_previous_view %>
           <span class="calendar-title"><%= start_date.year %>年 <%= t('date.month_names')[start_date.month] %></span>
           <%= link_to t('simple_calendar.next', default: "　>>"), calendar.url_for_next_view %>
