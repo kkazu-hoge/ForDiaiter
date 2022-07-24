@@ -4,12 +4,12 @@
       <div class="card second-row-card">
         <div class="card-body text-center">
           <h6 class="card-title"><%= current_customer.public_name %>さんの目標総消費カロリー</h6>
-          <h3 class="card-subtitle mb-2 text-muted">
+          <h4 class="card-subtitle mb-2 text-muted">
             <b class = "home_calorie_disp">
               <i class="fas fa-flag-checkered"></i>
               <%= number_to_currency(target_burn_kcal, unit: " kcal", format: "%n%u", precision: 0) %>
             </b>
-          </h3>
+          </h4>
           <p class="card-text">現在の体重、目標の体重、日常生活の消費カロリー、プロジェクト期間(日数)を考慮して算出しております</p>
         </div>
       </div>

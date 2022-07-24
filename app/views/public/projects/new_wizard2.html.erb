@@ -32,10 +32,10 @@
                   <div class="field">
                     <div class='row login_input_field'>
                       <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-5 required'>
+                      <div class='col-12 col-lg-3 col-md-3 col-sm-5 required'>
                         <b><%= f.label :"プロジェクト名" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-5'>
                         <%= f.text_field :name, class: "form-control" %>
                       </div>
                       <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
@@ -44,10 +44,10 @@
                   <div class="field">
                     <div class='row login_input_field'>
                       <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-5 required'>
+                      <div class='col-12 col-lg-3 col-md-3 col-sm-5 required'>
                         <b><%= f.label :"プロジェクト開始日" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-6'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-6'>
                         <%= f.date_field :pj_start_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @project["pj_start_day"], class: "form-control" %>
                       </div>
                       <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
@@ -56,10 +56,10 @@
                   <div class="field">
                     <div class='row login_input_field'>
                       <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-5 required'>
+                      <div class='col-12 col-lg-3 col-md-3 col-sm-5 required'>
                         <b><%= f.label :"プロジェクト終了日" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-5'>
                         <%= f.date_field :pj_finish_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @project["pj_finish_day"], class: "form-control" %>
                       <div class='col-0 col-lg-1 col-md-1 col-sm-0 '></div>
                     </div>
@@ -67,34 +67,34 @@
                   <div class="field">
                     <div class='row login_input_field'>
                       <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-5 required'>
+                      <div class='col-12 col-lg-3 col-md-3 col-sm-5 required'>
                         <b><%= f.label :"日々の活動スタイル" %></b>
                       </div>
-                      <div class='col-7 col-lg-4 col-md-6 col-sm-5'>
+                      <div class='col-12 col-lg-4 col-md-6 col-sm-5'>
                         <div class='row'>
-                          <div class="col-6">
+                          <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                             <%= f.radio_button :life_stress_factor_id, 1, checked: @project["life_stress_factor_id"] == 1 %>
                             <b><%= f.label "ほぼ運動しない" %></b>
                           </div>
-                          <div class="col-6">
+                          <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                             <%= f.radio_button :life_stress_factor_id, 2, checked: @project["life_stress_factor_id"] == 2 %>
                             <b><%= f.label "軽い運動" %></b>
                           </div>
                         </div>
                         <div class='row'>
-                          <div class="col-6">
+                          <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                             <%= f.radio_button :life_stress_factor_id, 3, checked: @project["life_stress_factor_id"] == 3 %>
                             <b><%= f.label "適度に運動" %></b>
                           </div>
-                          <div class="col-6">
+                          <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                             <%= f.radio_button :life_stress_factor_id, 4, checked: @project["life_stress_factor_id"] == 4 %>
                             <b><%= f.label "激しめの運動" %></b>
                           </div>
                         </div>
                         <div class='row'>
-                          <div class="col-12">
+                          <div class="col-6 col-lg-6 col-md-6 col-sm-6">
                             <%= f.radio_button :life_stress_factor_id, 5, checked: @project["life_stress_factor_id"] == 5 %>
-                            <b><%= f.label "アスリート並みに運動をする" %></b>
+                            <b><%= f.label "アスリート並" %></b>
                           </div>
                         </div>
                       </div>
@@ -112,10 +112,10 @@
                     </div>
                     <div class='row login_input_field'>
                       <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-5 required'>
+                      <div class='col-12 col-lg-3 col-md-3 col-sm-5 required'>
                         <b><%= f.label :"１日の摂取カロリー計画（kcal/日）" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-5'>
                         <%= f.text_field :intake_calorie_perday, class: "form-control" , placeholder: "例:2000"%>
                         <span class="tooltip">プロジェクト期間中の想定摂取カロリーを3～4桁で入力ください</span>
                       </div>
@@ -125,10 +125,10 @@
                   <div class="field">
                     <div class='row login_input_field'>
                       <div class='col-0 col-lg-3 col-md-2 col-sm-1 '></div>
-                      <div class='col-5 col-lg-3 col-md-3 col-sm-5 required'>
+                      <div class='col-12 col-lg-3 col-md-3 col-sm-5 required'>
                         <b><%= f.label :"プロジェクト中の運動の実施間隔" %></b>
                       </div>
-                      <div class='col-7 col-lg-3 col-md-4 col-sm-5'>
+                      <div class='col-12 col-lg-3 col-md-4 col-sm-5'>
                         <%= f.select :interval,
                         [["毎日",1],["中１日(2日に一度)",2],["中２日",3],["中３日",4],["中４日",5],["中５日",6],["週１",7]],
                         { include_blank: true, selected: @project["interval"] }, { class: "form-control" } %>

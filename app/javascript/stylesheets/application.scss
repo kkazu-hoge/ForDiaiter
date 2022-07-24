@@ -21,14 +21,6 @@
   margin-top: 2px;
 }
 
-// バリデーションエラー時のフィールドカスタマイズ
-// .field_with_errors {
-//   // display: inline;
-//   input {
-//     @extend .is-invalid;
-//   }
-// }
-
 /*loading */
 #loader-bg {
   background-color: #e2c6ff;
@@ -52,10 +44,11 @@
 /*loading */
 
 /* ヘッダーの後ろに要素が隠れないようにする */
+
 body {
   padding-top: 67px;
   color: #696969;
-  font-size: 13px;
+  font-size: 0.8em;
 }
 
 a {
@@ -94,8 +87,6 @@ a:hover {
     padding-bottom: 2rem;
     background-color: #f1f4fa;
 }
-
-
 
 ::-webkit-scrollbar {
 width: 7px;
@@ -1216,6 +1207,13 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
   padding-top: 0;
 }
 
+.calender-pjname {
+  font-size: 18px;
+}
+
+.calender-ym {
+  font-size: 25px;
+}
 
 /*#### ↑カレンダー画面 ####*/
 
@@ -1547,6 +1545,116 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 /*####   ↑ニュース画面 ####*/
 
 
+/*####モバイル表示暫定対応####*/
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 0.4em;
+  }
+  .bs-wizard2 > .bs-wizard-step .bs-wizard-stepnum {
+    color: #595959;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .bs-wizard1 > .bs-wizard-step .bs-wizard-stepnum {
+    color: #595959;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .bs-wizard3 > .bs-wizard-step .bs-wizard-stepnum {
+      color: #595959;
+      font-size: 12px;
+      margin-bottom: 5px;
+  }
+
+  .wizard-contents h4 {
+      font-size: 1rem;
+  }
+
+  .wizard-contents h5 {
+      font-size: 0.8rem;
+  }
+
+  .wizard-contents h6 {
+      font-size: 0.8rem;
+  }
+
+  .btn {
+    font-size: 0.6rem;
+  }
+
+  .calender-pjname {
+    font-size: 13px;
+  }
+
+  .calender-ym {
+    font-size: 15px;
+  }
+
+  .calender-ym a {
+    font-size: 15px;
+  }
+
+  .articles .card {
+    margin: 30px auto;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ccc;
+    height: 380px;
+  }
+
+  .articles .card-img {
+    border-radius: 5px 5px 0 0;
+    max-width: 100%;
+    height: 150px;
+  }
+
+  .articles .card-content {
+    padding: 20px;
+    height: 180px;
+  }
+
+  .articles .card-link {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding: 10px;
+    height: 30px;
+  }
+
+  .articles .card-title {
+      font-size: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333;
+  }
+
+  .articles .card-text {
+      color: #777;
+      font-size: 10px;
+      line-height: 1.5;
+  }
+
+  .gym-search .second-row-card {
+      height: 100px;
+  }
+
+  .gym-facilities-scroll img{
+    width: 100px;
+    height: 100px;
+  }
+
+  #map {
+    height: 300px;
+    width: 100%;
+  }
+
+
+}
+
+
+/*####モバイル表示暫定対応####*/
 
 
 /*------------------------------------
