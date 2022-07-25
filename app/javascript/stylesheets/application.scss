@@ -1654,6 +1654,55 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
     width: 100%;
   }
 
+  p.top-text {
+      position: absolute;
+      top: 0;
+      display: flex;
+      z-index: 3;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 40vh;
+      margin: 0;
+      font-size: 4vmax;
+      color: #fff;
+      text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 0px 1px 0 #fff, -1px 0 #fff, -1px 0 0 #fff, 1px 0 0 #fff;
+      background: rgba(26, 70, 104, 0.51);
+  }
+
+
+  p.top-comment {
+      position: absolute;
+      top: 100px;
+      display: flex;
+      z-index: 3;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 30vh;
+      font-size: 1.4vmax;
+      color: #fff;
+  }
+
+  .dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40vh;
+      background-color: rgba(255, 255, 255, 0.1);
+      background-image: radial-gradient(#000000 15%, transparent 15%), radial-gradient(#000000 15%, transparent 15%);
+      background-position: 0 0, 5px 5px;
+      background-size: 10px 10px;
+      z-index: 2;
+  }
+
+  .wrap-top {
+      position: relative;
+      width: 100%;
+      height: 40vh;
+      overflow: hidden;
+  }
 
 }
 
