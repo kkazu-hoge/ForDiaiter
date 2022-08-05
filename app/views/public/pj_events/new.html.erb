@@ -11,95 +11,85 @@
        <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-
-                <div class="row">
-                  <div class="col-12">
-                    <div class="card">
-                      <div class="card-header"><b>イベントメニュー</b></div>
-                        <div class="card-body">
-                        <%= form_with url: pj_events_path(project_id: @project_id), method: :post, id: "training_form_area" do |f| %>
-                          <div class="row">
-                            <div class="col-12">
-                              <div class="card text-center">
-                                <div class="card-body">
-                                【イベント実施予定日を選択してください】
-                                  <div class="row justify-content-center">
-                                    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-                                      <%= f.date_field :action_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @action_day, class: "form-control" %>
-                                    </div>
-                                  </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header"><b>イベントメニュー</b></div>
+                    <div class="card-body">
+                    <%= form_with url: pj_events_path(project_id: @project_id), method: :post, id: "training_form_area" do |f| %>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="card text-center">
+                            <div class="card-body">
+                            【イベント実施予定日を選択してください】
+                              <div class="row justify-content-center">
+                                <div class="col-12 col-lg-4 col-md-6 col-sm-12">
+                                  <%= f.date_field :action_day, start_year: Time.now.year, end_year: Time.now.year+1, use_month_numbers: true, value: @action_day, class: "form-control" %>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col-12 col-lg-8">
-                              <% if session[:pj_event_details_new].blank? %>
-                                <div class="text-center">
-                                  <h5>追加したトレーニングはこちらに一覧表示されます</h5>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-lg-8">
+                          <% if session[:pj_event_details_new].blank? %>
+                            <div class="text-center">
+                              <h5>追加したトレーニングはこちらに一覧表示されます</h5>
+                            </div>
+                          <% else %>
+                            <ul class="sample1 training_select_scroll">
+                              <% session[:pj_event_details_new].each do |ped| %>
+                              <li id="detail_<%= ped[1]["training_id"]%>">
+                                <div class="row">
+                                  <div class="col-12 col-lg-6 col-md-7 col-sm-12">
+                                    <%= ped[1]["training_name"] %>（10分:<%= ped[1]["calorie_per_ten_min"] %>kcal)
+                                  </div>
+                                  <div class="col-7 col-lg-3 col-md-3 col-sm-4">
+                                    <%= f.text_field :"#{ped[1]["training_id"]}", class: "form-control form-control-sm", placeholder: "時間：分" %>
+                                    <span class="tooltip">イベント１回あたりのトレーニング時間（分）を入力ください</span>
+                                  </div>
+                                  <div class="col-5 col-lg-2 col-md-2 col-sm-3">
+                                    <%=link_to pj_event_delete_training_new_pj_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block' , remote: true do %>
+                                      <i class="fas fa-trash-alt"></i>
+                                    <% end %>
+                                  </div>
                                 </div>
-                              <% else %>
-                                <ul class="sample1 training_select_scroll">
-                                  <% session[:pj_event_details_new].each do |ped| %>
-                                  <li id="detail_<%= ped[1]["training_id"]%>">
-                                    <div class="row">
-                                      <div class="col-12 col-lg-6 col-md-7 col-sm-12">
-                                        <%= ped[1]["training_name"] %>（10分:<%= ped[1]["calorie_per_ten_min"] %>kcal)
-                                      </div>
-                                      <div class="col-7 col-lg-3 col-md-3 col-sm-4">
-                                        <%= f.text_field :"#{ped[1]["training_id"]}", class: "form-control form-control-sm", placeholder: "時間：分" %>
-                                        <span class="tooltip">イベント１回あたりのトレーニング時間（分）を入力ください</span>
-                                      </div>
-                                      <div class="col-5 col-lg-2 col-md-2 col-sm-3">
-                                        <%=link_to pj_event_delete_training_new_pj_events_path(training_id: ped[1]["training_id"]), class: 'btn btn-sm col-12 mx-auto btn-danger font-weight-bold btn-block' , remote: true do %>
-                                          <i class="fas fa-trash-alt"></i>
-                                        <% end %>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <% end %>
-                                </ul>
+                              </li>
+                              <% end %>
+                            </ul>
+                          <% end %>
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-12">
+                          <div class="row justify-content-center">
+                            <div class="col-12 col-lg-12 col-md-6 col-sm-10">
+                              <%=link_to "トレーニング追加", new_training_pj_events_path(project_id: @project_id), class: "btn col-8 mx-auto btn-primary font-weight-bold btn-block", remote: true %>
+                            </div>
+                          </div>
+                          <div class="row login_input_field login_button justify-content-center">
+                            <div class="col-12 col-lg-12 col-md-6 col-sm-10">
+                              <div class="actions">
+                                <%= f.submit "イベント作成完了",class: "btn col-8 mx-auto btn-outline-secondary font-weight-bold btn-block" %>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 text-center">
+                              <%= link_to callender_path(id: current_customer.id), class:"js-trigger-transition" do %>
+                                <b>カレンダーに戻る</b>
                               <% end %>
                             </div>
-
-                            <div class="col-12 col-lg-4 col-md-12">
-                              <div class="row justify-content-center">
-                                <div class="col-12 col-lg-12 col-md-6 col-sm-10">
-                                  <%=link_to "トレーニング追加", new_training_pj_events_path(project_id: @project_id), class: "btn col-8 mx-auto btn-primary font-weight-bold btn-block", remote: true %>
-                                </div>
-                              </div>
-                              <div class="row login_input_field login_button justify-content-center">
-                                <div class="col-12 col-lg-12 col-md-6 col-sm-10">
-                                  <div class="actions">
-                                    <%= f.submit "イベント作成完了",class: "btn col-8 mx-auto btn-outline-secondary font-weight-bold btn-block" %>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <%= link_to callender_path(id: current_customer.id), class:"js-trigger-transition" do %>
-                                    <b>カレンダーに戻る</b>
-                                  <% end %>
-                                </div>
-                              </div>
-                            </div>
-
                           </div>
-                        <% end %>
-
+                        </div>
                       </div>
-                    </div>
+                    <% end %>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
