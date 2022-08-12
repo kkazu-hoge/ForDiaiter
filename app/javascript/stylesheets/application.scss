@@ -251,10 +251,8 @@ input:focus + .tooltip {
   position: fixed;
   left: 0;
   width: 250px;
-  // margin-top: 60px;
   transform: translateX(-250px);
   transition: transform 250ms ease-in-out;
-  // background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
   background: linear-gradient(180deg, #7f00ff 0%, #ff7f00 100%);
 }
 
@@ -274,6 +272,14 @@ input:focus + .tooltip {
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+.sidebarMenuInner .sidebarMenuLinkList li{
+  transition: all 0.4s ease-out;
+      &:hover {
+    background-color: #CDDC39;
+    color: #fff;
+  }
+}
+
 .sidebarMenuInner li span{
   display: block;
   font-size: 14px;
@@ -281,6 +287,7 @@ input:focus + .tooltip {
 }
 
 .sidebarMenuInner li a{
+  display: block;
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
@@ -362,14 +369,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   margin-top: -10px;
 }
 
-.sidebarMenuInner a {
-  display: block;
-  transition: all 0.4s ease-out;
-  &:hover {
-    background-color: #CDDC39;
-    color: #fff;
-  }
-}
+
 /* ↑サイドメニュー */
 
 /*#### ↑ヘッダーエリア ####*/
