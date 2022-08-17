@@ -9,7 +9,6 @@
     <div class="modal-body training_custome_scroll">
       <ol class="sample2">
       <% @trainings.each do |t| %>
-      <!--model: @pj_event_details,-->
         <%= form_with url: pj_event_add_training_new_pj_events_path, method: :get, local: false do |f| %>
         <li>
           <div class="field">
