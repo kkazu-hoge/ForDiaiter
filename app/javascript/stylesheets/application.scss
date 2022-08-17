@@ -585,7 +585,6 @@ p.top_title_link:hover {
 @media (min-width: 100px){
   .search-sec{
     position: relative;
-    // top: -334px;
     top: 0;
     background: rgba(26, 70, 104, 0.51);
   }
@@ -1212,6 +1211,10 @@ background-image: linear-gradient(to top, #e5ccff 0%, #7f00ff 100%);
 
 .calender-ym {
   font-size: 25px;
+}
+
+.training_add_btn {
+  margin-top: 20px;
 }
 
 /*#### ↑カレンダー画面 ####*/
